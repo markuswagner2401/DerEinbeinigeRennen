@@ -223,8 +223,8 @@ MonoBehaviour:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
       m_SerializableObject: 1
-    min: 0
-    max: 1
+    min: -Infinity
+    max: Infinity
     enumValues: []
     descendantCount: 0
   - name: SourceTransform
@@ -2451,7 +2451,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 512
+      m_SerializableObject: 256
     m_Space: 2147483647
   m_Property:
     name: Count
@@ -2854,7 +2854,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615289}
   - {fileID: 8926484042661615300}
   dataType: 0
-  capacity: 512
+  capacity: 256
   stripCapacity: 16
   particlePerStripCount: 16
   needsComputeBounds: 0
@@ -3421,8 +3421,8 @@ MonoBehaviour:
   - {fileID: 8926484042661615333}
   - {fileID: 8926484042661615335}
   dataType: 1
-  capacity: 65536
-  stripCapacity: 512
+  capacity: 32768
+  stripCapacity: 256
   particlePerStripCount: 128
   needsComputeBounds: 0
   boundsMode: 1
@@ -9246,17 +9246,15 @@ MonoBehaviour:
   m_Category: 
   m_Min:
     m_Type:
-      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-    m_SerializableObject: 0
+      m_SerializableType: 
+    m_SerializableObject: 
   m_Max:
     m_Type:
-      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-    m_SerializableObject: 1
+      m_SerializableType: 
+    m_SerializableObject: 
   m_IsOutput: 0
   m_EnumValues: []
-  m_ValueFilter: 1
+  m_ValueFilter: 0
   m_Tooltip: 
   m_Nodes:
   - m_Id: 0
