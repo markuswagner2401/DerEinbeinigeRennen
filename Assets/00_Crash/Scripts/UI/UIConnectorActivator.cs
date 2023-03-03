@@ -17,7 +17,11 @@ namespace ObliqueSenastions.UISpace
     public class UIConnectorActivator : MonoBehaviour
     {
 
+        [SerializeField] bool usingOVR = false;
 
+        [SerializeField] OVRHand leftHand = null;
+
+        [SerializeField] OVRHand rightHand = null;
         [SerializeField] bool showConnectorAtStart = false;
 
 
@@ -85,24 +89,63 @@ namespace ObliqueSenastions.UISpace
                 return;
             }
 
+            bool leftButtonPressed;
+
+            bool rightButtonPressed;
+
             if (SceneManager.GetActiveScene().name == "TransferScene") return;
 
-            if (!leftHandDevice.isValid)
+            if (!usingOVR)
             {
-                leftHandDevice = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
+
+
+                if (!leftHandDevice.isValid)
+                {
+                    leftHandDevice = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
+                }
+
+                if (!rightHandDevice.isValid)
+                {
+                    rightHandDevice = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
+                }
+
+                leftHandDevice.TryGetFeatureValue(CommonUsages.secondaryButton, out leftButtonPressed);
+                //leftHandDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool leftPrimaryButtonPressed);
+                rightHandDevice.TryGetFeatureValue(CommonUsages.secondaryButton, out rightButtonPressed);
+                //rightHandDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool rightPrimaryButtonPressed);
+
             }
 
-            if (!rightHandDevice.isValid)
+            else
             {
-                rightHandDevice = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
+
+                OVRInput.Update();
+
+                
+
+                if (OVRInput.GetActiveController() == OVRInput.Controller.Hands)
+                {
+                    leftButtonPressed = leftHand.GetFingerIsPinching(OVRHand.HandFinger.Index);
+                    rightButtonPressed = rightHand.GetFingerIsPinching(OVRHand.HandFinger.Index);
+                    print("finger is pinching: " + leftButtonPressed);
+                }
+
+                else
+                {
+                    leftButtonPressed = OVRInput.Get(OVRInput.Button.Two, OVRInput.Controller.LTouch);
+                    rightButtonPressed = OVRInput.Get(OVRInput.Button.Two, OVRInput.Controller.RTouch);
+
+                }
+
+
+
             }
 
 
 
-            leftHandDevice.TryGetFeatureValue(CommonUsages.secondaryButton, out bool leftButtonPressed);
-            //leftHandDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool leftPrimaryButtonPressed);
-            rightHandDevice.TryGetFeatureValue(CommonUsages.secondaryButton, out bool rightButtonPressed);
-            //rightHandDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool rightPrimaryButtonPressed);
+
+
+
 
             if (leftButtonPressed && rightButtonPressed)
             {
