@@ -12,7 +12,7 @@ namespace ObliqueSenastions.UISpace
 
     public class HUDFollowHead : MonoBehaviour
     {
-        [SerializeField] XROrigin rig;
+        [SerializeField] Transform rig;
 
         [SerializeField] Transform head;
         [SerializeField] float smoothingRotStill = 0.1f;
@@ -87,9 +87,9 @@ namespace ObliqueSenastions.UISpace
                 smoothingRot = smoothingRotStill;
             }
 
-            if ((Mathf.Abs(Vector3.Distance(previousPosition, rig.Camera.transform.position))) > thresholdBeforePosAdjust)
+            if ((Mathf.Abs(Vector3.Distance(previousPosition, head.position))) > thresholdBeforePosAdjust)
             {
-                transform.position = Vector3.Lerp(transform.position, rig.Camera.transform.position, smoothingPos);
+                transform.position = Vector3.Lerp(transform.position, head.position, smoothingPos);
             }
 
 
@@ -120,7 +120,7 @@ namespace ObliqueSenastions.UISpace
 
         private bool RigIsMoving()
         {
-            return (Mathf.Abs(Vector3.Distance(rig.transform.position, rig.transform.position))) > 0.1f;
+            return (Mathf.Abs(Vector3.Distance(rig.transform.position, previousPosition))) > 0.1f;
         }
 
         private bool RotationOverThreshold()
