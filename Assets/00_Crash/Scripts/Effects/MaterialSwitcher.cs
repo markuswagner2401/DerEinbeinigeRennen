@@ -2,60 +2,66 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MaterialSwitcher : MonoBehaviour
+namespace ObliqueSenastions.MaterialControl
 {
-    [SerializeField] GameObject[] gameObjects;
-    [SerializeField] int[] matIndices;
-    [SerializeField] Material[] materials;
 
-    [SerializeField] int currentIndex = 0;
-    
-
-   
-    void Start()
+    public class MaterialSwitcher : MonoBehaviour
     {
-        
-    }
+        [SerializeField] GameObject[] gameObjects;
+        [SerializeField] int[] matIndices;
+        [SerializeField] Material[] materials;
 
-    public void SetMaterial (Material newMaterial)
-    {
+        [SerializeField] int currentIndex = 0;
 
-        foreach (var _object in gameObjects)
+
+
+        void Start()
         {
-            
-            MeshRenderer mesh = _object.GetComponent<MeshRenderer>();
-            Material[] matArray = mesh.materials;
 
-            foreach (var index in matIndices)
+        }
+
+        public void SetMaterial(Material newMaterial)
+        {
+
+            foreach (var _object in gameObjects)
             {
-                matArray[index] = newMaterial;
+
+                MeshRenderer mesh = _object.GetComponent<MeshRenderer>();
+                Material[] matArray = mesh.materials;
+
+                foreach (var index in matIndices)
+                {
+                    matArray[index] = newMaterial;
+                }
+
+                mesh.materials = matArray;
+            }
+        }
+
+        public void SwitchMaterial()
+        {
+
+
+            if (currentIndex + 1 > materials.Length - 1)
+            {
+                currentIndex = 0;
             }
 
-            mesh.materials = matArray;
+            else
+            {
+                currentIndex += 1;
+            }
+
+            SetMaterial(materials[currentIndex]);
+
         }
-    }
 
-    public void SwitchMaterial()
-    {
-        
-
-        if(currentIndex + 1 > materials.Length - 1)
+        // Update is called once per frame
+        void Update()
         {
-            currentIndex = 0;
-        }
 
-        else
-        {
-            currentIndex += 1;
         }
-
-        SetMaterial(materials[currentIndex]);
-        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

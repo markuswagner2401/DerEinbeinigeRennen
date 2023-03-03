@@ -6,20 +6,26 @@ using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.Timeline;
 
-[CustomTimelineEditor(typeof(VRTravellerMarker))]
-public class VRTravellerMarkerEditor : MarkerEditor
+namespace ObliqueSenastions.TimelineSpace
 {
-    public override MarkerDrawOptions GetMarkerOptions(IMarker marker)
+
+
+    [CustomTimelineEditor(typeof(VRTravellerMarker))]
+    public class VRTravellerMarkerEditor : MarkerEditor
     {
-        var vrTravellerMarker = marker as VRTravellerMarker;
-
-        if(vrTravellerMarker != null)
+        public override MarkerDrawOptions GetMarkerOptions(IMarker marker)
         {
-            return new MarkerDrawOptions { tooltip = "rig " + vrTravellerMarker.TransitionPointIndex.ToString() + " : " + vrTravellerMarker.Note };
-        }
+            var vrTravellerMarker = marker as VRTravellerMarker;
 
-        return base.GetMarkerOptions(marker);
+            if (vrTravellerMarker != null)
+            {
+                return new MarkerDrawOptions { tooltip = "rig " + vrTravellerMarker.TransitionPointIndex.ToString() + " : " + vrTravellerMarker.Note };
+            }
+
+            return base.GetMarkerOptions(marker);
+        }
     }
 }
+
 
 #endif

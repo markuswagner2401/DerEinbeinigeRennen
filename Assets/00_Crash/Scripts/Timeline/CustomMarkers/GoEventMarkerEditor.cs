@@ -6,20 +6,25 @@ using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.Timeline;
 
-[CustomTimelineEditor(typeof(GoEventMarker))]
-public class GoEventMarkerEditor : MarkerEditor
+namespace ObliqueSenastions.TimelineSpace
 {
-    public override MarkerDrawOptions GetMarkerOptions(IMarker marker)
-    {
-        var goEventMarker = marker as GoEventMarker;
-       
-        if(marker != null)
-        {
-            return new MarkerDrawOptions { tooltip =  goEventMarker.GoEventName() + " (GoEvent)"};
-        }
 
-        return base.GetMarkerOptions(marker);
+    [CustomTimelineEditor(typeof(GoEventMarker))]
+    public class GoEventMarkerEditor : MarkerEditor
+    {
+        public override MarkerDrawOptions GetMarkerOptions(IMarker marker)
+        {
+            var goEventMarker = marker as GoEventMarker;
+
+            if (marker != null)
+            {
+                return new MarkerDrawOptions { tooltip = goEventMarker.GoEventName() + " (GoEvent)" };
+            }
+
+            return base.GetMarkerOptions(marker);
+        }
     }
 }
+
 
 #endif

@@ -2,47 +2,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class XRLoopinAutomaticMove : MonoBehaviour
+namespace ObliqueSenastions.Looping
 {
-    [SerializeField] Transform direction;
-    [SerializeField] float startSpeed = 5f;
-    float currentSpeed;
-    [SerializeField] float changeTime = 5f;
-    [SerializeField] AnimationCurve changeCurve;
 
-
-    XRLoopingMover loopingMover;
-
-    void Start()
+    public class XRLoopinAutomaticMove : MonoBehaviour
     {
-        loopingMover = GetComponent<XRLoopingMover>();
-        currentSpeed = startSpeed;
-    }
+        [SerializeField] Transform direction;
+        [SerializeField] float startSpeed = 5f;
+        float currentSpeed;
+        [SerializeField] float changeTime = 5f;
+        [SerializeField] AnimationCurve changeCurve;
 
-    
 
-    
-    void Update()
-    {
-        loopingMover.Move(direction.forward * currentSpeed * Time.deltaTime);
-        
-    }
+        XRLoopingMover loopingMover;
 
-    public void ChangeSpeed(float value)
-    {
-        StartCoroutine(FadeToSpeed(value));
-    }
-
-    IEnumerator FadeToSpeed(float targetValue)
-    {
-        float time = 0f;
-        float valueAtStart = currentSpeed;
-        while (time <= changeTime)
+        void Start()
         {
-            time += Time.deltaTime;
-            currentSpeed = Mathf.Lerp(valueAtStart, targetValue, changeCurve.Evaluate(time / changeTime));
-            yield return null;
+            loopingMover = GetComponent<XRLoopingMover>();
+            currentSpeed = startSpeed;
         }
-        yield break;
+
+
+
+
+        void Update()
+        {
+            loopingMover.Move(direction.forward * currentSpeed * Time.deltaTime);
+
+        }
+
+        public void ChangeSpeed(float value)
+        {
+            StartCoroutine(FadeToSpeed(value));
+        }
+
+        IEnumerator FadeToSpeed(float targetValue)
+        {
+            float time = 0f;
+            float valueAtStart = currentSpeed;
+            while (time <= changeTime)
+            {
+                time += Time.deltaTime;
+                currentSpeed = Mathf.Lerp(valueAtStart, targetValue, changeCurve.Evaluate(time / changeTime));
+                yield return null;
+            }
+            yield break;
+        }
     }
+
 }

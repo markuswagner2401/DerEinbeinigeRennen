@@ -2,58 +2,64 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class VRMap
+namespace ObliqueSenastions.VRRigSpace
 {
-    public Transform vrTarget;
-    public Transform rigTarget;
-    public Vector3 trackingPositionOffset;
-    public Vector3 trackingRotationOffset;
 
-    public void Map()
+
+    [System.Serializable]
+    public class VRMap
     {
-        rigTarget.position = vrTarget.TransformPoint(trackingPositionOffset);
-        rigTarget.rotation = vrTarget.rotation * Quaternion.Euler(trackingRotationOffset);
-    }
-}
+        public Transform vrTarget;
+        public Transform rigTarget;
+        public Vector3 trackingPositionOffset;
+        public Vector3 trackingRotationOffset;
 
-public class VRRig : MonoBehaviour
-{
-    [SerializeField] float turnSmooth = 2f;
-    public VRMap head;
-    public VRMap leftHand;
-    public VRMap rightHand;
-
-    public Transform headConstraint;
-    public Vector3 headBodyOffset;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        headBodyOffset = transform.position - headConstraint.position;
+        public void Map()
+        {
+            rigTarget.position = vrTarget.TransformPoint(trackingPositionOffset);
+            rigTarget.rotation = vrTarget.rotation * Quaternion.Euler(trackingRotationOffset);
+        }
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    public class VRRig : MonoBehaviour
     {
-        transform.position = headConstraint.position + headBodyOffset;
-        transform.forward = Vector3.Lerp(transform.forward ,
-        Vector3.ProjectOnPlane(headConstraint.forward, Vector3.up).normalized , turnSmooth) ;
+        [SerializeField] float turnSmooth = 2f;
+        public VRMap head;
+        public VRMap leftHand;
+        public VRMap rightHand;
 
-        
-        
+        public Transform headConstraint;
+        public Vector3 headBodyOffset;
 
-        head.Map();
-        leftHand.Map();
-        rightHand.Map();
+
+        // Start is called before the first frame update
+        void Start()
+        {
+            headBodyOffset = transform.position - headConstraint.position;
+        }
+
+        // Update is called once per frame
+        void FixedUpdate()
+        {
+            transform.position = headConstraint.position + headBodyOffset;
+            transform.forward = Vector3.Lerp(transform.forward,
+            Vector3.ProjectOnPlane(headConstraint.forward, Vector3.up).normalized, turnSmooth);
+
+
+
+
+            head.Map();
+            leftHand.Map();
+            rightHand.Map();
+        }
+
+        private void OnDrawGizmos()
+        {
+            //Gizmos.DrawLine(transform.position, transform.position + transform.forward);
+            //Gizmos.DrawLine(transform.position, transform.position + headConstraint.forward);
+            //Gizmos.DrawLine(transform.forward, Vector3.ProjectOnPlane(headConstraint.forward, Vector3.up).normalized);
+
+        }
     }
 
-    private void OnDrawGizmos() 
-    {
-        //Gizmos.DrawLine(transform.position, transform.position + transform.forward);
-        //Gizmos.DrawLine(transform.position, transform.position + headConstraint.forward);
-        //Gizmos.DrawLine(transform.forward, Vector3.ProjectOnPlane(headConstraint.forward, Vector3.up).normalized);
-        
-    }
 }

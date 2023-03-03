@@ -1,68 +1,74 @@
 using System.Collections;
 using System.Collections.Generic;
+using ObliqueSenastions.StageMasterSpace;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class StageMasterListener : MonoBehaviour
+namespace ObliqueSenastions.PunNetworking
 {
-    [SerializeField] StageMasterEvent[] stageMasterEvents;
 
-    [System.Serializable]
-    struct StageMasterEvent
+    public class StageMasterListener : MonoBehaviour
     {
-        public string name;
-        public UnityEvent unityEvent;
-    }
+        [SerializeField] StageMasterEvent[] stageMasterEvents;
 
-    StageMaster stageMaster = null;
-
-    bool setup = false;
-
-    
-
-    void Start()
-    {
-
-    }
-
-    
-
-    // Update is called once per frame
-    void Update()
-    {
-
-
-
-    }
-
-    
-    public void SetupStageMasterListener()  // gets setup by NetworkPlayerSpawner
-    {
-        
-        if (ReferenceEquals(stageMaster, null))
+        [System.Serializable]
+        struct StageMasterEvent
         {
-            setup = false;
-            stageMaster = GameObject.FindWithTag("StageMaster").GetComponent<StageMaster>();
+            public string name;
+            public UnityEvent unityEvent;
         }
 
-        if (!ReferenceEquals(stageMaster, null) && !setup)
+        StageMaster stageMaster = null;
+
+        bool setup = false;
+
+
+
+        void Start()
         {
-            stageMaster.onGoEvent += PlayGoEvent;
-            setup = true;
-            return;
+
         }
 
-        
-    }
 
-    void PlayGoEvent(string name)
-    {
-        foreach (var item in stageMasterEvents)
+
+        // Update is called once per frame
+        void Update()
         {
-            if (name == item.name)
+
+
+
+        }
+
+
+        public void SetupStageMasterListener()  // gets setup by NetworkPlayerSpawner
+        {
+
+            if (ReferenceEquals(stageMaster, null))
             {
-                item.unityEvent.Invoke();
+                setup = false;
+                stageMaster = GameObject.FindWithTag("StageMaster").GetComponent<StageMaster>();
+            }
+
+            if (!ReferenceEquals(stageMaster, null) && !setup)
+            {
+                stageMaster.onGoEvent += PlayGoEvent;
+                setup = true;
+                return;
+            }
+
+
+        }
+
+        void PlayGoEvent(string name)
+        {
+            foreach (var item in stageMasterEvents)
+            {
+                if (name == item.name)
+                {
+                    item.unityEvent.Invoke();
+                }
             }
         }
     }
+
 }

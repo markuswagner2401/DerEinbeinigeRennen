@@ -6,20 +6,25 @@ using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.Timeline;
 
-[CustomTimelineEditor(typeof(TextureFaderMarker))]
-public class TextureFaderMarkerEditor : MarkerEditor
+namespace ObliqueSenastions.TimelineSpace
 {
-    public override MarkerDrawOptions GetMarkerOptions(IMarker marker)
+
+    [CustomTimelineEditor(typeof(TextureFaderMarker))]
+    public class TextureFaderMarkerEditor : MarkerEditor
     {
-        var textureFaderMarker = marker as TextureFaderMarker;
-
-        if(textureFaderMarker != null)
+        public override MarkerDrawOptions GetMarkerOptions(IMarker marker)
         {
-            return new MarkerDrawOptions { tooltip = "tribuneTexChanger " + textureFaderMarker.TextureChangerIndex().ToString()};
-        }
+            var textureFaderMarker = marker as TextureFaderMarker;
 
-        return base.GetMarkerOptions(marker);
+            if (textureFaderMarker != null)
+            {
+                return new MarkerDrawOptions { tooltip = "tribuneTexChanger " + textureFaderMarker.TextureChangerIndex().ToString() };
+            }
+
+            return base.GetMarkerOptions(marker);
+        }
     }
+
 }
 
 #endif

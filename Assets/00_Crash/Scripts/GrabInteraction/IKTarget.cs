@@ -2,14 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IKTarget : MonoBehaviour
+namespace ObliqueSenastions.FinalIKControl
 {
-    [SerializeField] IKTargetChanger iKTargetChanger;
-
-    public void ChangeAimIKTarget()
+    public class IKTarget : MonoBehaviour
     {
-        if (iKTargetChanger == null) return;
-        iKTargetChanger.SetAimIKTarget(this.transform);
+        [SerializeField] IKTargetChanger iKTargetChanger;
 
+        public void ChangeAimIKTarget()
+        {
+            if (iKTargetChanger == null) return;
+            iKTargetChanger.SetAimIKTarget(this.transform);
+
+        }
     }
+
+
 }

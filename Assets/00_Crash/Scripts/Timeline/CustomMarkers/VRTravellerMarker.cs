@@ -4,41 +4,46 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 
-public class VRTravellerMarker : Marker, INotification, INotificationOptionProvider
+namespace ObliqueSenastions.TimelineSpace
 {
-    [SerializeField] private int transitionPointIndex = 0;
 
-    [SerializeField] private string note;
+    public class VRTravellerMarker : Marker, INotification, INotificationOptionProvider
+    {
+        [SerializeField] private int transitionPointIndex = 0;
 
-    [SerializeField] private bool setDurationToNextMarker = false;
-    [SerializeField] private bool changeTransitionDuration = false;
-    [SerializeField] private float transitionDuration = 10f;
+        [SerializeField] private string note;
 
-    [SerializeField] private bool changeTransitionCurve = false;
+        [SerializeField] private bool setDurationToNextMarker = false;
+        [SerializeField] private bool changeTransitionDuration = false;
+        [SerializeField] private float transitionDuration = 10f;
 
-    [SerializeField] private AnimationCurve transitionCurve;
+        [SerializeField] private bool changeTransitionCurve = false;
 
-    [Space(20)]
-    [SerializeField] private bool retroactive;
-    [SerializeField] private bool emitOnce;
+        [SerializeField] private AnimationCurve transitionCurve;
 
-    public PropertyName id => new PropertyName();
+        [Space(20)]
+        [SerializeField] private bool retroactive;
+        [SerializeField] private bool emitOnce;
 
-    public int TransitionPointIndex => transitionPointIndex;
+        public PropertyName id => new PropertyName();
 
-    public bool ChangeTransitionDuration => changeTransitionDuration;
+        public int TransitionPointIndex => transitionPointIndex;
 
-    public float TransitionDuration => transitionDuration;
+        public bool ChangeTransitionDuration => changeTransitionDuration;
 
-    public bool ChangeTransitionCurve => changeTransitionCurve;
+        public float TransitionDuration => transitionDuration;
 
-    public AnimationCurve TransitionCurve => transitionCurve;
+        public bool ChangeTransitionCurve => changeTransitionCurve;
 
-    public bool SetDurationToNextMarker => setDurationToNextMarker;
+        public AnimationCurve TransitionCurve => transitionCurve;
 
-    public string Note => note;
+        public bool SetDurationToNextMarker => setDurationToNextMarker;
 
-    public NotificationFlags flags => 
-    (retroactive ? NotificationFlags.Retroactive : default) |
-    (emitOnce ? NotificationFlags.TriggerOnce : default);
+        public string Note => note;
+
+        public NotificationFlags flags =>
+        (retroactive ? NotificationFlags.Retroactive : default) |
+        (emitOnce ? NotificationFlags.TriggerOnce : default);
+    }
+
 }

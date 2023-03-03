@@ -4,36 +4,41 @@ using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class LoopingControllerForwardVector : MonoBehaviour
+namespace ObliqueSenastions.Looping
 {
 
-    [SerializeField] Transform controller;
-    
-
-    
-    
-
-    
-
-    
-    void Update()
+    public class LoopingControllerForwardVector : MonoBehaviour
     {
-        
 
-        transform.forward = controller.transform.forward;
-
-        transform.localEulerAngles = new Vector3 (0, transform.localEulerAngles.y, 0);
+        [SerializeField] Transform controller;
 
 
+
+
+
+
+
+
+        void Update()
+        {
+
+
+            transform.forward = controller.transform.forward;
+
+            transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
+
+
+        }
+
+        public Vector3 GetControllerForward()
+        {
+            return transform.forward;
+        }
+
+        public Quaternion GetControllerRotation()
+        {
+            return transform.rotation;
+        }
     }
 
-    public Vector3 GetControllerForward()
-    {
-        return transform.forward;
-    }
-
-    public Quaternion GetControllerRotation()
-    {
-        return transform.rotation;
-    }
 }

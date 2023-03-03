@@ -4,76 +4,81 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR;
 
-public class XRInputHandler : MonoBehaviour
+namespace ObliqueSenastions.VRRigSpace
 {
-    [SerializeField] NodeHandler[] inputHandler;
 
-    [System.Serializable]
-    struct NodeHandler
+    public class XRInputHandler : MonoBehaviour
     {
-        public XRNode handNode;
-        public InputDevice device;
-        public bool secondaryButton;
-        public bool alreadyPressed;
-        public UnityEvent eventToInvoke;
+        [SerializeField] NodeHandler[] inputHandler;
 
-    }
-
-    
-    
-    void Start()
-    {
-        for (int i = 0; i < inputHandler.Length; i++)
+        [System.Serializable]
+        struct NodeHandler
         {
-            inputHandler[i].device = InputDevices.GetDeviceAtXRNode(inputHandler[i].handNode);
-            inputHandler[i].alreadyPressed = false;
+            public XRNode handNode;
+            public InputDevice device;
+            public bool secondaryButton;
+            public bool alreadyPressed;
+            public UnityEvent eventToInvoke;
+
         }
 
 
-    }
 
-    
-    void Update()
-    {
-        for (int i = 0; i < inputHandler.Length; i++)
+        void Start()
         {
-            if (inputHandler[i].secondaryButton)
+            for (int i = 0; i < inputHandler.Length; i++)
             {
-                if (inputHandler[i].device.TryGetFeatureValue(CommonUsages.secondaryButton, out bool buttonUsage) && buttonUsage)
+                inputHandler[i].device = InputDevices.GetDeviceAtXRNode(inputHandler[i].handNode);
+                inputHandler[i].alreadyPressed = false;
+            }
+
+
+        }
+
+
+        void Update()
+        {
+            for (int i = 0; i < inputHandler.Length; i++)
+            {
+                if (inputHandler[i].secondaryButton)
                 {
-                    if (inputHandler[i].alreadyPressed) return;
+                    if (inputHandler[i].device.TryGetFeatureValue(CommonUsages.secondaryButton, out bool buttonUsage) && buttonUsage)
+                    {
+                        if (inputHandler[i].alreadyPressed) return;
 
-                    inputHandler[i].alreadyPressed = true;
+                        inputHandler[i].alreadyPressed = true;
 
-                    inputHandler[i].eventToInvoke.Invoke();
+                        inputHandler[i].eventToInvoke.Invoke();
+                    }
+
+                    else
+                    {
+                        inputHandler[i].alreadyPressed = false;
+                    }
                 }
 
                 else
                 {
-                    inputHandler[i].alreadyPressed = false;
+                    if (inputHandler[i].device.TryGetFeatureValue(CommonUsages.primaryButton, out bool buttonUsage) && buttonUsage)
+                    {
+                        if (inputHandler[i].alreadyPressed) return;
+
+                        inputHandler[i].alreadyPressed = true;
+
+                        inputHandler[i].eventToInvoke.Invoke();
+                    }
+
+                    else
+                    {
+                        inputHandler[i].alreadyPressed = false;
+                    }
                 }
+
             }
 
-            else
-            {
-                if (inputHandler[i].device.TryGetFeatureValue(CommonUsages.primaryButton, out bool buttonUsage) && buttonUsage)
-                {
-                    if (inputHandler[i].alreadyPressed) return;
 
-                    inputHandler[i].alreadyPressed = true;
 
-                    inputHandler[i].eventToInvoke.Invoke();
-                }
-
-                else
-                {
-                    inputHandler[i].alreadyPressed = false;
-                }
-            }
-            
         }
-
-
-        
     }
+
 }

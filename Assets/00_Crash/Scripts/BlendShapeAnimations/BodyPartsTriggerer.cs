@@ -2,17 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BodyPartsTriggerer : MonoBehaviour
+namespace ObliqueSenastions.Animation
 {
-    [SerializeField] BodyParsHandler bodyPartsHandler;
 
-    private void OnTriggerEnter(Collider other) 
+    public class BodyPartsTriggerer : MonoBehaviour
     {
-        if(other.gameObject.tag == "Traveller")
+        [SerializeField] BodyParsHandler bodyPartsHandler;
+
+        private void OnTriggerEnter(Collider other)
         {
-            bodyPartsHandler.ZoneTriggerBodyPart();
+            if (other.gameObject.tag == "Traveller")
+            {
+                bodyPartsHandler.ZoneTriggerBodyPart();
+            }
+
         }
-        
+
     }
+
 
 }

@@ -1,71 +1,77 @@
 using System.Collections;
 using System.Collections.Generic;
+using ObliqueSenastions.UISpace;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR;
 
-public enum GameMode
-{
-    vr,
-    desktop
-}
-public class MultiplayerDeviceChecker : MonoBehaviour
+namespace ObliqueSenastions.SceneSpace
 {
 
-
-    // [SerializeField] UnityEvent onHMDActiveAtStart;
-    // [SerializeField] UnityEvent onHMDNotActiveAtStart;
-
-    GameMode clientsGameMode;
-
-    void Start()
+    public enum GameMode
     {
-
-
-        if (XRSettings.isDeviceActive)
-        {
-            //onHMDActiveAtStart.Invoke();
-
-            clientsGameMode = GameMode.vr;
-
-
-            print("hmd acitve");
-        }
-
-        else
-        {
-            
-
-            clientsGameMode = GameMode.desktop;
-
-            StartCoroutine(ActivateUIR(true));
-
-            print("hmd not active");
-        }
-
+        vr,
+        desktop
     }
-
-    IEnumerator ActivateUIR(bool value)
+    public class MultiplayerDeviceChecker : MonoBehaviour
     {
-        bool done = false;
-        while (!done)
+
+
+        // [SerializeField] UnityEvent onHMDActiveAtStart;
+        // [SerializeField] UnityEvent onHMDNotActiveAtStart;
+
+        GameMode clientsGameMode;
+
+        void Start()
         {
-            if(TryGetComponent<UIConnectorActivator>(out UIConnectorActivator connectorActivator))
+
+
+            if (XRSettings.isDeviceActive)
             {
-                done = true;
-                connectorActivator.ShowConnector(value);
+                //onHMDActiveAtStart.Invoke();
+
+                clientsGameMode = GameMode.vr;
+
+
+                print("hmd acitve");
+            }
+
+            else
+            {
+
+
+                clientsGameMode = GameMode.desktop;
+
+                StartCoroutine(ActivateUIR(true));
+
+                print("hmd not active");
+            }
+
+        }
+
+        IEnumerator ActivateUIR(bool value)
+        {
+            bool done = false;
+            while (!done)
+            {
+                if (TryGetComponent<UIConnectorActivator>(out UIConnectorActivator connectorActivator))
+                {
+                    done = true;
+                    connectorActivator.ShowConnector(value);
+                    yield return null;
+                }
+
                 yield return null;
             }
 
-            yield return null;
+            Debug.Log("Show Connect As Inspizient because no Headset found");
+
+            yield break;
         }
 
-        Debug.Log("Show Connect As Inspizient because no Headset found");
 
-        yield break;
+
+
     }
-
-    
-
 
 }

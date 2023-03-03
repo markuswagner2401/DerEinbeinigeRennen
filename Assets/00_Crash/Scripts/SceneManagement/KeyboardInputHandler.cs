@@ -4,58 +4,60 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-
-public class KeyboardInputHandler : MonoBehaviour
+namespace ObliqueSenastions.Keyboard
 {
-
-    public enum KeyTrigger
+    public class KeyboardInputHandler : MonoBehaviour
     {
-        onKeyDown,
-        onKeyUp,
-        onKey,
-    }
-    [SerializeField] KeyboardCommand[] keyboardCommands;
 
-    [System.Serializable]
-    struct KeyboardCommand
-    {
-        public string note;
-        public KeyCode keycode;
-        public KeyTrigger keyTrigger;
-        public UnityEvent unityEvent;
-    }
-
-    private void Update()
-    {
-        foreach (var item in keyboardCommands)
+        public enum KeyTrigger
         {
-            if (item.keyTrigger == KeyTrigger.onKeyDown)
+            onKeyDown,
+            onKeyUp,
+            onKey,
+        }
+        [SerializeField] KeyboardCommand[] keyboardCommands;
+
+        [System.Serializable]
+        struct KeyboardCommand
+        {
+            public string note;
+            public KeyCode keycode;
+            public KeyTrigger keyTrigger;
+            public UnityEvent unityEvent;
+        }
+
+        private void Update()
+        {
+            foreach (var item in keyboardCommands)
             {
-                if (Input.GetKeyDown(item.keycode))
+                if (item.keyTrigger == KeyTrigger.onKeyDown)
                 {
-                    item.unityEvent.Invoke();
-                    Debug.Log("KeyboardInputHandler: Keycommand: " + item.keycode.ToString());
-                }
-            }
-
-            else if (item.keyTrigger == KeyTrigger.onKeyUp)
-            {
-                if (Input.GetKeyUp(item.keycode))
-                {
-                    item.unityEvent.Invoke();
-                    Debug.Log("KeyboardInputHandler: Keycommand: " + item.keycode.ToString());
+                    if (Input.GetKeyDown(item.keycode))
+                    {
+                        item.unityEvent.Invoke();
+                        Debug.Log("KeyboardInputHandler: Keycommand: " + item.keycode.ToString());
+                    }
                 }
 
-            }
-
-            else
-            {
-                if (Input.GetKey(item.keycode))
+                else if (item.keyTrigger == KeyTrigger.onKeyUp)
                 {
-                    item.unityEvent.Invoke();
-                }
-            }
+                    if (Input.GetKeyUp(item.keycode))
+                    {
+                        item.unityEvent.Invoke();
+                        Debug.Log("KeyboardInputHandler: Keycommand: " + item.keycode.ToString());
+                    }
 
+                }
+
+                else
+                {
+                    if (Input.GetKey(item.keycode))
+                    {
+                        item.unityEvent.Invoke();
+                    }
+                }
+
+            }
         }
     }
 }

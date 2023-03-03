@@ -2,30 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColliderUpdater : MonoBehaviour
+namespace ObliqueSenastions.Animation
 {
-    MeshCollider coll;
-    SkinnedMeshRenderer rend;
-    Mesh mesh;
-    
-    void Start()
+    public class ColliderUpdater : MonoBehaviour
     {
-        coll = GetComponent<MeshCollider>();
-        rend = GetComponent<SkinnedMeshRenderer>();
-        mesh = new Mesh();
-        UpdateCollider();
-    }
+        MeshCollider coll;
+        SkinnedMeshRenderer rend;
+        Mesh mesh;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        void Start()
+        {
+            coll = GetComponent<MeshCollider>();
+            rend = GetComponent<SkinnedMeshRenderer>();
+            mesh = new Mesh();
+            UpdateCollider();
+        }
 
-    public void UpdateCollider()
-    {
-        //print("update collider");
-        rend.BakeMesh(mesh);
-        coll.sharedMesh = mesh;
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
+        public void UpdateCollider()
+        {
+            //print("update collider");
+            rend.BakeMesh(mesh);
+            coll.sharedMesh = mesh;
+        }
     }
 }
+
+

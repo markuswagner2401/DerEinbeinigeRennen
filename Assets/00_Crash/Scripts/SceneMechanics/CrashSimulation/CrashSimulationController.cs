@@ -2,54 +2,59 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CrashSimulationController : MonoBehaviour
+namespace ObliqueSenastions.AnimatorSpace
 {
 
-    [SerializeField] Animator animator;
-    [SerializeField] float defaultSpeed = 1f;
-    [SerializeField] float totalFrames;
-    [SerializeField] float startFrame;
-    [SerializeField] string defaultStateName;
-
-    float speed;
-
-    void Start()
+    public class CrashSimulationController : MonoBehaviour
     {
-        animator = GetComponent<Animator>();
-        StartAnimation("", startFrame);
-    }
 
-    
-    void Update()
-    {
-        animator.SetFloat("Speed", speed);
-    }
+        [SerializeField] Animator animator;
+        [SerializeField] float defaultSpeed = 1f;
+        [SerializeField] float totalFrames;
+        [SerializeField] float startFrame;
+        [SerializeField] string defaultStateName;
 
-    public void StartAnimation(string stateName, float currentStartFrame)
-    {
-        string currentStateName;
-        if(stateName == "")
+        float speed;
+
+        void Start()
         {
-            currentStateName = defaultStateName;
-        } 
-        else
-        {
-            currentStateName = stateName;
+            animator = GetComponent<Animator>();
+            StartAnimation("", startFrame);
         }
 
-        animator.Play(currentStateName, -1, CalculateStartPoint(currentStartFrame));
-    }
+
+        void Update()
+        {
+            animator.SetFloat("Speed", speed);
+        }
+
+        public void StartAnimation(string stateName, float currentStartFrame)
+        {
+            string currentStateName;
+            if (stateName == "")
+            {
+                currentStateName = defaultStateName;
+            }
+            else
+            {
+                currentStateName = stateName;
+            }
+
+            animator.Play(currentStateName, -1, CalculateStartPoint(currentStartFrame));
+        }
 
 
-    public void SetSpeed(float currentSpeed)
-    {
-        speed = currentSpeed;
-    }
+        public void SetSpeed(float currentSpeed)
+        {
+            speed = currentSpeed;
+        }
 
-    
-    private float CalculateStartPoint(float _startFrame)
-    {
-        return _startFrame / totalFrames;
+
+        private float CalculateStartPoint(float _startFrame)
+        {
+            return _startFrame / totalFrames;
+        }
+
     }
 
 }

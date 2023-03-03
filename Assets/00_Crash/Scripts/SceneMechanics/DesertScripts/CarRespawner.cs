@@ -2,36 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarRespawner : MonoBehaviour
+namespace ObliqueSenastions.RCCControl
 {
-    [SerializeField] Transform respawnTarget = null;
-    Vector3 respawnPosition = new Vector3();
 
-    private void OnTriggerEnter(Collider other) 
+    public class CarRespawner : MonoBehaviour
     {
-        if(other.gameObject.tag == "KillZone")
+        [SerializeField] Transform respawnTarget = null;
+        Vector3 respawnPosition = new Vector3();
+
+        private void OnTriggerEnter(Collider other)
         {
-            transform.position = respawnPosition;
-            print("respawn");
-        }
-    }
-    
-    void Start()
-    {
-        if (respawnTarget == null)
-        {
-            respawnPosition = transform.position;
+            if (other.gameObject.tag == "KillZone")
+            {
+                transform.position = respawnPosition;
+                print("respawn");
+            }
         }
 
-        else
+        void Start()
         {
-            respawnPosition = respawnTarget.position;
+            if (respawnTarget == null)
+            {
+                respawnPosition = transform.position;
+            }
+
+            else
+            {
+                respawnPosition = respawnTarget.position;
+            }
+        }
+
+
+        void Update()
+        {
+
         }
     }
 
-    
-    void Update()
-    {
-        
-    }
 }

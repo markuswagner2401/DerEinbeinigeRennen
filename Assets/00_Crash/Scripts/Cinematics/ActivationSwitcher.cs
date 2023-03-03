@@ -3,58 +3,62 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
-public class ActivationSwitcher : MonoBehaviour
+namespace ObliqueSenastions.TransformControl
 {
-    [SerializeField] GameObject[] activationGroupA;
-    [SerializeField] GameObject[] activationGroupB;
-
-    [SerializeField] bool groupAActiveOnStart = true;
-    [SerializeField] bool groubBActiveOnStart = false;
-
-
-
-    private void Start()
+    public class ActivationSwitcher : MonoBehaviour
     {
-        ActivationGroupA(groubBActiveOnStart);
-        ActivationGroupB(groubBActiveOnStart);
+        [SerializeField] GameObject[] activationGroupA;
+        [SerializeField] GameObject[] activationGroupB;
 
-    }
+        [SerializeField] bool groupAActiveOnStart = true;
+        [SerializeField] bool groubBActiveOnStart = false;
 
-    public void ActivationGroupA(bool value)
-    {
-        foreach (GameObject gameObject in activationGroupA)
+
+
+        private void Start()
         {
-            gameObject.SetActive(value);
-            
-        }
-    }
+            ActivationGroupA(groubBActiveOnStart);
+            ActivationGroupB(groubBActiveOnStart);
 
-    public void ActivationGroupB(bool value)
-    {
-        foreach (GameObject gameObject in activationGroupB)
+        }
+
+        public void ActivationGroupA(bool value)
         {
-            gameObject.SetActive(value);
-        }
-    }
+            foreach (GameObject gameObject in activationGroupA)
+            {
+                gameObject.SetActive(value);
 
-    public void ActivationGroupSwitchA()
-    {
-        foreach (GameObject item in activationGroupA)
+            }
+        }
+
+        public void ActivationGroupB(bool value)
         {
-            bool activeSelf = item.activeSelf;
-            item.SetActive(!activeSelf);
+            foreach (GameObject gameObject in activationGroupB)
+            {
+                gameObject.SetActive(value);
+            }
         }
-    }
 
-    public void ActivationGroupSwitchB()
-    {
-        foreach (GameObject item in activationGroupB)
+        public void ActivationGroupSwitchA()
         {
-            bool activeSelf = item.activeSelf;
-            item.SetActive(!activeSelf);
+            foreach (GameObject item in activationGroupA)
+            {
+                bool activeSelf = item.activeSelf;
+                item.SetActive(!activeSelf);
+            }
         }
+
+        public void ActivationGroupSwitchB()
+        {
+            foreach (GameObject item in activationGroupB)
+            {
+                bool activeSelf = item.activeSelf;
+                item.SetActive(!activeSelf);
+            }
+        }
+
+
+
     }
 
-
-    
 }

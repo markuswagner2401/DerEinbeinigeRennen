@@ -4,45 +4,50 @@ using UnityEngine;
 using Photon.Pun;
 using RootMotion.FinalIK;
 
-public class SyncPuppet : MonoBehaviourPunCallbacks
+namespace ObliqueSenastions.PunNetworking
 {
-    [SerializeField] VRIK vrik;
-    void Start()
+
+    public class SyncPuppet : MonoBehaviourPunCallbacks
     {
-        if(PhotonNetwork.InRoom)
+        [SerializeField] VRIK vrik;
+        void Start()
         {
-            OnJoinedRoom();
-        }
-        
-    }
+            if (PhotonNetwork.InRoom)
+            {
+                OnJoinedRoom();
+            }
 
-    public override void OnJoinedRoom()
-    {
-        SetupPuppetSync();
-    }
-
-    
-
-    
-
-    
-
-    void SetupPuppetSync()
-    {
-        if (MultiplayerConnector.instance.GetRole() != Role.Rennfahrer)
-        {
-            vrik.solver.IKPositionWeight = 0f;
         }
 
-        else
+        public override void OnJoinedRoom()
         {
-            photonView.RequestOwnership();
+            SetupPuppetSync();
+        }
+
+
+
+
+
+
+
+        void SetupPuppetSync()
+        {
+            if (MultiplayerConnector.instance.GetRole() != Role.Rennfahrer)
+            {
+                vrik.solver.IKPositionWeight = 0f;
+            }
+
+            else
+            {
+                photonView.RequestOwnership();
+            }
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

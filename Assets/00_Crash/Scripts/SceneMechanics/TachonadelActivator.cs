@@ -2,16 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TachonadelActivator : MonoBehaviour
+namespace ObliqueSenastions.TransformControl
 {
-    [SerializeField] GameObject[] tachonadeln;
-    
 
-    public void ShowTachonadeln(bool value)
+    public class TachonadelActivator : MonoBehaviour
     {
-        foreach (var item in tachonadeln)
+        [SerializeField] GameObject[] tachonadeln;
+
+
+        public void ShowTachonadeln(bool value)
         {
-            item.SetActive(value);
+            foreach (var item in tachonadeln)
+            {
+                item.SetActive(value);
+            }
         }
     }
+
 }

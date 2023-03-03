@@ -4,40 +4,45 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 
-public class BlendShapeMarker : Marker, INotification, INotificationOptionProvider, IMarker
+namespace ObliqueSenastions.TimelineSpace
 {
-    [SerializeField] string note = "";
 
-    [SerializeField] int spaceStateIndex = 0;
+    public class BlendShapeMarker : Marker, INotification, INotificationOptionProvider, IMarker
+    {
+        [SerializeField] string note = "";
 
-    public bool changeDurationToNextMarker = false;
-    [SerializeField] bool changeDuration = false;
-    [SerializeField] float duration = 10f;
-    [SerializeField] bool changeCurve = false;
-    [SerializeField] AnimationCurve curve;
+        [SerializeField] int spaceStateIndex = 0;
 
-    [Space(20)]
-    [SerializeField] bool retroactive = false;
-    [SerializeField] bool emitOnce = false;
+        public bool changeDurationToNextMarker = false;
+        [SerializeField] bool changeDuration = false;
+        [SerializeField] float duration = 10f;
+        [SerializeField] bool changeCurve = false;
+        [SerializeField] AnimationCurve curve;
 
-    
-    public PropertyName id { get { return new PropertyName(); } }
-
-    public NotificationFlags flags => 
-        (retroactive ? NotificationFlags.Retroactive : default) |
-        (emitOnce ? NotificationFlags.TriggerOnce : default);
-
-    public int SpaceStateIndex() { return spaceStateIndex; }
-
-    public bool ChangeDuration() { return changeDuration; }
-    public float Duration() { return duration; }
-
-    public bool ChangeCurve() { return changeCurve; }
-
-    public bool ChangeDurationToNextMarker() { return changeDurationToNextMarker; }
-
-    public AnimationCurve Curve() { return curve; }
+        [Space(20)]
+        [SerializeField] bool retroactive = false;
+        [SerializeField] bool emitOnce = false;
 
 
+        public PropertyName id { get { return new PropertyName(); } }
+
+        public NotificationFlags flags =>
+            (retroactive ? NotificationFlags.Retroactive : default) |
+            (emitOnce ? NotificationFlags.TriggerOnce : default);
+
+        public int SpaceStateIndex() { return spaceStateIndex; }
+
+        public bool ChangeDuration() { return changeDuration; }
+        public float Duration() { return duration; }
+
+        public bool ChangeCurve() { return changeCurve; }
+
+        public bool ChangeDurationToNextMarker() { return changeDurationToNextMarker; }
+
+        public AnimationCurve Curve() { return curve; }
+
+
+
+    }
 
 }

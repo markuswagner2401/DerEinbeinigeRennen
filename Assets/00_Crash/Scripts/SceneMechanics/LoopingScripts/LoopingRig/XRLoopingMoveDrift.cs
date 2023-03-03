@@ -1,108 +1,122 @@
 using System.Collections;
 using System.Collections.Generic;
+using ObliqueSenastions.TimelineSpace;
+
 using UnityEngine;
 
-public class XRLoopingMoveDrift : MonoBehaviour
+namespace ObliqueSenastions.Looping
 {
 
-    [SerializeField] bool drift = false;
-    
-
-    //[SerializeField] float capturedYRotationAtStart;
-
-    XRLoopingMover loopingMover;
-
-    [SerializeField] float speed;
-
-    [SerializeField] DriftChanger[] driftChangers;
-
-    [System.Serializable]
-    public struct DriftChanger
+    public class XRLoopingMoveDrift : MonoBehaviour
     {
-        public string note;
-        public float targetValue;
-        public float duration;
-        public AnimationCurve curve;
-    }
 
-    [SerializeField] bool readAtTimeline = false;
-    [SerializeField] string refAtTimeline;
-
-    FloatControlByTimeline floatControlByTimeline = null;
+        [SerializeField] bool drift = false;
 
 
+        //[SerializeField] float capturedYRotationAtStart;
 
-    bool interrupted;
+        XRLoopingMover loopingMover;
 
-    private void Awake() {
-        //capturedYRotationAtStart = transform.eulerAngles.y;
-    }
-    
-    void Start()
-    {
-        loopingMover = GetComponent<XRLoopingMover>();
-    }
+        [SerializeField] float speed;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(readAtTimeline)
+        [SerializeField] DriftChanger[] driftChangers;
+
+        [System.Serializable]
+        public struct DriftChanger
         {
-            if(ReferenceEquals(floatControlByTimeline,null))
+            public string note;
+            public float targetValue;
+            public float duration;
+            public AnimationCurve curve;
+        }
+
+        [SerializeField] bool readAtTimeline = false;
+        [SerializeField] string refAtTimeline;
+
+        FloatControlByTimeline floatControlByTimeline = null;
+
+
+
+        bool interrupted;
+
+        private void Awake()
+        {
+            //capturedYRotationAtStart = transform.eulerAngles.y;
+        }
+
+        void Start()
+        {
+            loopingMover = GetComponent<XRLoopingMover>();
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (readAtTimeline)
             {
-                Debug.Log("XRLoopingMoveDrift: Get FloatControlByTimeline");
-                floatControlByTimeline = TimeLineHandler.instance.GetComponent<FloatControlByTimeline>();
-                return;
+                if (ReferenceEquals(floatControlByTimeline, null))
+                {
+                    Debug.Log("XRLoopingMoveDrift: Get FloatControlByTimeline");
+                    floatControlByTimeline = TimeLineHandler.instance.GetComponent<FloatControlByTimeline>();
+                    return;
+                }
+
+                speed = floatControlByTimeline.GetValue(refAtTimeline);
+
+
             }
 
-            speed = floatControlByTimeline.GetValue(refAtTimeline);
+            if (!drift || speed == 0) return;
 
-         
+
+            Drift(speed);
         }
 
-        if(!drift || speed == 0) return;
-        
-
-        Drift(speed);
-    }
-
-    public void ChangeDrift(int index){
-        StartCoroutine(InterruptAndChangeDrift(index));
-    }
-
-    IEnumerator InterruptAndChangeDrift(int index){
-        interrupted = true;
-        yield return new WaitForSeconds(0.01f);
-        interrupted = false;
-        StartCoroutine(ChangeDriftRoutine(index));
-        yield break;
-    }
-
-    IEnumerator ChangeDriftRoutine(int index){
-        float timer = 0f;
-        float startValue = speed;
-        while (timer < driftChangers[index].duration && !interrupted)
+        public void ChangeDrift(int index)
         {
-            timer += Time.unscaledDeltaTime;
-            float newValue = Mathf.Lerp(startValue, driftChangers[index].targetValue, driftChangers[index].curve.Evaluate(timer / driftChangers[index].duration));
-            SetSpeed(newValue);
-            yield return null;
+            StartCoroutine(InterruptAndChangeDrift(index));
         }
-        yield break;
+
+        IEnumerator InterruptAndChangeDrift(int index)
+        {
+            interrupted = true;
+            yield return new WaitForSeconds(0.01f);
+            interrupted = false;
+            StartCoroutine(ChangeDriftRoutine(index));
+            yield break;
+        }
+
+        IEnumerator ChangeDriftRoutine(int index)
+        {
+            float timer = 0f;
+            float startValue = speed;
+            while (timer < driftChangers[index].duration && !interrupted)
+            {
+                timer += Time.unscaledDeltaTime;
+                float newValue = Mathf.Lerp(startValue, driftChangers[index].targetValue, driftChangers[index].curve.Evaluate(timer / driftChangers[index].duration));
+                SetSpeed(newValue);
+                yield return null;
+            }
+            yield break;
+        }
+
+        public void SetDrift(bool value)
+        {
+            drift = value;
+        }
+
+        public void SetSpeed(float newSpeed)
+        {
+            speed = newSpeed;
+        }
+
+
+        public void Drift(float speed)
+        {
+            loopingMover.Move(transform.forward * speed);
+
+            // loopingMover.Move();
+        }
     }
 
-    public void SetDrift(bool value){
-        drift = value;
-    }
-
-    public void SetSpeed(float newSpeed){
-        speed = newSpeed;
-    }
-
-
-    public void Drift(float speed){
-        loopingMover.Move(transform.forward * speed);
-        
-        // loopingMover.Move();
-    }
 }

@@ -1,33 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
+using ObliqueSenastions.StageMasterSpace;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class GoEventMarkerReceiver : MonoBehaviour, INotificationReceiver
+namespace ObliqueSenastions.TimelineSpace
 {
-    public void OnNotify(Playable origin, INotification notification, object context)
+
+    public class GoEventMarkerReceiver : MonoBehaviour, INotificationReceiver
     {
-        if (notification is GoEventMarker)
+        public void OnNotify(Playable origin, INotification notification, object context)
         {
-            GoEventMarker marker = notification as GoEventMarker;
-
-            StageMaster stageMaster = null;
-
-            GameObject stageMaster_go = GameObject.FindGameObjectWithTag("StageMaster");
-
-            
-
-            if(stageMaster_go != null)
+            if (notification is GoEventMarker)
             {
-                stageMaster = GameObject.FindGameObjectWithTag("StageMaster").GetComponent<StageMaster>();
-            }
+                GoEventMarker marker = notification as GoEventMarker;
 
-            if(stageMaster != null)
-            {
-                stageMaster.PlayGoEvent(marker.GoEventName());
-            }
+                StageMaster stageMaster = null;
 
-         
+                GameObject stageMaster_go = GameObject.FindGameObjectWithTag("StageMaster");
+
+
+
+                if (stageMaster_go != null)
+                {
+                    stageMaster = GameObject.FindGameObjectWithTag("StageMaster").GetComponent<StageMaster>();
+                }
+
+                if (stageMaster != null)
+                {
+                    stageMaster.PlayGoEvent(marker.GoEventName());
+                }
+
+
+            }
         }
     }
+
 }

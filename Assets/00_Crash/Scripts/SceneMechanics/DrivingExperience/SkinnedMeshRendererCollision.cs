@@ -2,30 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkinnedMeshRendererCollision : MonoBehaviour
+namespace ObliqueSenastions.ColliderControl
 {
-    SkinnedMeshRenderer meshRenderer;
-    MeshCollider meshCollider;
 
-    
-    void Start()
+    public class SkinnedMeshRendererCollision : MonoBehaviour
     {
-        meshRenderer = GetComponent<SkinnedMeshRenderer>();
-        meshCollider = GetComponent<MeshCollider>();
-        UpdateMeshCollider();
+        SkinnedMeshRenderer meshRenderer;
+        MeshCollider meshCollider;
+
+
+        void Start()
+        {
+            meshRenderer = GetComponent<SkinnedMeshRenderer>();
+            meshCollider = GetComponent<MeshCollider>();
+            UpdateMeshCollider();
+        }
+
+
+        void Update()
+        {
+
+        }
+
+        void UpdateMeshCollider()
+        {
+            Mesh colliderMesh = new Mesh();
+            meshRenderer.BakeMesh(colliderMesh);
+            meshCollider.sharedMesh = null;
+            meshCollider.sharedMesh = colliderMesh;
+        }
     }
 
-    
-    void Update()
-    {
-        
-    }
-
-    void UpdateMeshCollider()
-    {
-        Mesh colliderMesh = new Mesh();
-        meshRenderer.BakeMesh(colliderMesh);
-        meshCollider.sharedMesh = null;
-        meshCollider.sharedMesh = colliderMesh;
-    }
 }

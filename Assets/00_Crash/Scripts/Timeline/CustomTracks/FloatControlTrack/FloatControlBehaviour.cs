@@ -4,13 +4,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
-[Serializable]
-public class FloatControlBehaviour : PlayableBehaviour
+namespace ObliqueSenastions.TimelineSpace
 {
-    
-    public string parameterName;
-    public float value;
 
-    public bool firstClipInTrack;
+
+    [Serializable]
+    public class FloatControlBehaviour : PlayableBehaviour
+    {
+
+        public string parameterName;
+        public float value;
+
+        public bool firstClipInTrack;
+
+    }
 
 }

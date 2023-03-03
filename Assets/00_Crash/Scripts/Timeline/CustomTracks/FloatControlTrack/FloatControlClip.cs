@@ -4,28 +4,33 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 
-public class FloatControlClip : PlayableAsset, ITimelineClipAsset
+namespace ObliqueSenastions.TimelineSpace
 {
-    [SerializeField]
-    public FloatControlBehaviour template = new FloatControlBehaviour();
-    public ClipCaps clipCaps
+
+    public class FloatControlClip : PlayableAsset, ITimelineClipAsset
     {
-        get
+        [SerializeField]
+        public FloatControlBehaviour template = new FloatControlBehaviour();
+        public ClipCaps clipCaps
         {
-            return ClipCaps.Blending | ClipCaps.Extrapolation;
+            get
+            {
+                return ClipCaps.Blending | ClipCaps.Extrapolation;
+            }
+        }
+
+
+
+        public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
+        {
+            var playable = ScriptPlayable<FloatControlBehaviour>.Create(graph, template);
+
+
+
+            return playable;
         }
     }
 
-    
 
-    public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
-    {
-        var playable = ScriptPlayable<FloatControlBehaviour>.Create(graph, template);
-
-        
-
-        return playable;
-    }
 }
-
 

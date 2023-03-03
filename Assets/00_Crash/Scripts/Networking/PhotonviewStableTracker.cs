@@ -5,42 +5,47 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 
-public class PhotonViewStableTracker : MonoBehaviourPunCallbacks
+namespace ObliqueSenastions.PunNetworking
 {
-    private bool _viewsStable;
 
-    private void Update()
+    public class PhotonViewStableTracker : MonoBehaviourPunCallbacks
     {
-        ViewsStableCheck();
-    }
+        private bool _viewsStable;
 
-    private void ViewsStableCheck()
-    {
-        if (!_viewsStable && PhotonNetwork.NetworkingClient.State == ClientState.Joined)
+        private void Update()
         {
-            if (PhotonNetwork.LocalPlayer.ActorNumber <= PhotonNetwork.CurrentRoom.PlayerCount)
-            {
-                _viewsStable = true;
+            ViewsStableCheck();
+        }
 
-                if (PhotonNetwork.IsMasterClient)
+        private void ViewsStableCheck()
+        {
+            if (!_viewsStable && PhotonNetwork.NetworkingClient.State == ClientState.Joined)
+            {
+                if (PhotonNetwork.LocalPlayer.ActorNumber <= PhotonNetwork.CurrentRoom.PlayerCount)
                 {
-                    // Send a custom event to all other clients
-                    byte eventCode = 1;
-                    PhotonNetwork.RaiseEvent(eventCode, null, new RaiseEventOptions { Receivers = ReceiverGroup.Others }, SendOptions.SendReliable);
+                    _viewsStable = true;
+
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        // Send a custom event to all other clients
+                        byte eventCode = 1;
+                        PhotonNetwork.RaiseEvent(eventCode, null, new RaiseEventOptions { Receivers = ReceiverGroup.Others }, SendOptions.SendReliable);
+                    }
                 }
+            }
+        }
+
+        public void OnEvent(EventData photonEvent)
+        {
+            if (photonEvent.Code == 1)
+            {
+                // Perform actions when the custom event is received
+                // ...
             }
         }
     }
 
-    public void OnEvent(EventData photonEvent)
-    {
-        if (photonEvent.Code == 1)
-        {
-            // Perform actions when the custom event is received
-            // ...
-        }
-    }
+
+
+
 }
-
-
-

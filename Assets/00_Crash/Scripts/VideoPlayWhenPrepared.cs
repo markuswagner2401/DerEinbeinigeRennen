@@ -4,49 +4,55 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Video;
 
-public class VideoPlayWhenPrepared : MonoBehaviour
+namespace ObliqueSenastions.VideoControl
 {
-    VideoPlayer videoPlayer;
-
-    bool isPlaying = false;
-
-    
-
-    
 
 
-
-    
-   
-    void Start()
+    public class VideoPlayWhenPrepared : MonoBehaviour
     {
-        videoPlayer = GetComponent<VideoPlayer>();
+        VideoPlayer videoPlayer;
 
-        videoPlayer.Prepare();
-        
+        bool isPlaying = false;
 
-        
-    }
 
-  
-    void Update()
-    {
-        
-        
-        if (isPlaying) return;
 
-        if(videoPlayer.isPrepared)
+
+
+
+
+
+
+        void Start()
         {
-//            print("is prepared");
-            videoPlayer.Play();
-            isPlaying = true;
+            videoPlayer = GetComponent<VideoPlayer>();
+
+            videoPlayer.Prepare();
+
+
+
         }
 
-        
+
+        void Update()
+        {
+
+
+            if (isPlaying) return;
+
+            if (videoPlayer.isPrepared)
+            {
+                //            print("is prepared");
+                videoPlayer.Play();
+                isPlaying = true;
+            }
+
+
+        }
+
+        void ChangePosition()
+        {
+            print("hello");
+        }
     }
 
-    void ChangePosition()
-    {
-        print("hello");
-    }
 }

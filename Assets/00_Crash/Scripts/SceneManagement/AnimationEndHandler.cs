@@ -3,69 +3,74 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimationEndHandler : MonoBehaviour
+namespace ObliqueSenastions.AnimatorSpace
 {
 
-    Animator animator;
-
-    AnimatorClipInfo[] animatorClipInfos;
-
-    [SerializeField] int animationLayerToHandle = 1;
-    float clipLength;
-    float clipPosition = 0;
-
-    float normalizedClipPosition;
-
-    float speed;
-
-    [SerializeField] bool reverseAtEnd = true;
-    [SerializeField] float reverseSpeedFactor;
-
-    [SerializeField] bool reverseAtStart = true;
-
-    bool animationPaused = false;
-    [SerializeField] string paramterName = "Speed";
-  
-    void Start()
-    {
-        animator = GetComponent<Animator>();
-
-        animatorClipInfos = animator.GetCurrentAnimatorClipInfo(animationLayerToHandle);
-
-        clipLength = animatorClipInfos[0].clip.length;
-
-        speed = animator.GetFloat(paramterName);
-        
-    }
-
-
-    
-  
-    void Update()
+    public class AnimationEndHandler : MonoBehaviour
     {
 
-        clipPosition += Time.deltaTime * speed;
-        
-        normalizedClipPosition = Mathf.InverseLerp(0, clipLength, clipPosition);
+        Animator animator;
 
-        if(reverseAtEnd && normalizedClipPosition >= 1f)
+        AnimatorClipInfo[] animatorClipInfos;
+
+        [SerializeField] int animationLayerToHandle = 1;
+        float clipLength;
+        float clipPosition = 0;
+
+        float normalizedClipPosition;
+
+        float speed;
+
+        [SerializeField] bool reverseAtEnd = true;
+        [SerializeField] float reverseSpeedFactor;
+
+        [SerializeField] bool reverseAtStart = true;
+
+        bool animationPaused = false;
+        [SerializeField] string paramterName = "Speed";
+
+        void Start()
         {
-            
+            animator = GetComponent<Animator>();
 
-            ReverseClip();
-        
+            animatorClipInfos = animator.GetCurrentAnimatorClipInfo(animationLayerToHandle);
+
+            clipLength = animatorClipInfos[0].clip.length;
+
+            speed = animator.GetFloat(paramterName);
+
         }
 
-        if(reverseAtStart && normalizedClipPosition <= 0f)
+
+
+
+        void Update()
         {
-            ReverseClip();
+
+            clipPosition += Time.deltaTime * speed;
+
+            normalizedClipPosition = Mathf.InverseLerp(0, clipLength, clipPosition);
+
+            if (reverseAtEnd && normalizedClipPosition >= 1f)
+            {
+
+
+                ReverseClip();
+
+            }
+
+            if (reverseAtStart && normalizedClipPosition <= 0f)
+            {
+                ReverseClip();
+            }
+        }
+
+        private void ReverseClip()
+        {
+            print("ReverseClip");
+            speed *= (-1 * reverseSpeedFactor);
+            animator.SetFloat(paramterName, speed);
         }
     }
 
-    private void ReverseClip()
-    {
-        print("ReverseClip");
-        speed *= (-1 * reverseSpeedFactor);
-        animator.SetFloat(paramterName, speed);
-    }
 }

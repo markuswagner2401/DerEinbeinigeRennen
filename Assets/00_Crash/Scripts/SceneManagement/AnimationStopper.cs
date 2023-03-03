@@ -2,38 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimationStopper : MonoBehaviour
+namespace ObliqueSenastions.AnimatorSpace
 {
 
-    Animator animator;
-
-    bool animationPaused = false;
-    [SerializeField] string paramterName = "Speed";
-  
-    void Start()
+    public class AnimationStopper : MonoBehaviour
     {
-        animator = GetComponent<Animator>();
-        
-    }
 
+        Animator animator;
 
-    public void PauseAnimation()
-    {
-        animationPaused = !animationPaused;
+        bool animationPaused = false;
+        [SerializeField] string paramterName = "Speed";
 
-        if(animationPaused)
+        void Start()
         {
-            animator.SetFloat(paramterName, 0);
+            animator = GetComponent<Animator>();
+
         }
 
-        else
+
+        public void PauseAnimation()
         {
-            animator.SetFloat(paramterName, 1);
+            animationPaused = !animationPaused;
+
+            if (animationPaused)
+            {
+                animator.SetFloat(paramterName, 0);
+            }
+
+            else
+            {
+                animator.SetFloat(paramterName, 1);
+            }
+        }
+
+        void Update()
+        {
+
         }
     }
-  
-    void Update()
-    {
-        
-    }
+
 }

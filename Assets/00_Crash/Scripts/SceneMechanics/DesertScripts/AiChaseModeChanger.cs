@@ -2,41 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AiChaseModeChanger : MonoBehaviour
+namespace ObliqueSenastions.RCCControl
 {
-    [SerializeField] RCC_AICarController aICarController = null;
-    [SerializeField] RCC_AICarController.NavigationMode[] navigationModes = null;
 
-    // [SerializeField] Transform target = null;
-    
-  
-    void Start()
+
+    public class AiChaseModeChanger : MonoBehaviour
     {
-        if (aICarController == null) 
+        [SerializeField] RCC_AICarController aICarController = null;
+        [SerializeField] RCC_AICarController.NavigationMode[] navigationModes = null;
+
+        // [SerializeField] Transform target = null;
+
+
+        void Start()
         {
-            aICarController = GetComponent<RCC_AICarController>();
+            if (aICarController == null)
+            {
+                aICarController = GetComponent<RCC_AICarController>();
+            }
+
+            if (navigationModes == null)
+            {
+                navigationModes = new RCC_AICarController.NavigationMode[3];
+                navigationModes[0] = RCC_AICarController.NavigationMode.ChaseTarget;
+                navigationModes[1] = RCC_AICarController.NavigationMode.FollowTarget;
+                navigationModes[2] = RCC_AICarController.NavigationMode.FollowWaypoints;
+            }
+
         }
 
-        if(navigationModes == null)
+        public void ChangeAINavigationMode(int navigationMode)
         {
-            navigationModes = new RCC_AICarController.NavigationMode[3];
-            navigationModes[0] = RCC_AICarController.NavigationMode.ChaseTarget;
-            navigationModes[1] = RCC_AICarController.NavigationMode.FollowTarget;
-            navigationModes[2] = RCC_AICarController.NavigationMode.FollowWaypoints;
+            print("change mode");
+            aICarController.navigationMode = navigationModes[navigationMode];
+            // if (aICarController.navigationMode = RCC_AICarController.NavigationMode.FollowTarget || ) 
         }
-        
+
+
+        void Update()
+        {
+
+        }
     }
 
-    public void ChangeAINavigationMode(int navigationMode)
-    {
-        print("change mode");
-        aICarController.navigationMode = navigationModes[navigationMode];
-        // if (aICarController.navigationMode = RCC_AICarController.NavigationMode.FollowTarget || ) 
-    }
-
-   
-    void Update()
-    {
-        
-    }
 }

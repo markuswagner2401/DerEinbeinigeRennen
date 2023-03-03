@@ -1,39 +1,43 @@
 using UnityEngine;
 
-public class HingeJointFix : MonoBehaviour
+namespace ObliqueSenastions.TransformControl
 {
-    private Quaternion initialLocalRotation;
-    private Vector3 initialLocalPosition;
 
-    private Quaternion localRotationOnDisable;
-    private Vector3 localPositionOnDisable;
-
-    private bool hasDisabled;
-
-    void Awake()
+    public class HingeJointFix : MonoBehaviour
     {
-        this.initialLocalRotation = this.transform.localRotation;
-        this.initialLocalPosition = this.transform.localPosition;
-    }
+        private Quaternion initialLocalRotation;
+        private Vector3 initialLocalPosition;
 
-    void OnDisable()
-    {
-        this.localRotationOnDisable = this.transform.localRotation;
-        this.transform.localRotation = this.initialLocalRotation;
+        private Quaternion localRotationOnDisable;
+        private Vector3 localPositionOnDisable;
 
-        this.localPositionOnDisable = this.transform.localPosition;
-        this.transform.localPosition = this.initialLocalPosition;
+        private bool hasDisabled;
 
-        this.hasDisabled = true;
-    }
-
-    void Update()
-    {
-        if (this.hasDisabled)
+        void Awake()
         {
-            this.hasDisabled = false;
-            this.transform.localRotation = this.localRotationOnDisable;
-            this.transform.localPosition = this.localPositionOnDisable;
+            this.initialLocalRotation = this.transform.localRotation;
+            this.initialLocalPosition = this.transform.localPosition;
+        }
+
+        void OnDisable()
+        {
+            this.localRotationOnDisable = this.transform.localRotation;
+            this.transform.localRotation = this.initialLocalRotation;
+
+            this.localPositionOnDisable = this.transform.localPosition;
+            this.transform.localPosition = this.initialLocalPosition;
+
+            this.hasDisabled = true;
+        }
+
+        void Update()
+        {
+            if (this.hasDisabled)
+            {
+                this.hasDisabled = false;
+                this.transform.localRotation = this.localRotationOnDisable;
+                this.transform.localPosition = this.localPositionOnDisable;
+            }
         }
     }
 }

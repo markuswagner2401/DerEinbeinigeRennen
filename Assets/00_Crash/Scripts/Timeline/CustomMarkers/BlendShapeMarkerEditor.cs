@@ -6,20 +6,27 @@ using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.Timeline;
 
-[CustomTimelineEditor(typeof(BlendShapeMarker))]
-public class BlendShapeMarkerEditor : MarkerEditor
+namespace ObliqueSenastions.TimelineSpace
 {
-    public override MarkerDrawOptions GetMarkerOptions(IMarker marker)
+
+
+    [CustomTimelineEditor(typeof(BlendShapeMarker))]
+    public class BlendShapeMarkerEditor : MarkerEditor
     {
-        var blendShapeMarker = marker as BlendShapeMarker;
-
-        if(blendShapeMarker != null)
+        public override MarkerDrawOptions GetMarkerOptions(IMarker marker)
         {
-            return new MarkerDrawOptions { tooltip = "blend shape " + blendShapeMarker.SpaceStateIndex().ToString()};
-        }
+            var blendShapeMarker = marker as BlendShapeMarker;
 
-        return base.GetMarkerOptions(marker);
+            if (blendShapeMarker != null)
+            {
+                return new MarkerDrawOptions { tooltip = "blend shape " + blendShapeMarker.SpaceStateIndex().ToString() };
+            }
+
+            return base.GetMarkerOptions(marker);
+        }
     }
 }
+
+
 
 #endif

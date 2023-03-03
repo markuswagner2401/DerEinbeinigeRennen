@@ -3,52 +3,56 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CopyBonePositions : MonoBehaviour
+namespace ObliqueSenastions.AnimatorSpace
 {
-    [SerializeField] Transform[] sourceRig = null;
-    [SerializeField] Transform[] targetRig = null;
 
-    Dictionary<Transform, Transform> bonesDictionary = new Dictionary<Transform, Transform>();
-
-    
-    void Start()
+    public class CopyBonePositions : MonoBehaviour
     {
-        CreateBonesDictionary();
-    }
+        [SerializeField] Transform[] sourceRig = null;
+        [SerializeField] Transform[] targetRig = null;
 
-    private void CreateBonesDictionary()
-    {
-        if (sourceRig == null || targetRig == null) return;
+        Dictionary<Transform, Transform> bonesDictionary = new Dictionary<Transform, Transform>();
 
-        foreach (Transform sourceBone in sourceRig)
+
+        void Start()
         {
-            foreach (Transform targetBone in targetRig)
+            CreateBonesDictionary();
+        }
+
+        private void CreateBonesDictionary()
+        {
+            if (sourceRig == null || targetRig == null) return;
+
+            foreach (Transform sourceBone in sourceRig)
             {
-                if (sourceBone.name != targetBone.name) continue;
+                foreach (Transform targetBone in targetRig)
+                {
+                    if (sourceBone.name != targetBone.name) continue;
 
-                bonesDictionary.Add(sourceBone, targetBone);
+                    bonesDictionary.Add(sourceBone, targetBone);
 
-                
+
+                }
             }
         }
-    }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        if (bonesDictionary.Count == 0) return;
-
-        foreach (var bonesPair in bonesDictionary)
+        // Update is called once per frame
+        void FixedUpdate()
         {
-            bonesPair.Value.position = bonesPair.Key.position;
-            bonesPair.Value.rotation = bonesPair.Key.rotation;
-            // bonesPair.Value.localScale = bonesPair.Key.localScale;
-            
+            if (bonesDictionary.Count == 0) return;
+
+            foreach (var bonesPair in bonesDictionary)
+            {
+                bonesPair.Value.position = bonesPair.Key.position;
+                bonesPair.Value.rotation = bonesPair.Key.rotation;
+                // bonesPair.Value.localScale = bonesPair.Key.localScale;
+
+            }
         }
-    }
 
-    private void LateUpdate()
-    {
+        private void LateUpdate()
+        {
 
+        }
     }
 }

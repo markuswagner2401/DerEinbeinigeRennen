@@ -3,21 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class TriggerZoneEventTriggerer : MonoBehaviour
+namespace ObliqueSenastions.TriggerControl
 {
-    [SerializeField] UnityEvent My_OnTriggerzoneEnter;
-    [SerializeField] string tagName = "Traveller";
-
-
-
-    private void OnTriggerEnter(Collider other) 
+    public class TriggerZoneEventTriggerer : MonoBehaviour
     {
-        print("trigger zone enter ");
-        if(other.gameObject.tag == tagName)
+        [SerializeField] UnityEvent My_OnTriggerzoneEnter;
+        [SerializeField] string tagName = "Traveller";
+
+
+
+        private void OnTriggerEnter(Collider other)
         {
-            My_OnTriggerzoneEnter.Invoke();
+            print("trigger zone enter ");
+            if (other.gameObject.tag == tagName)
+            {
+                My_OnTriggerzoneEnter.Invoke();
+            }
+
         }
-        
+
     }
 
 }
+

@@ -2,34 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkyboxMaterialChanger : MonoBehaviour
+namespace ObliqueSenastions.MaterialControl
 {
-    [SerializeField] Material[] skyboxMaterials;
-    int currentIndex = 0;
 
-    public void ChangeSkyboxMat(int index) 
+    public class SkyboxMaterialChanger : MonoBehaviour
     {
-        if(index > skyboxMaterials.Length - 1) return;
-        RenderSettings.skybox = skyboxMaterials[index];
-    }
+        [SerializeField] Material[] skyboxMaterials;
+        int currentIndex = 0;
 
-    public void SetNextSkyboxMaterial()
-    {
-        SetNextIndex();
-        RenderSettings.skybox = skyboxMaterials[currentIndex];
-
-    }
-
-    void SetNextIndex()
-    {
-        if(currentIndex + 1 > skyboxMaterials.Length - 1)
+        public void ChangeSkyboxMat(int index)
         {
-            currentIndex = 0;
+            if (index > skyboxMaterials.Length - 1) return;
+            RenderSettings.skybox = skyboxMaterials[index];
         }
 
-        else
+        public void SetNextSkyboxMaterial()
         {
-            currentIndex += 1;
+            SetNextIndex();
+            RenderSettings.skybox = skyboxMaterials[currentIndex];
+
+        }
+
+        void SetNextIndex()
+        {
+            if (currentIndex + 1 > skyboxMaterials.Length - 1)
+            {
+                currentIndex = 0;
+            }
+
+            else
+            {
+                currentIndex += 1;
+            }
         }
     }
+
+
 }

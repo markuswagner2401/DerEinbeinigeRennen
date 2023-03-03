@@ -1,20 +1,25 @@
 using UnityEngine.VFX;
 
-[System.Serializable]
-public class VFXControl 
+namespace ObliqueSenastions.VFXSpace
 {
 
-    public VisualEffect visualEffect;
-    public VFXParameter[] vfxParameters;
-
     [System.Serializable]
-    public struct VFXParameter
+    public class VFXControl
     {
-        public string parameterName;
 
-        public float valueMin;
-        public float valueMax;
+        public VisualEffect visualEffect;
+        public VFXParameter[] vfxParameters;
 
-        public float currentValue;
+        [System.Serializable]
+        public struct VFXParameter
+        {
+            public string parameterName;
+
+            public float valueMin;
+            public float valueMax;
+
+            public float currentValue;
+        }
     }
+
 }

@@ -1,7 +1,12 @@
 
 using UnityEngine.Timeline;
 
-public class DialogMarker : Marker
+namespace ObliqueSenastions.TimelineMarker
+{
+    public class DialogMarker : Marker
 {
     
 }
+}
+
+

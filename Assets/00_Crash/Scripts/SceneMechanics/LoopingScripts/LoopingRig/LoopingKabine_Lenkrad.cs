@@ -1,7 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using ObliqueSenastions.AnimatorSpace;
 using UnityEngine;
 
+namespace ObliqueSenastions.Looping
+{
+    
 public class LoopingKabine_Lenkrad : MonoBehaviour
 {
     [SerializeField] HingeJoint steeringWheel = null;
@@ -55,4 +59,6 @@ public class LoopingKabine_Lenkrad : MonoBehaviour
 
     
     
+}
+
 }

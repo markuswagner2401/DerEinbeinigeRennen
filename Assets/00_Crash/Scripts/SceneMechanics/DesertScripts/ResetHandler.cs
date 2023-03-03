@@ -3,70 +3,75 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResetHandler : MonoBehaviour
+namespace ObliqueSenastions.InfiniteGround
 {
-    [SerializeField] Transform[] transformsToReset;
-    
-    PositionToReset[] positionsToReset;
 
-    struct PositionToReset
+    public class ResetHandler : MonoBehaviour
     {
-        public Transform transform;
-        public Vector3 capturedPosition;
-    }
+        [SerializeField] Transform[] transformsToReset;
 
+        PositionToReset[] positionsToReset;
 
-    [SerializeField] ObjectToRespawn[] objectsToRespawn;
-
-    [System.Serializable]
-    struct ObjectToRespawn
-    {
-        public GameObject prefab;
-        public Transform transform;
-    }
-
-    
-    void Start()
-    {
-        CapturePositions();
-    }
-
-    
-
-    private void CapturePositions()
-    {
-        positionsToReset = new PositionToReset[transformsToReset.Length];
-
-        for (int i = 0; i < positionsToReset.Length; i++)
+        struct PositionToReset
         {
-            positionsToReset[i].transform = transformsToReset[i];
-            positionsToReset[i].capturedPosition = transformsToReset[i].position;
+            public Transform transform;
+            public Vector3 capturedPosition;
         }
-    }
 
-    public void ResetPositionsAndObjects()
-    {
-        print("reset");
-        ResetPositions();
-        RespawnObjects();
-    }
-    
 
-    public void ResetPositions()
-    {
-        foreach (var item in positionsToReset)
+        [SerializeField] ObjectToRespawn[] objectsToRespawn;
+
+        [System.Serializable]
+        struct ObjectToRespawn
         {
-            item.transform.position = item.capturedPosition;
+            public GameObject prefab;
+            public Transform transform;
         }
-    }
 
-    public void RespawnObjects()
-    {
-        foreach (var prefab in objectsToRespawn)
+
+        void Start()
         {
-            Instantiate(prefab.prefab, prefab.transform.position, prefab.transform.rotation);
+            CapturePositions();
         }
+
+
+
+        private void CapturePositions()
+        {
+            positionsToReset = new PositionToReset[transformsToReset.Length];
+
+            for (int i = 0; i < positionsToReset.Length; i++)
+            {
+                positionsToReset[i].transform = transformsToReset[i];
+                positionsToReset[i].capturedPosition = transformsToReset[i].position;
+            }
+        }
+
+        public void ResetPositionsAndObjects()
+        {
+            print("reset");
+            ResetPositions();
+            RespawnObjects();
+        }
+
+
+        public void ResetPositions()
+        {
+            foreach (var item in positionsToReset)
+            {
+                item.transform.position = item.capturedPosition;
+            }
+        }
+
+        public void RespawnObjects()
+        {
+            foreach (var prefab in objectsToRespawn)
+            {
+                Instantiate(prefab.prefab, prefab.transform.position, prefab.transform.rotation);
+            }
+        }
+
+
     }
 
-    
 }

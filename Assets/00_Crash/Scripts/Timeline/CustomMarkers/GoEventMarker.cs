@@ -5,28 +5,34 @@ using UnityEngine.Events;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 
-public class GoEventMarker : Marker, INotification, INotificationOptionProvider
+namespace ObliqueSenastions.TimelineSpace
 {
-    
-    
-    [SerializeField] string goEventName = " ";
 
 
-    
-
-     [Space(20f)]
-     [SerializeField] bool retroactive = false;
-     [SerializeField] bool emitOnce = false;
-    public PropertyName id => new PropertyName();
-
-    
-    public string GoEventName() { return goEventName; }
-    
-
-    
+    public class GoEventMarker : Marker, INotification, INotificationOptionProvider
+    {
 
 
-    public NotificationFlags flags => (retroactive ? NotificationFlags.Retroactive : default) | 
-                                      (emitOnce ? NotificationFlags.TriggerOnce : default);
+        [SerializeField] string goEventName = " ";
+
+
+
+
+        [Space(20f)]
+        [SerializeField] bool retroactive = false;
+        [SerializeField] bool emitOnce = false;
+        public PropertyName id => new PropertyName();
+
+
+        public string GoEventName() { return goEventName; }
+
+
+
+
+
+        public NotificationFlags flags => (retroactive ? NotificationFlags.Retroactive : default) |
+                                          (emitOnce ? NotificationFlags.TriggerOnce : default);
+
+    }
 
 }

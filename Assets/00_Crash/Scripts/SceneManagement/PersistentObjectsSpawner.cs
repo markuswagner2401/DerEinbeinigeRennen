@@ -3,38 +3,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PersistentObjectsSpawner : MonoBehaviour
+namespace ObliqueSenastions.SceneSpace
 {
 
-    [SerializeField] GameObject persistentObjectsPrefab = null;
-
-    static bool hasSpawned = false;
-
-    private void Awake() 
+    public class PersistentObjectsSpawner : MonoBehaviour
     {
-        if (hasSpawned) return;
 
-        SpawnPersistentObjects();
+        [SerializeField] GameObject persistentObjectsPrefab = null;
 
-        hasSpawned = true;
-        
+        static bool hasSpawned = false;
+
+        private void Awake()
+        {
+            if (hasSpawned) return;
+
+            SpawnPersistentObjects();
+
+            hasSpawned = true;
+
+        }
+
+        private void SpawnPersistentObjects()
+        {
+            GameObject persistentObjects = Instantiate(persistentObjectsPrefab);
+            DontDestroyOnLoad(persistentObjects);
+        }
+
+        // Start is called before the first frame update
+        void Start()
+        {
+
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
     }
 
-    private void SpawnPersistentObjects()
-    {
-        GameObject persistentObjects = Instantiate(persistentObjectsPrefab);
-        DontDestroyOnLoad(persistentObjects);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

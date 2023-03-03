@@ -2,27 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TachonadelActivatorManager : MonoBehaviour
+namespace ObliqueSenastions.TransformControl
 {
-    
-    void Start()
-    {
-        
-    }
 
-    
-    public void ShowTachonadeln(bool value)
+    public class TachonadelActivatorManager : MonoBehaviour
     {
-        print("show tachonadeln");
-        GameObject[] networkPlayers = GameObject.FindGameObjectsWithTag("NetworkPlayer");
-        foreach (var item in networkPlayers)
+
+        void Start()
         {
-            if(item.TryGetComponent<TachonadelActivator>(out TachonadelActivator tachonadelActivator))
+
+        }
+
+
+        public void ShowTachonadeln(bool value)
+        {
+            print("show tachonadeln");
+            GameObject[] networkPlayers = GameObject.FindGameObjectsWithTag("NetworkPlayer");
+            foreach (var item in networkPlayers)
             {
-                print("activate tachonadel");
-                tachonadelActivator.ShowTachonadeln(value);
+                if (item.TryGetComponent<TachonadelActivator>(out TachonadelActivator tachonadelActivator))
+                {
+                    print("activate tachonadel");
+                    tachonadelActivator.ShowTachonadeln(value);
+                }
+
             }
-            
         }
     }
+
 }

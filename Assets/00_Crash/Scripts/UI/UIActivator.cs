@@ -4,51 +4,56 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
-public class UIActivator : MonoBehaviour
+namespace ObliqueSenastions.UISpace
 {
-    
-    [SerializeField] XRNode node;
-    [SerializeField] bool useController = true;
-    InputDevice device;
 
-    [SerializeField] GameObject[] uiObjects;
-
-    bool alreadyPressed;
-
-    bool activateUI = false;
-
-    void Start()
+    public class UIActivator : MonoBehaviour
     {
-        device = InputDevices.GetDeviceAtXRNode(node);
 
-        SetActivation(activateUI);
-    }
+        [SerializeField] XRNode node;
+        [SerializeField] bool useController = true;
+        InputDevice device;
 
+        [SerializeField] GameObject[] uiObjects;
 
-    void Update()
-    {
-        if(!useController) return;
-        if( device.TryGetFeatureValue(CommonUsages.primaryButton, out bool buttonUsage) && buttonUsage)
+        bool alreadyPressed;
+
+        bool activateUI = false;
+
+        void Start()
         {
-            if(alreadyPressed) return;
-            alreadyPressed = true;
-
-            activateUI = !activateUI;
+            device = InputDevices.GetDeviceAtXRNode(node);
 
             SetActivation(activateUI);
         }
 
-        else
-        {
-            alreadyPressed = false;
-        }
-    }
 
-    public void SetActivation(bool value)
-    {
+        void Update()
+        {
+            if (!useController) return;
+            if (device.TryGetFeatureValue(CommonUsages.primaryButton, out bool buttonUsage) && buttonUsage)
+            {
+                if (alreadyPressed) return;
+                alreadyPressed = true;
+
+                activateUI = !activateUI;
+
+                SetActivation(activateUI);
+            }
+
+            else
+            {
+                alreadyPressed = false;
+            }
+        }
+
+        public void SetActivation(bool value)
+        {
             foreach (var item in uiObjects)
             {
                 item.SetActive(value);
             }
+        }
     }
+
 }

@@ -2,32 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RigPositioner : MonoBehaviour
+namespace ObliqueSenastions.RCCControl.VR
 {
-    [SerializeField] Transform target = null;
 
-    
-    void Start()
+    public class RigPositioner : MonoBehaviour
     {
-        if (target != null)
+        [SerializeField] Transform target = null;
+
+
+        void Start()
         {
-            transform.position = target.position;
-            transform.rotation = target.rotation;
-            
-            transform.SetParent(target);
+            if (target != null)
+            {
+                transform.position = target.position;
+                transform.rotation = target.rotation;
+
+                transform.SetParent(target);
+            }
+
         }
-        
+
+        // Update is called once per frame
+        void Update()
+        {
+            // if(target != null)
+            // {
+            //     transform.position = target.position;
+            //     transform.rotation = target.rotation;
+            // }
+
+
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // if(target != null)
-        // {
-        //     transform.position = target.position;
-        //     transform.rotation = target.rotation;
-        // }
-
-        
-    }
 }

@@ -3,45 +3,50 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 
-public class VideoStarter : MonoBehaviour
+namespace ObliqueSenastions.VideoControl
 {
-    [SerializeField] VideoPlayer videoPlayer;
 
-    [SerializeField] Transform cinemaPosition;
-
-    [SerializeField] Transform vrRig;
-
-    
-
-
-
-
-    
-    // Start is called before the first frame update
-    void Start()
+    public class VideoStarter : MonoBehaviour
     {
-        
+        [SerializeField] VideoPlayer videoPlayer;
 
-        
-    }
+        [SerializeField] Transform cinemaPosition;
 
-    private void OnTriggerEnter(Collider other) 
-    {
-        if(other.gameObject.tag == "Player")
+        [SerializeField] Transform vrRig;
+
+
+
+
+
+
+
+        // Start is called before the first frame update
+        void Start()
         {
-            print("collision");
-            videoPlayer.Play();
-            vrRig.transform.position = cinemaPosition.position;
+
+
+
         }
-        
-        
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.tag == "Player")
+            {
+                print("collision");
+                videoPlayer.Play();
+                vrRig.transform.position = cinemaPosition.position;
+            }
+
+
+        }
+
+
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
     }
 
-    
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -2,26 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VideoUVAdjuster : MonoBehaviour
+namespace ObliqueSenastions.Animation
 {
-    
-    [SerializeField] string[] screenUVFactorRefs;
-    [SerializeField] SkinnedMeshRenderer smr;
-    Material material;
-
-    void Start()
+    public class VideoUVAdjuster : MonoBehaviour
     {
-        material = smr.materials[0];
+
+        [SerializeField] string[] screenUVFactorRefs;
+        [SerializeField] SkinnedMeshRenderer smr;
+        Material material;
+
+        void Start()
+        {
+            material = smr.materials[0];
+        }
+
+        public void AdjustUVx(float factor, int screenIndex)
+        {
+            material.SetFloat(screenUVFactorRefs[screenIndex], factor);
+
+        }
+
+        public float GetUVxAdjust(int screenIndex)
+        {
+            return material.GetFloat(screenUVFactorRefs[screenIndex]);
+        }
     }
 
-    public void AdjustUVx(float factor, int screenIndex)
-    {
-        material.SetFloat(screenUVFactorRefs[screenIndex], factor);
-        
-    }
 
-    public float GetUVxAdjust(int screenIndex)
-    {
-        return material.GetFloat(screenUVFactorRefs[screenIndex]);
-    }
 }

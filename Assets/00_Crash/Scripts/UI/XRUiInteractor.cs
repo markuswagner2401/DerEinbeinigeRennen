@@ -3,73 +3,78 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
-public class XRUiInteractor : MonoBehaviour
+namespace ObliqueSenastions.UISpace
 {
-    [SerializeField] XRNode node;
-    InputDevice device;
-    
-    [SerializeField] UIInteractionsHandler[] interactionsHandler;
-    [SerializeField] int interactableLayerIndex = 5;
 
-
-
-
-    private void Start() 
+    public class XRUiInteractor : MonoBehaviour
     {
-        device = InputDevices.GetDeviceAtXRNode(node);
-    }
+        [SerializeField] XRNode node;
+        InputDevice device;
 
-    private void Update() 
-    {
-        if (device.TryGetFeatureValue(CommonUsages.gripButton, out bool triggerUsage))
+        [SerializeField] UIInteractionsHandler[] interactionsHandler;
+        [SerializeField] int interactableLayerIndex = 5;
+
+
+
+
+        private void Start()
         {
-            if(triggerUsage)
+            device = InputDevices.GetDeviceAtXRNode(node);
+        }
+
+        private void Update()
+        {
+            if (device.TryGetFeatureValue(CommonUsages.gripButton, out bool triggerUsage))
             {
-                foreach (var handler in interactionsHandler)
+                if (triggerUsage)
                 {
-                    handler.processTriggerUsage(true);
+                    foreach (var handler in interactionsHandler)
+                    {
+                        handler.processTriggerUsage(true);
+                    }
+
                 }
-                  
+
+                // else
+                // {
+                //     foreach (var handler in interactionsHandler)
+                //     {
+                //         handler.processTriggerUsage(false);
+                //     }
+                // }
+
+
+            }
+        }
+
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.layer != interactableLayerIndex) return;
+
+
+            foreach (var handler in interactionsHandler)
+            {
+                handler.processHover(other);
             }
 
-            // else
-            // {
-            //     foreach (var handler in interactionsHandler)
-            //     {
-            //         handler.processTriggerUsage(false);
-            //     }
-            // }
-
-
         }
-    }
 
-
-    private void OnTriggerEnter(Collider other) 
-    {
-        if (other.gameObject.layer != interactableLayerIndex) return;
-
-
-        foreach (var handler in interactionsHandler)
+        private void OnTriggerExit(Collider other)
         {
-            handler.processHover(other);
+            if (other.gameObject.layer != interactableLayerIndex) return;
+
+            foreach (var handler in interactionsHandler)
+            {
+                handler.processHoverExit(other);
+            }
+
         }
+
+
+
+
 
     }
 
-    private void OnTriggerExit(Collider other) 
-    {
-        if (other.gameObject.layer != interactableLayerIndex) return;
-
-        foreach (var handler in interactionsHandler)
-        {
-            handler.processHoverExit(other);
-        }
-
-    }
-
-    
-
-
-    
 }

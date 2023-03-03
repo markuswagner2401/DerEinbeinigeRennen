@@ -4,47 +4,53 @@ using System.Collections.Generic;
 using RootMotion.FinalIK;
 using UnityEngine;
 
-public class IKTargetChanger : MonoBehaviour
+namespace ObliqueSenastions.FinalIKControl
 {
-    [SerializeField] AimIK aimIK = null;
-    
-    [SerializeField] float smoothing = 0.1f;
 
-    [SerializeField] Transform aimIKTarget = null;
-    Transform currentTarget; 
-
-    private void Start() 
+    public class IKTargetChanger : MonoBehaviour
     {
-        if(aimIK == null)
+        [SerializeField] AimIK aimIK = null;
+
+        [SerializeField] float smoothing = 0.1f;
+
+        [SerializeField] Transform aimIKTarget = null;
+        Transform currentTarget;
+
+        private void Start()
         {
-            aimIK = GetComponent<AimIK>();
+            if (aimIK == null)
+            {
+                aimIK = GetComponent<AimIK>();
+            }
+        }
+
+
+        public void SetAimIKTarget(Transform target)
+        {
+            currentTarget = target;
+
+        }
+
+        private void Update()
+        {
+            if (aimIKTarget != null && currentTarget != null)
+            {
+                aimIKTarget.position = Vector3.Lerp(aimIKTarget.position, currentTarget.position, smoothing);
+            }
+        }
+
+        private void LateUpdate()
+        {
+            UpdateAimIKTarget();
+        }
+
+        private void UpdateAimIKTarget()
+        {
+            if (aimIK == null) return;
+            aimIK.solver.IKPosition = aimIKTarget.position;
+
         }
     }
-    
 
-    public void SetAimIKTarget(Transform target)
-    {
-        currentTarget = target;
 
-    }
-
-    private void Update() 
-    {
-        if (aimIKTarget != null && currentTarget != null)
-        {
-            aimIKTarget.position = Vector3.Lerp(aimIKTarget.position, currentTarget.position, smoothing);
-        }
-    }
-
-    private void LateUpdate() 
-    {
-        UpdateAimIKTarget();
-    }
-
-    private void UpdateAimIKTarget()
-    {
-        if (aimIK == null) return;
-        aimIK.solver.IKPosition = aimIKTarget.position;
-
-    }
 }

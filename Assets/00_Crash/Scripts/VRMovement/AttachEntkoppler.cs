@@ -2,129 +2,134 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttachEntkoppler : MonoBehaviour
+namespace ObliqueSenastions.VRRigSpace
 {
-    
 
-    [SerializeField] TargetAimPair[] targetAimPairs;
-
-    [System.Serializable]
-    struct TargetAimPair
+    public class AttachEntkoppler : MonoBehaviour
     {
-        public Transform control;
-        public Transform target;
-        
-    }
-    
-    [SerializeField] [Range(0.001f, 1f)] float entkopplungsEndDelay = 0.01f;
 
-    
-    [SerializeField] [Range(0, 1)] float entkopplungsstandfaktor = 0.99f;
 
-    
-    [SerializeField] bool EffectRotation = false;
-    float startTime = 0f;
-    bool entkopplungAktiviert = false;
-    bool entkoppelt = false;
+        [SerializeField] TargetAimPair[] targetAimPairs;
 
-    
-
-    void Start()
-    {
-        foreach (var targetAimPair in targetAimPairs)
+        [System.Serializable]
+        struct TargetAimPair
         {
+            public Transform control;
+            public Transform target;
 
-            targetAimPair.target.transform.position = targetAimPair.control.transform.position;
         }
-        
-        
-    }
 
-   
-    void Update()
-    {
-        
+        [SerializeField][Range(0.001f, 1f)] float entkopplungsEndDelay = 0.01f;
 
-        // if (Input.GetKeyDown(KeyCode.Space))
-        // {
-        //     entkopplungAktiviert = !entkopplungAktiviert;
-        // }
 
-        if (EffectRotation == false)
+        [SerializeField][Range(0, 1)] float entkopplungsstandfaktor = 0.99f;
+
+
+        [SerializeField] bool EffectRotation = false;
+        float startTime = 0f;
+        bool entkopplungAktiviert = false;
+        bool entkoppelt = false;
+
+
+
+        void Start()
         {
             foreach (var targetAimPair in targetAimPairs)
             {
-                targetAimPair.target.transform.rotation = targetAimPair.control.transform.rotation;
-            }
-            
-        }
 
-        if (!entkopplungAktiviert)
-        {
-            foreach (var targetAimPair in targetAimPairs)
-            {
                 targetAimPair.target.transform.position = targetAimPair.control.transform.position;
-                targetAimPair.target.transform.rotation = targetAimPair.control.transform.rotation;
-            }
-            
-            
-        }
-
-        if (entkopplungAktiviert && !entkoppelt)
-        {
-            entkoppelt = true;
-            StartCoroutine(Entkoppler());
-        }
-
-    }
-
-    public void Entkoppeln()
-    {
-        entkopplungAktiviert = !entkopplungAktiviert;
-    }
-
-    public bool GetEntkopplung()
-    {
-        return entkopplungAktiviert;
-    }
-
-    IEnumerator Entkoppler()
-    {
-        print("Start Entkopplung");
-        startTime = 0f;
-        float entkopplungsstand = entkopplungsstandfaktor;
-
-
-        while (entkopplungAktiviert)
-        {
-            foreach (var targetAimPair in targetAimPairs)
-            {
-                targetAimPair.target.transform.position = Vector3.Lerp(targetAimPair.target.transform.position, targetAimPair.control.transform.position, entkopplungsstand) ;
-                
             }
 
-            
 
-            if (EffectRotation)
+        }
+
+
+        void Update()
+        {
+
+
+            // if (Input.GetKeyDown(KeyCode.Space))
+            // {
+            //     entkopplungAktiviert = !entkopplungAktiviert;
+            // }
+
+            if (EffectRotation == false)
             {
                 foreach (var targetAimPair in targetAimPairs)
                 {
-                    targetAimPair.target.transform.rotation = Quaternion.Lerp(targetAimPair.target.transform.rotation, targetAimPair.control.transform.rotation, entkopplungsstand);
-                    
+                    targetAimPair.target.transform.rotation = targetAimPair.control.transform.rotation;
                 }
-                
+
             }
-            
-            if (entkopplungsstand > entkopplungsEndDelay)
+
+            if (!entkopplungAktiviert)
             {
-                entkopplungsstand *= entkopplungsstandfaktor;
+                foreach (var targetAimPair in targetAimPairs)
+                {
+                    targetAimPair.target.transform.position = targetAimPair.control.transform.position;
+                    targetAimPair.target.transform.rotation = targetAimPair.control.transform.rotation;
+                }
+
+
             }
- 
-            yield return null;
+
+            if (entkopplungAktiviert && !entkoppelt)
+            {
+                entkoppelt = true;
+                StartCoroutine(Entkoppler());
+            }
+
         }
 
-        entkoppelt = false;
-        yield return null;
-        
+        public void Entkoppeln()
+        {
+            entkopplungAktiviert = !entkopplungAktiviert;
+        }
+
+        public bool GetEntkopplung()
+        {
+            return entkopplungAktiviert;
+        }
+
+        IEnumerator Entkoppler()
+        {
+            print("Start Entkopplung");
+            startTime = 0f;
+            float entkopplungsstand = entkopplungsstandfaktor;
+
+
+            while (entkopplungAktiviert)
+            {
+                foreach (var targetAimPair in targetAimPairs)
+                {
+                    targetAimPair.target.transform.position = Vector3.Lerp(targetAimPair.target.transform.position, targetAimPair.control.transform.position, entkopplungsstand);
+
+                }
+
+
+
+                if (EffectRotation)
+                {
+                    foreach (var targetAimPair in targetAimPairs)
+                    {
+                        targetAimPair.target.transform.rotation = Quaternion.Lerp(targetAimPair.target.transform.rotation, targetAimPair.control.transform.rotation, entkopplungsstand);
+
+                    }
+
+                }
+
+                if (entkopplungsstand > entkopplungsEndDelay)
+                {
+                    entkopplungsstand *= entkopplungsstandfaktor;
+                }
+
+                yield return null;
+            }
+
+            entkoppelt = false;
+            yield return null;
+
+        }
     }
+
 }

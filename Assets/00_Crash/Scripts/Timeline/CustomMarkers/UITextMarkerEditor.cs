@@ -6,21 +6,27 @@ using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.Timeline;
 
-[CustomTimelineEditor(typeof(UITextMarker))]
-public class UITextMarkerEditor : MarkerEditor
+namespace ObliqueSenastions.TimelineSpace
 {
-    public override MarkerDrawOptions GetMarkerOptions(IMarker marker)
+
+
+    [CustomTimelineEditor(typeof(UITextMarker))]
+    public class UITextMarkerEditor : MarkerEditor
     {
-        var uiTextMarker = marker as UITextMarker;
-       
-        if(marker != null)
+        public override MarkerDrawOptions GetMarkerOptions(IMarker marker)
         {
-            return new MarkerDrawOptions { tooltip =  uiTextMarker.Text };
+            var uiTextMarker = marker as UITextMarker;
+
+            if (marker != null)
+            {
+                return new MarkerDrawOptions { tooltip = uiTextMarker.Text };
+            }
+
+            return base.GetMarkerOptions(marker);
         }
 
-        return base.GetMarkerOptions(marker);
     }
- 
 }
+
 
 #endif

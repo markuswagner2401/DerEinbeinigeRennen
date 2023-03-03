@@ -4,261 +4,266 @@ using UnityEngine;
 using Photon.Pun;
 using UnityEngine.XR;
 
-public class NetworkVisibilityManager : MonoBehaviourPunCallbacks
+namespace ObliqueSenastions.PunNetworking
 {
-    
-    enum Deactivation
+
+    public class NetworkVisibilityManager : MonoBehaviourPunCallbacks
     {
-        gameObject,
-        renderer,
 
-        rendererInChildren,
-        collider,
-
-        colliderInChildren
-    }
-    [SerializeField] VisibilitySubject[] visibilitySubjects;
-    [System.Serializable]
-    struct VisibilitySubject
-    {
-        public string note;
-        public GameObject[] objects;
-
-        public Deactivation deactivation;
-    }
-
-    bool collidersReady = false;
-
-
-
-    private void Start()
-    {
-        if (PhotonNetwork.InRoom)
+        enum Deactivation
         {
-            OnJoinedRoom();
+            gameObject,
+            renderer,
+
+            rendererInChildren,
+            collider,
+
+            colliderInChildren
         }
-    }
-
-    private bool HandsReady()
-    {
-        
-        
-        InputDevice leftHand = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
-        InputDevice rightHand = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
-        if (leftHand.isValid && rightHand.isValid)
+        [SerializeField] VisibilitySubject[] visibilitySubjects;
+        [System.Serializable]
+        struct VisibilitySubject
         {
-            return true;
+            public string note;
+            public GameObject[] objects;
+
+            public Deactivation deactivation;
         }
-        else
+
+        bool collidersReady = false;
+
+
+
+        private void Start()
         {
-            return false;
-        }
-    }
-
-
-
-    public override void OnJoinedRoom()
-    {
-        StartCoroutine(ManageVisibilitiesR(false));
-    }
-
-    public override void OnLeftRoom()
-    {
-        ManageVisibilities(true);
-        collidersReady = false;
-    }
-
-
-
-    private void ManageVisibilities(bool state)
-    {
-        foreach (var item in visibilitySubjects)
-        {
-            switch (item.deactivation)
+            if (PhotonNetwork.InRoom)
             {
-                case Deactivation.gameObject:
-                    foreach (var obj in item.objects)
-                    {
-                        if (obj != null) obj.SetActive(state);
-                    }
-                    break;
-
-                case Deactivation.renderer:
-                    foreach (var obj in item.objects)
-                    {
-                        if (obj.TryGetComponent<Renderer>(out Renderer renderer))
-                        {
-                            renderer.enabled = state;
-                        }
-                    }
-                    break;
-
-                case Deactivation.collider:
-                    foreach (var obj in item.objects)
-                    {
-                        if (obj.TryGetComponent<Collider>(out Collider collider))
-                        {
-                            collider.enabled = state;
-                        }
-                    }
-                    break;
-
-                case Deactivation.rendererInChildren:
-                    foreach (var obj in item.objects)
-                    {
-                        if (obj != null)
-                        {
-                            Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
-
-                            foreach (var renderer in renderers)
-                            {
-                                renderer.enabled = state;
-                            }
-
-                        }
-
-                    }
-                    break;
-
-                case Deactivation.colliderInChildren:
-                    foreach (var obj in item.objects)
-                    {
-                        if (obj != null)
-                        {
-                            Collider[] colliders = obj.GetComponentsInChildren<Collider>();
-                            foreach (var collider in colliders)
-                            {
-                                collider.enabled = state;
-                            }
-
-                        }
-
-                    }
-                    break;
-
-
-                default:
-                    break;
+                OnJoinedRoom();
             }
         }
 
-        collidersReady = true;
-    }
-
-
-    IEnumerator ManageVisibilitiesR(bool state)
-    {
-        bool handsReady = false;
-        while (!handsReady)
+        private bool HandsReady()
         {
-            handsReady = HandsReady();
-            
+
+
+            InputDevice leftHand = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
+            InputDevice rightHand = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
+            if (leftHand.isValid && rightHand.isValid)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+
+        public override void OnJoinedRoom()
+        {
+            StartCoroutine(ManageVisibilitiesR(false));
+        }
+
+        public override void OnLeftRoom()
+        {
+            ManageVisibilities(true);
+            collidersReady = false;
+        }
+
+
+
+        private void ManageVisibilities(bool state)
+        {
             foreach (var item in visibilitySubjects)
             {
-                if (item.deactivation == Deactivation.gameObject)
+                switch (item.deactivation)
                 {
-                    foreach (var obj in item.objects)
-                    {
-                        if (obj == null)
+                    case Deactivation.gameObject:
+                        foreach (var obj in item.objects)
                         {
-                            Debug.LogError("VisibilityManager: " + obj.name + " not found, to manage Visibility. Visibility Not ready");
-                            
+                            if (obj != null) obj.SetActive(state);
                         }
-                        else
-                        {
-                            obj.SetActive(state);
-                        }
-                        yield return null;
-                    }
-                }
+                        break;
 
-                else if (item.deactivation == Deactivation.renderer)
-                {
-                    foreach (var obj in item.objects)
-                    {
-                        if (obj == null)
-                        {
-                            Debug.LogError("VisibilityManager: " + obj.name + " not found, to manage Visibility. Visibility Not ready");
-                            
-
-                        }
-
-                        else
+                    case Deactivation.renderer:
+                        foreach (var obj in item.objects)
                         {
                             if (obj.TryGetComponent<Renderer>(out Renderer renderer))
                             {
                                 renderer.enabled = state;
                             }
-
-                            else
-                            {
-                                Debug.LogError("VisibilityManager: Renderer in " + obj.name + " not found, to manage Visibility. Visibility Not ready");
-                                
-                            }
                         }
+                        break;
 
-                        yield return null;
-                    }
-
-                }
-
-                else if (item.deactivation == Deactivation.collider)
-                {
-                    foreach (var obj in item.objects)
-                    {
-                        if (obj.TryGetComponent<Collider>(out Collider collider))
+                    case Deactivation.collider:
+                        foreach (var obj in item.objects)
                         {
-                            collider.enabled = state;
-                        }
-                        yield return null;
-                    }
-                }
-
-                else if (item.deactivation == Deactivation.rendererInChildren)
-                {
-                    foreach (var obj in item.objects)
-                    {
-                        if (obj != null)
-                        {
-                            Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
-
-                            foreach (var renderer in renderers)
-                            {
-                                renderer.enabled = state;
-                            }
-
-                        }
-                        yield return null;
-                    }
-
-                }
-
-                else if (item.deactivation == Deactivation.colliderInChildren)
-                {
-                    foreach (var obj in item.objects)
-                    {
-                        if (obj != null)
-                        {
-                            Collider[] colliders = obj.GetComponentsInChildren<Collider>();
-                            foreach (var collider in colliders)
+                            if (obj.TryGetComponent<Collider>(out Collider collider))
                             {
                                 collider.enabled = state;
                             }
+                        }
+                        break;
 
+                    case Deactivation.rendererInChildren:
+                        foreach (var obj in item.objects)
+                        {
+                            if (obj != null)
+                            {
+                                Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
+
+                                foreach (var renderer in renderers)
+                                {
+                                    renderer.enabled = state;
+                                }
+
+                            }
+
+                        }
+                        break;
+
+                    case Deactivation.colliderInChildren:
+                        foreach (var obj in item.objects)
+                        {
+                            if (obj != null)
+                            {
+                                Collider[] colliders = obj.GetComponentsInChildren<Collider>();
+                                foreach (var collider in colliders)
+                                {
+                                    collider.enabled = state;
+                                }
+
+                            }
+
+                        }
+                        break;
+
+
+                    default:
+                        break;
+                }
+            }
+
+            collidersReady = true;
+        }
+
+
+        IEnumerator ManageVisibilitiesR(bool state)
+        {
+            bool handsReady = false;
+            while (!handsReady)
+            {
+                handsReady = HandsReady();
+
+                foreach (var item in visibilitySubjects)
+                {
+                    if (item.deactivation == Deactivation.gameObject)
+                    {
+                        foreach (var obj in item.objects)
+                        {
+                            if (obj == null)
+                            {
+                                Debug.LogError("VisibilityManager: " + obj.name + " not found, to manage Visibility. Visibility Not ready");
+
+                            }
+                            else
+                            {
+                                obj.SetActive(state);
+                            }
+                            yield return null;
+                        }
+                    }
+
+                    else if (item.deactivation == Deactivation.renderer)
+                    {
+                        foreach (var obj in item.objects)
+                        {
+                            if (obj == null)
+                            {
+                                Debug.LogError("VisibilityManager: " + obj.name + " not found, to manage Visibility. Visibility Not ready");
+
+
+                            }
+
+                            else
+                            {
+                                if (obj.TryGetComponent<Renderer>(out Renderer renderer))
+                                {
+                                    renderer.enabled = state;
+                                }
+
+                                else
+                                {
+                                    Debug.LogError("VisibilityManager: Renderer in " + obj.name + " not found, to manage Visibility. Visibility Not ready");
+
+                                }
+                            }
+
+                            yield return null;
                         }
 
                     }
-                    yield return null;
 
+                    else if (item.deactivation == Deactivation.collider)
+                    {
+                        foreach (var obj in item.objects)
+                        {
+                            if (obj.TryGetComponent<Collider>(out Collider collider))
+                            {
+                                collider.enabled = state;
+                            }
+                            yield return null;
+                        }
+                    }
+
+                    else if (item.deactivation == Deactivation.rendererInChildren)
+                    {
+                        foreach (var obj in item.objects)
+                        {
+                            if (obj != null)
+                            {
+                                Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
+
+                                foreach (var renderer in renderers)
+                                {
+                                    renderer.enabled = state;
+                                }
+
+                            }
+                            yield return null;
+                        }
+
+                    }
+
+                    else if (item.deactivation == Deactivation.colliderInChildren)
+                    {
+                        foreach (var obj in item.objects)
+                        {
+                            if (obj != null)
+                            {
+                                Collider[] colliders = obj.GetComponentsInChildren<Collider>();
+                                foreach (var collider in colliders)
+                                {
+                                    collider.enabled = state;
+                                }
+
+                            }
+
+                        }
+                        yield return null;
+
+                    }
+                    yield return null;
                 }
-                yield return null;
+                collidersReady = true;
+
             }
-            collidersReady = true;
-        
+        }
+        public bool GetVisibiliesReady()
+        {
+            return collidersReady;
         }
     }
-    public bool GetVisibiliesReady()
-    {
-        return collidersReady;
-    }
+
 }

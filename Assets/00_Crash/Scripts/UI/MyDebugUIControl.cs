@@ -4,60 +4,64 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MyDebugUIControl : MonoBehaviour
+namespace ObliqueSenastions.UISpace
 {
-   
-    [SerializeField] TextMeshProUGUI fps;
-    [SerializeField] TextMeshProUGUI debugLog;
-    
-    [SerializeField] bool showAtStart = true;
-    [SerializeField] bool showFrameRate = true;
-    [SerializeField] Color textColor;
-    [SerializeField] int textSize;
-    
 
-    float deltaTime = 0.0f;
-    
-    void Start()
+    public class MyDebugUIControl : MonoBehaviour
     {
-        ShowUI(showAtStart);
-        fps.color = textColor;
-        fps.fontSize = textSize;
-       
 
-        debugLog.color = textColor;
-        debugLog.fontSize = textSize;
-       
+        [SerializeField] TextMeshProUGUI fps;
+        [SerializeField] TextMeshProUGUI debugLog;
 
-        debugLog.color = textColor;
-        debugLog.fontSize = textSize;
-        
-    }
+        [SerializeField] bool showAtStart = true;
+        [SerializeField] bool showFrameRate = true;
+        [SerializeField] Color textColor;
+        [SerializeField] int textSize;
 
-    
-    void Update()
-    {
-        if(!showFrameRate) return;
 
-        deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
-        float fps = 1.0f / deltaTime;
-        float msec = deltaTime * 1000.0f;
+        float deltaTime = 0.0f;
 
-        this.fps.text = string.Format("{0:0.0} ms ({1:0.} fps)", msec, fps);
+        void Start()
+        {
+            ShowUI(showAtStart);
+            fps.color = textColor;
+            fps.fontSize = textSize;
 
-       
 
-    }
+            debugLog.color = textColor;
+            debugLog.fontSize = textSize;
 
-    public void ShowUI(bool value)
-    {
-        fps.transform.parent.gameObject.SetActive(value);
-    }
 
-    public void MyDebugLog(string text)
-    {
-        print("my debug log");
-        string capturedText = debugLog.text;
-        debugLog.text =  text + "\n" + capturedText;
+            debugLog.color = textColor;
+            debugLog.fontSize = textSize;
+
+        }
+
+
+        void Update()
+        {
+            if (!showFrameRate) return;
+
+            deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
+            float fps = 1.0f / deltaTime;
+            float msec = deltaTime * 1000.0f;
+
+            this.fps.text = string.Format("{0:0.0} ms ({1:0.} fps)", msec, fps);
+
+
+
+        }
+
+        public void ShowUI(bool value)
+        {
+            fps.transform.parent.gameObject.SetActive(value);
+        }
+
+        public void MyDebugLog(string text)
+        {
+            print("my debug log");
+            string capturedText = debugLog.text;
+            debugLog.text = text + "\n" + capturedText;
+        }
     }
 }

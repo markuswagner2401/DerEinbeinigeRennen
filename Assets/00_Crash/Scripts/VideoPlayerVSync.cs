@@ -3,23 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 
-public class VideoPlayerVSync : MonoBehaviour
+namespace ObliqueSenastions.VideoControl
 {
-    VideoPlayer videoPlayer;
-    
-   
-    void Start()
-    {
-        videoPlayer = GetComponent<VideoPlayer>();
-    }
 
-    void Update()
+
+    public class VideoPlayerVSync : MonoBehaviour
     {
-        videoPlayer.Pause();
-        if (videoPlayer.frame / videoPlayer.frameRate < Time.time)
+        VideoPlayer videoPlayer;
+
+
+        void Start()
         {
-            videoPlayer.StepForward();
+            videoPlayer = GetComponent<VideoPlayer>();
         }
+
+        void Update()
+        {
+            videoPlayer.Pause();
+            if (videoPlayer.frame / videoPlayer.frameRate < Time.time)
+            {
+                videoPlayer.StepForward();
+            }
+        }
+
     }
 
 }

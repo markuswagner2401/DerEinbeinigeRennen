@@ -2,31 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundPlanesTriggerer : MonoBehaviour
+namespace ObliqueSenastions.InfiniteGround
 {
-    [SerializeField] int containerIndex;
-    [SerializeField] GroundPlanesManager groundPlanesManager = null;
-    
-    
-    private void Start() 
+
+    public class GroundPlanesTriggerer : MonoBehaviour
     {
-        if(groundPlanesManager == null)
+        [SerializeField] int containerIndex;
+        [SerializeField] GroundPlanesManager groundPlanesManager = null;
+
+
+        private void Start()
         {
-            groundPlanesManager = FindObjectOfType<GroundPlanesManager>();
+            if (groundPlanesManager == null)
+            {
+                groundPlanesManager = FindObjectOfType<GroundPlanesManager>();
+            }
         }
+
+
+
+        public int GetIndex()
+        {
+            return containerIndex;
+        }
+
+        public GroundPlanesManager GetGroundPlanesManager()
+        {
+            return groundPlanesManager;
+        }
+
+
     }
-    
 
-
-    public int GetIndex()
-    {
-        return containerIndex;
-    }
-
-    public GroundPlanesManager GetGroundPlanesManager()
-    {
-        return groundPlanesManager;
-    }
-
-    
 }

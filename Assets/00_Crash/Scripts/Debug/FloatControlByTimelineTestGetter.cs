@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using ObliqueSenastions.TimelineSpace;
 using UnityEngine;
 
-public class FloatControlByTimelineTestGetter : MonoBehaviour
+namespace ObliqueSenastions.Debugging
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public class FloatControlByTimelineTestGetter : MonoBehaviour
     {
-        TimeLineHandler.instance.GetComponent<FloatControlByTimeline>().SetStartValue(0, transform.position.y);
+        // Start is called before the first frame update
+        void Start()
+        {
+            TimeLineHandler.instance.GetComponent<FloatControlByTimeline>().SetStartValue(0, transform.position.y);
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            transform.position = new Vector3(0f, TimeLineHandler.instance.GetComponent<FloatControlByTimeline>().GetValue(0), 0f);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        transform.position = new Vector3(0f,TimeLineHandler.instance.GetComponent<FloatControlByTimeline>().GetValue(0), 0f) ;
-    }
+
 }

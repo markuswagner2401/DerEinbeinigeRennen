@@ -4,7 +4,11 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 using System.Linq;
+using ObliqueSenastions.Animation;
 
+namespace ObliqueSenastions.TimelineSpace
+{
+    
 public class TextureFaderReceiver : MonoBehaviour, INotificationReceiver
 {
     
@@ -121,4 +125,6 @@ public class TextureFaderReceiver : MonoBehaviour, INotificationReceiver
 
     
     
+}
+
 }

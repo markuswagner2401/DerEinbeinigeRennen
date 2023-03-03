@@ -5,20 +5,28 @@ using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.Timeline;
 
-[CustomTimelineEditor(typeof(TimelineAnnotation))]
-public class TimelineAnnotationEditor : MarkerEditor
+namespace ObliqueSenastions.TimelineSpace
 {
-    public override MarkerDrawOptions GetMarkerOptions(IMarker marker)
+
+
+    [CustomTimelineEditor(typeof(TimelineAnnotation))]
+    public class TimelineAnnotationEditor : MarkerEditor
     {
-        var timelineAnnotation = marker as TimelineAnnotation;
-
-        if(timelineAnnotation != null)
+        public override MarkerDrawOptions GetMarkerOptions(IMarker marker)
         {
-            return new MarkerDrawOptions { tooltip =  timelineAnnotation.Title
-                                                                            };
-        }
+            var timelineAnnotation = marker as TimelineAnnotation;
 
-        return base.GetMarkerOptions(marker);
+            if (timelineAnnotation != null)
+            {
+                return new MarkerDrawOptions
+                {
+                    tooltip = timelineAnnotation.Title
+                };
+            }
+
+            return base.GetMarkerOptions(marker);
+        }
     }
 }
+
 #endif

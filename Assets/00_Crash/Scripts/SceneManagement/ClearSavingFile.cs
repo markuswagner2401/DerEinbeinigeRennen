@@ -3,24 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG.Saving;
 
-public class ClearSavingFile : MonoBehaviour
+namespace ObliqueSenastions.Saving
 {
-    
-    
-    void Start()
+
+    public class ClearSavingFile : MonoBehaviour
     {
-        
+
+
+        void Start()
+        {
+
+        }
+
+        public void ClearSaveFile()
+        {
+            SavingWrapper wrapper = FindObjectOfType<SavingWrapper>();
+            wrapper.Delete();
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
     }
 
-    public void ClearSaveFile()
-    {
-        SavingWrapper wrapper = FindObjectOfType<SavingWrapper>();
-        wrapper.Delete();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
