@@ -14,7 +14,14 @@ namespace ObliqueSenastions.Looping
     public class XRLoopingMover : MonoBehaviour
     {
         CapsuleCollider capsule;
-        [SerializeField] XROrigin rig;
+        [SerializeField] XROrigin rig = null;
+
+        [SerializeField] bool usingOVR = false;
+
+        [Tooltip("if using ovr")]
+        [SerializeField] Transform ovrHead;
+
+ 
 
         [SerializeField] bool useTimelineTime = false;
 
@@ -68,12 +75,21 @@ namespace ObliqueSenastions.Looping
         void Start()
         {
             capsule = GetComponent<CapsuleCollider>();
-            rig = GetComponent<XROrigin>();
+
+            if (!usingOVR)
+            {
+                rig = GetComponent<XROrigin>();
+            }
+
+
+
 
             if (timelineTime == null)
             {
                 timelineTime = TimeLineHandler.instance.GetComponent<TimelineTime>();
             }
+
+            
 
             // triggerGround = true;
 
@@ -82,9 +98,33 @@ namespace ObliqueSenastions.Looping
 
 
 
-        void Update()
+        void FixedUpdate()
         {
-            CapsuleFollowHeadset();
+            // if (usingOVR && oVRCameraRig!= null)
+            // {
+            //     OVRInput.Update();
+                
+            
+                
+            // }
+
+            UpdateTransform();
+
+
+        }
+
+        
+
+        
+
+        void UpdateTransform()
+        {
+            float headHeight = usingOVR ? ovrHead.localPosition.y : rig.CameraInOriginSpaceHeight;
+
+            Vector3 headPosition = usingOVR ? ovrHead.position : rig.Camera.transform.position;
+
+
+            CapsuleFollowHeadset(headHeight, headPosition);
 
             UpdateHitInfo();
 
@@ -104,28 +144,10 @@ namespace ObliqueSenastions.Looping
 
             transform.rotation *= Quaternion.Euler(0, my_rotation, 0);
 
-            // Grounding
-            // if (triggerGround)
-            // {
-            //     if(!alreadyGround)
-            //     {
-            //         triggerGround = true;
-            //         alreadyGround = true;
-            //     }
 
-            //     else
-            //     {
-            //         triggerGround = false;
-            //     }
-
-            // }
-
-            // else
-            // {
-            //     alreadyGround = false;
-            // }
 
             Grounding();
+
         }
 
         private void Grounding()
@@ -170,6 +192,7 @@ namespace ObliqueSenastions.Looping
                 if (hit.transform.gameObject.tag == groundTag)
                 {
                     currentHit = hit;
+//                    print("has hit");
                     return;
                 }
 
@@ -262,10 +285,10 @@ namespace ObliqueSenastions.Looping
 
 
 
-        void CapsuleFollowHeadset()
+        void CapsuleFollowHeadset(float headHeight, Vector3 headPosition)
         {
-            capsule.height = rig.CameraInOriginSpaceHeight + heightOverHead;
-            Vector3 capsuleCenter = transform.InverseTransformPoint(rig.Camera.transform.position);
+            capsule.height = headHeight + heightOverHead;
+            Vector3 capsuleCenter = transform.InverseTransformPoint(headPosition);
             capsule.center = new Vector3(capsuleCenter.x, capsule.height / 2, capsuleCenter.z);
         }
 

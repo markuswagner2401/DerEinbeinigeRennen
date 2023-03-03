@@ -15,36 +15,63 @@ namespace ObliqueSenastions.Looping
         [SerializeField] float speedChangeTime = 5f;
         [SerializeField] float threshold = .1f;
 
+        [SerializeField] bool usingOVR = false;
+
         [SerializeField] XRVelocityTracker velocityTrackerRight = null;
         [SerializeField] XRVelocityTracker velocityTrackerLeft = null;
 
         [SerializeField] LoopingControllerForwardVector forwardHead = null;
+        [SerializeField] float smoothing;
 
         XRLoopingMover loopingMover = null;
 
         float speedLeft;
+
+        float prevSpeedLeft;
         float speedRight;
+
+        float prevSpeedRight;
 
         void OnEnable()
         {
             if (loopingMover == null) loopingMover = GetComponent<XRLoopingMover>();
+
+            prevSpeedLeft = speedLeft;
+            prevSpeedRight = speedRight;
         }
 
 
-        void Update()
+        void FixedUpdate()
         {
-            speedLeft = velocityTrackerLeft.GetSpeed();
-            speedRight = velocityTrackerRight.GetSpeed();
+            if (usingOVR)
+            {
+                OVRInput.FixedUpdate();
+                speedLeft = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.LHand).magnitude;
+                speedRight = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RHand).magnitude;
+            }
+
+            else
+            {
+                speedLeft = velocityTrackerLeft.GetSpeed();
+                speedRight = velocityTrackerRight.GetSpeed();
+
+            }
+
 
             if (armSwingLeft && speedLeft > threshold)
             {
+                speedLeft = Mathf.Lerp(prevSpeedLeft, speedLeft, smoothing);
                 loopingMover.Move(forwardHead.GetControllerForward() * speedLeft * speedFactor * Time.deltaTime);
             }
 
             if (armSwingRight && speedRight > threshold)
             {
+                speedRight = Mathf.Lerp(prevSpeedRight, speedRight, smoothing);
                 loopingMover.Move(forwardHead.GetControllerForward() * speedRight * speedFactor * Time.deltaTime);
             }
+
+            prevSpeedLeft = speedLeft;
+            prevSpeedRight = speedRight;
 
 
         }

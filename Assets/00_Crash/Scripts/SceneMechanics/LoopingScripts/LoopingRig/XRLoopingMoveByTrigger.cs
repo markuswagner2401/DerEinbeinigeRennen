@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ namespace ObliqueSenastions.Looping
     {
         [SerializeField] XRNode moveHandTriggerLeft;
         [SerializeField] XRNode moveHandTriggerRight;
+
+        [SerializeField] bool usingOVR = false;
 
         [SerializeField] bool moveByTriggerLeft = true;
         [SerializeField] bool moveByTriggerRight = true;
@@ -43,8 +46,15 @@ namespace ObliqueSenastions.Looping
         }
 
 
-        void Update()
+        void FixedUpdate()
         {
+            if(usingOVR)
+            {
+                OVRInput.FixedUpdate();
+                ProcessOVRInput();
+                
+                return;
+            }
 
             if (!devicesSet)
             {
@@ -80,9 +90,34 @@ namespace ObliqueSenastions.Looping
 
         }
 
+        private void ProcessOVRInput()
+        {
+            print("process ofr input");
+            if(moveByTriggerLeft)
+            {
+                print(OVRInput.Get(OVRInput.RawAxis1D.LIndexTrigger));
+                // print("moveTriggerValue: " + moveTriggerValueL);
+                loopingMover.Move(GetControllerForwardDirection(forwardControllerLeft) * OVRInput.Get(OVRInput.RawAxis1D.LIndexTrigger) * speed * Time.deltaTime);
+            }
+
+            if(moveByTriggerRight)
+            {
+                
+                loopingMover.Move(GetControllerForwardDirection(forwardControllerLeft) * OVRInput.Get(OVRInput.RawAxis1D.RIndexTrigger) * speed * Time.deltaTime);
+            }
+        }
+
         private Vector3 GetControllerForwardDirection(LoopingControllerForwardVector controller)
         {
             return controller.GetControllerForward();
+        }
+
+        public void Move(Vector3 velocity)
+        {
+            transform.position += velocity * (Time.deltaTime * 72f);
+            //print("move");
+            
+
         }
 
 

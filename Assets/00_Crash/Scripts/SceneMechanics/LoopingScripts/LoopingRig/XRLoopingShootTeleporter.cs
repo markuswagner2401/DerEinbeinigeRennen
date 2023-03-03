@@ -4,17 +4,23 @@ using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
+using static OVRInput;
 
 namespace ObliqueSenastions.Looping
 {
 
     public class XRLoopingShootTeleporter : MonoBehaviour
     {
+        [SerializeField] bool usingOVR;
+
         [System.Serializable]
         struct ShootTeleporter
         {
             public XRNode node;
             public InputDevice device;
+
+            public Button ovrButton;
+
 
 
 
@@ -71,40 +77,67 @@ namespace ObliqueSenastions.Looping
 
         void FixedUpdate()
         {
-            if (!devicesSet)
+            if (!usingOVR)
             {
-                for (int i = 0; i < shootTeleporters.Length; i++)
+                if (!devicesSet)
                 {
-                    shootTeleporters[i].device = InputDevices.GetDeviceAtXRNode(shootTeleporters[i].node);
-                }
-                devicesSet = true;
-                for (int j = 0; j < shootTeleporters.Length; j++)
-                {
-                    if (!shootTeleporters[j].device.isValid)
+                    for (int i = 0; i < shootTeleporters.Length; i++)
                     {
-                        devicesSet = false;
+                        shootTeleporters[i].device = InputDevices.GetDeviceAtXRNode(shootTeleporters[i].node);
                     }
+                    devicesSet = true;
+                    for (int j = 0; j < shootTeleporters.Length; j++)
+                    {
+                        if (!shootTeleporters[j].device.isValid)
+                        {
+                            devicesSet = false;
+                        }
+                    }
+
                 }
+
             }
+
+            else
+            {
+                OVRInput.FixedUpdate();
+            }
+
+
 
 
 
 
             for (int i = 0; i < shootTeleporters.Length; i++)
             {
-                if (shootTeleporters[i].device.TryGetFeatureValue(CommonUsages.trigger, out float value) && value > shootThreshold)
+                if (!usingOVR)
                 {
-                    print("trigger usage");
-                    if (shootTeleporters[i].alreadyShot == true) return;
+                    if (shootTeleporters[i].device.TryGetFeatureValue(CommonUsages.trigger, out float value) && value > shootThreshold)
+                    {
+                        print("trigger usage");
+                        if (shootTeleporters[i].alreadyShot == true) return;
 
-                    ShootTeleportProjectile(shootTeleporters[i]);
-                    shootTeleporters[i].alreadyShot = true;
+                        ShootTeleportProjectile(shootTeleporters[i]);
+                        shootTeleporters[i].alreadyShot = true;
+                    }
+
+                    else
+                    {
+                        shootTeleporters[i].alreadyShot = false;
+                    }
+
                 }
 
                 else
                 {
-                    shootTeleporters[i].alreadyShot = false;
+                    if (OVRInput.GetDown(shootTeleporters[i].ovrButton))
+                    {
+                        print("ovr get button down");
+                        ShootTeleportProjectile(shootTeleporters[i]);
+                    }
+
                 }
+
             }
 
 
