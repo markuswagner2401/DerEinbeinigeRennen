@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using ObliqueSenastions.VRRigSpace;
+using Oculus.Interaction.Input;
 using UnityEngine;
 
 namespace ObliqueSenastions.Looping
@@ -19,6 +20,11 @@ namespace ObliqueSenastions.Looping
 
         [SerializeField] XRVelocityTracker velocityTrackerRight = null;
         [SerializeField] XRVelocityTracker velocityTrackerLeft = null;
+
+        [Tooltip("will be used on Handtracking")]
+        [SerializeField] SimpleVelocityTracker simpleVelocityTrackerRight = null;
+
+        [SerializeField] SimpleVelocityTracker simpleVelocityTrackerLeft = null;
 
         [SerializeField] LoopingControllerForwardVector forwardHead = null;
         [SerializeField] float smoothing;
@@ -46,8 +52,29 @@ namespace ObliqueSenastions.Looping
             if (usingOVR)
             {
                 OVRInput.FixedUpdate();
-                speedLeft = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.LHand).magnitude;
-                speedRight = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RHand).magnitude;
+
+                if (OVRInput.GetActiveController() == OVRInput.Controller.Hands)
+                {
+                    speedLeft = simpleVelocityTrackerLeft.GetLocalSpeed();
+                    speedRight = simpleVelocityTrackerRight.GetLocalSpeed();
+
+                    print("speed left" + speedLeft);
+                }
+
+                else
+                {
+                    print("hands not active");
+                    speedLeft = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.LTouch).magnitude;
+                    speedRight = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RTouch).magnitude;
+
+                }
+
+
+
+
+
+
+
             }
 
             else

@@ -11,11 +11,17 @@ namespace ObliqueSenastions.VRRigSpace
 
         public float currentSpeed;
 
+        public float angularSpeed;
+
         public Vector3 currentVelocity = new Vector3();
 
         public Vector3 angularVelocitiy = new Vector3();
 
-        public float angularSpeed;
+        public float currentLocalSpeed;
+
+        public Vector3 currentLocalVelocity = new Vector3();
+
+        
 
 
 
@@ -27,11 +33,18 @@ namespace ObliqueSenastions.VRRigSpace
 
         Quaternion previousRotation = new Quaternion();
 
+        Vector3 previousLocalPosition = new Vector3();
+
+        Vector3 PreviousLocalVelocity = new Vector3();
+
+        
+
         [SerializeField] float smoothing;
 
         void Start()
         {
             previousPosition = transform.position;
+            previousLocalPosition = transform.localPosition;
         }
 
 
@@ -42,6 +55,12 @@ namespace ObliqueSenastions.VRRigSpace
             currentVelocity = (transform.position - previousPosition) / Time.deltaTime;
             currentVelocity = Vector3.Lerp(previousVelocity, currentVelocity, smoothing);
             currentSpeed = currentVelocity.magnitude;
+
+            // local position
+
+            currentLocalVelocity = (transform.localPosition - previousLocalPosition) / Time.deltaTime;
+            currentLocalVelocity = Vector3.Lerp(PreviousLocalVelocity, currentLocalVelocity, smoothing);
+            currentLocalSpeed = currentLocalVelocity.magnitude;
 
             // rotation
 
@@ -60,6 +79,9 @@ namespace ObliqueSenastions.VRRigSpace
 
             previousRotation = transform.rotation;
             previousAngularVelocity = angularVelocitiy;
+
+            previousLocalPosition = transform.localPosition;
+            PreviousLocalVelocity = currentLocalVelocity;
         }
 
         public float GetSpeed()
@@ -67,9 +89,19 @@ namespace ObliqueSenastions.VRRigSpace
             return currentSpeed;
         }
 
+        public float GetLocalSpeed()
+        {
+            return currentLocalSpeed;
+        }
+
         public Vector3 GetVelocity()
         {
             return currentVelocity;
+        }
+
+        public Vector3 GetLocalVelocity()
+        {
+            return currentLocalVelocity;
         }
 
         public Vector3 GetAngularVelocity()
