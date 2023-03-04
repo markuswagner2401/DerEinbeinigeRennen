@@ -2391,6 +2391,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rig: {fileID: 3532172753721898960}
+  usingOVR: 0
+  ovrHead: {fileID: 0}
   useTimelineTime: 1
   correctForward: -90
   racastStartpointOverGround: 2
@@ -2436,10 +2438,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveHandTriggerLeft: 4
   moveHandTriggerRight: 5
+  usingOVR: 0
+  leftHand: {fileID: 0}
+  rightHand: {fileID: 0}
+  increaseValueOnPinch: 0.01
+  maxSpeedOnPinch: 1
   moveByTriggerLeft: 0
   moveByTriggerRight: 1
   forwardControllerLeft: {fileID: 7650767108292738652}
   forwardControllerRight: {fileID: 7650767107725366917}
+  forwardHandLeft: {fileID: 0}
+  forwardHandRight: {fileID: 0}
   forwardHead: {fileID: 7650767108449080291}
   speed: 50
 --- !u!114 &7650767107865675200
@@ -2465,9 +2474,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   speedChangeTime: 5
   threshold: 0.7
+  usingOVR: 0
   velocityTrackerRight: {fileID: 7650767107793809685}
   velocityTrackerLeft: {fileID: 7650767107210650283}
   forwardHead: {fileID: 7650767108449080291}
+  smoothing: 0.1
 --- !u!114 &7650767107865675203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2499,6 +2510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be047c704e0bb7b4394701800d955978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  usingOVR: 0
   shootTeleporters: []
   shootThreshold: 0.1
   rig: {fileID: 3532172753721898960}
