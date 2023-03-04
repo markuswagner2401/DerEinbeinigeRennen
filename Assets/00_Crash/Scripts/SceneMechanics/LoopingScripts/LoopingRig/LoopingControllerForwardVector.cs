@@ -10,10 +10,11 @@ namespace ObliqueSenastions.Looping
     public class LoopingControllerForwardVector : MonoBehaviour
     {
 
+        [Tooltip("for hand put pointer pose in ray interactor")]
         [SerializeField] Transform controller;
 
 
-
+        
 
 
 
@@ -21,7 +22,7 @@ namespace ObliqueSenastions.Looping
 
         void Update()
         {
-
+            
 
             transform.forward = controller.transform.forward;
 

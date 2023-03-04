@@ -15,11 +15,23 @@ namespace ObliqueSenastions.Looping
 
         [SerializeField] bool usingOVR = false;
 
+        [SerializeField] OVRHand leftHand = null;
+
+        [SerializeField] OVRHand rightHand = null;
+
+        [SerializeField] float increaseValueOnPinch = 0.01f;
+
+        [SerializeField] float maxSpeedOnPinch = 1f;
+
         [SerializeField] bool moveByTriggerLeft = true;
         [SerializeField] bool moveByTriggerRight = true;
 
         [SerializeField] LoopingControllerForwardVector forwardControllerLeft = null;
         [SerializeField] LoopingControllerForwardVector forwardControllerRight = null;
+
+        [SerializeField] LoopingControllerForwardVector forwardHandLeft = null;
+
+        [SerializeField] LoopingControllerForwardVector forwardHandRight = null;
         [SerializeField] LoopingControllerForwardVector forwardHead = null;
 
 
@@ -33,6 +45,14 @@ namespace ObliqueSenastions.Looping
 
         bool devicesSet = false;
 
+        float moveTriggerValueL;
+
+        float moveTriggerValueR;
+
+        Vector3 directionLeftController = new Vector3();
+
+        Vector3 directionRightController = new Vector3();
+
 
 
 
@@ -43,16 +63,29 @@ namespace ObliqueSenastions.Looping
 
             loopingMover = GetComponent<XRLoopingMover>();
 
+            if(leftHand == null)
+            {
+                leftHand = GameObject.FindWithTag("LeftOVRHand").GetComponent<OVRHand>();
+            }
+
+            if(rightHand == null)
+            {
+                rightHand = GameObject.FindWithTag("RightOVRHand").GetComponent<OVRHand>();
+            }
+
+            
+            
+
         }
 
 
         void FixedUpdate()
         {
-            if(usingOVR)
+            if (usingOVR)
             {
                 OVRInput.FixedUpdate();
                 ProcessOVRInput();
-                
+
                 return;
             }
 
@@ -68,7 +101,7 @@ namespace ObliqueSenastions.Looping
 
             if (moveByTriggerLeft)
             {
-                if (moveDeviceTriggerLeft.TryGetFeatureValue(CommonUsages.trigger, out float moveTriggerValueL) && moveTriggerValueL > 0.01f)
+                if (moveDeviceTriggerLeft.TryGetFeatureValue(CommonUsages.trigger, out moveTriggerValueL) && moveTriggerValueL > 0.01f)
                 {
                     loopingMover.Move(GetControllerForwardDirection(forwardControllerLeft) * moveTriggerValueL * speed * Time.deltaTime);
 
@@ -79,7 +112,7 @@ namespace ObliqueSenastions.Looping
 
             if (moveByTriggerRight)
             {
-                if (moveDeviceTriggerRight.TryGetFeatureValue(CommonUsages.trigger, out float moveTriggerValueR) && moveTriggerValueR > 0.01f)
+                if (moveDeviceTriggerRight.TryGetFeatureValue(CommonUsages.trigger, out moveTriggerValueR) && moveTriggerValueR > 0.01f)
                 {
                     loopingMover.Move(GetControllerForwardDirection(forwardControllerRight) * moveTriggerValueR * speed * Time.deltaTime);
 
@@ -90,20 +123,64 @@ namespace ObliqueSenastions.Looping
 
         }
 
+        
+
         private void ProcessOVRInput()
         {
-            print("process ofr input");
-            if(moveByTriggerLeft)
+
+
+
+            if (OVRInput.GetActiveController() == OVRInput.Controller.Hands)
             {
-                print(OVRInput.Get(OVRInput.RawAxis1D.LIndexTrigger));
-                // print("moveTriggerValue: " + moveTriggerValueL);
-                loopingMover.Move(GetControllerForwardDirection(forwardControllerLeft) * OVRInput.Get(OVRInput.RawAxis1D.LIndexTrigger) * speed * Time.deltaTime);
+                bool leftIsPinching = leftHand.GetFingerIsPinching(OVRHand.HandFinger.Index);
+                bool rightIsPinching = rightHand.GetFingerIsPinching(OVRHand.HandFinger.Index);
+
+
+                if (leftIsPinching)
+                {
+                    moveTriggerValueL += increaseValueOnPinch;
+                    directionLeftController = GetControllerForwardDirection(forwardHandLeft);
+                    
+                }
+
+                else
+                {
+                    moveTriggerValueL = 0f;
+                }
+
+                if (rightIsPinching)
+                {
+                    moveTriggerValueR += increaseValueOnPinch;
+                    directionRightController = GetControllerForwardDirection(forwardHandRight);
+                }
+
+                else
+                {
+                    moveTriggerValueR = 0f;
+                }
+
+
             }
 
-            if(moveByTriggerRight)
+            else
+            {
+                moveTriggerValueL = OVRInput.Get(OVRInput.RawAxis1D.LIndexTrigger);
+                moveTriggerValueR = OVRInput.Get(OVRInput.RawAxis1D.RIndexTrigger);
+                directionLeftController = GetControllerForwardDirection(forwardControllerLeft);
+                directionRightController = GetControllerForwardDirection(forwardControllerRight);
+            }
+
+
+            if (moveByTriggerLeft)
             {
                 
-                loopingMover.Move(GetControllerForwardDirection(forwardControllerLeft) * OVRInput.Get(OVRInput.RawAxis1D.RIndexTrigger) * speed * Time.deltaTime);
+                loopingMover.Move(directionLeftController * moveTriggerValueL  * speed * Time.deltaTime);
+            }
+
+            if (moveByTriggerRight)
+            {
+
+                loopingMover.Move(directionRightController * moveTriggerValueR * speed * Time.deltaTime);
             }
         }
 
@@ -116,7 +193,7 @@ namespace ObliqueSenastions.Looping
         {
             transform.position += velocity * (Time.deltaTime * 72f);
             //print("move");
-            
+
 
         }
 

@@ -127,7 +127,7 @@ namespace ObliqueSenastions.UISpace
                 {
                     leftButtonPressed = leftHand.GetFingerIsPinching(OVRHand.HandFinger.Index);
                     rightButtonPressed = rightHand.GetFingerIsPinching(OVRHand.HandFinger.Index);
-                    print("finger is pinching: " + leftButtonPressed);
+//                    print("finger is pinching: " + leftButtonPressed);
                 }
 
                 else
