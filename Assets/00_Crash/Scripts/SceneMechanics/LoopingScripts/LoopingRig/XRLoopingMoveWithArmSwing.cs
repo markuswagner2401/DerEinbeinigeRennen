@@ -26,6 +26,11 @@ namespace ObliqueSenastions.Looping
 
         [SerializeField] SimpleVelocityTracker simpleVelocityTrackerLeft = null;
 
+        [Tooltip("used to get tracking confidece")]
+        [SerializeField] OVRHand leftHand = null;
+
+        [SerializeField] OVRHand rightHand = null;
+
         [SerializeField] LoopingControllerForwardVector forwardHead = null;
         [SerializeField] float smoothing;
 
@@ -53,19 +58,22 @@ namespace ObliqueSenastions.Looping
             {
                 OVRInput.FixedUpdate();
 
-                if (OVRInput.GetActiveController() == OVRInput.Controller.Hands)
-                {
-                    speedLeft = simpleVelocityTrackerLeft.GetLocalSpeed();
-                    speedRight = simpleVelocityTrackerRight.GetLocalSpeed();
-
-                    print("speed left" + speedLeft);
-                }
-
-                else
+                if (OVRInput.GetActiveController() == OVRInput.Controller.Touch)
                 {
                     print("hands not active");
                     speedLeft = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.LTouch).magnitude;
                     speedRight = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RTouch).magnitude;
+
+                }
+
+                else
+                {
+                    
+                    speedLeft = leftHand.IsDataHighConfidence ? simpleVelocityTrackerLeft.GetLocalSpeed() : Mathf.Lerp(prevSpeedLeft, 0, smoothing);
+                    speedRight = rightHand.IsDataHighConfidence ? simpleVelocityTrackerRight.GetLocalSpeed() : Mathf.Lerp(prevSpeedRight, 0, smoothing);
+
+                    // speedLeft = simpleVelocityTrackerLeft.GetLocalSpeed();
+                    // speedRight = simpleVelocityTrackerRight.GetLocalSpeed();
 
                 }
 

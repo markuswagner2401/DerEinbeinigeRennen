@@ -11,6 +11,8 @@ namespace ObliqueSenastions.VRRigSpace
 
         public float currentSpeed;
 
+        float lastSpeed;
+
         public float angularSpeed;
 
         public Vector3 currentVelocity = new Vector3();
@@ -19,7 +21,11 @@ namespace ObliqueSenastions.VRRigSpace
 
         public float currentLocalSpeed;
 
+        float lastLocalSpeed;
+
         public Vector3 currentLocalVelocity = new Vector3();
+
+        [SerializeField] float speedChangeGate = 0.1f;
 
         
 
@@ -40,6 +46,8 @@ namespace ObliqueSenastions.VRRigSpace
         
 
         [SerializeField] float smoothing;
+
+        bool speedGate;
 
         void Start()
         {
@@ -74,6 +82,28 @@ namespace ObliqueSenastions.VRRigSpace
 
             // Capturing
 
+            if(Mathf.Abs(lastLocalSpeed - currentLocalSpeed) > speedChangeGate) 
+            {
+                speedGate = true;
+                currentLocalSpeed = lastLocalSpeed - 0.0001f;
+
+                print("speed gate");
+                
+            }
+
+            else
+            {
+                speedGate = false;
+            }
+
+            //speedGate = (Mathf.Abs(lastLocalSpeed - currentLocalSpeed) > speedChangeGate) ? true : false;
+
+            
+
+            
+
+            //
+
             previousPosition = transform.position;
             previousVelocity = currentVelocity;
 
@@ -82,15 +112,30 @@ namespace ObliqueSenastions.VRRigSpace
 
             previousLocalPosition = transform.localPosition;
             PreviousLocalVelocity = currentLocalVelocity;
+
+            lastSpeed = currentSpeed;
+            lastLocalSpeed = currentLocalSpeed;
+
+           
+
+            
+
+            
+
+
+
+            
         }
 
         public float GetSpeed()
         {
+            if (speedGate) return 0;
             return currentSpeed;
         }
 
         public float GetLocalSpeed()
         {
+            if (speedGate) return lastLocalSpeed;
             return currentLocalSpeed;
         }
 
