@@ -113,9 +113,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 65536
   origin: {fileID: 9209123197275735955}
-  head: {fileID: 9209123197466035933}
-  leftHand: {fileID: 9209123197915314388}
-  rightHand: {fileID: 9209123197559588160}
+  headTarget: {fileID: 9209123197466035933}
+  pathToHeadSource: SafeAnchors/SafeHead
+  leftHandTarget: {fileID: 9209123197915314388}
+  pathToLeftHandSource: SafeAnchors/SafeLeftHand
+  rightHandTarget: {fileID: 9209123197559588160}
+  pathToRightHandSource: SafeAnchors/SafeRightHand
   syncHandAnimation: 0
   npLeftHandAnimator: {fileID: 9099992052419857909}
   npRightHandAnimator: {fileID: 3541047764536609226}
@@ -244,9 +247,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSpeed: 0
+  angularSpeed: 0
   currentVelocity: {x: 0, y: 0, z: 0}
   angularVelocitiy: {x: 0, y: 0, z: 0}
-  angularSpeed: 0
+  currentLocalSpeed: 0
+  currentLocalVelocity: {x: 0, y: 0, z: 0}
+  speedChangeGate: 0.1
   smoothing: 0
 --- !u!1 &9209123197559588167
 GameObject:
@@ -316,9 +322,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSpeed: 0
+  angularSpeed: 0
   currentVelocity: {x: 0, y: 0, z: 0}
   angularVelocitiy: {x: 0, y: 0, z: 0}
-  angularSpeed: 0
+  currentLocalSpeed: 0
+  currentLocalVelocity: {x: 0, y: 0, z: 0}
+  speedChangeGate: 0.1
   smoothing: 0
 --- !u!1 &9209123197915314395
 GameObject:
@@ -388,9 +397,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSpeed: 0
+  angularSpeed: 0
   currentVelocity: {x: 0, y: 0, z: 0}
   angularVelocitiy: {x: 0, y: 0, z: 0}
-  angularSpeed: 0
+  currentLocalSpeed: 0
+  currentLocalVelocity: {x: 0, y: 0, z: 0}
+  speedChangeGate: 0.1
   smoothing: 0
 --- !u!1 &9209123199365987592
 GameObject:
@@ -504,17 +516,17 @@ PrefabInstance:
     - target: {fileID: 5686134208185136530, guid: 1fd3a7c43c8190f4d8c167ebde694364,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.001
+      value: -0.0525
       objectReference: {fileID: 0}
     - target: {fileID: 5686134208185136530, guid: 1fd3a7c43c8190f4d8c167ebde694364,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.001
+      value: 0.0168
       objectReference: {fileID: 0}
     - target: {fileID: 5686134208185136530, guid: 1fd3a7c43c8190f4d8c167ebde694364,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.035
+      value: 0.0761
       objectReference: {fileID: 0}
     - target: {fileID: 5686134208185136530, guid: 1fd3a7c43c8190f4d8c167ebde694364,
         type: 3}
@@ -870,17 +882,17 @@ PrefabInstance:
     - target: {fileID: 109434732395451517, guid: 65847589f926b734d9eaed6e25f0046b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.001
+      value: 0.0494
       objectReference: {fileID: 0}
     - target: {fileID: 109434732395451517, guid: 65847589f926b734d9eaed6e25f0046b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.001
+      value: 0.0165
       objectReference: {fileID: 0}
     - target: {fileID: 109434732395451517, guid: 65847589f926b734d9eaed6e25f0046b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.035
+      value: 0.0753
       objectReference: {fileID: 0}
     - target: {fileID: 109434732395451517, guid: 65847589f926b734d9eaed6e25f0046b,
         type: 3}

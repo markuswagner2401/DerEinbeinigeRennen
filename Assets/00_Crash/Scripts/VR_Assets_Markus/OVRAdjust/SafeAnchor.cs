@@ -7,6 +7,8 @@ namespace ObliqueSensations.OVRRigSpace
 {
     public class SafeAnchor : MonoBehaviour
     {
+        [SerializeField] Vector3 offsetHandRotation;
+        [SerializeField] Vector3 offsetControllerPosition;
         [SerializeField] Transform source;
         [Tooltip("leave empty if is head")]
         [SerializeField] OVRHand hand = null;
@@ -55,6 +57,7 @@ namespace ObliqueSensations.OVRRigSpace
                 lastSafeRotation = currentRotation;
 
                 transform.position = currentPosition;
+                transform.Translate(offsetControllerPosition, Space.Self);
                 transform.rotation = currentRotation;
 
             }
@@ -80,6 +83,14 @@ namespace ObliqueSensations.OVRRigSpace
                         currentPosition = lastSafePosition;
                         currentRotation = lastSafeRotation;
                     }
+
+                    transform.position = currentPosition;
+                    
+                    
+                    transform.rotation = currentRotation;
+                    transform.Rotate(offsetHandRotation, Space.Self);
+                    return;
+
                 }
 
                 transform.position = currentPosition;

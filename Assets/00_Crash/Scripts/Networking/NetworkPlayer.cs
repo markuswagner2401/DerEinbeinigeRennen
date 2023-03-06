@@ -16,9 +16,15 @@ namespace ObliqueSenastions.PunNetworking
         [Tooltip("Set to same as XR Rig")]
         [SerializeField] LayerMask mineLayer;
         [SerializeField] Transform origin;
-        [SerializeField] Transform head;
-        [SerializeField] Transform leftHand;
-        [SerializeField] Transform rightHand;
+        [SerializeField] Transform headTarget;
+
+        [SerializeField] string pathToHeadSource = "InteractionRigOVR_TravellerUI/SafeAnchors/SafeHead";
+        [SerializeField] Transform leftHandTarget;
+
+        [SerializeField] string pathToLeftHandSource = "InteractionRigOVR_TravellerUI/SafeAnchors/SafeLeftHand";
+        [SerializeField] Transform rightHandTarget;
+
+        [SerializeField] string pathToRightHandSource = "InteractionRigOVR_TravellerUI/SafeAnchors/SafeRightHand";
 
         [SerializeField] bool syncHandAnimation = false;
         [SerializeField] Animator npLeftHandAnimator;
@@ -61,7 +67,7 @@ namespace ObliqueSenastions.PunNetworking
         Transform leftHandRig;
         Transform rightHandRig;
 
-        XROrigin currentXROrigin = null;
+        Transform currentXROrigin = null;
 
 
         private void Awake()
@@ -158,9 +164,9 @@ namespace ObliqueSenastions.PunNetworking
 
 
                 MapPositionGlobal(origin, originRig);
-                MapPositionLocal(head, headRig);
-                MapPositionLocal(leftHand, leftHandRig);
-                MapPositionLocal(rightHand, rightHandRig);
+                MapPositionLocal(headTarget, headRig);
+                MapPositionLocal(leftHandTarget, leftHandRig);
+                MapPositionLocal(rightHandTarget, rightHandRig);
 
                 if (syncHandAnimation)
                 {
@@ -206,7 +212,7 @@ namespace ObliqueSenastions.PunNetworking
                 currentCameraTraveller.onTravellerUpdateReady += ManualUpdate;
             }
 
-            XROrigin xROrigin = traveller.GetComponent<XROrigin>();
+            Transform xROrigin = traveller.transform;
 
             // Setup Mapping Sources
 
@@ -214,7 +220,7 @@ namespace ObliqueSenastions.PunNetworking
 
             if (transitionPointIndexForBinding == -1)
             {
-                originRig = xROrigin.transform;
+                originRig = xROrigin;
             }
 
             else
@@ -222,13 +228,13 @@ namespace ObliqueSenastions.PunNetworking
                 originRig = currentCameraTraveller.GetXRRigTransform(transitionPointIndexForBinding);
                 if (originRig == null)
                 {
-                    originRig = xROrigin.transform;
+                    originRig = xROrigin;
                 }
             }
 
-            headRig = xROrigin.transform.Find("TravellingCameraOffset/Camera");
-            leftHandRig = xROrigin.transform.Find("TravellingCameraOffset/LeftHand Controller");
-            rightHandRig = xROrigin.transform.Find("TravellingCameraOffset/RightHand Controller");
+            headRig = xROrigin.transform.Find(pathToHeadSource);
+            leftHandRig = xROrigin.transform.Find(pathToLeftHandSource);
+            rightHandRig = xROrigin.transform.Find(pathToRightHandSource);
 
 
 
@@ -302,13 +308,13 @@ namespace ObliqueSenastions.PunNetworking
             }
         }
 
-        void MapPositionGlobal(Transform target, Transform rigTransform)
+        void MapPositionGlobal(Transform target, Transform source)
         {
             // target.position = Vector3.Lerp(target.position, rigTransform.position, smoothing) ;
             // target.rotation = Quaternion.Lerp(target.rotation ,rigTransform.rotation, smoothing);
 
-            target.position = rigTransform.position;
-            target.rotation = rigTransform.rotation;
+            target.position = source.position;
+            target.rotation = source.rotation;
         }
 
         void MapPositionLocal(Transform target, Transform rigTransform)
@@ -323,7 +329,7 @@ namespace ObliqueSenastions.PunNetworking
 
         void CapsuleFollowRig()
         {
-            float height = currentXROrigin.CameraInOriginSpaceHeight + additionalColliderHeight;  // to do: different way to calculate height in order to function not only locally
+            float height = headRig.transform.position.y + additionalColliderHeight;  // to do: different way to calculate height in order to function not only locally
             Vector3 capsuleLocalPosition = originRig.position;
             capsuleLocalPosition += originRig.up * (height / 2f);
 

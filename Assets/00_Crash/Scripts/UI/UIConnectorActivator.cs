@@ -125,8 +125,8 @@ namespace ObliqueSenastions.UISpace
 
                 if (OVRInput.GetActiveController() == OVRInput.Controller.Hands)
                 {
-                    leftButtonPressed = leftHand.GetFingerIsPinching(OVRHand.HandFinger.Ring);
-                    rightButtonPressed = rightHand.GetFingerIsPinching(OVRHand.HandFinger.Ring);
+                    leftButtonPressed = leftHand.GetFingerIsPinching(OVRHand.HandFinger.Index);
+                    rightButtonPressed = rightHand.GetFingerIsPinching(OVRHand.HandFinger.Index);
 //                    print("finger is pinching: " + leftButtonPressed);
                 }
 
