@@ -64,7 +64,7 @@ namespace ObliqueSenastions.UISpace
 
         public float GetTargetPositionNorm()
         {
-            //print("Tachonadel: get Target Position Norm. " + this.gameObject);
+//            print("Tachonadel: get Target Position Norm. " + this.gameObject + "   " + targetPosition + "   " + Mathf.InverseLerp(positionsMin, poitionsMax, targetPosition));
             return Mathf.InverseLerp(positionsMin, poitionsMax, targetPosition);
         }
 

@@ -129,12 +129,16 @@ namespace ObliqueSenastions.VRRigSpace
 
         public float GetSpeed()
         {
-            if (speedGate) return 0;
+            if (speedGate)
+            {
+                return 0;
+            } 
             return currentSpeed;
         }
 
         public float GetLocalSpeed()
         {
+            //print("get local speed: " + (speedGate ? lastLocalSpeed : currentLocalSpeed));
             if (speedGate) return lastLocalSpeed;
             return currentLocalSpeed;
         }

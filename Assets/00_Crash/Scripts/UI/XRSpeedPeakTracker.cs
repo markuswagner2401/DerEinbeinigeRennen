@@ -14,7 +14,7 @@ namespace ObliqueSenastions.UISpace
 
 
 
-        float veloTheshold = 0.1f;
+        [SerializeField] float veloTheshold = 0.1f;
 
         bool active;
         [SerializeField] float resetTimer = 0f;
@@ -60,7 +60,7 @@ namespace ObliqueSenastions.UISpace
             {
                 if (peakTrackers[i].useSimpleVelocityTracker)
                 {
-                    peakTrackers[i].currentSpeed = peakTrackers[i].simpleVelocityTracker.GetSpeed();
+                    peakTrackers[i].currentSpeed = peakTrackers[i].simpleVelocityTracker.GetLocalSpeed();
                 }
                 else
                 {
@@ -112,6 +112,7 @@ namespace ObliqueSenastions.UISpace
 
         IEnumerator CalculateSpeedPeak(PeakTracker peakTracker)
         {
+            print("calculate speed peak");
             peakTracker.thresholdBroken = true;
             // print("calculate");
             float previousSpeed = 0f;
@@ -120,7 +121,7 @@ namespace ObliqueSenastions.UISpace
 
             if (peakTracker.useSimpleVelocityTracker)
             {
-                currentSpeed = peakTracker.simpleVelocityTracker.GetSpeed();
+                currentSpeed = peakTracker.simpleVelocityTracker.GetLocalSpeed();
             }
 
             else
@@ -136,7 +137,7 @@ namespace ObliqueSenastions.UISpace
                 // print("while");
                 if (peakTracker.useSimpleVelocityTracker)
                 {
-                    currentSpeed = peakTracker.simpleVelocityTracker.GetSpeed();
+                    currentSpeed = peakTracker.simpleVelocityTracker.GetLocalSpeed();
                 }
                 else
                 {
@@ -153,6 +154,8 @@ namespace ObliqueSenastions.UISpace
 
 
             peakTracker.unityEvent.Invoke();
+
+            
             peakTracker.tachonadel.SetTargetPositionNorm(Mathf.InverseLerp(peakTracker.speadMin, peakTracker.speedMax, peakTracker.speadPeak));
 
 

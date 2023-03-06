@@ -188,7 +188,7 @@ namespace ObliqueSenastions.Animation
         {
             for (int i = 0; i < shapeControls.Length; i++)
             {
-                if (!shapeControls[i].vfxEffect) continue;
+                if (!shapeControls[i].vfxEffect || shapeControls[i].vFXControl.visualEffect == null) continue;
                 shapeControls[i].vFXControl.visualEffect.gameObject.SetActive(false);
             }
         }
