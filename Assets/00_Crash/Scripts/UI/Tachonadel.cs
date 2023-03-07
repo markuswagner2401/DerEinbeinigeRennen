@@ -57,7 +57,7 @@ namespace ObliqueSenastions.UISpace
 
         }
 
-        public float GetTargetPosition()
+        public float GetTargetPosition() // Gets Read by Blend Shape Control
         {
             return targetPosition;
         }

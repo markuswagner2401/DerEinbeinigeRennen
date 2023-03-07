@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Events;
 
 using ObliqueSenastions.VRRigSpace;
+using ObliqueSenastions.PunNetworking;
+using Photon.Pun;
 
 namespace ObliqueSenastions.UISpace
 {
@@ -12,7 +14,7 @@ namespace ObliqueSenastions.UISpace
     {
 
 
-
+        //[SerializeField] Role role = Role.Rennfahrer;
 
         [SerializeField] float veloTheshold = 0.1f;
 
@@ -55,6 +57,10 @@ namespace ObliqueSenastions.UISpace
 
         void Update()
         {
+            // if(PhotonNetwork.IsConnected && MultiplayerConnector.instance.GetRole() != role)
+            // {
+            //     return;
+            // }
 
             for (int i = 0; i < peakTrackers.Length; i++)
             {

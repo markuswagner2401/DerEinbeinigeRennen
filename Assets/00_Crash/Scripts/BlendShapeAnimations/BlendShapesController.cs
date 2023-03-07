@@ -80,8 +80,34 @@ namespace ObliqueSenastions.Animation
 
                 else
                 {
-                    tachosSet = false;
-                    Debug.Log("BlendShapesController: Cant Find Tachonadel");
+                    
+                    GameObject tachoLinksGO = GameObject.FindWithTag("TachoPlayerLinks");
+                    GameObject tachoRechtsGO = GameObject.FindWithTag("TachoPlayerRechts");
+                    if(tachoLinksGO == null)
+                    {
+                        Debug.LogError("BlendShapesController: Cant Find Tachonadel Links; Tacho not set");
+                        tachosSet = false;
+                        return;
+                    }
+
+                    else
+                    {
+                        blendShapesIndexTacho = tachoLinksGO.GetComponent<Tachonadel>();
+                    }
+
+                    if(tachoRechtsGO == null)
+                    {
+                        Debug.LogError("BlendShapesController: Cant Find Tachonadel Rechts; Tacho not set");
+                        tachosSet = false;
+                        return;
+                    }
+
+                    else
+                    {
+                        blendShapesWeightTacho = tachoRechtsGO.GetComponent<Tachonadel>();
+                    }
+
+                    
                     return;
                 }
             }
