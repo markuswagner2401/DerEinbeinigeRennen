@@ -213,7 +213,7 @@ namespace ObliqueSenastions.Looping
 
         public void Move(Vector3 velocity)
         {
-            //print("move");
+//            print("move : " + velocity);
             if (useTimelineTime && timelineTime != null)
             {
                 transform.position += velocity * timelineTime.GetTimelineDeltaTime() * 72f;
