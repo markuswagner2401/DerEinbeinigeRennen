@@ -10,14 +10,21 @@ namespace ObliqueSenastions.PunNetworking
     public class SyncPuppet : MonoBehaviourPunCallbacks
     {
         [SerializeField] VRIK vrik;
-        void Start()
+
+        public override void OnEnable()
         {
             if (PhotonNetwork.InRoom)
             {
                 OnJoinedRoom();
             }
 
+            base.OnEnable();
         }
+        // void Start()
+        // {
+            
+
+        // }
 
         public override void OnJoinedRoom()
         {
