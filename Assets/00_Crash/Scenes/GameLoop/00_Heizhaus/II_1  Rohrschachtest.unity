@@ -2236,7 +2236,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 306065466}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 759371887}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92c50bb18fe3d1543aa7172bcf5a3bf1, type: 3}
@@ -2892,6 +2892,12 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!1 &380565462 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1981511068495687112, guid: b12cdfa0796fe3a448948d305a8bfe63,
+    type: 3}
+  m_PrefabInstance: {fileID: 30525879}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &438611703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4629,12 +4635,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef15630130fbb5b45897ce9592e77a71, type: 3}
---- !u!1 &759371887 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8459937978302267507, guid: 31e6417b6135a774994cc2d8e41efe59,
-    type: 3}
-  m_PrefabInstance: {fileID: 306065466}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &773126748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5895,6 +5895,12 @@ MonoBehaviour:
   blendShapesIndexTacho: {fileID: 1754885791}
   blendShapesWeightTacho: {fileID: 113165999}
   currentIndex: 0
+--- !u!1 &1217204162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5755356396101135189, guid: b6df4961452673d449bda003df847bff,
+    type: 3}
+  m_PrefabInstance: {fileID: 1746616336}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1231671628
 GameObject:
   m_ObjectHideFlags: 0
@@ -7126,6 +7132,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1595851623 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3180748013131583060, guid: b12cdfa0796fe3a448948d305a8bfe63,
+    type: 3}
+  m_PrefabInstance: {fileID: 30525879}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1600352749 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5499156788831764567, guid: 7bfbff46ac06e6c41bf3a2da0db7e274,
@@ -7527,12 +7539,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 650631896310746988, guid: 8d000f3b7129aa84f951a83fea878809,
     type: 3}
   m_PrefabInstance: {fileID: 1651205702}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1658396587 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8836475119077328050, guid: 31e6417b6135a774994cc2d8e41efe59,
-    type: 3}
-  m_PrefabInstance: {fileID: 306065466}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1691939749
 GameObject:
@@ -7999,6 +8005,10 @@ PrefabInstance:
       propertyPath: transitionPoints.Array.data[1].transitionCurve.m_Curve.Array.data[1].tangentMode
       value: 34
       objectReference: {fileID: 0}
+    - target: {fileID: 885687362, guid: b6df4961452673d449bda003df847bff, type: 3}
+      propertyPath: connectorUiGos.Array.data[5]
+      value: 
+      objectReference: {fileID: 1217204162}
     - target: {fileID: 3417231278616965480, guid: b6df4961452673d449bda003df847bff,
         type: 3}
       propertyPath: m_Name
@@ -8198,23 +8208,23 @@ PrefabInstance:
     - target: {fileID: 6147285642961802100, guid: 580bd533909635046ba600e8ba855033,
         type: 3}
       propertyPath: visibilitySubjects.Array.data[0].objects.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6147285642961802100, guid: 580bd533909635046ba600e8ba855033,
         type: 3}
       propertyPath: visibilitySubjects.Array.data[1].objects.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6147285642961802100, guid: 580bd533909635046ba600e8ba855033,
         type: 3}
       propertyPath: visibilitySubjects.Array.data[0].objects.Array.data[0]
       value: 
-      objectReference: {fileID: 759371887}
+      objectReference: {fileID: 380565462}
     - target: {fileID: 6147285642961802100, guid: 580bd533909635046ba600e8ba855033,
         type: 3}
       propertyPath: visibilitySubjects.Array.data[0].objects.Array.data[1]
       value: 
-      objectReference: {fileID: 1658396587}
+      objectReference: {fileID: 1595851623}
     - target: {fileID: 6147285642961802100, guid: 580bd533909635046ba600e8ba855033,
         type: 3}
       propertyPath: visibilitySubjects.Array.data[0].objects.Array.data[2]
