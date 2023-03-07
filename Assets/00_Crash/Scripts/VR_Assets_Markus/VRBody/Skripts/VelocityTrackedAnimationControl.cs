@@ -12,6 +12,11 @@ namespace ObliqueSenastions.AnimatorSpace
         [SerializeField] XRVelocityTracker velocityTrackerLeft = null;
         [SerializeField] XRVelocityTracker velocityTrackerRight = null;
 
+        [SerializeField] bool useSimpleVelocityTracker = true;
+
+        [SerializeField] SimpleVelocityTracker simpleVelocityTrackerLeft = null;
+        [SerializeField] SimpleVelocityTracker simpleVelocityTrackerRight = null;
+
         [SerializeField] float highestHandSpeed = 2f;
 
         [SerializeField] float animMaxSpeed = 1f;
@@ -70,11 +75,21 @@ namespace ObliqueSenastions.AnimatorSpace
 
         void Update()
         {
-            bool controlling = (velocityTrackerLeft != null && velocityTrackerRight != null);
+
+            bool controlling = useSimpleVelocityTracker ? (simpleVelocityTrackerLeft != null && simpleVelocityTrackerRight != null) : (velocityTrackerLeft != null && velocityTrackerRight != null);
 
             if (controlling)
             {
-                smoothedSpeed = SmoothedMappedSpeed(velocityTrackerLeft.GetSpeed(), velocityTrackerRight.GetSpeed());
+                if(useSimpleVelocityTracker)
+                {
+                    smoothedSpeed = SmoothedMappedSpeed(simpleVelocityTrackerLeft.GetLocalSpeed(), simpleVelocityTrackerRight.GetLocalSpeed());
+                }
+
+                else
+                {
+                    smoothedSpeed = SmoothedMappedSpeed(velocityTrackerLeft.GetSpeed(), velocityTrackerRight.GetSpeed());
+                }
+                
             }
 
             rawClipPosition += Time.deltaTime * smoothedSpeed;
