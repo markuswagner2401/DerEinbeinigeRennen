@@ -289,7 +289,17 @@ namespace ObliqueSenastions.PunNetworking
             }
             if (PhotonNetwork.IsConnectedAndReady)
             {
-                string roomName = TimeLineHandler.instance.GetComponent<SceneControlByTimeline>().GetRoomSectionThisClip();
+                string roomName;
+                if(TimeLineHandler.instance == null)
+                {
+                    roomName = "noTimelineRoom";
+                }
+
+                else
+                {
+                    roomName = TimeLineHandler.instance.GetComponent<SceneControlByTimeline>().GetRoomSectionThisClip();
+                }
+                
                 currentRoomSection = roomName;
                 RoomOptions roomOptions = new RoomOptions { MaxPlayers = 18 };
                 PhotonNetwork.JoinOrCreateRoom(roomName, roomOptions, TypedLobby.Default);
