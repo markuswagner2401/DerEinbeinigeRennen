@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using ObliqueSenastions.UISpace;
 using UnityEngine;
 
 namespace ObliqueSenastions.VRRigSpace
@@ -27,6 +28,9 @@ namespace ObliqueSenastions.VRRigSpace
 
         [SerializeField] float speedChangeGate = 0.1f;
 
+        [SerializeField] float maxSpeed = 1.5f;
+
+       
         
 
 
@@ -68,7 +72,8 @@ namespace ObliqueSenastions.VRRigSpace
 
             currentLocalVelocity = (transform.localPosition - previousLocalPosition) / Time.deltaTime;
             currentLocalVelocity = Vector3.Lerp(PreviousLocalVelocity, currentLocalVelocity, smoothing);
-            currentLocalSpeed = currentLocalVelocity.magnitude;
+            currentLocalSpeed = Mathf.Clamp(currentLocalVelocity.magnitude, 0, maxSpeed);
+            //currentLocalSpeed = currentLocalVelocity.magnitude;
 
             // rotation
 
@@ -85,7 +90,11 @@ namespace ObliqueSenastions.VRRigSpace
             if(Mathf.Abs(lastLocalSpeed - currentLocalSpeed) > speedChangeGate) 
             {
                 speedGate = true;
-                currentLocalSpeed = lastLocalSpeed - 0.0001f;
+                if(!(currentLocalSpeed < 0))
+                {
+                    currentLocalSpeed = lastLocalSpeed - 0.0001f;
+                }
+                
 
                 print("speed gate");
                 
@@ -127,6 +136,13 @@ namespace ObliqueSenastions.VRRigSpace
             
         }
 
+        ///////
+
+        
+
+
+        ///////
+
         public float GetSpeed()
         {
             if (speedGate)
@@ -136,12 +152,18 @@ namespace ObliqueSenastions.VRRigSpace
             return currentSpeed;
         }
 
+        
+
         public float GetLocalSpeed()
         {
             //print("get local speed: " + (speedGate ? lastLocalSpeed : currentLocalSpeed));
             if (speedGate) return lastLocalSpeed;
             return currentLocalSpeed;
         }
+
+        
+
+        
 
         public Vector3 GetVelocity()
         {

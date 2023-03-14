@@ -104,7 +104,7 @@ namespace ObliqueSenastions.UISpace
                 if (peakTrackers[i].resetTime > peakTrackers[i].resetAfterStillSeconds)
                 {
                     //   print("reset");
-                    peakTrackers[i].tachonadel.SetTargetPositionNorm(0f);
+                    //peakTrackers[i].tachonadel.SetTargetPositionNorm(0f); // Changed to read by tachonadel
                     peakTrackers[i].resetTime = 0f;
                 }
             }
@@ -162,7 +162,7 @@ namespace ObliqueSenastions.UISpace
             peakTracker.unityEvent.Invoke();
 
             
-            peakTracker.tachonadel.SetTargetPositionNorm(Mathf.InverseLerp(peakTracker.speadMin, peakTracker.speedMax, peakTracker.speadPeak));
+            //peakTracker.tachonadel.SetTargetPositionNorm(Mathf.InverseLerp(peakTracker.speadMin, peakTracker.speedMax, peakTracker.speadPeak)); // changed to read by tachonadel
 
 
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ObliqueSenastions.UISpace;
 using ObliqueSenastions.VRRigSpace;
 using UnityEngine;
 
@@ -9,13 +10,25 @@ namespace ObliqueSenastions.AnimatorSpace
 
     public class VelocityTrackedAnimationControl : MonoBehaviour
     {
+        enum InputMode
+        {
+            readAtTacho,
+            simpleVelocityTracker,
+            XRVelocityTracker
+        }
+
+        [SerializeField] InputMode inputMode = InputMode.readAtTacho;
         [SerializeField] XRVelocityTracker velocityTrackerLeft = null;
         [SerializeField] XRVelocityTracker velocityTrackerRight = null;
 
-        [SerializeField] bool useSimpleVelocityTracker = true;
+      
 
         [SerializeField] SimpleVelocityTracker simpleVelocityTrackerLeft = null;
         [SerializeField] SimpleVelocityTracker simpleVelocityTrackerRight = null;
+
+        
+
+        [SerializeField] Tachonadel tachonadel = null;
 
         [SerializeField] float highestHandSpeed = 2f;
 
@@ -76,21 +89,30 @@ namespace ObliqueSenastions.AnimatorSpace
         void Update()
         {
 
-            bool controlling = useSimpleVelocityTracker ? (simpleVelocityTrackerLeft != null && simpleVelocityTrackerRight != null) : (velocityTrackerLeft != null && velocityTrackerRight != null);
+           
 
-            if (controlling)
+            if(inputMode == InputMode.readAtTacho)
             {
-                if(useSimpleVelocityTracker)
-                {
-                    smoothedSpeed = SmoothedMappedSpeed(simpleVelocityTrackerLeft.GetLocalSpeed(), simpleVelocityTrackerRight.GetLocalSpeed());
-                }
-
-                else
-                {
-                    smoothedSpeed = SmoothedMappedSpeed(velocityTrackerLeft.GetSpeed(), velocityTrackerRight.GetSpeed());
-                }
-                
+                if(tachonadel == null) return;
+                smoothedSpeed = SmoothedTachoSpeed(tachonadel.GetTargetPositionNorm());
             }
+
+            else if (inputMode == InputMode.simpleVelocityTracker)
+            {
+                if(simpleVelocityTrackerLeft == null || simpleVelocityTrackerRight == null) return;
+                smoothedSpeed = SmoothedMappedSpeed(simpleVelocityTrackerLeft.GetLocalSpeed(), simpleVelocityTrackerRight.GetLocalSpeed());
+            }
+
+            else if(inputMode == InputMode.XRVelocityTracker)
+            {
+                if(velocityTrackerLeft == null || velocityTrackerRight == null) return;
+                smoothedSpeed = SmoothedMappedSpeed(velocityTrackerLeft.GetSpeed(), velocityTrackerRight.GetSpeed());
+            }
+
+            
+             
+
+            
 
             rawClipPosition += Time.deltaTime * smoothedSpeed;
 
@@ -163,6 +185,24 @@ namespace ObliqueSenastions.AnimatorSpace
             float mappedOnCurve = curve.Evaluate(speedNorm);
             return Mathf.Lerp(animMinSpeed, animMaxSpeed, mappedOnCurve);
         }
+
+        /// von tacho
+
+        float SmoothedTachoSpeed(float tachoValueNorm)
+        {
+            float mappedSpeed = MappedTachoSpeed(tachoValueNorm);
+            float smoothedSpeed = Mathf.Lerp(previousSpeed, mappedSpeed, smoothing);
+
+            previousSpeed = smoothedSpeed;
+            return smoothedSpeed;
+        }
+
+        float MappedTachoSpeed(float tachoValueNorm)
+        {
+            return Mathf.Lerp(animMinSpeed, animMaxSpeed, tachoValueNorm);
+        }
+
+
     }
 
 }

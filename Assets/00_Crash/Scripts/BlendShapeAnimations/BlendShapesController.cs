@@ -133,11 +133,11 @@ namespace ObliqueSenastions.Animation
 
             // Revert Last Weight Value if Index changed
 
-            if (currentIndex != previousIndex)
+            if (currentIndex != previousIndex) /// TODO: ???
             {
-                blendShapesWeightTacho.SetTargetPositionNorm(Mathf.InverseLerp(shapeControls[currentIndex].minWeight,
-                                                                        shapeControls[currentIndex].maxWeight,
-                                                                        shapeControls[currentIndex].currentWeight));
+                // blendShapesWeightTacho.SetTargetPositionNorm(Mathf.InverseLerp(shapeControls[currentIndex].minWeight,
+                //                                                         shapeControls[currentIndex].maxWeight,
+                //                                                         shapeControls[currentIndex].currentWeight));
 
 
 

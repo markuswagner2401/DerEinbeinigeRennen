@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using ObliqueSenastions.VRRigSpace;
 using UnityEngine;
 
 namespace ObliqueSenastions.UISpace
@@ -7,6 +8,19 @@ namespace ObliqueSenastions.UISpace
 
     public class Tachonadel : MonoBehaviour
     {
+        enum Tachomode
+        {
+            readSpeedPeakTracker,
+            readAvarageVelocity,
+
+            readNothing,
+        }
+
+        [SerializeField] Tachomode tachomode = Tachomode.readSpeedPeakTracker;
+
+        [SerializeField] AverageHandSpeedMapper averageHandSpeedTracker = null;
+
+        [SerializeField] XRSpeedPeakTrackerSolo speedPeakTracker = null;
         [SerializeField] float positionsMin = 0f;
         [SerializeField] float poitionsMax = 12f;
 
@@ -17,6 +31,8 @@ namespace ObliqueSenastions.UISpace
         [SerializeField] float rotMax = 90f;
 
         [SerializeField] HingeJoint joint;
+
+        [SerializeField] float smoothing = 0.1f;
 
 
 
@@ -39,8 +55,22 @@ namespace ObliqueSenastions.UISpace
 
         void Update()
         {
-            spring.targetPosition = MappedRotation(targetPosition);
+            spring.targetPosition = Mathf.Lerp(spring.targetPosition, MappedRotation(targetPosition),  smoothing) ;
+            //print("joint position" + spring.targetPosition);
             joint.spring = spring;
+
+            if(tachomode == Tachomode.readSpeedPeakTracker)
+            {
+                if(speedPeakTracker == null) return;
+                SetTargetPositionNorm(speedPeakTracker.GetCurrentValue());
+
+            }
+
+            else if(tachomode == Tachomode.readAvarageVelocity)
+            {
+                if(averageHandSpeedTracker == null) return;
+                SetTargetPositionNorm(averageHandSpeedTracker.GetAverageSpeed(true));
+            }
 
 
         }
@@ -50,7 +80,7 @@ namespace ObliqueSenastions.UISpace
             targetPosition = position;
         }
 
-        public void SetTargetPositionNorm(float positionNorm) // Gets Set By XR Speed Peak Tracker
+        private void SetTargetPositionNorm(float positionNorm) // TODO Change to private (Gets Set By XR Speed Peak Tracker)
         {
             //print("Tachonadel: Set Target Position " + positionNorm);
             targetPosition = Mathf.Lerp(positionsMin, poitionsMax, positionNorm);
