@@ -4991,12 +4991,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa2ea9c8aafb2f54395941473ffc21dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tachomode: 0
+  averageHandSpeedTracker: {fileID: 0}
+  speedPeakTracker: {fileID: 0}
   positionsMin: 0
   poitionsMax: 9
   targetPosition: 0
   rotMin: -90
   rotMax: 180
   joint: {fileID: 7951293325207389515}
+  smoothing: 0.1
 --- !u!1001 &2634348373524035812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6007,6 +6011,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8663707121705484344, guid: e297a9997fa8de84daabf5bb02c06201,
         type: 3}
+      propertyPath: role
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663707121705484344, guid: e297a9997fa8de84daabf5bb02c06201,
+        type: 3}
       propertyPath: destroyOnSceneEnd
       value: 0
       objectReference: {fileID: 0}
@@ -6015,6 +6024,21 @@ PrefabInstance:
       propertyPath: listenToStageMaster
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8663707121705484344, guid: e297a9997fa8de84daabf5bb02c06201,
+        type: 3}
+      propertyPath: contributingVelocityTrackers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663707121705484344, guid: e297a9997fa8de84daabf5bb02c06201,
+        type: 3}
+      propertyPath: contributingVelocityTrackers.Array.data[0]
+      value: 
+      objectReference: {fileID: 7074300615603497194}
+    - target: {fileID: 8663707121705484344, guid: e297a9997fa8de84daabf5bb02c06201,
+        type: 3}
+      propertyPath: contributingVelocityTrackers.Array.data[1]
+      value: 
+      objectReference: {fileID: 5043627845001783611}
     - target: {fileID: 9099992052427161155, guid: e297a9997fa8de84daabf5bb02c06201,
         type: 3}
       propertyPath: m_IsActive
@@ -6408,12 +6432,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa2ea9c8aafb2f54395941473ffc21dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tachomode: 0
+  averageHandSpeedTracker: {fileID: 0}
+  speedPeakTracker: {fileID: 0}
   positionsMin: 0
   poitionsMax: 12
   targetPosition: 0
   rotMin: -90
   rotMax: 180
   joint: {fileID: 2384151430770737772}
+  smoothing: 0.1
 --- !u!1001 &4792100872894240683
 PrefabInstance:
   m_ObjectHideFlags: 0

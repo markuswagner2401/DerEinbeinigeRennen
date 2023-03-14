@@ -94,7 +94,7 @@ namespace ObliqueSenastions.AnimatorSpace
             if(inputMode == InputMode.readAtTacho)
             {
                 if(tachonadel == null) return;
-                smoothedSpeed = SmoothedTachoSpeed(tachonadel.GetTargetPositionNorm());
+                smoothedSpeed = SmoothedTachoSpeed(tachonadel.GetNormedTargetPosition());
             }
 
             else if (inputMode == InputMode.simpleVelocityTracker)

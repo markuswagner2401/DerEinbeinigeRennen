@@ -1,26 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+
 using ObliqueSenastions.VRRigSpace;
 using UnityEngine;
 
 namespace ObliqueSenastions.UISpace
 {
 
+
+
     public class Tachonadel : MonoBehaviour
     {
+
         enum Tachomode
         {
             readSpeedPeakTracker,
-            readAvarageVelocity,
+            readAvarageHandSpeed,
 
-            readNothing,
+            syncedByNetwork,
+            readNothing
         }
+
 
         [SerializeField] Tachomode tachomode = Tachomode.readSpeedPeakTracker;
 
         [SerializeField] AverageHandSpeedMapper averageHandSpeedTracker = null;
 
         [SerializeField] XRSpeedPeakTrackerSolo speedPeakTracker = null;
+
+
         [SerializeField] float positionsMin = 0f;
         [SerializeField] float poitionsMax = 12f;
 
@@ -38,6 +46,8 @@ namespace ObliqueSenastions.UISpace
 
 
 
+
+
         JointSpring spring;
 
         float mappedRotation;
@@ -49,63 +59,91 @@ namespace ObliqueSenastions.UISpace
                 joint = GetComponent<HingeJoint>();
             }
 
+
+
             spring = joint.spring;
         }
 
 
+
+
         void Update()
         {
-            spring.targetPosition = Mathf.Lerp(spring.targetPosition, MappedRotation(targetPosition),  smoothing) ;
+            spring.targetPosition = Mathf.Lerp(spring.targetPosition, MappedRotation(targetPosition), smoothing);
             //print("joint position" + spring.targetPosition);
             joint.spring = spring;
 
-            if(tachomode == Tachomode.readSpeedPeakTracker)
+            if (tachomode == Tachomode.readSpeedPeakTracker)
             {
-                if(speedPeakTracker == null) return;
-                SetTargetPositionNorm(speedPeakTracker.GetCurrentValue());
+
+                if (speedPeakTracker == null) return;
+                SetTargetPositionWithNormedValue(speedPeakTracker.GetCurrentNormedValue());
 
             }
 
-            else if(tachomode == Tachomode.readAvarageVelocity)
+            else if (tachomode == Tachomode.readAvarageHandSpeed)
             {
-                if(averageHandSpeedTracker == null) return;
-                SetTargetPositionNorm(averageHandSpeedTracker.GetAverageSpeed(true));
+
+                if (averageHandSpeedTracker == null) return;
+                SetTargetPositionWithNormedValue(averageHandSpeedTracker.GetAverageSpeedNormed(true));
+            }
+
+            else if (tachomode == Tachomode.syncedByNetwork)
+            {
+
             }
 
 
         }
+
+
 
         public void SetTargetPosition(float position)
         {
             targetPosition = position;
         }
 
-        private void SetTargetPositionNorm(float positionNorm) // TODO Change to private (Gets Set By XR Speed Peak Tracker)
-        {
-            //print("Tachonadel: Set Target Position " + positionNorm);
-            targetPosition = Mathf.Lerp(positionsMin, poitionsMax, positionNorm);
 
-        }
 
         public float GetTargetPosition() // Gets Read by Blend Shape Control
         {
             return targetPosition;
         }
 
-        public float GetTargetPositionNorm()
+        public float GetNormedTargetPosition()
         {
-//            print("Tachonadel: get Target Position Norm. " + this.gameObject + "   " + targetPosition + "   " + Mathf.InverseLerp(positionsMin, poitionsMax, targetPosition));
+            //            print("Tachonadel: get Target Position Norm. " + this.gameObject + "   " + targetPosition + "   " + Mathf.InverseLerp(positionsMin, poitionsMax, targetPosition));
             return Mathf.InverseLerp(positionsMin, poitionsMax, targetPosition);
         }
 
 
 
+        private void SetTargetPositionWithNormedValue(float positionNorm) // TODO Change to private (Gets Set By XR Speed Peak Tracker)
+        {
+            //print("Tachonadel: Set Target Position " + positionNorm);
+            targetPosition = Mathf.Lerp(positionsMin, poitionsMax, positionNorm);
+
+        }
 
 
         private float MappedRotation(float position)
         {
             float normalizedPosition = Mathf.InverseLerp(positionsMin, poitionsMax, position);
             return Mathf.Lerp(rotMin, rotMax, normalizedPosition);
+        }
+
+
+        /// Networking
+
+        public void SetTachomodeToNetworkSync() // if 
+        {
+            tachomode = Tachomode.syncedByNetwork;
+        }
+
+        public void SyncTargetPositionWithNormedValue(float positionNorm)
+        {
+            if (tachomode != Tachomode.syncedByNetwork) return; // doppelt gesichert
+            SetTargetPositionWithNormedValue(positionNorm);
         }
 
 

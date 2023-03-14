@@ -275,16 +275,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6d62d0bb649c30438bdce8dcd68a7b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  role: 3
+  contributingVelocityTrackers: []
   mineLayer:
     serializedVersion: 2
     m_Bits: 65536
   origin: {fileID: 9209123197275735955}
   headTarget: {fileID: 9209123197466035933}
-  pathToHeadSource: SafeAnchors/SafeHead
+  pathToHeadSource: OVRCameraRig/TrackingSpace/SafeAnchors/SafeHead
   leftHandTarget: {fileID: 9209123197915314388}
-  pathToLeftHandSource: SafeAnchors/SafeLeftHand
+  pathToLeftHandSource: OVRCameraRig/TrackingSpace/SafeAnchors/SafeLeftHand
   rightHandTarget: {fileID: 9209123197559588160}
-  pathToRightHandSource: SafeAnchors/SafeRightHand
+  pathToRightHandSource: OVRCameraRig/TrackingSpace/SafeAnchors/SafeRightHand
   syncHandAnimation: 0
   npLeftHandAnimator: {fileID: 9099992052419857909}
   npRightHandAnimator: {fileID: 3541047764536609226}
@@ -419,6 +421,7 @@ MonoBehaviour:
   currentLocalSpeed: 0
   currentLocalVelocity: {x: 0, y: 0, z: 0}
   speedChangeGate: 0.1
+  maxSpeed: 1.5
   smoothing: 0
 --- !u!1 &9209123197559588167
 GameObject:
@@ -495,6 +498,7 @@ MonoBehaviour:
   currentLocalSpeed: 0
   currentLocalVelocity: {x: 0, y: 0, z: 0}
   speedChangeGate: 0.1
+  maxSpeed: 1.5
   smoothing: 0
 --- !u!1 &9209123197915314395
 GameObject:
@@ -571,6 +575,7 @@ MonoBehaviour:
   currentLocalSpeed: 0
   currentLocalVelocity: {x: 0, y: 0, z: 0}
   speedChangeGate: 0.1
+  maxSpeed: 1.5
   smoothing: 0
 --- !u!1 &9209123199365987592
 GameObject:

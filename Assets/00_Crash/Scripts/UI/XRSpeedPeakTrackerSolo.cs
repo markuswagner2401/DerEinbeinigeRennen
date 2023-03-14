@@ -49,7 +49,7 @@ namespace ObliqueSenastions.UISpace
 
         }
 
-        float outputValue;
+        float outputValueNormed;
 
         void Start()
         {
@@ -106,16 +106,16 @@ namespace ObliqueSenastions.UISpace
                 {
                     //   print("reset");
                     //peakTrackers[i].tachonadel.SetTargetPositionNorm(0f);
-                    outputValue = 0f;
+                    outputValueNormed = 0f;
                     peakTracker.resetTime = 0f;
                 }
 
 
         }
 
-        public float GetCurrentValue()
+        public float GetCurrentNormedValue()
         {
-            return outputValue;
+            return outputValueNormed;
         }
 
         IEnumerator CalculateSpeedPeak(PeakTracker peakTracker)
@@ -163,7 +163,7 @@ namespace ObliqueSenastions.UISpace
 
             peakTracker.unityEvent.Invoke();
 
-            outputValue = Mathf.InverseLerp(peakTracker.speadMin, peakTracker.speedMax, peakTracker.speadPeak);
+            outputValueNormed = Mathf.InverseLerp(peakTracker.speadMin, peakTracker.speedMax, peakTracker.speadPeak);
             //peakTracker.tachonadel.SetTargetPositionNorm(Mathf.InverseLerp(peakTracker.speadMin, peakTracker.speedMax, peakTracker.speadPeak));
 
 

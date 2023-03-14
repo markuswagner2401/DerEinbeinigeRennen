@@ -10,6 +10,7 @@ using ExitGames.Client.Photon;
 using System.Linq;
 using ObliqueSenastions.SceneSpace;
 using ObliqueSenastions.TimelineSpace;
+using ObliqueSenastions.VRRigSpace;
 
 
 public enum Role
@@ -50,6 +51,8 @@ namespace ObliqueSenastions.PunNetworking
 
         [SerializeField] int maxInspizienten = 1;
 
+        
+        
 
         public delegate void My_OnJoinedRoom();
         public My_OnJoinedRoom my_OnJoinedRoom;

@@ -6,6 +6,7 @@ using Unity.XR.CoreUtils;
 using Photon.Pun;
 using System;
 using ObliqueSenastions.VRRigSpace;
+using ObliqueSenastions.UISpace;
 
 namespace ObliqueSenastions.PunNetworking
 {
@@ -13,18 +14,23 @@ namespace ObliqueSenastions.PunNetworking
 
     public class NetworkPlayer : MonoBehaviourPunCallbacks
     {
+        [SerializeField] Role role;
+
+        [SerializeField] SimpleVelocityTracker[] contributingVelocityTrackers;
+
+
         [Tooltip("Set to same as XR Rig")]
         [SerializeField] LayerMask mineLayer;
         [SerializeField] Transform origin;
         [SerializeField] Transform headTarget;
 
-        [SerializeField] string pathToHeadSource = "InteractionRigOVR_TravellerUI/SafeAnchors/SafeHead";
+        [SerializeField] string pathToHeadSource = "InteractionRigOVR_TravellerUI/OVRCameraRig/TrackingSpace/SafeAnchors/SafeHead";
         [SerializeField] Transform leftHandTarget;
 
-        [SerializeField] string pathToLeftHandSource = "InteractionRigOVR_TravellerUI/SafeAnchors/SafeLeftHand";
+        [SerializeField] string pathToLeftHandSource = "InteractionRigOVR_TravellerUI/OVRCameraRig/TrackingSpace/SafeAnchors/SafeLeftHand";
         [SerializeField] Transform rightHandTarget;
 
-        [SerializeField] string pathToRightHandSource = "InteractionRigOVR_TravellerUI/SafeAnchors/SafeRightHand";
+        [SerializeField] string pathToRightHandSource = "InteractionRigOVR_TravellerUI/OVRCameraRig/TrackingSpace/SafeAnchors/SafeRightHand";
 
         [SerializeField] bool syncHandAnimation = false;
         [SerializeField] Animator npLeftHandAnimator;
@@ -101,14 +107,11 @@ namespace ObliqueSenastions.PunNetworking
 
             }
 
-
-
-
-
+            
 
         }
 
-
+        
 
         private void Update()
         {
@@ -131,6 +134,11 @@ namespace ObliqueSenastions.PunNetworking
             Destroy(this.gameObject);
         }
 
+        public Role GetRole()
+        {
+            return role;
+        }
+
 
 
 
@@ -149,6 +157,7 @@ namespace ObliqueSenastions.PunNetworking
             {
                 if ((PhotonNetwork.IsConnected && PhotonNetwork.InRoom && photonView.IsMine))
                 {
+                    SetupVelocityListener();
                     SetupAvatar();
                     return;
                 }
@@ -183,6 +192,24 @@ namespace ObliqueSenastions.PunNetworking
             //        CapsuleFollowRig();
 
             //        onPlayerMappingUpdated.Invoke();
+        }
+
+        private void SetupVelocityListener()
+        {
+            NetworkPlayerVelocityListener[] networkPlayerVelocityListeners = FindObjectsOfType<NetworkPlayerVelocityListener>();
+            foreach (var listener in networkPlayerVelocityListeners)
+            {
+                if (listener.RoleMatch(role))
+                {
+                    IVelocityListener[] iVelocityListeners = listener.GetComponents<IVelocityListener>();
+                    foreach (var item in iVelocityListeners)
+                    {
+                        item.AddVelocityContributor(contributingVelocityTrackers);
+                    }
+                }
+
+
+            }
         }
 
         public void SetTransitionPointIndex(int index) // Gets Set By NetworkPlayerSpawner

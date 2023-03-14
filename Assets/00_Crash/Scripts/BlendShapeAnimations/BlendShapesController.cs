@@ -114,7 +114,7 @@ namespace ObliqueSenastions.Animation
 
             // Set current Index
 
-            currentIndex = Mathf.RoundToInt(Mathf.Lerp(0, shapeControls.Length - 1, blendShapesIndexTacho.GetTargetPositionNorm()));
+            currentIndex = Mathf.RoundToInt(Mathf.Lerp(0, shapeControls.Length - 1, blendShapesIndexTacho.GetNormedTargetPosition()));
 
 
 
@@ -151,14 +151,14 @@ namespace ObliqueSenastions.Animation
             {
                 shapeControls[currentIndex].targetWeight = Mathf.Lerp(shapeControls[currentIndex].minWeight,
                                                                               shapeControls[currentIndex].maxWeight,
-                                                                              blendShapesWeightTacho.GetTargetPositionNorm());
+                                                                              blendShapesWeightTacho.GetNormedTargetPosition());
             }
 
             else
             {
                 shapeControls[currentIndex].targetWeight = Mathf.Lerp(shapeControls[currentIndex].vFXControl.vfxParameters[0].valueMin,
                                                                        shapeControls[currentIndex].vFXControl.vfxParameters[0].valueMax,
-                                                                       blendShapesWeightTacho.GetTargetPositionNorm());
+                                                                       blendShapesWeightTacho.GetNormedTargetPosition());
             }
 
 

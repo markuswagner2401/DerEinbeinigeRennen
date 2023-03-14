@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-
+using ObliqueSenastions.UISpace;
 using UnityEngine;
 
 namespace ObliqueSenastions.VRRigSpace
 {
-    public class AverageHandSpeedMapper : MonoBehaviour
+    public class AverageHandSpeedMapper : MonoBehaviour, IVelocityListener
     {
         
 
@@ -30,8 +30,9 @@ namespace ObliqueSenastions.VRRigSpace
 
         
 
-        public float GetAverageSpeed(bool mapped)
+        public float GetAverageSpeedNormed(bool mapped)
         {
+            if(simpleVelocityTrackers.Count <= 0) return 0;
             float speedSum = 0;
             foreach (var item in simpleVelocityTrackers)
             {
@@ -49,6 +50,19 @@ namespace ObliqueSenastions.VRRigSpace
             return mappingCurve.Evaluate(speedNorm);
 
         }
+
+
+        //// IVelocityListener
+
+        public void AddVelocityContributor(SimpleVelocityTracker[] velocityContributors) // gets called by network player on setup avatar
+        {
+            foreach (var item in velocityContributors)
+            {
+                AddTracker(item);
+            }
+        }
+
+
     }
 
 }
