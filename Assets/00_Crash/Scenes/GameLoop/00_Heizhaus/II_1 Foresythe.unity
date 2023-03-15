@@ -3450,45 +3450,6 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 1993676429}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &413007708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413007698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 754353e5dfff3184b9a284f301d5b87b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetRole: 0
-  animator: {fileID: 413007705}
-  parameterRef: Speed
-  velocityTrackedAnimationControl: {fileID: 413007701}
---- !u!114 &413007709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413007698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 1
-  observableSearch: 2
-  ObservedComponents:
-  - {fileID: 413007708}
-  sceneViewId: 2
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!1 &419014256
 GameObject:
   m_ObjectHideFlags: 0
@@ -10783,6 +10744,11 @@ PrefabInstance:
       propertyPath: role
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3913726126087950888, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: ownerRole
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4734593319827238313, guid: 34b1aa38de2b9294ea067a842251e265,
         type: 3}
       propertyPath: sceneViewId
@@ -12310,45 +12276,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 127577741}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1786048843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1786048841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 754353e5dfff3184b9a284f301d5b87b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetRole: 1
-  animator: {fileID: 1786048853}
-  parameterRef: Speed
-  velocityTrackedAnimationControl: {fileID: 1786048846}
---- !u!114 &1786048844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1786048841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 1
-  observableSearch: 2
-  ObservedComponents:
-  - {fileID: 1786048843}
-  sceneViewId: 3
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!114 &1786048846
 MonoBehaviour:
   m_ObjectHideFlags: 0

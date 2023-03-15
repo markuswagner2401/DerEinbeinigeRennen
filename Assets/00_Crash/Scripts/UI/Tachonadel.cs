@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using ObliqueSenastions.VRRigSpace;
 using UnityEngine;
+using TMPro;
 
 namespace ObliqueSenastions.UISpace
 {
@@ -41,6 +42,9 @@ namespace ObliqueSenastions.UISpace
         [SerializeField] HingeJoint joint;
 
         [SerializeField] float smoothing = 0.1f;
+
+        [SerializeField] TextMeshProUGUI tmpValue = null;
+        [SerializeField] TextMeshProUGUI tmpTitel = null;
 
 
 
@@ -93,6 +97,10 @@ namespace ObliqueSenastions.UISpace
 
             }
 
+            
+
+            SetValueText(Mathf.RoundToInt(targetPosition).ToString());
+
 
         }
 
@@ -131,6 +139,21 @@ namespace ObliqueSenastions.UISpace
             float normalizedPosition = Mathf.InverseLerp(positionsMin, poitionsMax, position);
             return Mathf.Lerp(rotMin, rotMax, normalizedPosition);
         }
+
+
+        /// Text
+
+        public void SetTitelText(string text)
+        {
+            tmpTitel.text = text;
+        }
+
+        public void SetValueText(string text)
+        {
+            tmpValue.text = text;
+        }
+
+
 
 
         /// Networking

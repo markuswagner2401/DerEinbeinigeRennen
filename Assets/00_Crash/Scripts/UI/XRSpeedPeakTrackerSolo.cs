@@ -86,6 +86,8 @@ namespace ObliqueSenastions.UISpace
 
                 if (peakTracker.thresholdBroken) return;
 
+                peakTracker.thresholdBroken = true;
+
                 //   print("broken threshold");
 
                 StartCoroutine(CalculateSpeedPeak(peakTracker));
@@ -95,7 +97,7 @@ namespace ObliqueSenastions.UISpace
 
             else
             {
-                peakTracker.thresholdBroken = false;
+                //peakTracker.thresholdBroken = false;
                 peakTracker.resetTime += Time.deltaTime;
 
             }
@@ -121,7 +123,7 @@ namespace ObliqueSenastions.UISpace
         IEnumerator CalculateSpeedPeak(PeakTracker peakTracker)
         {
             print("calculate speed peak");
-            peakTracker.thresholdBroken = true;
+            // peakTracker.thresholdBroken = true;
             // print("calculate");
             float previousSpeed = 0f;
 
@@ -140,9 +142,12 @@ namespace ObliqueSenastions.UISpace
 
             while (previousSpeed < currentSpeed)
             {
+                print("while");
+
                 previousSpeed = currentSpeed;
-                yield return new WaitForSeconds(Time.deltaTime);
-                // print("while");
+
+                yield return new WaitForSeconds(0.1f);
+                
                 if (peakTracker.useSimpleVelocityTracker)
                 {
                     currentSpeed = peakTracker.simpleVelocityTracker.GetLocalSpeed();
@@ -152,16 +157,21 @@ namespace ObliqueSenastions.UISpace
                     currentSpeed = peakTracker.velocityTracker.GetSpeed();
                 }
 
+                yield return null;
+
+
             }
 
 
             peakTracker.time = 0f;
-            peakTracker.speadPeak = previousSpeed;
+            print("set timer to " + peakTracker.time);
+            peakTracker.speadPeak = peakTracker.currentSpeed;
+            //print("set spead peak: " + peakTracker.speadPeak);
 
 
 
 
-            peakTracker.unityEvent.Invoke();
+            //peakTracker.unityEvent.Invoke();
 
             outputValueNormed = Mathf.InverseLerp(peakTracker.speadMin, peakTracker.speedMax, peakTracker.speadPeak);
             //peakTracker.tachonadel.SetTargetPositionNorm(Mathf.InverseLerp(peakTracker.speadMin, peakTracker.speedMax, peakTracker.speadPeak));
@@ -169,6 +179,8 @@ namespace ObliqueSenastions.UISpace
 
 
             peakTracker.thresholdBroken = false;
+
+            print("threshold broken: " + peakTracker.thresholdBroken);
             // print("broken threshold= "+ peakTracker.thresholdBroken);
 
 

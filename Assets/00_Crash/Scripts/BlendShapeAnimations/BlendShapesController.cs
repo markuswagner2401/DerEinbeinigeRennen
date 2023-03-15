@@ -116,7 +116,7 @@ namespace ObliqueSenastions.Animation
 
             currentIndex = Mathf.RoundToInt(Mathf.Lerp(0, shapeControls.Length - 1, blendShapesIndexTacho.GetNormedTargetPosition()));
 
-
+            //blendShapesIndexTacho.SetValueText(currentIndex.ToString());
 
 
             // Check Reset Option at index

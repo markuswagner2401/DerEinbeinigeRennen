@@ -8,7 +8,7 @@ namespace ObliqueSenastions.PunNetworking
 {
     public class SyncTachonadel : MonoBehaviourPunCallbacks, IPunObservable
     {
-        [SerializeField] Role role;
+        [SerializeField] Role ownerRole;
 
         [SerializeField] Tachonadel tachonadel = null;
 
@@ -26,7 +26,7 @@ namespace ObliqueSenastions.PunNetworking
             {
                  localPlayerRole = MultiplayerConnector.instance.GetRole();
 
-                 SetupSync(localPlayerRole == role);
+                 SetupSync(localPlayerRole == ownerRole);
 
                  
             }
@@ -44,16 +44,16 @@ namespace ObliqueSenastions.PunNetworking
         {
             localPlayerRole = MultiplayerConnector.instance.GetRole();
 
-            SetupSync(localPlayerRole == role);
+            SetupSync(localPlayerRole == ownerRole);
         }
 
         
 
     
 
-        void SetupSync(bool isRole)
+        void SetupSync(bool isOwnerRole)
         {
-            if(isRole)
+            if(isOwnerRole)
             {
                 photonView.RequestOwnership();
             }

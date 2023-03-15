@@ -24,6 +24,8 @@ namespace ObliqueSenastions.VRRigSpace
 
         float lastLocalSpeed;
 
+        float localSpeedDuringGate;
+
         public Vector3 currentLocalVelocity = new Vector3();
 
         [SerializeField] float speedChangeGate = 0.1f;
@@ -90,14 +92,17 @@ namespace ObliqueSenastions.VRRigSpace
             if(Mathf.Abs(lastLocalSpeed - currentLocalSpeed) > speedChangeGate) 
             {
                 speedGate = true;
-                if(!(currentLocalSpeed < 0))
-                {
-                    currentLocalSpeed = lastLocalSpeed - 0.0001f;
-                }
-                
 
-                print("speed gate");
-                
+                if(currentLocalSpeed < 0)
+                {
+                    currentLocalSpeed = 0;
+                }
+
+                else
+                {
+                    currentLocalSpeed = Mathf.Clamp(lastLocalSpeed - 0.0001f, 0, maxSpeed);
+                }
+
             }
 
             else
