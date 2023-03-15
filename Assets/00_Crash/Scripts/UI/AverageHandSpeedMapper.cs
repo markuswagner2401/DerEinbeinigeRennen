@@ -30,7 +30,7 @@ namespace ObliqueSenastions.VRRigSpace
 
         
 
-        public float GetAverageSpeedNormed(bool mapped)
+        public float GetOutputValueNormaized(bool mappedOnCurve)
         {
             if(simpleVelocityTrackers.Count <= 0) return 0;
             float speedSum = 0;
@@ -41,7 +41,7 @@ namespace ObliqueSenastions.VRRigSpace
 
             float averageSpeed = speedSum / simpleVelocityTrackers.Count;
 
-            return mapped ? MapSpeed(averageSpeed) : speedSum / simpleVelocityTrackers.Count;
+            return mappedOnCurve ? MapSpeed(averageSpeed) : speedSum / simpleVelocityTrackers.Count;
         }
 
         private float MapSpeed(float t)

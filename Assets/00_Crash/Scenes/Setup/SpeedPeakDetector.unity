@@ -365,6 +365,7 @@ GameObject:
   - component: {fileID: 1435773049}
   - component: {fileID: 1435773048}
   - component: {fileID: 1435773050}
+  - component: {fileID: 1435773051}
   m_Layer: 0
   m_Name: movingThing
   m_TagString: Untagged
@@ -420,8 +421,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e821f6d1508b8a94e8c61ec597a3ebbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  simpleVelocityTracker: {fileID: 1435773048}
+  simpleVelocityTrackers:
+  - {fileID: 1435773048}
   speedThreshold: 0.1
   rising: 0
   speedPeak: 0
-  smoothing: 0.0001
+  peakDetectorSmoothing: 0.1
+  outputRisingSmoothing: 0.1
+  outputFallingSmoothing: 0.1
+  fallingDuration: 3
+  fallingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.78744876
+      value: 0.37160754
+      inSlope: 1.7141707
+      outSlope: 1.7141707
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 5.4488626
+      outSlope: 5.4488626
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.18887678
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  dynamicNormaization: 1
+  minSpeed: 0
+  maxSpeed: 10
+  outputValue: 0
+--- !u!114 &1435773051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435773047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcea99b7052e814a86fc25bb412e379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visual: 0

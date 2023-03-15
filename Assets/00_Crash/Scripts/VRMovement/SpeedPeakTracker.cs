@@ -6,7 +6,7 @@ namespace ObliqueSenastions.VRRigSpace
 {
     public class SpeedPeakTracker : MonoBehaviour
     {
-        [SerializeField] SimpleVelocityTracker simpleVelocityTracker;
+        [SerializeField] SimpleVelocityTracker[] simpleVelocityTrackers;
 
         [SerializeField] float speedThreshold = 0.1f;
 
@@ -54,18 +54,29 @@ namespace ObliqueSenastions.VRRigSpace
 
         void Start()
         {
-            currentSpeed = simpleVelocityTracker.GetLocalSpeed();
-            smoothedSpeed = Mathf.Lerp(currentSpeed, simpleVelocityTracker.GetLocalSpeed(), peakDetectorSmoothing);
+            currentSpeed = AverageSpeed();
+            smoothedSpeed = Mathf.Lerp(currentSpeed, currentSpeed, peakDetectorSmoothing);
 
             lastSpeed = currentSpeed;
             lastSmoothedSpeed = smoothedSpeed;
+        }
+
+        float AverageSpeed()
+        {
+            float speedSum = 0;
+            for (int i = 0; i < simpleVelocityTrackers.Length; i++)
+            {
+                speedSum += simpleVelocityTrackers[i].GetLocalSpeed();
+            }
+
+            return speedSum / simpleVelocityTrackers.Length;
         }
 
         // Update is called once per frame
         void Update()
         {
 
-            currentSpeed = simpleVelocityTracker.GetLocalSpeed();
+            currentSpeed = AverageSpeed();
             smoothedSpeed = Mathf.Lerp(smoothedSpeed, currentSpeed, peakDetectorSmoothing);
 
             highestSpeed = (currentSpeed > highestSpeed) ? currentSpeed : highestSpeed;

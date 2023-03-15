@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 2858979823862502844}
   - component: {fileID: 12251066198780240}
   - component: {fileID: 5052685247358438150}
-  - component: {fileID: 6399326150616810653}
+  - component: {fileID: 5423073464106245734}
   - component: {fileID: 6862572657201389803}
   - component: {fileID: 4734593319827238313}
   - component: {fileID: 3913726126087950888}
@@ -1534,7 +1534,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6399326150616810653
+--- !u!114 &5423073464106245734
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1543,30 +1543,54 @@ MonoBehaviour:
   m_GameObject: {fileID: 3268587695710345905}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6db2d384313feb44c9fab3c1d57a96bb, type: 3}
+  m_Script: {fileID: 11500000, guid: e821f6d1508b8a94e8c61ec597a3ebbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  veloTheshold: 0.1
-  resetTimer: 0
-  resetAfterStillSeconds: 3
-  peakTracker:
-    velocityTracker: {fileID: 0}
-    useSimpleVelocityTracker: 1
-    simpleVelocityTracker: {fileID: 0}
-    tachonadel: {fileID: 0}
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
-    currentSpeed: 0
-    speedThreshold: 0
-    speadPeak: 0
-    speadMin: 0
-    speedMax: 0
-    thresholdBroken: 0
-    time: 0
-    stayTimeAtPeak: 0
-    resetTime: 0
-    resetAfterStillSeconds: 0
+  simpleVelocityTrackers: []
+  speedThreshold: 0.1
+  rising: 0
+  speedPeak: 0
+  peakDetectorSmoothing: 0.1
+  outputRisingSmoothing: 0.1
+  outputFallingSmoothing: 0.1
+  fallingDuration: 3
+  fallingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.7736083
+      value: 0.42875865
+      inSlope: 1.6806606
+      outSlope: 1.6806606
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.47910318
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2.5232437
+      outSlope: 2.5232437
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  dynamicNormaization: 1
+  minSpeed: 0
+  maxSpeed: 0.7
+  outputValue: 0
 --- !u!114 &6862572657201389803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1581,7 +1605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tachomode: 1
   averageHandSpeedTracker: {fileID: 5052685247358438150}
-  speedPeakTracker: {fileID: 6399326150616810653}
+  speedPeakTracker: {fileID: 5423073464106245734}
   positionsMin: 0
   poitionsMax: 12
   targetPosition: 0

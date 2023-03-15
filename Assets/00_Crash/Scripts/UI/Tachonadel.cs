@@ -27,7 +27,7 @@ namespace ObliqueSenastions.UISpace
 
         [SerializeField] AverageHandSpeedMapper averageHandSpeedTracker = null;
 
-        [SerializeField] XRSpeedPeakTrackerSolo speedPeakTracker = null;
+        [SerializeField] SpeedPeakTracker speedPeakTracker = null;
 
 
         [SerializeField] float positionsMin = 0f;
@@ -81,7 +81,7 @@ namespace ObliqueSenastions.UISpace
             {
 
                 if (speedPeakTracker == null) return;
-                SetTargetPositionWithNormedValue(speedPeakTracker.GetCurrentNormedValue());
+                SetTargetPositionWithNormedValue(speedPeakTracker.GetOutputValueNormalized());
 
             }
 
@@ -89,7 +89,7 @@ namespace ObliqueSenastions.UISpace
             {
 
                 if (averageHandSpeedTracker == null) return;
-                SetTargetPositionWithNormedValue(averageHandSpeedTracker.GetAverageSpeedNormed(true));
+                SetTargetPositionWithNormedValue(averageHandSpeedTracker.GetOutputValueNormaized(true));
             }
 
             else if (tachomode == Tachomode.syncedByNetwork)
