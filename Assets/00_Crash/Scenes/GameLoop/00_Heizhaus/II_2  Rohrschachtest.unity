@@ -222,6 +222,56 @@ PrefabInstance:
       propertyPath: smoothing
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 7003752508258073247, guid: b12cdfa0796fe3a448948d305a8bfe63,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003752508258073247, guid: b12cdfa0796fe3a448948d305a8bfe63,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003752508258073247, guid: b12cdfa0796fe3a448948d305a8bfe63,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003752508258073247, guid: b12cdfa0796fe3a448948d305a8bfe63,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003752508258073247, guid: b12cdfa0796fe3a448948d305a8bfe63,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[4]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003752508258073247, guid: b12cdfa0796fe3a448948d305a8bfe63,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[5]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003752508258073247, guid: b12cdfa0796fe3a448948d305a8bfe63,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[6]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003752508258073247, guid: b12cdfa0796fe3a448948d305a8bfe63,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[7]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003752508258073247, guid: b12cdfa0796fe3a448948d305a8bfe63,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[8]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003752508258073247, guid: b12cdfa0796fe3a448948d305a8bfe63,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[9]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8820769023503432065, guid: b12cdfa0796fe3a448948d305a8bfe63,
         type: 3}
       propertyPath: smoothing
@@ -281,11 +331,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skinnedMesh: {fileID: 0}
   mesh: {fileID: 6873442620657365552, guid: b42d9cc920abf794eabbcda53b5f8687, type: 3}
+  useGlobalWeight: 0
   shapeControls:
   - resetAllWeights: 0
-    blendShapeIndex: 0
+    blendShapeIndex: 8
     minWeight: 0
-    maxWeight: 0
+    maxWeight: 270
     currentWeight: 0
     targetWeight: 0
     smoothing: 0
@@ -294,20 +345,9 @@ MonoBehaviour:
       visualEffect: {fileID: 0}
       vfxParameters: []
   - resetAllWeights: 0
-    blendShapeIndex: 0
-    minWeight: 0
-    maxWeight: 100
-    currentWeight: 0
-    targetWeight: 0
-    smoothing: 0.1
-    vfxEffect: 0
-    vFXControl:
-      visualEffect: {fileID: 0}
-      vfxParameters: []
-  - resetAllWeights: 0
     blendShapeIndex: 1
     minWeight: 0
-    maxWeight: 100
+    maxWeight: 200
     currentWeight: 0
     targetWeight: 0
     smoothing: 0.1
@@ -318,7 +358,18 @@ MonoBehaviour:
   - resetAllWeights: 0
     blendShapeIndex: 2
     minWeight: 0
-    maxWeight: 100
+    maxWeight: 300
+    currentWeight: 0
+    targetWeight: 0
+    smoothing: 0.1
+    vfxEffect: 0
+    vFXControl:
+      visualEffect: {fileID: 0}
+      vfxParameters: []
+  - resetAllWeights: 0
+    blendShapeIndex: 0
+    minWeight: 0
+    maxWeight: 0
     currentWeight: 0
     targetWeight: 0
     smoothing: 0.1
@@ -329,7 +380,7 @@ MonoBehaviour:
   - resetAllWeights: 0
     blendShapeIndex: 3
     minWeight: 0
-    maxWeight: 100
+    maxWeight: 120
     currentWeight: 0
     targetWeight: 0
     smoothing: 0.1
@@ -340,7 +391,7 @@ MonoBehaviour:
   - resetAllWeights: 0
     blendShapeIndex: 4
     minWeight: 0
-    maxWeight: 100
+    maxWeight: 30
     currentWeight: 0
     targetWeight: 0
     smoothing: 0.1
@@ -351,7 +402,7 @@ MonoBehaviour:
   - resetAllWeights: 0
     blendShapeIndex: 5
     minWeight: 0
-    maxWeight: 13.3
+    maxWeight: 5
     currentWeight: 0
     targetWeight: 0
     smoothing: 0.1
@@ -362,7 +413,7 @@ MonoBehaviour:
   - resetAllWeights: 0
     blendShapeIndex: 6
     minWeight: 0
-    maxWeight: 100
+    maxWeight: 25
     currentWeight: 0
     targetWeight: 0
     smoothing: 0.1
@@ -373,7 +424,7 @@ MonoBehaviour:
   - resetAllWeights: 0
     blendShapeIndex: 7
     minWeight: 0
-    maxWeight: 100
+    maxWeight: 250
     currentWeight: 0
     targetWeight: 0
     smoothing: 0.1
@@ -384,7 +435,7 @@ MonoBehaviour:
   - resetAllWeights: 0
     blendShapeIndex: 8
     minWeight: 0
-    maxWeight: 100
+    maxWeight: 500
     currentWeight: 0
     targetWeight: 0
     smoothing: 0.1
@@ -395,7 +446,7 @@ MonoBehaviour:
   - resetAllWeights: 0
     blendShapeIndex: 9
     minWeight: 0
-    maxWeight: 100
+    maxWeight: 700
     currentWeight: 0
     targetWeight: 0
     smoothing: 0.1
@@ -403,36 +454,6 @@ MonoBehaviour:
     vFXControl:
       visualEffect: {fileID: 0}
       vfxParameters: []
-  - resetAllWeights: 0
-    blendShapeIndex: 9
-    minWeight: 0
-    maxWeight: 100
-    currentWeight: 0
-    targetWeight: 0
-    smoothing: 0.1
-    vfxEffect: 1
-    vFXControl:
-      visualEffect: {fileID: 0}
-      vfxParameters:
-      - parameterName: platzhalter
-        valueMin: 0
-        valueMax: 1
-        currentValue: 0
-  - resetAllWeights: 0
-    blendShapeIndex: 2
-    minWeight: 0
-    maxWeight: 100
-    currentWeight: 0
-    targetWeight: 0
-    smoothing: 0.1
-    vfxEffect: 1
-    vFXControl:
-      visualEffect: {fileID: 0}
-      vfxParameters:
-      - parameterName: platzhalter
-        valueMin: 0
-        valueMax: 1
-        currentValue: 0
   blendShapesIndexTacho: {fileID: 1594101313}
   blendShapesWeightTacho: {fileID: 2054766587}
   currentIndex: 0

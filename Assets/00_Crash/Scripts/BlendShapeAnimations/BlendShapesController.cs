@@ -15,6 +15,10 @@ namespace ObliqueSenastions.Animation
         [SerializeField] SkinnedMeshRenderer skinnedMesh;
         [SerializeField] Mesh mesh;
 
+        [SerializeField] bool useGlobalWeight = false;
+
+        float weightTachoInputNormaized = 0;
+
         [Tooltip("match count with states of index tacho count")]
         [SerializeField] ShapeControl[] shapeControls;
 
@@ -80,10 +84,10 @@ namespace ObliqueSenastions.Animation
 
                 else
                 {
-                    
+
                     GameObject tachoLinksGO = GameObject.FindWithTag("TachoPlayerLinks");
                     GameObject tachoRechtsGO = GameObject.FindWithTag("TachoPlayerRechts");
-                    if(tachoLinksGO == null)
+                    if (tachoLinksGO == null)
                     {
                         Debug.LogError("BlendShapesController: Cant Find Tachonadel Links; Tacho not set");
                         tachosSet = false;
@@ -95,7 +99,7 @@ namespace ObliqueSenastions.Animation
                         blendShapesIndexTacho = tachoLinksGO.GetComponent<Tachonadel>();
                     }
 
-                    if(tachoRechtsGO == null)
+                    if (tachoRechtsGO == null)
                     {
                         Debug.LogError("BlendShapesController: Cant Find Tachonadel Rechts; Tacho not set");
                         tachosSet = false;
@@ -107,7 +111,7 @@ namespace ObliqueSenastions.Animation
                         blendShapesWeightTacho = tachoRechtsGO.GetComponent<Tachonadel>();
                     }
 
-                    
+
                     return;
                 }
             }
@@ -116,7 +120,9 @@ namespace ObliqueSenastions.Animation
 
             currentIndex = Mathf.RoundToInt(Mathf.Lerp(0, shapeControls.Length - 1, blendShapesIndexTacho.GetNormedTargetPosition()));
 
-            //blendShapesIndexTacho.SetValueText(currentIndex.ToString());
+            MultiplayerMethod();
+
+            return;
 
 
             // Check Reset Option at index
@@ -133,15 +139,15 @@ namespace ObliqueSenastions.Animation
 
             // Revert Last Weight Value if Index changed
 
-            if (currentIndex != previousIndex) /// TODO: ???
-            {
-                // blendShapesWeightTacho.SetTargetPositionNorm(Mathf.InverseLerp(shapeControls[currentIndex].minWeight,
-                //                                                         shapeControls[currentIndex].maxWeight,
-                //                                                         shapeControls[currentIndex].currentWeight));
+            // if (currentIndex != previousIndex) /// TODO: ???
+            // {
+            //     // blendShapesWeightTacho.SetTargetPositionNorm(Mathf.InverseLerp(shapeControls[currentIndex].minWeight,
+            //     //                                                         shapeControls[currentIndex].maxWeight,
+            //     //                                                         shapeControls[currentIndex].currentWeight));
 
 
 
-            }
+            // }
 
             previousIndex = currentIndex;
 
@@ -160,6 +166,8 @@ namespace ObliqueSenastions.Animation
                                                                        shapeControls[currentIndex].vFXControl.vfxParameters[0].valueMax,
                                                                        blendShapesWeightTacho.GetNormedTargetPosition());
             }
+
+
 
 
             // Lerp current weight to target Weight
@@ -187,8 +195,6 @@ namespace ObliqueSenastions.Animation
                         ControlVFXEffect();
                     }
 
-
-
                 }
             }
 
@@ -199,8 +205,52 @@ namespace ObliqueSenastions.Animation
 
         }
 
+        private void MultiplayerMethod()
+        {
+            // new Method
+
+            weightTachoInputNormaized = blendShapesWeightTacho.GetNormedTargetPosition();
+
+            for (int i = 0; i < shapeControls.Length; i++)
+            {
+                if (i == currentIndex)
+                {
+                    shapeControls[i].targetWeight = Mathf.Lerp(shapeControls[i].minWeight, shapeControls[i].maxWeight, weightTachoInputNormaized);
+                }
+
+                else
+                {
+                    shapeControls[i].targetWeight = shapeControls[i].minWeight;
+                }
+            }
+
+            for (int i = 0; i < shapeControls.Length; i++)
+            {
+                // if (shapeControls[i].resetAllWeights)
+                // {
+                //     continue;
+                // }
+
+                if (Mathf.Abs(shapeControls[i].currentWeight - shapeControls[i].targetWeight) > threshold)
+                {
+                    shapeControls[i].currentWeight = Mathf.Lerp(shapeControls[i].currentWeight, shapeControls[i].targetWeight, shapeControls[i].smoothing);
+
+                    // apply current weight
+
+                    if (shapeControls[i].blendShapeIndex < mesh.blendShapeCount)
+                    {
+                        skinnedMesh.SetBlendShapeWeight(shapeControls[i].blendShapeIndex, shapeControls[i].currentWeight);
+                    }
+
+                    // if (shapeControls[currentIndex].vfxEffect && shapeControls[currentIndex].vFXControl.visualEffect != null)
+                    // {
+                    //     ControlVFXEffect();
+                    // }
+                }
+            }
 
 
+        }
 
         private void ResetAllWeights()
         {
