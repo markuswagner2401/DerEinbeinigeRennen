@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using ObliqueSenastions.UISpace;
 
 namespace ObliqueSenastions.VRRigSpace
 {
-    public class SpeedPeakTracker : MonoBehaviour
+    public class SpeedPeakTracker : MonoBehaviourPun, IVelocityListener
     {
-        [SerializeField] SimpleVelocityTracker[] simpleVelocityTrackers;
+        [SerializeField] List<SimpleVelocityTracker> simpleVelocityTrackersSinglePlayer;
+
+        [SerializeField] List<SimpleVelocityTracker> simpleVelocityTrackersMultiplayer;
 
         [SerializeField] float speedThreshold = 0.1f;
 
@@ -50,7 +54,7 @@ namespace ObliqueSenastions.VRRigSpace
 
 
 
-        
+
 
         void Start()
         {
@@ -61,16 +65,7 @@ namespace ObliqueSenastions.VRRigSpace
             lastSmoothedSpeed = smoothedSpeed;
         }
 
-        float AverageSpeed()
-        {
-            float speedSum = 0;
-            for (int i = 0; i < simpleVelocityTrackers.Length; i++)
-            {
-                speedSum += simpleVelocityTrackers[i].GetLocalSpeed();
-            }
 
-            return speedSum / simpleVelocityTrackers.Length;
-        }
 
         // Update is called once per frame
         void Update()
@@ -124,9 +119,45 @@ namespace ObliqueSenastions.VRRigSpace
 
         }
 
+        float AverageSpeed()
+        {
+            if (PhotonNetwork.IsConnected)
+            {
+                float speedSum = 0;
+                for (int i = 0; i < simpleVelocityTrackersMultiplayer.Count; i++)
+                {
+                    speedSum += simpleVelocityTrackersMultiplayer[i].GetLocalSpeed();
+                }
+
+                return speedSum / simpleVelocityTrackersMultiplayer.Count;
+
+            }
+
+            else
+            {
+                float speedSum = 0;
+                for (int i = 0; i < simpleVelocityTrackersSinglePlayer.Count; i++)
+                {
+                    speedSum += simpleVelocityTrackersSinglePlayer[i].GetLocalSpeed();
+                }
+
+                return speedSum / simpleVelocityTrackersSinglePlayer.Count;
+
+            }
+
+        }
+
+        public void AddMultiplayerTracker(SimpleVelocityTracker[] trackers)
+        {
+            foreach (var item in trackers)
+            {
+                simpleVelocityTrackersMultiplayer.Add(item);
+            }
+        }
+
         public float GetOutputValueNormalized()
         {
-            if(dynamicNormaization)
+            if (dynamicNormaization)
             {
                 return Mathf.InverseLerp(0, highestSpeed, outputValue);
             }
@@ -135,13 +166,21 @@ namespace ObliqueSenastions.VRRigSpace
             {
                 return Mathf.InverseLerp(minSpeed, maxSpeed, outputValue);
             }
-            
+
         }
 
-        private void OnDrawGizmos() 
+        private void OnDrawGizmos()
         {
-            
+
             Gizmos.DrawLine(transform.position, transform.position + transform.up * GetOutputValueNormalized() * 10f);
+        }
+
+
+        //// IVelocityListener
+
+        public void AddVelocityContributor(SimpleVelocityTracker[] velocityContributors)
+        {
+            AddMultiplayerTracker(velocityContributors);
         }
     }
 

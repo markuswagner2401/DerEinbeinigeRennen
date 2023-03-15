@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using ObliqueSenastions.UISpace;
 using UnityEngine;
+using Photon.Pun;
 
 namespace ObliqueSenastions.VRRigSpace
 {
-    public class AverageHandSpeedMapper : MonoBehaviour, IVelocityListener
+    public class AverageHandSpeedMapper : MonoBehaviourPun, IVelocityListener
     {
         
 
-        [SerializeField] List<SimpleVelocityTracker> simpleVelocityTrackers;
+        [SerializeField] List<SimpleVelocityTracker> simpleVelocityTrackersMultiplayer;
+
+        [SerializeField] List<SimpleVelocityTracker> simpleVelocityTrackersSingleplayer;
 
         [SerializeField] float mapMinSpeed = 0f;
 
@@ -25,23 +28,24 @@ namespace ObliqueSenastions.VRRigSpace
         
         public void AddTracker(SimpleVelocityTracker newTracker)
         {
-            simpleVelocityTrackers.Add(newTracker);
+            simpleVelocityTrackersMultiplayer.Add(newTracker);
         }
 
         
 
         public float GetOutputValueNormaized(bool mappedOnCurve)
         {
-            if(simpleVelocityTrackers.Count <= 0) return 0;
+            List<SimpleVelocityTracker> trackerlist = PhotonNetwork.IsConnected ? simpleVelocityTrackersMultiplayer : simpleVelocityTrackersSingleplayer;
+            if(trackerlist.Count <= 0) return 0;
             float speedSum = 0;
-            foreach (var item in simpleVelocityTrackers)
+            foreach (var item in trackerlist)
             {
                 speedSum += item.GetLocalSpeed();
             }
 
-            float averageSpeed = speedSum / simpleVelocityTrackers.Count;
+            float averageSpeed = speedSum / trackerlist.Count;
 
-            return mappedOnCurve ? MapSpeed(averageSpeed) : speedSum / simpleVelocityTrackers.Count;
+            return mappedOnCurve ? MapSpeed(averageSpeed) : speedSum / trackerlist.Count;
         }
 
         private float MapSpeed(float t)

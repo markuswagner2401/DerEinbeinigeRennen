@@ -282,7 +282,7 @@ MonoBehaviour:
   skinnedMesh: {fileID: 0}
   mesh: {fileID: 6873442620657365552, guid: b42d9cc920abf794eabbcda53b5f8687, type: 3}
   shapeControls:
-  - resetAllWeights: 1
+  - resetAllWeights: 0
     blendShapeIndex: 0
     minWeight: 0
     maxWeight: 0
@@ -434,7 +434,7 @@ MonoBehaviour:
         valueMax: 1
         currentValue: 0
   blendShapesIndexTacho: {fileID: 1594101313}
-  blendShapesWeightTacho: {fileID: 459408109}
+  blendShapesWeightTacho: {fileID: 2054766587}
   currentIndex: 0
 --- !u!1001 &45065834
 PrefabInstance:
@@ -3002,12 +3002,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32d7f6cae76115b43a21921545fa2ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1269858198 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3268587695710345905, guid: 34b1aa38de2b9294ea067a842251e265,
-    type: 3}
-  m_PrefabInstance: {fileID: 1594101307}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1301191152
 GameObject:
   m_ObjectHideFlags: 0
@@ -3626,6 +3620,31 @@ PrefabInstance:
       propertyPath: simpleVelocityTrackers.Array.data[1]
       value: 
       objectReference: {fileID: 253154632}
+    - target: {fileID: 5052685247358438150, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersMultiplayer.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052685247358438150, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersSingleplayer.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052685247358438150, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersMultiplayer.Array.data[0]
+      value: 
+      objectReference: {fileID: 253154632}
+    - target: {fileID: 5052685247358438150, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersMultiplayer.Array.data[1]
+      value: 
+      objectReference: {fileID: 1611360696}
+    - target: {fileID: 5052685247358438150, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersSingleplayer.Array.data[0]
+      value: 
+      objectReference: {fileID: 253154632}
     - target: {fileID: 5423073464106245734, guid: 34b1aa38de2b9294ea067a842251e265,
         type: 3}
       propertyPath: simpleVelocityTrackers.Array.size
@@ -3636,6 +3655,16 @@ PrefabInstance:
       propertyPath: simpleVelocityTrackers.Array.data[0]
       value: 
       objectReference: {fileID: 1611360696}
+    - target: {fileID: 5423073464106245734, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersSinglePlayer.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5423073464106245734, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersSinglePlayer.Array.data[0]
+      value: 
+      objectReference: {fileID: 253154632}
     - target: {fileID: 6399326150616810653, guid: 34b1aa38de2b9294ea067a842251e265,
         type: 3}
       propertyPath: m_Enabled
@@ -3700,45 +3729,12 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1594101307}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1269858198}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa2ea9c8aafb2f54395941473ffc21dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1594101317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1269858198}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 723cdee7d45247341bf3beff8d62531f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  veloTheshold: 0.1
-  resetTimer: 0
-  resetAfterStillSeconds: 3
-  peakTrackers:
-  - velocityTracker: {fileID: 0}
-    useSimpleVelocityTracker: 1
-    simpleVelocityTracker: {fileID: 1611360696}
-    tachonadel: {fileID: 0}
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
-    currentSpeed: 0
-    speedThreshold: 0.1
-    speadPeak: 0
-    speadMin: 0
-    speedMax: 1
-    thresholdBroken: 0
-    time: 0
-    stayTimeAtPeak: 2
-    resetTime: 0
-    resetAfterStillSeconds: 2
 --- !u!1 &1595851623 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3180748013131583060, guid: b12cdfa0796fe3a448948d305a8bfe63,
@@ -5062,11 +5058,46 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3913726126087950888, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: ownerRole
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4734593319827238313, guid: 34b1aa38de2b9294ea067a842251e265,
         type: 3}
       propertyPath: sceneViewId
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5052685247358438150, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersSingleplayer.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052685247358438150, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersSingleplayer.Array.data[0]
+      value: 
+      objectReference: {fileID: 1611360696}
+    - target: {fileID: 5141568625836258034, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: contributingRole
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5423073464106245734, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: dynamicNormaization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5423073464106245734, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersSinglePlayer.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5423073464106245734, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersSinglePlayer.Array.data[0]
+      value: 
+      objectReference: {fileID: 1611360696}
     - target: {fileID: 6399326150616810653, guid: 34b1aa38de2b9294ea067a842251e265,
         type: 3}
       propertyPath: m_Enabled
@@ -5082,6 +5113,11 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 36.15
       objectReference: {fileID: 0}
+    - target: {fileID: 6862572657201389803, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: tachomode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34b1aa38de2b9294ea067a842251e265, type: 3}
 --- !u!4 &2054766582 stripped
@@ -5090,6 +5126,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2054766581}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2054766587 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6862572657201389803, guid: 34b1aa38de2b9294ea067a842251e265,
+    type: 3}
+  m_PrefabInstance: {fileID: 2054766581}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa2ea9c8aafb2f54395941473ffc21dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2061147734 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6980736060683198634, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
