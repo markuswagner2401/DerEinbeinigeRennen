@@ -188,6 +188,12 @@ PrefabInstance:
       objectReference: {fileID: 251137651408939310}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2862e402ce69b6241ac0c3ed65bc33ed, type: 3}
+--- !u!4 &885874973779296296 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 395472548403297801, guid: 2862e402ce69b6241ac0c3ed65bc33ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 663791351690247713}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1009752665488982064 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 519354337294597649, guid: 2862e402ce69b6241ac0c3ed65bc33ed,
@@ -209,6 +215,12 @@ MonoBehaviour:
 --- !u!4 &6022100076329453382 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6531502225775229287, guid: 2862e402ce69b6241ac0c3ed65bc33ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 663791351690247713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8745000804053391424 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8100349905679328865, guid: 2862e402ce69b6241ac0c3ed65bc33ed,
     type: 3}
   m_PrefabInstance: {fileID: 663791351690247713}
   m_PrefabAsset: {fileID: 0}
@@ -524,6 +536,16 @@ PrefabInstance:
       propertyPath: _hand
       value: 
       objectReference: {fileID: 6446833184722316668}
+    - target: {fileID: 5535117188963491193, guid: aaab1048329c2b94cb0e136c668767b7,
+        type: 3}
+      propertyPath: leftHandForward
+      value: 
+      objectReference: {fileID: 8745000804053391424}
+    - target: {fileID: 5535117188963491193, guid: aaab1048329c2b94cb0e136c668767b7,
+        type: 3}
+      propertyPath: rightHandForward
+      value: 
+      objectReference: {fileID: 885874973779296296}
     - target: {fileID: 5588915386159038474, guid: aaab1048329c2b94cb0e136c668767b7,
         type: 3}
       propertyPath: xrRig
@@ -1511,6 +1533,7 @@ MonoBehaviour:
   currentLocalSpeed: 0
   currentLocalVelocity: {x: 0, y: 0, z: 0}
   speedChangeGate: 0.1
+  maxSpeed: 1.5
   smoothing: 0.1
 --- !u!1 &5137976137550908111 stripped
 GameObject:
@@ -1537,6 +1560,7 @@ MonoBehaviour:
   currentLocalSpeed: 0
   currentLocalVelocity: {x: 0, y: 0, z: 0}
   speedChangeGate: 0.1
+  maxSpeed: 1.5
   smoothing: 0.1
 --- !u!114 &6446833184722316668 stripped
 MonoBehaviour:
