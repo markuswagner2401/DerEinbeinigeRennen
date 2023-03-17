@@ -121,6 +121,7 @@ namespace ObliqueSenastions.PunNetworking
 
         private void Start()
         {
+            
 
             //SceneManager.activeSceneChanged += OnSceneChanged;
             // if(PhotonNetwork.IsConnected && PhotonNetwork.InRoom)

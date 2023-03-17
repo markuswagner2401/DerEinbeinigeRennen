@@ -9,6 +9,8 @@ namespace ObliqueSenastions.ClapSpace
         [SerializeField] Transform leftHandForward = null;
         [SerializeField] Transform rightHandForward = null;
 
+        Ray ray = new Ray();
+
         
 
 
@@ -21,7 +23,15 @@ namespace ObliqueSenastions.ClapSpace
             transform.position = Vector3.Lerp(leftHandForward.position, rightHandForward.position, 0.5f);
             transform.forward = (leftHandForward.forward + rightHandForward.forward).normalized;
 
+            ray.origin = transform.position;
+            ray.direction = transform.forward;
 
+
+        }
+
+        public Ray GetRay()
+        {
+            return ray;
         }
 
         

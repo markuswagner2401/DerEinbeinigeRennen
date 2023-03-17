@@ -86,7 +86,12 @@ namespace ObliqueSenastions.Looping
 
             if (timelineTime == null)
             {
-                timelineTime = TimeLineHandler.instance.GetComponent<TimelineTime>();
+                TimeLineHandler timeLineHandler = TimeLineHandler.instance;
+                if(timeLineHandler != null)
+                {
+                    timelineTime = timeLineHandler.GetComponent<TimelineTime>();
+                }
+                
             }
 
             

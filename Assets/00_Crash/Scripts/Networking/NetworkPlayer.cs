@@ -183,6 +183,8 @@ namespace ObliqueSenastions.PunNetworking
                     UpdateHandAnimation(InputDevices.GetDeviceAtXRNode(XRNode.RightHand), npRightHandAnimator);
                 }
 
+                
+
 
 
 

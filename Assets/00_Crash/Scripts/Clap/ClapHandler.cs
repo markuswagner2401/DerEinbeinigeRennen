@@ -61,8 +61,10 @@ namespace ObliqueSenastions.ClapSpace
 
         void OnClapDetected()
         {
-
+            
             if (isClapping) return;
+
+            
 
             if (!TrackingIsGood()) return;
 
@@ -92,10 +94,12 @@ namespace ObliqueSenastions.ClapSpace
 
         IEnumerator OneClapRoutine()
         {
+            
 
             isClapping = true;
             float strength = velocityTrackerLeft.GetLocalSpeed() + velocityTrackerRight.GetLocalSpeed();
-            doOnColliderClap(NormalizeStrength(strength));
+            //print("clapHandler: ClapRoutine, Strength: " + strength);
+            doOnColliderClap.Invoke(NormalizeStrength(strength));
             yield return new WaitForSecondsRealtime(timeBetweenClaps);
             isClapping = false;
             yield break;
@@ -109,7 +113,7 @@ namespace ObliqueSenastions.ClapSpace
 
         void PlaceholderClapCollision(float clapStrength)
         {
-            // print("clap with: " + clapStrength);
+            //print("clap with: " + clapStrength);
             return;
         }
 

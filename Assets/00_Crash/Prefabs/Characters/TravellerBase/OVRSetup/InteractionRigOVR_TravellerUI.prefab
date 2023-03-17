@@ -1465,6 +1465,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaab1048329c2b94cb0e136c668767b7, type: 3}
+--- !u!114 &659049182413164550 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5535117188963491193, guid: aaab1048329c2b94cb0e136c668767b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 5041153596363394431}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb32548fd6be8a4ca0baaa09ac8b83e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5013216227684100881 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 29066575713265262, guid: aaab1048329c2b94cb0e136c668767b7,
@@ -1609,6 +1621,11 @@ PrefabInstance:
       propertyPath: uIConnectorActivator
       value: 
       objectReference: {fileID: 885687362}
+    - target: {fileID: 1369254874085836294, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1466942719285648209, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
       propertyPath: uIConnectorActivator
@@ -1634,6 +1651,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2240649709089460712, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.709
+      objectReference: {fileID: 0}
     - target: {fileID: 2661355701940004344, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
       propertyPath: m_TagString
@@ -1645,6 +1667,11 @@ PrefabInstance:
       value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3239622519886531441, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487484760952998889, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1689,6 +1716,31 @@ PrefabInstance:
     - target: {fileID: 5729205731677316076, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
       propertyPath: m_CullTransparentMesh
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5780130955552558632, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: head
+      value: 
+      objectReference: {fileID: 8205863876667105281}
+    - target: {fileID: 5780130955552558632, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: uiRig
+      value: 
+      objectReference: {fileID: 123328382512689511}
+    - target: {fileID: 5780130955552558632, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: xRRig
+      value: 
+      objectReference: {fileID: 123328382512689511}
+    - target: {fileID: 5780130955552558632, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: shootFactor
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5780130955552558632, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: adjustFactorToMass
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6165565105968792540, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
@@ -1790,6 +1842,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7189694237117145374, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7245321989146624890, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
       propertyPath: m_Camera
@@ -1816,10 +1873,45 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4291611852
       objectReference: {fileID: 0}
+    - target: {fileID: 7600195548023180569, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 123328382514331323}
+    - target: {fileID: 7774774548996924473, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7872109880381543538, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
       propertyPath: uIConnectorActivator
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588083469495325185, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.0012036046
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588083469495325185, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.0012036046
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588083469495325185, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.0012036046
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588083469495325185, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.756
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588083469495325185, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.252
       objectReference: {fileID: 0}
     - target: {fileID: 8702041945739790973, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
@@ -1844,12 +1936,48 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2597675986520313191, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd, type: 3}
+--- !u!114 &1272616706613892621 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6079006663266263966, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+    type: 3}
+  m_PrefabInstance: {fileID: 5041153597073864083}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4836895a4bf78224aa13df91e4542fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1568061936840883131 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5780130955552558632, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+    type: 3}
+  m_PrefabInstance: {fileID: 5041153597073864083}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5b0f9bfd2ed09468c156a2a0031cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2120114110927986812 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6384396669166999023, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
     type: 3}
   m_PrefabInstance: {fileID: 5041153597073864083}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2752590716093813901 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7189694237117145374, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+    type: 3}
+  m_PrefabInstance: {fileID: 5041153597073864083}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5491876231963213102 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 703359964333656253, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
@@ -1860,6 +1988,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6203640958695052025 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1432713033096898410, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+    type: 3}
+  m_PrefabInstance: {fileID: 5041153597073864083}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4836895a4bf78224aa13df91e4542fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6611746683149384604 stripped
@@ -2326,6 +2466,60 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visual: 0
+--- !u!114 &2243333975096160968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3417231278616965480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 593dc05c00fa9664d8f62d2c52532d2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenClaps: 1
+  ResetAdEveluateAfterTimeBetweenClaps: 0
+  clapCountActions: []
+  resetText: 0
+  resetClapsOnResetLoadingBar: 1
+  cycleClapsAfterXClaps: -1
+  doOnClapsStart:
+    m_PersistentCalls:
+      m_Calls: []
+  countThreshold: 0
+  doOnCountThresholdBroke:
+    m_PersistentCalls:
+      m_Calls: []
+  doEveryClapOverThreshold:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  afterCountingSignalListenerIndices: 
+  doOnClapsResetted:
+    m_PersistentCalls:
+      m_Calls: []
+  clapCounterUIText: {fileID: 2752590716093813901}
+  loadingBar: {fileID: 1272616706613892621}
+  haudDenLukasBar: {fileID: 6203640958695052025}
+  clapCounterFX: {fileID: 1568061936840883131}
+  enableLoadingBar: 1
+  enableHauDenLukasBar: 1
+  enableUIText: 0
+  enableClapCountFX: 0
+  enableClapCountActions: 1
+  defaultStrength: 0.5
 --- !u!114 &3104748822744549929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2376,6 +2570,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SendPointerHoverToParent: 1
   _useInitialPressPositionForDrag: 1
+--- !u!114 &8042294162896545412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3417231278616965480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5840dc5b6a71da44e856dab78ea0e797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clapHandler: {fileID: 5726018036048371192}
+  middleRayHandler: {fileID: 0}
+  simpleHandsAverageForward: {fileID: 659049182413164550}
+  raycast: 0
+  raycastMaxDist: 10
+  raycastDeviationThreshold: 0.9
+  raycastTag: ShootButton
+  shootProjectiles: 0
+  shootFactor: 10
+  activateButtonWithClap: 1
+  invokeEventOnheared: 0
+  clapEventsA:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2243333975096160968}
+        m_TargetAssemblyTypeName: ObliqueSenastions.ClapSpace.ClapCounter, Assembly-CSharp
+        m_MethodName: CountClap
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  clapEventsEnabled: 1
+  clapSignalListeners: 
 --- !u!4 &3417231278616965481 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9040074458005239454, guid: ffe3be6b11cb93446bff4c254b6d9148,
@@ -6237,6 +6471,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32d7f6cae76115b43a21921545fa2ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &8205863876667105281 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 833714761611016129, guid: 2862e402ce69b6241ac0c3ed65bc33ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 8822805179156993984}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9155227326867188169 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 395472548403297801, guid: 2862e402ce69b6241ac0c3ed65bc33ed,
