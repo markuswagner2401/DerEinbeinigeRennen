@@ -5048,10 +5048,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4757954900765210440, guid: b6df4961452673d449bda003df847bff,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5305397965597099139, guid: b6df4961452673d449bda003df847bff,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6295808175721242052, guid: b6df4961452673d449bda003df847bff,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6295808175721242052, guid: b6df4961452673d449bda003df847bff,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6378985422195061665, guid: b6df4961452673d449bda003df847bff,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.1154
+      objectReference: {fileID: 0}
+    - target: {fileID: 6378985422195061665, guid: b6df4961452673d449bda003df847bff,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.7377
       objectReference: {fileID: 0}
     - target: {fileID: 7566247451879046882, guid: b6df4961452673d449bda003df847bff,
         type: 3}
@@ -5062,6 +5087,11 @@ PrefabInstance:
         type: 3}
       propertyPath: sceneViewId
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472342465036435066, guid: b6df4961452673d449bda003df847bff,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6df4961452673d449bda003df847bff, type: 3}
@@ -5278,6 +5308,51 @@ PrefabInstance:
       propertyPath: simpleVelocityTrackers.Array.data[1]
       value: 
       objectReference: {fileID: 1943949953}
+    - target: {fileID: 5052685247358438150, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersMultiplayer.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052685247358438150, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersSingleplayer.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052685247358438150, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersMultiplayer.Array.data[0]
+      value: 
+      objectReference: {fileID: 1867991825}
+    - target: {fileID: 5052685247358438150, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersMultiplayer.Array.data[1]
+      value: 
+      objectReference: {fileID: 1943949953}
+    - target: {fileID: 5052685247358438150, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersSingleplayer.Array.data[0]
+      value: 
+      objectReference: {fileID: 1867991825}
+    - target: {fileID: 5052685247358438150, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersSingleplayer.Array.data[1]
+      value: 
+      objectReference: {fileID: 1943949953}
+    - target: {fileID: 5423073464106245734, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersSinglePlayer.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5423073464106245734, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersSinglePlayer.Array.data[0]
+      value: 
+      objectReference: {fileID: 1867991825}
+    - target: {fileID: 5423073464106245734, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersSinglePlayer.Array.data[1]
+      value: 
+      objectReference: {fileID: 1943949953}
     - target: {fileID: 6399326150616810653, guid: 34b1aa38de2b9294ea067a842251e265,
         type: 3}
       propertyPath: m_Enabled
@@ -5286,12 +5361,17 @@ PrefabInstance:
     - target: {fileID: 6700264077763646018, guid: 34b1aa38de2b9294ea067a842251e265,
         type: 3}
       propertyPath: m_text
-      value: RENNFAHRER
+      value: "PR\xC4ZISION"
       objectReference: {fileID: 0}
     - target: {fileID: 6700264077763646018, guid: 34b1aa38de2b9294ea067a842251e265,
         type: 3}
       propertyPath: m_fontSize
       value: 32.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6862572657201389803, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: tachomode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34b1aa38de2b9294ea067a842251e265, type: 3}
@@ -10764,11 +10844,56 @@ PrefabInstance:
       propertyPath: simpleVelocityTrackers.Array.data[1]
       value: 
       objectReference: {fileID: 1943949953}
+    - target: {fileID: 5052685247358438150, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersMultiplayer.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052685247358438150, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersSingleplayer.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052685247358438150, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersMultiplayer.Array.data[0]
+      value: 
+      objectReference: {fileID: 1867991825}
+    - target: {fileID: 5052685247358438150, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersMultiplayer.Array.data[1]
+      value: 
+      objectReference: {fileID: 1943949953}
+    - target: {fileID: 5052685247358438150, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersSingleplayer.Array.data[0]
+      value: 
+      objectReference: {fileID: 1867991825}
+    - target: {fileID: 5052685247358438150, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersSingleplayer.Array.data[1]
+      value: 
+      objectReference: {fileID: 1943949953}
     - target: {fileID: 5141568625836258034, guid: 34b1aa38de2b9294ea067a842251e265,
         type: 3}
       propertyPath: contributingRole
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5423073464106245734, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersSinglePlayer.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5423073464106245734, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersSinglePlayer.Array.data[0]
+      value: 
+      objectReference: {fileID: 1867991825}
+    - target: {fileID: 5423073464106245734, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: simpleVelocityTrackersSinglePlayer.Array.data[1]
+      value: 
+      objectReference: {fileID: 1943949953}
     - target: {fileID: 6399326150616810653, guid: 34b1aa38de2b9294ea067a842251e265,
         type: 3}
       propertyPath: m_Enabled
@@ -10777,12 +10902,17 @@ PrefabInstance:
     - target: {fileID: 6700264077763646018, guid: 34b1aa38de2b9294ea067a842251e265,
         type: 3}
       propertyPath: m_text
-      value: zuschauer
+      value: GESCHWINDIGKEIT
       objectReference: {fileID: 0}
     - target: {fileID: 6700264077763646018, guid: 34b1aa38de2b9294ea067a842251e265,
         type: 3}
       propertyPath: m_fontSize
-      value: 36.15
+      value: 22.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6700264077763646018, guid: 34b1aa38de2b9294ea067a842251e265,
+        type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34b1aa38de2b9294ea067a842251e265, type: 3}
