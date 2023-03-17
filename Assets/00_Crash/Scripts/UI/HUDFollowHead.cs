@@ -102,6 +102,7 @@ namespace ObliqueSenastions.UISpace
             if (RotationOverThreshold())
             {
                 if (adjustingRotation) return;
+                if(!gameObject.activeInHierarchy) return;
                 StartCoroutine(AdjustRotation());
             }
 

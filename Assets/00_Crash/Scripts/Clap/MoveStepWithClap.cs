@@ -37,6 +37,7 @@ namespace ObliqueSenastions.ClapSpace
 
         public void MoveClapStep(float strength)
         {
+            if(!enabled) return;
             //        print("move with" + strength);
             StartCoroutine(StepMoveRoutine(strength));
         }

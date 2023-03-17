@@ -289,7 +289,7 @@ namespace ObliqueSenastions.VRRigSpace
 
         public Transform GetCurrentXRRigTransform()
         {
-            Debug.Log("cameraTraveller: GetCurrentXRRigTransform: current index: " + currTransPointIndex);
+            //Debug.Log("cameraTraveller: GetCurrentXRRigTransform: current index: " + currTransPointIndex);
             return transitionPoints[currTransPointIndex].cameraOffsetTarget;
         }
 

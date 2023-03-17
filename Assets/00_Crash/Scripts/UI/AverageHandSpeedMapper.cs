@@ -6,7 +6,7 @@ using Photon.Pun;
 
 namespace ObliqueSenastions.VRRigSpace
 {
-    public class AverageHandSpeedMapper : MonoBehaviourPun, IVelocityListener
+    public class AverageHandSpeedMapper : MonoBehaviour, IVelocityListener
     {
         
 

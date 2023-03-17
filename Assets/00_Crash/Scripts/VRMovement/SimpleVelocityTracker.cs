@@ -32,6 +32,12 @@ namespace ObliqueSenastions.VRRigSpace
 
         [SerializeField] float maxSpeed = 1.5f;
 
+        [SerializeField] float maxSpeedGateRecoverDuration = 3f;
+
+        float speedGateRecoverTimer;
+
+        bool interruptspeedGate = false;
+
        
         
 
@@ -89,25 +95,29 @@ namespace ObliqueSenastions.VRRigSpace
 
             // Capturing
 
-            if(Mathf.Abs(lastLocalSpeed - currentLocalSpeed) > speedChangeGate) 
+            if((Mathf.Abs(lastLocalSpeed - currentLocalSpeed) > speedChangeGate) && !interruptspeedGate) 
             {
                 speedGate = true;
 
-                if(currentLocalSpeed < 0)
-                {
-                    currentLocalSpeed = 0;
-                }
+                currentLocalSpeed = Mathf.Clamp(lastLocalSpeed - 0.0001f, 0, maxSpeed);
 
-                else
+                speedGateRecoverTimer += Time.deltaTime;
+
+                if(speedGateRecoverTimer > maxSpeedGateRecoverDuration)
                 {
-                    currentLocalSpeed = Mathf.Clamp(lastLocalSpeed - 0.0001f, 0, maxSpeed);
+                    interruptspeedGate = true;
+                    
                 }
 
             }
 
             else
             {
+                speedGateRecoverTimer = 0;
+
                 speedGate = false;
+
+                interruptspeedGate = false;
             }
 
             //speedGate = (Mathf.Abs(lastLocalSpeed - currentLocalSpeed) > speedChangeGate) ? true : false;

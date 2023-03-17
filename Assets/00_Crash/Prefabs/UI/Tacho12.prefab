@@ -66,17 +66,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: '
+
+'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
-  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 37f8db8e71a3ee54a9b8633397254895, type: 2}
+  m_sharedMaterial: {fileID: 307210023926378270, guid: 37f8db8e71a3ee54a9b8633397254895,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -93,8 +96,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 12
@@ -129,7 +132,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0.12445066, y: 25.88376, z: 0.45751956, w: -36.538956}
+  m_margin: {x: 0.12445066, y: 25.88376, z: 0.45751956, w: -19.803368}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1507,7 +1510,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4010f831b145fd43bae228f8bde04f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  simpleVelocityTrackers: []
+  simpleVelocityTrackersMultiplayer: []
+  simpleVelocityTrackersSingleplayer: []
   mapMinSpeed: 0
   mapMaxSpeed: 0.5
   mappingCurve:
@@ -1546,7 +1550,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e821f6d1508b8a94e8c61ec597a3ebbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  simpleVelocityTrackers: []
+  simpleVelocityTrackersSinglePlayer: []
+  simpleVelocityTrackersMultiplayer: []
   speedThreshold: 0.1
   rising: 0
   speedPeak: 0
@@ -1733,15 +1738,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: FORM
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
-  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 37f8db8e71a3ee54a9b8633397254895, type: 2}
+  m_sharedMaterial: {fileID: 307210023926378270, guid: 37f8db8e71a3ee54a9b8633397254895,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1758,8 +1764,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 12

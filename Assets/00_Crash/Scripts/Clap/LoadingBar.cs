@@ -93,6 +93,7 @@ namespace ObliqueSenastions.ClapSpace
         public void StartLoadingBar(float loadingTime)
         {
             gameObject.SetActive(true);
+            if(!gameObject.activeInHierarchy) return;
             StartCoroutine(InterruptandStartLoadingBar(loadingTime));
         }
 
@@ -142,7 +143,15 @@ namespace ObliqueSenastions.ClapSpace
 
         public void ListenForClapAccumulation(bool value)
         {
+            if (!value)
+            {
+                accumulativeBarValue = 0f;
+            }
+
+            enableClapAccumulation = value;
             listenforClapAccumulation = value;
+
+
         }
 
         public void AddToLoadingBar(float value)

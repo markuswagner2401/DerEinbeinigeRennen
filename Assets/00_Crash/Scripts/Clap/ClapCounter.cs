@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,7 +7,11 @@ using UnityEngine.Events;
 
 namespace ObliqueSenastions.ClapSpace
 {
-    public class ClapCounter : MonoBehaviour
+    interface IResetClapCount
+    {
+        void ResetClapCount();
+    }
+    public class ClapCounter : MonoBehaviour, IResetClapCount
     {
         [SerializeField] float timeBetweenClaps = 1f;
 
@@ -48,6 +53,10 @@ namespace ObliqueSenastions.ClapSpace
 
         [SerializeField] UnityEvent doOnCountThresholdBroke;
 
+        public delegate void DoOnCountThresholdBrokeDelegate(float strength);
+
+        public DoOnCountThresholdBrokeDelegate doOnCountThresholdBrokeDelegate;
+
         [SerializeField] UnityEventFloat doEveryClapOverThreshold;
 
         bool countThresholdBrokeEventTriggered = false;
@@ -79,10 +88,18 @@ namespace ObliqueSenastions.ClapSpace
         float currentStrength;
 
 
+        public delegate void OnClapCountChanged(int claps);
+        public OnClapCountChanged onClapCountChanged;
+
+
+
+
 
         float timer;
 
         int claps = 0;
+
+       
         bool isInterrupted;
         bool resetted = false;
 
@@ -96,6 +113,22 @@ namespace ObliqueSenastions.ClapSpace
             }
 
             onEmitSignal += PlaceholderDoonEmitSignal;
+
+            doOnCountThresholdBrokeDelegate += PlaceholderDoonCountThresholdBrokeDelegate;
+
+            onClapCountChanged += PlaceholderOnClapcountChanged;
+
+            
+        }
+
+        private void OnDisable()
+        {
+            onEmitSignal -= PlaceholderDoonEmitSignal;
+
+            doOnCountThresholdBrokeDelegate -= PlaceholderDoonCountThresholdBrokeDelegate;
+
+            onClapCountChanged -= PlaceholderOnClapcountChanged;
+
         }
 
 
@@ -103,6 +136,8 @@ namespace ObliqueSenastions.ClapSpace
         void Update()
         {
             ProcessResetting();
+
+            
         }
 
         private void ProcessResetting()
@@ -205,6 +240,8 @@ namespace ObliqueSenastions.ClapSpace
             {
                 claps = (claps > cycleClapsAfterXClaps) ? 1 : claps;
             }
+
+            onClapCountChanged.Invoke(claps);
 
             StartLoadingBar(timeBetweenClaps);
 
@@ -314,7 +351,7 @@ namespace ObliqueSenastions.ClapSpace
             countThreshold = value;
         }
 
-        public void SetCountedClaps(int value)
+        public void ResetCountedClaps()
         {
             claps = 0;
         }
@@ -392,11 +429,24 @@ namespace ObliqueSenastions.ClapSpace
         ////
         private void PlaceholderDoonEmitSignal(float strength, int listenerIndex)
         {
-
         }
 
+        private void PlaceholderDoonCountThresholdBrokeDelegate(float strength)
+        {
+        }
 
+        private void PlaceholderOnClapcountChanged(int claps)
+        {
+        }
 
+        //IResetClapCount
+
+        public void ResetClapCount()
+        {
+            claps = 0;
+            onClapCountChanged.Invoke(claps);
+
+        }
     }
 
 
