@@ -81,6 +81,11 @@ namespace ObliqueSenastions.MaterialControl
 
         }
 
+        public MaterialPropertyBlock GetBlock()
+        {
+            return block;
+        }
+
 
     }
 

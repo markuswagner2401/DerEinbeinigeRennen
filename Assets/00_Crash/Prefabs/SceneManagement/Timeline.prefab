@@ -44,6 +44,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -284,7 +285,8 @@ MonoBehaviour:
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1334485501639563007}
-          m_TargetAssemblyTypeName: TimelineScroller, Assembly-CSharp
+          m_TargetAssemblyTypeName: ObliqueSenastions.TimelineSpace.TimelineScroller,
+            Assembly-CSharp
           m_MethodName: HoldTimeline
           m_Mode: 6
           m_Arguments:
@@ -479,7 +481,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - note: holdUnholdTimeline
+  - note: holdUnhold
     keycode: 104
     keyTrigger: 0
     unityEvent:
@@ -593,8 +595,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e04df736215474481e839f5bd64832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mode: 0
   playableDirector: {fileID: 220214917067423035}
   jumpThreshold: 0.1
+  customDeltaTime: 0
 --- !u!114 &1334485501639563007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,8 +618,7 @@ MonoBehaviour:
   scrollFactor: 20
   syncPlayableDirector: {fileID: 1181491379462798778}
   timelineTime: {fileID: 807136875708010075}
-  pauseTimeline: 0
-  holdTimeline: 0
+  maxHoldtimeIfNotInNetwork: 10
 --- !u!114 &3514082237926198445
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3,16 +3,26 @@ using UnityEngine.Playables;
 
 namespace ObliqueSenastions.TimelineSpace
 {
+    [System.Serializable]
+    public enum TimelineTimeMode
+    {
+        useTimelineTime,
+        useDeltaTime,
+        useCustomTime
+    }
 
     public class TimelineTime : MonoBehaviour
     {
+        [SerializeField] TimelineTimeMode mode = TimelineTimeMode.useTimelineTime;
         [SerializeField] PlayableDirector playableDirector = null;
         float currentTimelineTime;
         float timelineDeltaTime;
         private float previousTimelineTime;
-        bool overwriteTLDeltaTimeWithTimeDeltaTime = false;
+        //bool overwriteTLDeltaTimeWithTimeDeltaTime = false;
 
         [SerializeField] float jumpThreshold = 0.1f;
+
+        [SerializeField] float customDeltaTime = 0f;
 
         private void Start()
         {
@@ -45,13 +55,52 @@ namespace ObliqueSenastions.TimelineSpace
         public float GetTimelineDeltaTime()
         {
 
-            return overwriteTLDeltaTimeWithTimeDeltaTime ? Time.deltaTime : timelineDeltaTime;
+            return timelineDeltaTime;
         }
 
-        public void OverwriteTLDeltaTimeWithTimeDeltaTime(bool value)
+        public float GetModeDependentTimelineDeltaTime()
         {
-            overwriteTLDeltaTimeWithTimeDeltaTime = value ? true : false;
+            float returnValue = 0;
+            switch (mode)
+            {
+                case TimelineTimeMode.useTimelineTime:
+                returnValue = timelineDeltaTime;
+                break;
+
+                case TimelineTimeMode.useDeltaTime:
+                returnValue = Time.deltaTime;
+                break;
+
+                case TimelineTimeMode.useCustomTime:
+                returnValue = customDeltaTime;
+                break;
+
+                default:
+                break;
+            }
+
+            return returnValue;
         }
+
+        public void SetMode(TimelineTimeMode newMode)
+        {
+            mode = newMode;
+        }
+
+        public void SetMode(int newMode)
+        {
+            mode = (TimelineTimeMode)newMode;
+        }
+
+        public TimelineTimeMode GetMode()
+        {
+            return mode;
+        }
+
+        // public void OverwriteTLDeltaTimeWithTimeDeltaTime(bool value)
+        // {
+        //     overwriteTLDeltaTimeWithTimeDeltaTime = value ? true : false;
+        // }
     }
 
 }

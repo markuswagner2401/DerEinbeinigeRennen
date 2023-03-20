@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using ObliqueSenastions.VRRigSpace;
+using UnityEngine.Events;
 
 
 namespace ObliqueSenastions.UISpace
 {
     public class UIMotivation : MonoBehaviour
     {
-        [SerializeField] bool playAtStart = true;
+        [SerializeField] bool playAtStart = false;
         [SerializeField] Motivation[] motivationen;
 
 
@@ -20,6 +21,8 @@ namespace ObliqueSenastions.UISpace
 
             public bool eraseAtStart;
 
+            public UnityEvent doOnStartMotivation;
+
             public GameObject[] objectsToActivate;
 
             public Message[] messages;
@@ -27,6 +30,8 @@ namespace ObliqueSenastions.UISpace
             public bool loopUntilArmsMove;
 
             public float durationAfterMessages;
+
+            public UnityEvent doOnEndMotivation;
 
         }
 
@@ -133,6 +138,7 @@ namespace ObliqueSenastions.UISpace
 
         IEnumerator PlayMotivationR(int index)
         {
+            motivationen[index].doOnStartMotivation.Invoke();
             bool messageComplete = false;
 
             if(motivationen[index].eraseAtStart)
@@ -182,6 +188,8 @@ namespace ObliqueSenastions.UISpace
             {
                 item.SetActive(false);
             }
+
+            motivationen[index].doOnEndMotivation.Invoke();
 
 
             motivationTriggered = false;

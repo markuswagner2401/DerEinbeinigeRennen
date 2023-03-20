@@ -26,6 +26,12 @@ namespace ObliqueSenastions.TimelineSpace
 
         [SerializeField] TimelineTime timelineTime = null;
 
+        [SerializeField] float maxHoldtimeIfNotInNetwork = 10f; 
+
+        float holdTimer = 0;
+
+        bool isHolding;
+
 
 
         InputDevice device;
@@ -53,13 +59,7 @@ namespace ObliqueSenastions.TimelineSpace
 
         bool secondaryButtonPressedBefore;
 
-        [SerializeField] bool pauseTimeline = false;
-
-        bool previousPauseTimeline = false;
-
-        [SerializeField] bool holdTimeline = false;
-
-        bool previousHoldTimeline;
+      
 
 
 
@@ -93,12 +93,17 @@ namespace ObliqueSenastions.TimelineSpace
         // Update is called once per frame
         void Update()
         {
+            if(isHolding)
+            {
+                holdTimer += Time.deltaTime;
+                if(holdTimer > maxHoldtimeIfNotInNetwork)
+                SwitchHoldTimeline();
+            }
 
-
-
-
-
-
+            else
+            {
+                holdTimer = 0;
+            }
 
             // fast forward
 
@@ -137,66 +142,15 @@ namespace ObliqueSenastions.TimelineSpace
 
                 primaryButtonPressedBefore = primaryButtonPressed;
 
-                if (device.TryGetFeatureValue(CommonUsages.secondaryButton, out bool secondaryButtonPressed) && secondaryButtonPressed)
-                {
-                    if (secondaryButtonPressedBefore) return;
-                    SwitchHoldTimeline();
-                }
+                // if (device.TryGetFeatureValue(CommonUsages.secondaryButton, out bool secondaryButtonPressed) && secondaryButtonPressed)
+                // {
+                //     if (secondaryButtonPressedBefore) return;
+                //     SwitchHoldTimeline();
+                // }
 
             }
 
-            if (previousPauseTimeline != pauseTimeline)
-            {
-                PlayTimeline(!pauseTimeline);
-            }
-
-            if (previousHoldTimeline != holdTimeline)
-            {
-                timelineTime.OverwriteTLDeltaTimeWithTimeDeltaTime(holdTimeline);
-            }
-
-
-
-
-            previousHoldTimeline = holdTimeline;
-
-            previousPauseTimeline = pauseTimeline;
-
         }
-
-        public void SwitchPauseTimeline()
-        {
-            bool newValue = !pauseTimeline;
-            SetPauseTimeline(newValue);
-        }
-
-        public void SetPauseTimeline(bool value)
-        {
-            pauseTimeline = value;
-            if (!pauseTimeline)
-            {
-                holdTimeline = false;
-            }
-        }
-
-        public void SwitchHoldTimeline()
-        {
-            bool newValue = !holdTimeline;
-            HoldTimeline(newValue);
-
-        }
-
-        public void HoldTimeline(bool value)
-        {
-            pauseTimeline = value;
-            holdTimeline = value;
-
-
-        }
-
-
-
-
 
         private void GetDevices()
         {
@@ -208,17 +162,77 @@ namespace ObliqueSenastions.TimelineSpace
             }
         }
 
+        public void SwitchPauseTimeline()
+        {
+
+            double speed = playableDirector.playableGraph.GetRootPlayable(0).GetSpeed();
+            bool currentIsPaused = (speed < 0.005);
+            bool newIsPaused = !currentIsPaused;
+            PauseTimeline(newIsPaused);
+            
+        }
+
+        public void PauseTimeline(bool newIsPaused)
+        {
+            
+            PlayTimeline(!newIsPaused);
+
+            TimelineTime timelineTime = GetComponent<TimelineTime>();
+            if(timelineTime.GetMode() == TimelineTimeMode.useCustomTime) return;
+
+            timelineTime.SetMode(TimelineTimeMode.useTimelineTime);
+
+            
+        }
+
+        
+        public void SwitchHoldTimeline()
+        {
+            double speed = playableDirector.playableGraph.GetRootPlayable(0).GetSpeed();
+            bool currentIsHolding = (speed < 0.005);
+            bool newIsHolding = !currentIsHolding;
+
+            HoldTimeline(newIsHolding);
+            
+            
+        }
+
+        public void HoldTimeline(bool newIsHolding)
+        {
+            PlayTimeline(!newIsHolding);
+            TimelineTime timelineTime = GetComponent<TimelineTime>();
+            if(timelineTime.GetMode() == TimelineTimeMode.useCustomTime) return;
+
+            if(newIsHolding)
+            { 
+                isHolding = true;  
+                timelineTime.SetMode(TimelineTimeMode.useDeltaTime);
+            }
+            else
+            {
+                isHolding = false;
+                timelineTime.SetMode(TimelineTimeMode.useTimelineTime);
+            }
+
+        }
+
+
+
+
+
+        
+
         //double capturedSpeed;
 
 
 
         public void ScrollTimeline(float value)
         {
-            if (holdTimeline)
-            {
-                StopScrollingTimeline();
-                return;
-            }
+            // if (holdTimeline)
+            // {
+            //     StopScrollingTimeline();
+            //     return;
+            // }
 
             if (syncPlayableDirector != null && !syncPlayableDirector.RequestNetworkOwnership())
             {
@@ -255,43 +269,16 @@ namespace ObliqueSenastions.TimelineSpace
 
             isScrolling = false;
 
-            if (!holdTimeline && !pauseTimeline)
-            {
-                playableDirector.playableGraph.GetRootPlayable(0).SetSpeed((1));
-            }
-
+            playableDirector.playableGraph.GetRootPlayable(0).SetSpeed((1));
 
 
         }
 
 
 
-        // public void PausePlayTimeline()
-        // {
+        
 
-        //     if (pausePlayTriggered) return;
-
-
-
-        //     pausePlayTriggered = true;
-
-        //     timelinePaused = !timelinePaused;
-
-        //     if (timelinePaused)
-        //     {
-        //         playableDirector.playableGraph.GetRootPlayable(0).SetSpeed(0.001f);
-
-        //     }
-
-        //     else
-        //     {
-        //         playableDirector.playableGraph.GetRootPlayable(0).SetSpeed(1);
-        //     }
-
-
-        // }
-
-        public void PlayTimeline(bool value)
+        private void PlayTimeline(bool value)
         {
             /// Check Network Sync
 
@@ -302,6 +289,8 @@ namespace ObliqueSenastions.TimelineSpace
             }
 
             //
+
+          
 
             double newSpeed = value ? 1d : 0.001d;
 

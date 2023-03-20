@@ -249,8 +249,6 @@ namespace ObliqueSenastions.MaterialControl
             {
                 print("no float changer with this name found at" + gameObject.name);
             }
-
-
         }
 
         private int GetFloatChangerIndexOfName(string name)

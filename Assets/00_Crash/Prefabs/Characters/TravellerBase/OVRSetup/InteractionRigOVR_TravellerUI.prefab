@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8597126793369380855}
   - component: {fileID: 3245700705466460424}
   - component: {fileID: 5970478842174655148}
-  - component: {fileID: 5470960016685623610}
   - component: {fileID: 2273500489542449873}
+  - component: {fileID: 447528966460671015}
   m_Layer: 25
   m_Name: Sphere (1)
   m_TagString: Untagged
@@ -85,129 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5470960016685623610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4591895768390249980}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7a9394253894ed4b8a59877c21fc06e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  renderer: {fileID: 5970478842174655148}
-  floatChangers:
-  - note: FadeIn
-    propertyName: Vector1_db9fbeea6907422aae9e15be1562c132
-    randomMinValue: 0
-    randomMaxValue: 2
-    getDefaultValueFromMaterial: 0
-    defaultValue: 1.4
-    currentValue: 0
-    fadeIn: 1
-    fadeInTime: 8
-    fadeBackToDefault: 0
-    doAtStart:
-      m_PersistentCalls:
-        m_Calls: []
-    doAtFinish:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 5970478842174655148}
-          m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
-          m_MethodName: set_enabled
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - note: FadeOut
-    propertyName: Vector1_db9fbeea6907422aae9e15be1562c132
-    randomMinValue: 0
-    randomMaxValue: 2
-    getDefaultValueFromMaterial: 0
-    defaultValue: 0
-    currentValue: 0
-    fadeIn: 1
-    fadeInTime: 8
-    fadeBackToDefault: 0
-    doAtStart:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 5970478842174655148}
-          m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
-          m_MethodName: set_enabled
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-    doAtFinish:
-      m_PersistentCalls:
-        m_Calls: []
-  fadeBackTime: 1
-  fadeBackCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  triggerAutomaticlyAtStart: 0
-  frequencyMin: 3
-  frequencyMax: 10
-  fadeInCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  stageMaster: {fileID: 0}
 --- !u!114 &2273500489542449873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,6 +104,78 @@ MonoBehaviour:
   - name: Fade
     propRef: Vector1_db9fbeea6907422aae9e15be1562c132
     valueAtStart: 0
+--- !u!114 &447528966460671015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4591895768390249980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1caef90cf4342c445beeb7b5a0ed407e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rend: {fileID: 5970478842174655148}
+  floatChangers:
+  - note: UIFocus
+    propRef: _ABblend
+    targetValue: 1
+    duration: 1
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    interrupted: 0
+  - note: UIUnfocus
+    propRef: _ABblend
+    targetValue: 0
+    duration: 1
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    interrupted: 0
 --- !u!1001 &1158168057163191649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1698,6 +1647,11 @@ PrefabInstance:
       objectReference: {fileID: 5157823994700792295}
     - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
+      propertyPath: playAtStart
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
       propertyPath: observedTrackerLeft
       value: 
       objectReference: {fileID: 625200457246373571}
@@ -1706,6 +1660,86 @@ PrefabInstance:
       propertyPath: observedTrackerRight
       value: 
       objectReference: {fileID: 5169388208556882630}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: motivationen.Array.data[0].doOnEndMotivation.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: motivationen.Array.data[0].doOnStartMotivation.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: motivationen.Array.data[0].doOnEndMotivation.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: motivationen.Array.data[0].doOnEndMotivation.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 447528966460671015}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: motivationen.Array.data[0].doOnStartMotivation.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: motivationen.Array.data[0].doOnStartMotivation.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 447528966460671015}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: motivationen.Array.data[0].doOnEndMotivation.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: motivationen.Array.data[0].doOnEndMotivation.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeFloat
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: motivationen.Array.data[0].doOnStartMotivation.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: motivationen.Array.data[0].doOnStartMotivation.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeFloat
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: motivationen.Array.data[0].doOnEndMotivation.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ObliqueSenastions.MaterialControl.HeadSphereShaderControl, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: motivationen.Array.data[0].doOnStartMotivation.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ObliqueSenastions.MaterialControl.HeadSphereShaderControl, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: motivationen.Array.data[0].doOnEndMotivation.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: UIUnfocus
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: motivationen.Array.data[0].doOnStartMotivation.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: UIFocus
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: motivationen.Array.data[0].doOnEndMotivation.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: motivationen.Array.data[0].doOnStartMotivation.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3843605970900332025, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
       propertyPath: m_Camera

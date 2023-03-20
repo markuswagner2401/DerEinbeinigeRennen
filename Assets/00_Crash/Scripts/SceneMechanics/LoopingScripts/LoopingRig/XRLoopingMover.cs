@@ -221,7 +221,8 @@ namespace ObliqueSenastions.Looping
 //            print("move : " + velocity);
             if (useTimelineTime && timelineTime != null)
             {
-                transform.position += velocity * timelineTime.GetTimelineDeltaTime() * 72f;
+                //transform.position += velocity * timelineTime.GetTimelineDeltaTime() * 72f;
+                transform.position += velocity * timelineTime.GetModeDependentTimelineDeltaTime() * 72f;
             }
 
             else
