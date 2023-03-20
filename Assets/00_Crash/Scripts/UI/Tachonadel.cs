@@ -18,6 +18,8 @@ namespace ObliqueSenastions.UISpace
             readSpeedPeakTracker,
             readAvarageHandSpeed,
 
+            readVelocityChangeDetector,
+
             syncedByNetwork,
             readNothing
         }
@@ -28,6 +30,8 @@ namespace ObliqueSenastions.UISpace
         [SerializeField] AverageHandSpeedMapper averageHandSpeedTracker = null;
 
         [SerializeField] SpeedPeakTracker speedPeakTracker = null;
+
+        [SerializeField] VelocityChangeDetector velocityChangeDetector = null;
 
 
         [SerializeField] float positionsMin = 0f;
@@ -90,6 +94,12 @@ namespace ObliqueSenastions.UISpace
 
                 if (averageHandSpeedTracker == null) return;
                 SetTargetPositionWithNormedValue(averageHandSpeedTracker.GetOutputValueNormaized(true));
+            }
+
+            else if(tachomode == Tachomode.readVelocityChangeDetector)
+            {
+                if(velocityChangeDetector == null) return;
+                SetTargetPositionWithNormedValue(velocityChangeDetector.GetOutputValueNormalizedCombined());
             }
 
             else if (tachomode == Tachomode.syncedByNetwork)

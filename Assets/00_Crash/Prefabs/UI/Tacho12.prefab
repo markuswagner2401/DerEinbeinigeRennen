@@ -387,6 +387,7 @@ GameObject:
   - component: {fileID: 12251066198780240}
   - component: {fileID: 5052685247358438150}
   - component: {fileID: 5423073464106245734}
+  - component: {fileID: 8721747174055323044}
   - component: {fileID: 6862572657201389803}
   - component: {fileID: 4734593319827238313}
   - component: {fileID: 3913726126087950888}
@@ -1596,6 +1597,50 @@ MonoBehaviour:
   minSpeed: 0
   maxSpeed: 0.7
   outputValue: 0
+--- !u!114 &8721747174055323044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3268587695710345905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678189b11483714479948e5a5d39fed7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftHandVelocity: {fileID: 0}
+  rightHandVelocity: {fileID: 0}
+  onLeftVelocityChangedWithStrength:
+    m_PersistentCalls:
+      m_Calls: []
+  onLeftVelocityChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  onRightVelocityChangedWithStrength:
+    m_PersistentCalls:
+      m_Calls: []
+  onRightVelocityChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  onLeftHandIsMoving:
+    m_PersistentCalls:
+      m_Calls: []
+  onLeftHandIsMovingWithStrength:
+    m_PersistentCalls:
+      m_Calls: []
+  onRightHandIsMoving:
+    m_PersistentCalls:
+      m_Calls: []
+  onRightHandIsMovingWithStrength:
+    m_PersistentCalls:
+      m_Calls: []
+  deveationThreshold: 0.5
+  speedThreshold: 0.1
+  mapStrengthMin: 0
+  mapStrengthMax: 1.5
+  mapSpeedMin: 0
+  mapSpeedMax: 1
 --- !u!114 &6862572657201389803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1611,6 +1656,7 @@ MonoBehaviour:
   tachomode: 1
   averageHandSpeedTracker: {fileID: 5052685247358438150}
   speedPeakTracker: {fileID: 5423073464106245734}
+  velocityChangeDetector: {fileID: 0}
   positionsMin: 0
   poitionsMax: 12
   targetPosition: 0
