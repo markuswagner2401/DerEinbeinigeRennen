@@ -13,7 +13,9 @@ namespace ObliqueSenastions.TimelineSpace
 
     public class TimelineTime : MonoBehaviour
     {
-        [SerializeField] TimelineTimeMode mode = TimelineTimeMode.useTimelineTime;
+        [SerializeField] TimelineTimeMode currentMode = TimelineTimeMode.useTimelineTime;
+
+        TimelineTimeMode bufferedMode;
         [SerializeField] PlayableDirector playableDirector = null;
         float currentTimelineTime;
         float timelineDeltaTime;
@@ -61,7 +63,7 @@ namespace ObliqueSenastions.TimelineSpace
         public float GetModeDependentTimelineDeltaTime()
         {
             float returnValue = 0;
-            switch (mode)
+            switch (currentMode)
             {
                 case TimelineTimeMode.useTimelineTime:
                 returnValue = timelineDeltaTime;
@@ -84,18 +86,36 @@ namespace ObliqueSenastions.TimelineSpace
 
         public void SetMode(TimelineTimeMode newMode)
         {
-            mode = newMode;
+            if(currentMode == TimelineTimeMode.useCustomTime)
+            {
+                bufferedMode = newMode;
+            }
+
+            currentMode = newMode;
         }
 
-        public void SetMode(int newMode)
+        public void UseCustomTime(bool yes)
         {
-            mode = (TimelineTimeMode)newMode;
+            if(yes)
+            {
+                bufferedMode = currentMode;
+                currentMode = TimelineTimeMode.useCustomTime;
+            }
+
+            else
+            {
+                currentMode = bufferedMode;
+            }
+            
+
         }
 
-        public TimelineTimeMode GetMode()
-        {
-            return mode;
-        }
+        
+
+        // public TimelineTimeMode GetMode()
+        // {
+        //     return mode;
+        // }
 
         // public void OverwriteTLDeltaTimeWithTimeDeltaTime(bool value)
         // {

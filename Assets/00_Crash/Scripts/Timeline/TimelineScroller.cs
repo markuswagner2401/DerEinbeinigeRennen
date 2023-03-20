@@ -97,7 +97,7 @@ namespace ObliqueSenastions.TimelineSpace
             {
                 holdTimer += Time.deltaTime;
                 if(holdTimer > maxHoldtimeIfNotInNetwork)
-                SwitchHoldTimeline();
+                HoldTimeline(false);
             }
 
             else
@@ -178,7 +178,7 @@ namespace ObliqueSenastions.TimelineSpace
             PlayTimeline(!newIsPaused);
 
             TimelineTime timelineTime = GetComponent<TimelineTime>();
-            if(timelineTime.GetMode() == TimelineTimeMode.useCustomTime) return;
+            //if(timelineTime.GetMode() == TimelineTimeMode.useCustomTime) return;
 
             timelineTime.SetMode(TimelineTimeMode.useTimelineTime);
 
@@ -201,7 +201,7 @@ namespace ObliqueSenastions.TimelineSpace
         {
             PlayTimeline(!newIsHolding);
             TimelineTime timelineTime = GetComponent<TimelineTime>();
-            if(timelineTime.GetMode() == TimelineTimeMode.useCustomTime) return;
+            //if(timelineTime.GetMode() == TimelineTimeMode.useCustomTime) return;
 
             if(newIsHolding)
             { 

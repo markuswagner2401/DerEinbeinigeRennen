@@ -1652,6 +1652,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
+      propertyPath: enableTutorials
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
       propertyPath: observedTrackerLeft
       value: 
       objectReference: {fileID: 625200457246373571}
@@ -1662,18 +1667,208 @@ PrefabInstance:
       objectReference: {fileID: 5169388208556882630}
     - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
+      propertyPath: tutorials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: deactivateAtStart.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].name
+      value: ArmeBewegen
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: enableTutorialsOnArmsNotMoving
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: deactivateAtStart.Array.data[0]
+      value: 
+      objectReference: {fileID: 2152157530598501377}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: deactivateAtStart.Array.data[1]
+      value: 
+      objectReference: {fileID: 8472342465036435066}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].eraseAtStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].goIntoUiTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].loopUntilArmsMove
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].messages.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].durationAfterMessages
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].durationBeforefirstMessage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].successMessages.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].messages.Array.data[0].text
+      value: "Um einen reibungslosen Ablauf zu gew\xE4hrleisten"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].messages.Array.data[1].text
+      value: "m\xFCssen die Arme in Bewegung bleiben"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].messages.Array.data[2].text
+      value: langsam, schnell, pausierend
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].messages.Array.data[3].text
+      value: Die Arme steuern
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].messages.Array.data[4].text
+      value: "Geschwindigkeit und Pr\xE4zision"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].objectsToActivate.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].messages.Array.data[0].duration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].messages.Array.data[1].duration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].messages.Array.data[2].duration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].messages.Array.data[3].duration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].messages.Array.data[4].duration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].objectsToActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 2152157530598501377}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].objectsToActivate.Array.data[1]
+      value: 
+      objectReference: {fileID: 8472342465036435066}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].successMessages.Array.data[0].text
+      value: Armbewegung aktiv
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].successMessages.Array.data[1].text
+      value: weiter so!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].successMessages.Array.data[0].duration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].successMessages.Array.data[1].duration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].doOnEndTutorial.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].doOnStartTutorial.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
       propertyPath: motivationen.Array.data[0].doOnEndMotivation.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
       propertyPath: motivationen.Array.data[0].doOnStartMotivation.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].doOnEndTutorial.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].doOnEndTutorial.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 447528966460671015}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].doOnStartTutorial.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].doOnStartTutorial.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 447528966460671015}
     - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
       propertyPath: motivationen.Array.data[0].doOnEndMotivation.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].doOnEndTutorial.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].doOnEndTutorial.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeFloat
       objectReference: {fileID: 0}
     - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
@@ -1684,6 +1879,21 @@ PrefabInstance:
         type: 3}
       propertyPath: motivationen.Array.data[0].doOnStartMotivation.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: motivationen.Array.data[0].doOnStartMotivation.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].doOnStartTutorial.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].doOnStartTutorial.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeFloat
       objectReference: {fileID: 0}
     - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
@@ -1707,8 +1917,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
+      propertyPath: motivationen.Array.data[0].doOnStartMotivation.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
       propertyPath: motivationen.Array.data[0].doOnStartMotivation.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ChangeFloat
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].doOnEndTutorial.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ObliqueSenastions.MaterialControl.HeadSphereShaderControl, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].doOnStartTutorial.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ObliqueSenastions.MaterialControl.HeadSphereShaderControl, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].doOnEndTutorial.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: UIUnfocus
       objectReference: {fileID: 0}
     - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
@@ -1717,7 +1947,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
+      propertyPath: tutorials.Array.data[0].doOnStartTutorial.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: UIFocus
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
       propertyPath: motivationen.Array.data[0].doOnStartMotivation.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ObliqueSenastions.MaterialControl.HeadSphereShaderControl, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: motivationen.Array.data[0].doOnStartMotivation.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: ObliqueSenastions.MaterialControl.HeadSphereShaderControl, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
@@ -1729,6 +1969,16 @@ PrefabInstance:
         type: 3}
       propertyPath: motivationen.Array.data[0].doOnStartMotivation.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: UIFocus
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].doOnEndTutorial.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: tutorials.Array.data[0].doOnStartTutorial.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
@@ -1949,6 +2199,11 @@ PrefabInstance:
       propertyPath: simpleVelocityTrackersSinglePlayer.Array.data[1]
       value: 
       objectReference: {fileID: 5169388208556882630}
+    - target: {fileID: 6352390650335615378, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6439880203372441414, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -2145,6 +2400,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5041153597073864083}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2152157530598501377 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6352390650335615378, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+    type: 3}
+  m_PrefabInstance: {fileID: 5041153597073864083}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2752590716093813901 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7189694237117145374, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
@@ -2184,6 +2445,12 @@ MonoBehaviour:
 --- !u!1 &6611746683149384604 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2176473299271896591, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+    type: 3}
+  m_PrefabInstance: {fileID: 5041153597073864083}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8472342465036435066 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3487484760952998889, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
     type: 3}
   m_PrefabInstance: {fileID: 5041153597073864083}
   m_PrefabAsset: {fileID: 0}
