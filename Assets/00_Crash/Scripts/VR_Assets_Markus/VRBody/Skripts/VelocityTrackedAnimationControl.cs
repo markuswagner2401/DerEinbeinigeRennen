@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ObliqueSenastions.TimelineSpace;
 using ObliqueSenastions.UISpace;
 using ObliqueSenastions.VRRigSpace;
 using UnityEngine;
@@ -40,6 +41,10 @@ namespace ObliqueSenastions.AnimatorSpace
         [SerializeField] bool mapOnCurve = true;
 
         [SerializeField] AnimationCurve mappingCurve = null;
+
+        [SerializeField] bool useTimelineTime = true;
+
+        TimelineTime timelineTime = null;
 
         AnimatorClipInfo[] animatorClipInfos;
 
@@ -88,7 +93,7 @@ namespace ObliqueSenastions.AnimatorSpace
 
         void Update()
         {
-
+            
            
 
             if(inputMode == InputMode.readAtTacho)
@@ -111,10 +116,28 @@ namespace ObliqueSenastions.AnimatorSpace
 
             
              
+            if(useTimelineTime)
+            {
+                if(ReferenceEquals(timelineTime, null))
+                {
+                    timelineTime = TimeLineHandler.instance.GetComponent<TimelineTime>();
+                    return;
+                }
 
-            
+                else
+                {
+                    smoothedSpeed = timelineTime.GetModeDependentTimelineDeltaTime()/Time.deltaTime * smoothedSpeed;
+                    //smoothedSpeed = Time.deltaTime *  * smoothedSpeed;
+
+                }
+            }
+
+           
 
             rawClipPosition += Time.deltaTime * smoothedSpeed;
+            
+
+            
 
             bool reverse = Reverse(rawClipPosition, clipLength);
 
