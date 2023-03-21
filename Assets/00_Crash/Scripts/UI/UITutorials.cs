@@ -238,20 +238,13 @@ namespace ObliqueSenastions.UISpace
                 {
                     tmPro.text = "";
                     tmPro.text = "\n" + "<color=#38f51b>" + tutorials[index].successMessages[j].text;
+                    yield return new WaitForSeconds(tutorials[index].successMessages[j].duration);
                     j += 1;
-                    if (j >= tutorials[index].successMessages.Length)
-                    {
-                        successComplete = true;
-                        print("success complete");
-                    }
-                    else
-                    {
-                        successComplete = false;
-                        yield return new WaitForSeconds(tutorials[index].successMessages[j].duration);
-                    }
+
+                    successComplete = (j >= tutorials[index].successMessages.Length);
+                    
                     yield return null;
                     
-
                 }
 
             }

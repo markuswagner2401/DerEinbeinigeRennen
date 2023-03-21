@@ -184,7 +184,7 @@ namespace ObliqueSenastions.VRRigSpace
 
             float strength = NormalizeStrength(GetAverageVelocityRight().magnitude);
 
-            print("strength: " + strength);
+//            print("strength: " + strength);
 
             onRightVelocityChangedWithStrength.Invoke(strength);
 

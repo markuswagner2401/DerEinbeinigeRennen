@@ -68,6 +68,35 @@ namespace ObliqueSenastions.UISpace
                 joint = GetComponent<HingeJoint>();
             }
 
+            switch (tachomode)
+            {
+                case Tachomode.readSpeedPeakTracker:
+                    if (speedPeakTracker != null)
+                    {
+                        speedPeakTracker.enabled = true;
+                    }
+                    if (averageHandSpeedTracker != null)
+                    {
+                        averageHandSpeedTracker.enabled = false;
+                    }
+                    break;
+
+                case Tachomode.readAvarageHandSpeed:
+                    if (speedPeakTracker != null)
+                    {
+                        speedPeakTracker.enabled = false;
+                    }
+                    if (averageHandSpeedTracker != null)
+                    {
+                        averageHandSpeedTracker.enabled = true;
+                    }
+                    break;
+
+
+                default:
+                    break;
+            }
+
 
 
             spring = joint.spring;
@@ -97,9 +126,9 @@ namespace ObliqueSenastions.UISpace
                 SetTargetPositionWithNormedValue(averageHandSpeedTracker.GetOutputValueNormaized(true));
             }
 
-            else if(tachomode == Tachomode.readVelocityChangeDetector)
+            else if (tachomode == Tachomode.readVelocityChangeDetector)
             {
-                if(velocityChangeDetectorBar == null) return;
+                if (velocityChangeDetectorBar == null) return;
                 SetTargetPositionWithNormedValue(velocityChangeDetectorBar.GetHauDenLukasValue());
             }
 
@@ -108,7 +137,7 @@ namespace ObliqueSenastions.UISpace
 
             }
 
-            
+
 
             SetValueText(Mathf.RoundToInt(targetPosition).ToString());
 

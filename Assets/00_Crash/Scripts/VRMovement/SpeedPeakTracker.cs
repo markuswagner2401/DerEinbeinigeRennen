@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using ObliqueSenastions.UISpace;
+using UnityEngine.Events;
 
 namespace ObliqueSenastions.VRRigSpace
 {
@@ -13,6 +14,26 @@ namespace ObliqueSenastions.VRRigSpace
         [SerializeField] List<SimpleVelocityTracker> simpleVelocityTrackersMultiplayer;
 
         [SerializeField] float speedThreshold = 0.1f;
+
+        [SerializeField] float forcePauseAfterXSeceondes = 6f;
+
+        float resetTimer;
+
+        [SerializeField] float forcedPauseDuration = 5f;
+
+        [SerializeField] UnityEvent doOnForcedPause;
+
+        bool forcePauseState;
+
+        bool forcedPauseTriggered;
+
+        [SerializeField] UnityEvent doOnForcedPauseEnded;
+
+        bool forcedPauseEndTriggered;
+
+        float forcedPauseTimer;
+
+
 
         float currentSpeed;
 
@@ -74,7 +95,11 @@ namespace ObliqueSenastions.VRRigSpace
             currentSpeed = AverageSpeed();
             smoothedSpeed = Mathf.Lerp(smoothedSpeed, currentSpeed, peakDetectorSmoothing);
 
-            highestSpeed = (currentSpeed > highestSpeed) ? currentSpeed : highestSpeed;
+
+
+
+
+            //highestSpeed = (currentSpeed > highestSpeed) ? currentSpeed : highestSpeed;
 
             if (lastSmoothedSpeed < smoothedSpeed)
             {
@@ -82,15 +107,12 @@ namespace ObliqueSenastions.VRRigSpace
                 speedPeak = (capturedSpeedPeak > currentSpeed) ? capturedSpeedPeak : currentSpeed;
                 capturedSpeedPeak = speedPeak;
 
-
             }
 
             else
             {
                 rising = false;
                 capturedSpeedPeak = 0f;
-
-
             }
 
 
@@ -115,6 +137,59 @@ namespace ObliqueSenastions.VRRigSpace
                 outputValue = Mathf.Lerp(outputValue, valueOnCurve, outputFallingSmoothing);
 
             }
+
+
+
+            // forced pause
+
+
+
+            //
+
+
+
+
+
+            if (outputValue > 0.001f)
+            {
+                resetTimer += Time.deltaTime;
+
+                if (resetTimer > forcePauseAfterXSeceondes)
+                {
+                    if (forcedPauseTimer < forcedPauseDuration) // during pause
+                    {
+                        forcedPauseTimer += Time.deltaTime;
+
+                        if (!forcedPauseTriggered)
+                        {
+                            doOnForcedPause.Invoke();
+                            forcedPauseTriggered = true;
+                        }
+
+                        forcePauseState = true;
+                        forcedPauseEndTriggered = false;
+                    }
+
+                    else // end of pause
+                    {
+                        if (!forcedPauseEndTriggered)
+                        {
+                            doOnForcedPauseEnded.Invoke();
+                            forcedPauseEndTriggered = true;
+                        }
+
+                        resetTimer = 0;
+                        forcedPauseTimer = 0;
+                        forcedPauseTriggered = false;
+                        forcePauseState = false;
+
+                    }
+                }
+            }
+
+            
+
+
 
 
         }
@@ -157,6 +232,11 @@ namespace ObliqueSenastions.VRRigSpace
 
         public float GetOutputValueNormalized()
         {
+            if (forcePauseState)
+            {
+                return 0;
+            }
+
             if (dynamicNormaization)
             {
                 return Mathf.InverseLerp(0, highestSpeed, outputValue);

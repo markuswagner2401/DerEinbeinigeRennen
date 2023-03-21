@@ -15,7 +15,7 @@ namespace ObliqueSenastions.TimelineSpace
     {
         [SerializeField] TimelineTimeMode currentMode = TimelineTimeMode.useTimelineTime;
 
-        TimelineTimeMode bufferedMode;
+        TimelineTimeMode capturedMode;
         [SerializeField] PlayableDirector playableDirector = null;
         float currentTimelineTime;
         float timelineDeltaTime;
@@ -88,7 +88,8 @@ namespace ObliqueSenastions.TimelineSpace
         {
             if(currentMode == TimelineTimeMode.useCustomTime)
             {
-                bufferedMode = newMode;
+                capturedMode = newMode;
+                return;
             }
 
             currentMode = newMode;
@@ -98,13 +99,17 @@ namespace ObliqueSenastions.TimelineSpace
         {
             if(yes)
             {
-                bufferedMode = currentMode;
+                if(currentMode == TimelineTimeMode.useCustomTime)
+                {
+                    return;
+                }
+                capturedMode = currentMode;
                 currentMode = TimelineTimeMode.useCustomTime;
             }
 
             else
             {
-                currentMode = bufferedMode;
+                currentMode = capturedMode;
             }
             
 

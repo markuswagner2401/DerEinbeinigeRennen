@@ -1465,6 +1465,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 21.3
       objectReference: {fileID: 0}
+    - target: {fileID: 443455390196084277, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 443455390196084277, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 527991939176602001, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
       propertyPath: rig
@@ -1620,6 +1630,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 3016003763068436576, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016003763068436576, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 31.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3239622519886531441, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
       propertyPath: m_IsActive
@@ -1673,7 +1693,7 @@ PrefabInstance:
     - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
       propertyPath: deactivateAtStart.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
@@ -1695,6 +1715,11 @@ PrefabInstance:
       propertyPath: deactivateAtStart.Array.data[1]
       value: 
       objectReference: {fileID: 8472342465036435066}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
+      propertyPath: deactivateAtStart.Array.data[2]
+      value: 
+      objectReference: {fileID: 1344679750701689425}
     - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
       propertyPath: tutorials.Array.data[0].eraseAtStart
@@ -1758,7 +1783,7 @@ PrefabInstance:
     - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
       propertyPath: tutorials.Array.data[0].objectsToActivate.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
@@ -1797,13 +1822,18 @@ PrefabInstance:
       objectReference: {fileID: 8472342465036435066}
     - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
+      propertyPath: tutorials.Array.data[0].objectsToActivate.Array.data[2]
+      value: 
+      objectReference: {fileID: 1344679750701689425}
+    - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+        type: 3}
       propertyPath: tutorials.Array.data[0].successMessages.Array.data[0].text
       value: Armbewegung aktiv
       objectReference: {fileID: 0}
     - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
       propertyPath: tutorials.Array.data[0].successMessages.Array.data[1].text
-      value: weiter so!
+      value: WEITER SO
       objectReference: {fileID: 0}
     - target: {fileID: 3679303029888981766, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
@@ -2380,7 +2410,7 @@ PrefabInstance:
     - target: {fileID: 9100259162848520389, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
       propertyPath: mapStrengthMax
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 9100259162848520389, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
         type: 3}
@@ -2447,6 +2477,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4836895a4bf78224aa13df91e4542fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1344679750701689425 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6295053057104879554, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,
+    type: 3}
+  m_PrefabInstance: {fileID: 5041153597073864083}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1568061936840883131 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5780130955552558632, guid: 3ec2e1d0dcf9ed54798b9d8db55ccbbd,

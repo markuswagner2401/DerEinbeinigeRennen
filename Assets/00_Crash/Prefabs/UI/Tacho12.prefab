@@ -1554,6 +1554,38 @@ MonoBehaviour:
   simpleVelocityTrackersSinglePlayer: []
   simpleVelocityTrackersMultiplayer: []
   speedThreshold: 0.1
+  forcePauseAfterXSeceondes: 4
+  forcedPauseDuration: 3
+  doOnForcedPause:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6700264077763646018}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: .......
+          m_BoolArgument: 0
+        m_CallState: 2
+  doOnForcedPauseEnded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6700264077763646018}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: "PR\xC4ZISION"
+          m_BoolArgument: 0
+        m_CallState: 2
   rising: 0
   speedPeak: 0
   peakDetectorSmoothing: 0.1
@@ -1593,9 +1625,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  dynamicNormaization: 1
+  dynamicNormaization: 0
   minSpeed: 0
-  maxSpeed: 0.7
+  maxSpeed: 0.5
   outputValue: 0
 --- !u!114 &8721747174055323044
 MonoBehaviour:
@@ -1635,9 +1667,9 @@ MonoBehaviour:
   onRightHandIsMovingWithStrength:
     m_PersistentCalls:
       m_Calls: []
-  outputNormalizedValue:
-    m_PersistentCalls:
-      m_Calls: []
+  velocityChangesLeft: 0
+  velocityChangesRight: 0
+  tmpChangesCounter: {fileID: 0}
   deveationThreshold: 0.5
   speedThreshold: 0.1
   mapStrengthMin: 0
@@ -1659,7 +1691,7 @@ MonoBehaviour:
   tachomode: 1
   averageHandSpeedTracker: {fileID: 5052685247358438150}
   speedPeakTracker: {fileID: 5423073464106245734}
-  velocityChangeDetector: {fileID: 0}
+  velocityChangeDetectorBar: {fileID: 0}
   positionsMin: 0
   poitionsMax: 12
   targetPosition: 0
@@ -1785,7 +1817,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: FORM
+  m_text: "PR\xC4ZISION"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 37f8db8e71a3ee54a9b8633397254895, type: 2}
   m_sharedMaterial: {fileID: 307210023926378270, guid: 37f8db8e71a3ee54a9b8633397254895,
