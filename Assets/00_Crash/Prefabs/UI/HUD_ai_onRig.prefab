@@ -449,7 +449,7 @@ MonoBehaviour:
   onLoadingComlete:
     m_PersistentCalls:
       m_Calls: []
-  enableClapAccumulation: 0
+  enableClapAccumulation: 1
   listenforClapAccumulation: 0
   accumulateFactor: 0.5
   deAccumulationPerFrame: 0.003
@@ -2187,7 +2187,19 @@ MonoBehaviour:
       m_Calls: []
   onRightVelocityChangedWithStrength:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7755715259762665935}
+        m_TargetAssemblyTypeName: ObliqueSenastions.ClapSpace.LoadingBar, Assembly-CSharp
+        m_MethodName: SetAccumulativeBarValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onRightVelocityChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2205,19 +2217,7 @@ MonoBehaviour:
       m_Calls: []
   outputNormalizedValue:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7755715259762665935}
-        m_TargetAssemblyTypeName: ObliqueSenastions.ClapSpace.LoadingBar, Assembly-CSharp
-        m_MethodName: SetLoadingBarValue
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   deveationThreshold: 0.5
   speedThreshold: 0.1
   mapStrengthMin: 0

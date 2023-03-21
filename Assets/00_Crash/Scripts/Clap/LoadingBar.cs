@@ -82,6 +82,7 @@ namespace ObliqueSenastions.ClapSpace
 
         public void SetLoadingBarValue(float value)
         {
+            //print("set loading bar value: " + value);
             material.SetFloat(valueReference, value);
         }
 
@@ -152,6 +153,13 @@ namespace ObliqueSenastions.ClapSpace
             listenforClapAccumulation = value;
 
 
+        }
+
+        public void SetAccumulativeBarValue(float value)
+        {
+            if (!listenforClapAccumulation) return;
+            if (accumulativeBarValue > value) return;
+            accumulativeBarValue = value;
         }
 
         public void AddToLoadingBar(float value)

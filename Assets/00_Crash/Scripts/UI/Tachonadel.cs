@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using ObliqueSenastions.VRRigSpace;
+using ObliqueSenastions.ClapSpace;
 using UnityEngine;
 using TMPro;
 
@@ -31,7 +32,7 @@ namespace ObliqueSenastions.UISpace
 
         [SerializeField] SpeedPeakTracker speedPeakTracker = null;
 
-        [SerializeField] VelocityChangeDetector velocityChangeDetector = null;
+        [SerializeField] LoadingBar velocityChangeDetectorBar = null;
 
 
         [SerializeField] float positionsMin = 0f;
@@ -98,8 +99,8 @@ namespace ObliqueSenastions.UISpace
 
             else if(tachomode == Tachomode.readVelocityChangeDetector)
             {
-                if(velocityChangeDetector == null) return;
-                SetTargetPositionWithNormedValue(velocityChangeDetector.GetOutputValueNormalizedCombined());
+                if(velocityChangeDetectorBar == null) return;
+                SetTargetPositionWithNormedValue(velocityChangeDetectorBar.GetHauDenLukasValue());
             }
 
             else if (tachomode == Tachomode.syncedByNetwork)

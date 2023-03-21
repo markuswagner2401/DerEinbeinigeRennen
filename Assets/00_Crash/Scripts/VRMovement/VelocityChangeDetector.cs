@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
 
 namespace ObliqueSenastions.VRRigSpace
@@ -27,7 +28,12 @@ namespace ObliqueSenastions.VRRigSpace
 
         [SerializeField] UnityEventFloat onRightHandIsMovingWithStrength;
 
-        [SerializeField] UnityEventFloat outputNormalizedValue;
+        //[SerializeField] UnityEventFloat outputNormalizedValue;
+
+        [SerializeField] int velocityChangesLeft = 0;
+        [SerializeField] int velocityChangesRight = 0;
+
+        [SerializeField] TextMeshProUGUI tmpChangesCounter;
 
 
         [SerializeField] float deveationThreshold = 0.5f;
@@ -49,14 +55,15 @@ namespace ObliqueSenastions.VRRigSpace
         Vector3[] velocityTraceLeft;
         Vector3[] velocityTraceRight;
 
-        float outputValueNormalizedLeft;
+        // float outputValueNormalizedLeft;
 
-        float outputValueNormalizedRight;
+        // float outputValueNormalizedRight;
 
-        float outputValueNormalizedCombined;
+        // float outputValueNormalizedCombined;
 
         void Start()
         {
+            if(leftHandVelocity == null || rightHandVelocity == null) return;
             lastVelocityleft = leftHandVelocity.GetLocalVelocity().normalized;
 
             lastVelocityright = rightHandVelocity.GetLocalVelocity().normalized;
@@ -68,15 +75,16 @@ namespace ObliqueSenastions.VRRigSpace
 
         void FixedUpdate()
         {
+            if(leftHandVelocity == null || rightHandVelocity == null) return;
             //print("leftHand speed = " + leftHandVelocity.GetSpeed());
             //print("deveation " + Vector3.Dot(leftHandVelocity.GetVelocity().normalized, lastVelocityleft));
-            if (leftHandVelocity.GetSpeed() > speedThreshold)
+            if (leftHandVelocity.GetLocalSpeed() > speedThreshold)
             {
                 onLeftHandIsMoving.Invoke();
                 onLeftHandIsMovingWithStrength.Invoke(NormalizeSpeed(leftHandVelocity.GetSpeed()));
             }
 
-            if (rightHandVelocity.GetSpeed() > speedThreshold)
+            if (rightHandVelocity.GetLocalSpeed() > speedThreshold)
             {
                 onRightHandIsMoving.Invoke();
                 onRightHandIsMovingWithStrength.Invoke(NormalizeSpeed(rightHandVelocity.GetSpeed()));
@@ -92,13 +100,19 @@ namespace ObliqueSenastions.VRRigSpace
 
             UpdateVelocityTraceRight(rightHandVelocity.GetVelocity());
 
-            outputValueNormalizedLeft = Mathf.Lerp(0, outputValueNormalizedLeft, 0.001f);
+            if(tmpChangesCounter != null)
+            {
+                tmpChangesCounter.text = Mathf.Floor((velocityChangesLeft + velocityChangesRight) / 2).ToString();
+            }
+            
 
-            outputValueNormalizedRight = Mathf.Lerp(0, outputValueNormalizedRight, 0.001f);
+            // outputValueNormalizedLeft = Mathf.Lerp(0, outputValueNormalizedLeft, 0.001f);
 
-            outputValueNormalizedCombined = (outputValueNormalizedLeft + outputValueNormalizedRight) / 2f;
+            // outputValueNormalizedRight = Mathf.Lerp(0, outputValueNormalizedRight, 0.001f);
 
-            outputNormalizedValue.Invoke(outputValueNormalizedCombined);
+            // outputValueNormalizedCombined = (outputValueNormalizedLeft + outputValueNormalizedRight) / 2f;
+
+            // outputNormalizedValue.Invoke(outputValueNormalizedCombined);
 
         }
 
@@ -149,7 +163,9 @@ namespace ObliqueSenastions.VRRigSpace
 
             onLeftVelocityChangedWithStrength.Invoke(strength);
 
-            SetOutputValueLeft(strength);
+            velocityChangesLeft += 1;
+
+            // SetOutputValueLeft(strength);
 
             // print("velocity change left with strength : " + GetAverageVelocityLeft().magnitude);
 
@@ -168,9 +184,13 @@ namespace ObliqueSenastions.VRRigSpace
 
             float strength = NormalizeStrength(GetAverageVelocityRight().magnitude);
 
+            print("strength: " + strength);
+
             onRightVelocityChangedWithStrength.Invoke(strength);
 
-            SetOutputValueRight(strength);
+            velocityChangesRight += 1;
+
+            //SetOutputValueRight(strength);
 
             //print("velocity change right with strength : " + GetAverageVelocityRight().magnitude);
 
@@ -241,30 +261,30 @@ namespace ObliqueSenastions.VRRigSpace
 
         /// output values
 
-        void SetOutputValueLeft(float value)
-        {
-            outputValueNormalizedLeft = value;
-        }
+        // void SetOutputValueLeft(float value)
+        // {
+        //     outputValueNormalizedLeft = value;
+        // }
 
-        void SetOutputValueRight(float value)
-        {
-            outputValueNormalizedRight = value;
-        }
+        // void SetOutputValueRight(float value)
+        // {
+        //     outputValueNormalizedRight = value;
+        // }
 
-        public float GetOutputValueNormalizedLeft()
-        {
-            return outputValueNormalizedLeft;
-        }
+        // public float GetOutputValueNormalizedLeft()
+        // {
+        //     return outputValueNormalizedLeft;
+        // }
 
-        public float GetOutputValueNormalizedright()
-        {
-            return outputValueNormalizedRight;
-        }
+        // public float GetOutputValueNormalizedright()
+        // {
+        //     return outputValueNormalizedRight;
+        // }
 
-        public float GetOutputValueNormalizedCombined()
-        {
-            return outputValueNormalizedCombined;
-        }
+        // public float GetOutputValueNormalizedCombined()
+        // {
+        //     return outputValueNormalizedCombined;
+        // }
 
 
 
