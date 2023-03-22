@@ -8,7 +8,7 @@ namespace ObliqueSenastions.TimelineSpace
     {
         useTimelineTime,
         useDeltaTime,
-        useCustomTime
+        useBreakTime
     }
 
     public class TimelineTime : MonoBehaviour
@@ -24,7 +24,17 @@ namespace ObliqueSenastions.TimelineSpace
 
         [SerializeField] float jumpThreshold = 0.1f;
 
-        [SerializeField] float customDeltaTime = 0f;
+        [SerializeField] float breakDeltaTime = 0f;
+
+        [SerializeField] bool goIntoBreakAtBadTracking = false;
+
+        [SerializeField] OVRHand leftHand = null;
+
+        [SerializeField] OVRHand rightHand = null;
+
+        [SerializeField] float acceptedTimeWithBadTracking = 1f;
+
+        float badTrackingTimer;
 
         private void Start()
         {
@@ -45,8 +55,41 @@ namespace ObliqueSenastions.TimelineSpace
                 Debug.Log("TimelineTime jump threshold");
                 timelineDeltaTime = Time.deltaTime;
             }
-            //print("TimelineTimeDelta: " + timelineDeltaTime);
+
             previousTimelineTime = currentTimelineTime;
+
+            if(goIntoBreakAtBadTracking)
+            {
+                if(leftHand == null)
+                {
+                    leftHand = GameObject.FindWithTag("LeftOVRHand").GetComponent<OVRHand>();
+                    return;
+
+                }
+                if(rightHand == null)
+                {
+                    rightHand = GameObject.FindWithTag("RightOVRHand").GetComponent<OVRHand>();
+                    return;
+                }
+
+
+                
+                if(!leftHand.IsDataHighConfidence && !rightHand.IsDataHighConfidence)
+                {
+                    badTrackingTimer += Time.deltaTime;
+                    if(badTrackingTimer > acceptedTimeWithBadTracking)
+                    {
+                        UseCustomTime(true);
+                    }
+                }
+                else
+                {
+                    badTrackingTimer = 0f;
+                    UseCustomTime(false);
+                }
+            }
+            //print("TimelineTimeDelta: " + timelineDeltaTime);
+            
         }
 
         public float GetTimelineTime()
@@ -66,19 +109,19 @@ namespace ObliqueSenastions.TimelineSpace
             switch (currentMode)
             {
                 case TimelineTimeMode.useTimelineTime:
-                returnValue = timelineDeltaTime;
-                break;
+                    returnValue = timelineDeltaTime;
+                    break;
 
                 case TimelineTimeMode.useDeltaTime:
-                returnValue = Time.deltaTime;
-                break;
+                    returnValue = Time.deltaTime;
+                    break;
 
-                case TimelineTimeMode.useCustomTime:
-                returnValue = customDeltaTime;
-                break;
+                case TimelineTimeMode.useBreakTime:
+                    returnValue = breakDeltaTime;
+                    break;
 
                 default:
-                break;
+                    break;
             }
 
             return returnValue;
@@ -86,9 +129,9 @@ namespace ObliqueSenastions.TimelineSpace
 
         public void SetMode(TimelineTimeMode newMode)
         {
-            if(currentMode == TimelineTimeMode.useCustomTime)
+            if (currentMode == TimelineTimeMode.useBreakTime)
             {
-                capturedMode = newMode;
+                CaptureMode(newMode);
                 return;
             }
 
@@ -96,26 +139,32 @@ namespace ObliqueSenastions.TimelineSpace
         }
 
         public void UseCustomTime(bool yes)
-        {
-            if(yes)
+        { 
+            if (yes)
             {
-                if(currentMode == TimelineTimeMode.useCustomTime)
-                {
-                    return;
-                }
-                capturedMode = currentMode;
-                currentMode = TimelineTimeMode.useCustomTime;
+                
+                if (currentMode == TimelineTimeMode.useBreakTime) return;
+
+                CaptureMode(currentMode);
+                
+                currentMode = TimelineTimeMode.useBreakTime;
             }
 
             else
             {
                 currentMode = capturedMode;
             }
-            
+
 
         }
 
-        
+        void CaptureMode(TimelineTimeMode mode)
+        {
+            if(mode == TimelineTimeMode.useBreakTime) return;
+            capturedMode = mode;
+        }
+
+
 
         // public TimelineTimeMode GetMode()
         // {

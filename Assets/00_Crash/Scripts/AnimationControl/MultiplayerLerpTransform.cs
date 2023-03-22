@@ -9,21 +9,28 @@ namespace ObliqueSenastions.VRRigSpace
 {
     public class MultiplayerLerpTransform : MonoBehaviour
     {
-        [SerializeField] Transform source;
+        [SerializeField] Formation[] formations;
+        
+        [System.Serializable]
+        public struct Formation
+        {
+            public string name;
+            public Transform source;
+            public Transform[] multiplayerSources;
+            public float weight;
 
-        [SerializeField] Transform[] multiplayerSources;
+            public bool switchToNextFormation;
 
-        [Range(0f, 1f)]
-        [SerializeField] float weight;
+            
+        }
+
+        [SerializeField] float thresholdtoSwitchToNextFormation = 0.99f;
+
+        [SerializeField] int currentFormation = 0;
 
         [SerializeField] bool rotation;
 
         [SerializeField] bool scale;
-
-        
-
-        
-
         [SerializeField] bool readAtTacho = true;
         [SerializeField] Tachonadel tacho;
 
@@ -47,10 +54,6 @@ namespace ObliqueSenastions.VRRigSpace
             public AnimationCurve curve;
         }
 
-        
-
-
-      
 
         Vector3 capturedStartPosition = new Vector3();
 
@@ -62,18 +65,24 @@ namespace ObliqueSenastions.VRRigSpace
         private bool isInterrupted;
         private bool isLerping;
 
+        [SerializeField] bool setupAtStart = false;
+
         void Start()
         {
-            CaptureValuesAtStart();
+            if(setupAtStart)
+            {
+                CapturePosition();
+            }
+            
 
             if(PhotonNetwork.IsConnected)
             {
-                SetupMultiplayerTransform();
+                SetupMultiplayerSources();
             }
 
             else
             {
-                MultiplayerConnector.instance.my_OnJoinedRoom += SetupMultiplayerTransform;
+                MultiplayerConnector.instance.my_OnJoinedRoom += SetupMultiplayerSources;
             }
             
             
@@ -81,12 +90,7 @@ namespace ObliqueSenastions.VRRigSpace
 
         }
 
-        void SetupMultiplayerTransform()
-        {
-            multiplayerIndex = MultiplayerConnector.instance.GetClientsIndexInRole();
-            source = multiplayerSources[multiplayerIndex];
-
-        }
+        
 
 
         void Update()
@@ -98,41 +102,43 @@ namespace ObliqueSenastions.VRRigSpace
             {
                 float t = ReadWeightAtTacho(tacho);
                 float speed = MapSpeed(mapMinSpeed, mapMaxSpeed, t);
-                PlayWeight(speed * speedFactor);
+                PlayWeight(currentFormation ,speed * speedFactor);
             }
 
-            if (weight <= 0f) return;
-            transform.position = Vector3.Lerp(capturedStartPosition, source.position, weight);
+            if(formations[currentFormation].switchToNextFormation && formations[currentFormation].weight > thresholdtoSwitchToNextFormation)
+            {
+                CapturePositionAndChangeIndex(currentFormation + 1);
+            }
+
+            if (formations[currentFormation].weight <= 0f) return;
+
+            transform.position = Vector3.Lerp(capturedStartPosition, formations[currentFormation].source.position, formations[currentFormation].weight);
 
             if (rotation)
             {
-                transform.rotation = Quaternion.Lerp(capturedStartRotation, source.rotation, weight);
+                transform.rotation = Quaternion.Lerp(capturedStartRotation, formations[currentFormation].source.rotation, formations[currentFormation].weight);
             }
 
-            if (scale)
-            {
-                transform.localScale = Vector3.Lerp(capturedStartScale, source.localScale, weight);
-            }
-
-
-
-
-
+            // if (scale)
+            // {
+            //     transform.localScale = Vector3.Lerp(capturedStartScale, source.localScale, weight1);
+            // }
 
         }
 
-        private float ReadWeightAtTacho(Tachonadel tacho)
+        /// setup
+
+        void SetupMultiplayerSources()
         {
-            return tacho.GetNormedTargetPosition();
+            multiplayerIndex = MultiplayerConnector.instance.GetClientsIndexInRole();
+            for (int i = 0; i < formations.Length; i++)
+            {
+                formations[i].source = formations[i].multiplayerSources[multiplayerIndex];
+            }
+
         }
 
-        // private void LateUpdate() {
-
-        // }
-
-        
-
-        void CaptureValuesAtStart()
+        public void CapturePosition()
         {
             capturedStartPosition = transform.position;
 
@@ -142,16 +148,38 @@ namespace ObliqueSenastions.VRRigSpace
 
         }
 
+        /// index
 
+        void CapturePositionAndChangeIndex(int index)
+        {
+            
+            if(index >= formations.Length) return;
+            CapturePosition();
+            formations[index].weight = 0;
+            currentFormation = index;
+        }
+
+        private void SetFormationIndex(int index)
+        {
+            currentFormation = index;
+        }
+
+
+        /// input
+
+
+        private float ReadWeightAtTacho(Tachonadel tacho)
+        {
+            return tacho.GetNormedTargetPosition();
+        }
 
         
+        /// weight
 
 
-
-
-        public void SetWeight(float value)
+        public void SetWeight(int formationIndex,float value)
         {
-            weight = value;
+            formations[formationIndex].weight = value;
         }
 
         private float MapSpeed(float minSpeed, float maxSpeed, float t)
@@ -160,21 +188,25 @@ namespace ObliqueSenastions.VRRigSpace
         }
 
 
-        public void PlayWeight(float speed)
+        public void PlayWeight(int index, float speed)
         {
-            weight = Mathf.Clamp01(weight + Time.deltaTime * speed);
+            formations[index].weight = Mathf.Clamp01(formations[index].weight + Time.deltaTime * speed);
+            
             //print("play weight: " + weight + "with speed: " + speed);
         }
 
 
-        ///
+        /// Lerp Speed
 
-        
+        public void CapturePositionThenLerp(int index)
+        {
+            CapturePosition();
+            LerpSpeed(index);
+        }
 
         public void LerpSpeed(int index)
         {
             StartCoroutine(InterruptAndLerpNext(index));
-
         }
 
         IEnumerator InterruptAndLerpNext(int index)

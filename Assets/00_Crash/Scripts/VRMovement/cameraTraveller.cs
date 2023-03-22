@@ -260,6 +260,7 @@ namespace ObliqueSenastions.VRRigSpace
                 }
                 else // set up formation
                 {
+                    print("setup formation");
                     item.cameraOffsetTarget.position = item.offsetFormation[playerIndex].position;
                     item.cameraOffsetTarget.rotation = item.offsetFormation[playerIndex].rotation;
                 }

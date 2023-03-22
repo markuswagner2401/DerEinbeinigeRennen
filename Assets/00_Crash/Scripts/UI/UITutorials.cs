@@ -133,12 +133,15 @@ namespace ObliqueSenastions.UISpace
 
             if (timer > acceptedDurationWithoutMovement)
             {
+                print("arms not moving for more than 5 seconds");
                 if (!motivationTriggered)
                 {
 
                     PlayTutorial(1); // index 1 for reminder tutorial
                 }
             }
+
+            
 
 
         }
