@@ -467,27 +467,129 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playAtStart: 1
-  motivationen:
-  - name: ArmeBewegen
+  enableTutorialsOnArmsNotMoving: 1
+  deactivateAtStart: []
+  tutorials:
+  - name: Initial
     eraseAtStart: 1
+    goIntoUiTime: 1
+    doOnStartTutorial:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: ObliqueSenastions.MaterialControl.HeadSphereShaderControl,
+            Assembly-CSharp
+          m_MethodName: ChangeFloat
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: UIFocus
+            m_BoolArgument: 0
+          m_CallState: 2
+    durationBeforefirstMessage: 0.5
     objectsToActivate:
-    - {fileID: 3487484760952998889}
-    - {fileID: 6352390650335615378}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     messages:
-    - text: "F\xFCr einen reibungslosen Ablauf"
-      duration: 3
-    - text: "M\xFCssen beide Arme"
-      duration: 3
+    - text: Bewegen Sie die Arme
+      duration: 5
     - text: Im Sichtfeld der Brille
       duration: 3
-    - text: In Bewegung bleiben
+    - text: In variierenden Tempi und Rhythmen
       duration: 3
-    - text: 'Die Arme steuern '
+    - text: Die Arme steuern
       duration: 3
     - text: "Geschwindigkeit und Pr\xE4zision"
-      duration: 3
+      duration: 8
     loopUntilArmsMove: 1
-    durationAfterMessages: 1
+    successMessages:
+    - text: Armbewegung aktiv
+      duration: 1
+    - text: WEITER SO
+      duration: 1
+    durationAfterMessages: 0.5
+    doOnEndTutorial:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: ObliqueSenastions.MaterialControl.HeadSphereShaderControl,
+            Assembly-CSharp
+          m_MethodName: ChangeFloat
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: UIUnfocus
+            m_BoolArgument: 0
+          m_CallState: 2
+    maxRepetitions: 1
+    repetitionsCounter: 0
+  - name: Reminder
+    eraseAtStart: 1
+    goIntoUiTime: 1
+    doOnStartTutorial:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: ObliqueSenastions.MaterialControl.HeadSphereShaderControl,
+            Assembly-CSharp
+          m_MethodName: ChangeFloat
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: UIFocus
+            m_BoolArgument: 0
+          m_CallState: 2
+    durationBeforefirstMessage: 0.5
+    objectsToActivate:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    messages:
+    - text: Bewegen Sie die Arme
+      duration: 5
+    - text: Im Sichtfeld der Brille
+      duration: 3
+    - text: In variierenden Tempi und Rhythmen
+      duration: 3
+    - text: Die Arme steuern
+      duration: 3
+    - text: "Geschwindigkeit und Pr\xE4zision"
+      duration: 8
+    loopUntilArmsMove: 1
+    successMessages:
+    - text: Armbewegung aktiv
+      duration: 1
+    - text: WEITER SO
+      duration: 1
+    durationAfterMessages: 0.5
+    doOnEndTutorial:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: ObliqueSenastions.MaterialControl.HeadSphereShaderControl,
+            Assembly-CSharp
+          m_MethodName: ChangeFloat
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: UIUnfocus
+            m_BoolArgument: 0
+          m_CallState: 2
+    maxRepetitions: 1
+    repetitionsCounter: 0
   tmPro: {fileID: 7000919017665878423}
   observedTrackerLeft: {fileID: 0}
   observedTrackerRight: {fileID: 0}
@@ -495,6 +597,7 @@ MonoBehaviour:
   rightHand: {fileID: 0}
   acceptedDurationWithoutMovement: 5
   speedThreshold: 0.05
+  onlyChekcforArmsTracked: 1
 --- !u!1001 &109264321171679321
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -525,7 +628,7 @@ PrefabInstance:
     - target: {fileID: 2087238516686597739, guid: 6fbed021086f5ac4a855168fb1015814,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2823699788443605894, guid: 6fbed021086f5ac4a855168fb1015814,
         type: 3}
@@ -765,12 +868,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fbed021086f5ac4a855168fb1015814, type: 3}
---- !u!1 &6352390650335615378 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6461564793500971467, guid: 6fbed021086f5ac4a855168fb1015814,
-    type: 3}
-  m_PrefabInstance: {fileID: 109264321171679321}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6737115554082492196 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6699990329591293821, guid: 6fbed021086f5ac4a855168fb1015814,
@@ -970,12 +1067,6 @@ PrefabInstance:
 --- !u!4 &2240649709089460712 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4247103204926001024, guid: 109b52aaee903b64e9e499b4d0ca2918,
-    type: 3}
-  m_PrefabInstance: {fileID: 2731678181052751464}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3487484760952998889 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1553414476930520449, guid: 109b52aaee903b64e9e499b4d0ca2918,
     type: 3}
   m_PrefabInstance: {fileID: 2731678181052751464}
   m_PrefabAsset: {fileID: 0}

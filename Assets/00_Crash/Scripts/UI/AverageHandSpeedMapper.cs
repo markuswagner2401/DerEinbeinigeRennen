@@ -22,6 +22,8 @@ namespace ObliqueSenastions.VRRigSpace
 
         float mappedSpeed;
 
+        [SerializeField] bool useNetworkPlayer = false;
+
        
 
 
@@ -31,17 +33,24 @@ namespace ObliqueSenastions.VRRigSpace
             simpleVelocityTrackersMultiplayer.Add(newTracker);
         }
 
+        public void SetUseNetworkPlayer(bool value) /// gets set by syn component
+        {
+            useNetworkPlayer = value;
+        }
+
         
 
         public float GetOutputValueNormaized(bool mappedOnCurve)
         {
-            List<SimpleVelocityTracker> trackerlist = PhotonNetwork.IsConnected ? simpleVelocityTrackersMultiplayer : simpleVelocityTrackersSingleplayer;
+            List<SimpleVelocityTracker> trackerlist = (PhotonNetwork.IsConnected && useNetworkPlayer) ? simpleVelocityTrackersMultiplayer : simpleVelocityTrackersSingleplayer;
             if(trackerlist.Count <= 0) return 0;
             float speedSum = 0;
             foreach (var item in trackerlist)
             {
                 speedSum += item.GetLocalSpeed();
             }
+
+            if(trackerlist.Count == 0) return 0;
 
             float averageSpeed = speedSum / trackerlist.Count;
 

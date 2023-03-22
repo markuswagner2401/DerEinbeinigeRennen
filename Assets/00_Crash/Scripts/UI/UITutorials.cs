@@ -24,6 +24,8 @@ namespace ObliqueSenastions.UISpace
 
             public bool eraseAtStart;
 
+            public bool goOutImmediatly;
+
             public bool goIntoUiTime;
 
             public UnityEvent doOnStartTutorial;
@@ -41,6 +43,10 @@ namespace ObliqueSenastions.UISpace
             public float durationAfterMessages;
 
             public UnityEvent doOnEndTutorial;
+
+            public int maxRepetitions;
+
+            public int repetitionsCounter;
 
         }
 
@@ -65,7 +71,9 @@ namespace ObliqueSenastions.UISpace
 
         [SerializeField] float acceptedDurationWithoutMovement = 5f;
 
-        [SerializeField] float speedThreshold = 0.05f;
+        [SerializeField] float speedThreshold = 0.01f;
+
+        [SerializeField] bool onlyChekcforArmsTracked = true;
 
         float timer;
 
@@ -96,7 +104,7 @@ namespace ObliqueSenastions.UISpace
         {
             if (!enableTutorialsOnArmsNotMoving) return;
 
-            if (!ArmMoving(observedTrackerLeft, leftHand) || !ArmMoving(observedTrackerRight, rightHand))
+            if (!ArmMoving(observedTrackerLeft, leftHand) && !ArmMoving(observedTrackerRight, rightHand))
             {
                 timer += Time.deltaTime;
                 armsMoving = false;
@@ -113,7 +121,7 @@ namespace ObliqueSenastions.UISpace
                 if (!motivationTriggered)
                 {
 
-                    PlayTutorial(0);
+                    PlayTutorial(1); // index 1 for reminder tutorial
                 }
             }
 
@@ -129,11 +137,13 @@ namespace ObliqueSenastions.UISpace
         {
             if (tracker == null) return true;
             if (hand != null && !hand.IsDataHighConfidence) return false;
+            if(onlyChekcforArmsTracked) return true;
             return tracker.GetLocalSpeed() > speedThreshold;
         }
 
         public void PlayTutorial(int index)
         {
+            if(tutorials[index].repetitionsCounter > tutorials[index].maxRepetitions) return;
             motivationTriggered = true;
             StopAllCoroutines();
             StartCoroutine(PlayMotivationR(index));
@@ -181,6 +191,10 @@ namespace ObliqueSenastions.UISpace
         IEnumerator PlayMotivationR(int index)
         {
             tutorials[index].doOnStartTutorial.Invoke();
+
+            tutorials[index].repetitionsCounter += 1;
+
+
             
             bool messageComplete = false;
 
@@ -208,7 +222,7 @@ namespace ObliqueSenastions.UISpace
 
             int i = 0;
 
-            while (!messageComplete || (tutorials[index].loopUntilArmsMove && !armsMoving))
+            while ((tutorials[index].goOutImmediatly && !messageComplete) || (tutorials[index].loopUntilArmsMove && !armsMoving))
             {
 
                 tmPro.text = "\n" + "<color=#DADADA>" + tutorials[index].messages[i].text + "\n" + "<color=#585858>" + capturedText;
@@ -224,7 +238,10 @@ namespace ObliqueSenastions.UISpace
 
                 i %= tutorials[index].messages.Length;
 
-
+                if(!messageComplete || (tutorials[index].loopUntilArmsMove && !armsMoving))
+                {
+                     yield return null;
+                }
 
                 yield return new WaitForSeconds(tutorials[index].messages[i].duration);
 
@@ -237,7 +254,7 @@ namespace ObliqueSenastions.UISpace
                 while (armsMoving && !successComplete)
                 {
                     tmPro.text = "";
-                    tmPro.text = "\n" + "<color=#38f51b>" + tutorials[index].successMessages[j].text;
+                    tmPro.text = "\n\n\n" + "<color=#38f51b>" + tutorials[index].successMessages[j].text;
                     yield return new WaitForSeconds(tutorials[index].successMessages[j].duration);
                     j += 1;
 

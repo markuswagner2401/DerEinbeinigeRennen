@@ -8,6 +8,7 @@ namespace ObliqueSenastions.PunNetworking
 {
     public class SyncTachonadel : MonoBehaviourPunCallbacks, IPunObservable
     {
+        
         [SerializeField] Role ownerRole;
 
         [SerializeField] Tachonadel tachonadel = null;
@@ -22,6 +23,7 @@ namespace ObliqueSenastions.PunNetworking
         
         void Start()
         {
+            
             if(PhotonNetwork.IsConnected)
             {
                  localPlayerRole = MultiplayerConnector.instance.GetRole();
@@ -68,6 +70,8 @@ namespace ObliqueSenastions.PunNetworking
 
         public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
         {
+            if(!this.enabled) return;
+
             if(stream.IsWriting)
             {
                 streamedNormedValue = tachonadel.GetNormedTargetPosition();

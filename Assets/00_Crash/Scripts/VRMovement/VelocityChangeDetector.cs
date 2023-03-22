@@ -22,9 +22,13 @@ namespace ObliqueSenastions.VRRigSpace
 
         [SerializeField] UnityEvent onLeftHandIsMoving;
 
+        [SerializeField] UnityEvent onLeftHandIsNotMoving;
+
         [SerializeField] UnityEventFloat onLeftHandIsMovingWithStrength;
 
         [SerializeField] UnityEvent onRightHandIsMoving;
+
+        [SerializeField] UnityEvent onRightHandIsNotMoving;
 
         [SerializeField] UnityEventFloat onRightHandIsMovingWithStrength;
 
@@ -51,9 +55,11 @@ namespace ObliqueSenastions.VRRigSpace
 
         Vector3 lastVelocityright = new Vector3();
 
-        int velocityTraceLength = 20;
+        [SerializeField] int velocityTraceLength = 20;
         Vector3[] velocityTraceLeft;
         Vector3[] velocityTraceRight;
+
+        [SerializeField] bool detectVelocityChange = true;
 
         // float outputValueNormalizedLeft;
 
@@ -84,13 +90,23 @@ namespace ObliqueSenastions.VRRigSpace
                 onLeftHandIsMovingWithStrength.Invoke(NormalizeSpeed(leftHandVelocity.GetSpeed()));
             }
 
+            else
+            {
+                onLeftHandIsNotMoving.Invoke();
+            }
+
             if (rightHandVelocity.GetLocalSpeed() > speedThreshold)
             {
                 onRightHandIsMoving.Invoke();
                 onRightHandIsMovingWithStrength.Invoke(NormalizeSpeed(rightHandVelocity.GetSpeed()));
             }
 
+            else
+            {
+                onRightHandIsNotMoving.Invoke();
+            }
 
+            if(!detectVelocityChange) return; // return if only checcking speed
 
             CheckLeftVelocityChange();
 
@@ -136,6 +152,7 @@ namespace ObliqueSenastions.VRRigSpace
 
         private void CheckRightVelocityChange()
         {
+            
             if (rightHandVelocity.GetSpeed() < speedThreshold) return;
 
             if (Vector3.Dot(rightHandVelocity.GetVelocity().normalized, lastVelocityright) < deveationThreshold)

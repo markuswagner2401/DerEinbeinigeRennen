@@ -71,6 +71,8 @@ namespace ObliqueSenastions.VRRigSpace
 
         [SerializeField] float outputValue;
 
+        [SerializeField] bool useNetworkPlayer = false;
+
 
 
 
@@ -80,7 +82,7 @@ namespace ObliqueSenastions.VRRigSpace
         void Start()
         {
             currentSpeed = AverageSpeed();
-            smoothedSpeed = Mathf.Lerp(currentSpeed, currentSpeed, peakDetectorSmoothing);
+            smoothedSpeed = Mathf.Lerp(smoothedSpeed, currentSpeed, peakDetectorSmoothing);
 
             lastSpeed = currentSpeed;
             lastSmoothedSpeed = smoothedSpeed;
@@ -194,15 +196,22 @@ namespace ObliqueSenastions.VRRigSpace
 
         }
 
+        public void SetUseNetworkPlayer(bool value)
+        {
+            useNetworkPlayer = value;
+        }
+
         float AverageSpeed()
         {
-            if (PhotonNetwork.IsConnected)
+            if (PhotonNetwork.IsConnected && useNetworkPlayer)
             {
                 float speedSum = 0;
                 for (int i = 0; i < simpleVelocityTrackersMultiplayer.Count; i++)
                 {
                     speedSum += simpleVelocityTrackersMultiplayer[i].GetLocalSpeed();
                 }
+
+                if(simpleVelocityTrackersMultiplayer.Count == 0) return 0;
 
                 return speedSum / simpleVelocityTrackersMultiplayer.Count;
 
@@ -215,6 +224,8 @@ namespace ObliqueSenastions.VRRigSpace
                 {
                     speedSum += simpleVelocityTrackersSinglePlayer[i].GetLocalSpeed();
                 }
+
+                if(simpleVelocityTrackersSinglePlayer.Count == 0) return 0;
 
                 return speedSum / simpleVelocityTrackersSinglePlayer.Count;
 
