@@ -466,12 +466,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0f29acf8efd014aa931e6c363f1f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playAtStart: 1
+  playAtStart: 0
   enableTutorialsOnArmsNotMoving: 1
   deactivateAtStart: []
   tutorials:
-  - name: Initial
+  - name: StageMaster
     eraseAtStart: 1
+    loopMode: 2
     goIntoUiTime: 1
     doOnStartTutorial:
       m_PersistentCalls:
@@ -505,9 +506,8 @@ MonoBehaviour:
       duration: 3
     - text: "Geschwindigkeit und Pr\xE4zision"
       duration: 8
-    loopUntilArmsMove: 1
     successMessages:
-    - text: Armbewegung aktiv
+    - text: ARME IN BEWEGUNG
       duration: 1
     - text: WEITER SO
       duration: 1
@@ -532,6 +532,7 @@ MonoBehaviour:
     repetitionsCounter: 0
   - name: Reminder
     eraseAtStart: 1
+    loopMode: 3
     goIntoUiTime: 1
     doOnStartTutorial:
       m_PersistentCalls:
@@ -565,7 +566,116 @@ MonoBehaviour:
       duration: 3
     - text: "Geschwindigkeit und Pr\xE4zision"
       duration: 8
-    loopUntilArmsMove: 1
+    successMessages:
+    - text: Armbewegung aktiv
+      duration: 1
+    - text: WEITER SO
+      duration: 1
+    durationAfterMessages: 0.5
+    doOnEndTutorial:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: ObliqueSenastions.MaterialControl.HeadSphereShaderControl,
+            Assembly-CSharp
+          m_MethodName: ChangeFloat
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: UIUnfocus
+            m_BoolArgument: 0
+          m_CallState: 2
+    maxRepetitions: 1
+    repetitionsCounter: 0
+  - name: WelcomeZuschauer
+    eraseAtStart: 1
+    loopMode: 0
+    goIntoUiTime: 1
+    doOnStartTutorial:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: ObliqueSenastions.MaterialControl.HeadSphereShaderControl,
+            Assembly-CSharp
+          m_MethodName: ChangeFloat
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: UIFocus
+            m_BoolArgument: 0
+          m_CallState: 2
+    durationBeforefirstMessage: 0.5
+    objectsToActivate:
+    - {fileID: 0}
+    messages:
+    - text: Hallo Zuschauer
+      duration: 5
+    - text: es geht gleich los
+      duration: 3
+    - text: machen sie sich vertraut
+      duration: 3
+    - text: mit dem Effekt Ihrer Armbewegungen
+      duration: 3
+    successMessages:
+    - text: Armbewegung aktiv
+      duration: 1
+    - text: WEITER SO
+      duration: 1
+    durationAfterMessages: 0.5
+    doOnEndTutorial:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: ObliqueSenastions.MaterialControl.HeadSphereShaderControl,
+            Assembly-CSharp
+          m_MethodName: ChangeFloat
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: UIUnfocus
+            m_BoolArgument: 0
+          m_CallState: 2
+    maxRepetitions: 1
+    repetitionsCounter: 0
+  - name: WelcomeRacer
+    eraseAtStart: 1
+    loopMode: 0
+    goIntoUiTime: 1
+    doOnStartTutorial:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: ObliqueSenastions.MaterialControl.HeadSphereShaderControl,
+            Assembly-CSharp
+          m_MethodName: ChangeFloat
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: UIFocus
+            m_BoolArgument: 0
+          m_CallState: 2
+    durationBeforefirstMessage: 0.5
+    objectsToActivate:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    messages:
+    - text: Hallo Rennfahrer
+      duration: 5
+    - text: Es geht gleich los
+      duration: 5
     successMessages:
     - text: Armbewegung aktiv
       duration: 1
@@ -1077,6 +1187,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 980197931252745368}
     m_Modifications:
+    - target: {fileID: 406253974391652752, guid: 5c74884135e2b4845b06d3d8e9890702,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 942367365900306223, guid: 5c74884135e2b4845b06d3d8e9890702,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1181,6 +1296,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221775081497978941, guid: 5c74884135e2b4845b06d3d8e9890702,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2149789766898415989, guid: 5c74884135e2b4845b06d3d8e9890702,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6327625366701256800, guid: 5c74884135e2b4845b06d3d8e9890702,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684218397035369273, guid: 5c74884135e2b4845b06d3d8e9890702,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775714837449650482, guid: 5c74884135e2b4845b06d3d8e9890702,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095484125427831844, guid: 5c74884135e2b4845b06d3d8e9890702,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8594471239895390915, guid: 5c74884135e2b4845b06d3d8e9890702,
         type: 3}

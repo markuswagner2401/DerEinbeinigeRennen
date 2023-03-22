@@ -5,6 +5,7 @@ using TMPro;
 using ObliqueSenastions.VRRigSpace;
 using UnityEngine.Events;
 using ObliqueSenastions.TimelineSpace;
+using ObliqueSenastions.PunNetworking;
 
 namespace ObliqueSenastions.UISpace
 {
@@ -16,6 +17,15 @@ namespace ObliqueSenastions.UISpace
         [SerializeField] GameObject[] deactivateAtStart;
         [SerializeField] Tutorial[] tutorials;
 
+        [System.Serializable]
+        public enum TutorialLoopModes
+        {
+            loopUntilNextTut,
+            playOnce,
+            playCompleteThenLoopUntilArmsMove,
+            goOutImmediatelyWhenArmsMove
+        }
+
 
         [System.Serializable]
         public struct Tutorial
@@ -24,7 +34,7 @@ namespace ObliqueSenastions.UISpace
 
             public bool eraseAtStart;
 
-            public bool goOutImmediatly;
+            public TutorialLoopModes loopMode;
 
             public bool goIntoUiTime;
 
@@ -35,8 +45,6 @@ namespace ObliqueSenastions.UISpace
             public GameObject[] objectsToActivate;
 
             public Message[] messages;
-
-            public bool loopUntilArmsMove;
 
             public Message[] successMessages;
 
@@ -97,6 +105,13 @@ namespace ObliqueSenastions.UISpace
             {
                 item.SetActive(false);
             }
+
+            MultiplayerConnector.instance.my_OnJoinedRoom += PlayNetworkWelcomeTutorial;
+        }
+
+        private void OnDisable() 
+        {
+            MultiplayerConnector.instance.my_OnJoinedRoom -= PlayNetworkWelcomeTutorial;
         }
 
 
@@ -137,16 +152,29 @@ namespace ObliqueSenastions.UISpace
         {
             if (tracker == null) return true;
             if (hand != null && !hand.IsDataHighConfidence) return false;
-            if(onlyChekcforArmsTracked) return true;
+            if (onlyChekcforArmsTracked) return true;
             return tracker.GetLocalSpeed() > speedThreshold;
         }
 
         public void PlayTutorial(int index)
         {
-            if(tutorials[index].repetitionsCounter > tutorials[index].maxRepetitions) return;
+            if (tutorials[index].repetitionsCounter > tutorials[index].maxRepetitions) return;
             motivationTriggered = true;
             StopAllCoroutines();
             StartCoroutine(PlayMotivationR(index));
+        }
+
+        void PlayNetworkWelcomeTutorial()
+        {
+            if (MultiplayerConnector.instance.GetRole() == Role.Rennfahrer)
+            {
+                PlayTutorial("WelcomeRacer");
+            }
+
+            else if (MultiplayerConnector.instance.GetRole() == Role.Zuschauer)
+            {
+                PlayTutorial("WelcomeZuschauer");
+            }
         }
 
         public void PlayTutorial(string name)
@@ -195,7 +223,7 @@ namespace ObliqueSenastions.UISpace
             tutorials[index].repetitionsCounter += 1;
 
 
-            
+
             bool messageComplete = false;
 
             if (tutorials[index].eraseAtStart)
@@ -222,28 +250,66 @@ namespace ObliqueSenastions.UISpace
 
             int i = 0;
 
-            while ((tutorials[index].goOutImmediatly && !messageComplete) || (tutorials[index].loopUntilArmsMove && !armsMoving))
+            bool loop = true;
+
+            while (loop)
             {
 
                 tmPro.text = "\n" + "<color=#DADADA>" + tutorials[index].messages[i].text + "\n" + "<color=#585858>" + capturedText;
                 capturedText = "\n" + tutorials[index].messages[i].text + "\n" + capturedText;
 
-                i += 1;
-
-                if (i == tutorials[index].messages.Length)
+                if (i >= tutorials[index].messages.Length - 1)
                 {
                     messageComplete = true;
                     print("message complete");
                 }
 
-                i %= tutorials[index].messages.Length;
 
-                if(!messageComplete || (tutorials[index].loopUntilArmsMove && !armsMoving))
+
+
+
+                /// determine loop
+
+                if (tutorials[index].loopMode == TutorialLoopModes.loopUntilNextTut)
                 {
-                     yield return null;
+                    loop = true;
+                }
+                else if (tutorials[index].loopMode == TutorialLoopModes.playOnce)
+                {
+                    loop = messageComplete ? false : true;
+                }
+                else if (tutorials[index].loopMode == TutorialLoopModes.playCompleteThenLoopUntilArmsMove)
+                {
+                    if (!messageComplete)
+                    {
+                        loop = true;
+                    }
+                    else
+                    {
+                        //if message complete ->
+                        loop = armsMoving ? false : true;
+                        if (!loop) continue;
+                    }
+                }
+                else if (tutorials[index].loopMode == TutorialLoopModes.goOutImmediatelyWhenArmsMove)
+                {
+                    loop = armsMoving ? false : true;
+
                 }
 
-                yield return new WaitForSeconds(tutorials[index].messages[i].duration);
+                if (!loop)
+                {
+                    continue;
+                }
+                
+                else
+                {
+                    yield return new WaitForSeconds(tutorials[index].messages[i].duration);
+                    i += 1;
+                    i %= tutorials[index].messages.Length;
+                }
+
+                yield return null;
 
             }
 
@@ -257,13 +323,9 @@ namespace ObliqueSenastions.UISpace
                     tmPro.text = "\n\n\n" + "<color=#38f51b>" + tutorials[index].successMessages[j].text;
                     yield return new WaitForSeconds(tutorials[index].successMessages[j].duration);
                     j += 1;
-
                     successComplete = (j >= tutorials[index].successMessages.Length);
-                    
                     yield return null;
-                    
                 }
-
             }
 
 

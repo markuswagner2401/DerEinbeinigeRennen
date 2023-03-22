@@ -78,8 +78,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4278190294
+  m_fontColor: {r: 0.8396226, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1539,6 +1539,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  useNetworkPlayer: 0
 --- !u!114 &5423073464106245734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1629,6 +1630,7 @@ MonoBehaviour:
   minSpeed: 0
   maxSpeed: 0.5
   outputValue: 0
+  useNetworkPlayer: 0
 --- !u!114 &8721747174055323044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1658,10 +1660,16 @@ MonoBehaviour:
   onLeftHandIsMoving:
     m_PersistentCalls:
       m_Calls: []
+  onLeftHandIsNotMoving:
+    m_PersistentCalls:
+      m_Calls: []
   onLeftHandIsMovingWithStrength:
     m_PersistentCalls:
       m_Calls: []
   onRightHandIsMoving:
+    m_PersistentCalls:
+      m_Calls: []
+  onRightHandIsNotMoving:
     m_PersistentCalls:
       m_Calls: []
   onRightHandIsMovingWithStrength:
@@ -1676,6 +1684,8 @@ MonoBehaviour:
   mapStrengthMax: 1.5
   mapSpeedMin: 0
   mapSpeedMax: 1
+  velocityTraceLength: 20
+  detectVelocityChange: 1
 --- !u!114 &6862572657201389803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1827,8 +1837,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4278190297
+  m_fontColor: {r: 0.8490566, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using ObliqueSenastions.TimelineSpace;
 using ObliqueSenastions.UISpace;
 using ObliqueSenastions.VRRigSpace;
+using ObliqueSenastions.ClapSpace;
 using UnityEngine;
 
 namespace ObliqueSenastions.AnimatorSpace
@@ -15,7 +16,8 @@ namespace ObliqueSenastions.AnimatorSpace
         {
             readAtTacho,
             simpleVelocityTracker,
-            XRVelocityTracker
+            XRVelocityTracker,
+            readAtLoadingBar
         }
 
         [SerializeField] InputMode inputMode = InputMode.readAtTacho;
@@ -30,6 +32,8 @@ namespace ObliqueSenastions.AnimatorSpace
         
 
         [SerializeField] Tachonadel tachonadel = null;
+
+        [SerializeField] LoadingBar loadingBar = null; 
 
         [SerializeField] float highestHandSpeed = 2f;
 
@@ -112,6 +116,12 @@ namespace ObliqueSenastions.AnimatorSpace
             {
                 if(velocityTrackerLeft == null || velocityTrackerRight == null) return;
                 smoothedSpeed = SmoothedMappedSpeed(velocityTrackerLeft.GetSpeed(), velocityTrackerRight.GetSpeed());
+            }
+
+            else if(inputMode == InputMode.readAtLoadingBar)
+            {
+                if(loadingBar == null) return;
+                smoothedSpeed = SmoothedTachoSpeed(loadingBar.GetHauDenLukasValue());
             }
 
             
