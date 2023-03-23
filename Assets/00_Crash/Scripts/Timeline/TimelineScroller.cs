@@ -96,8 +96,8 @@ namespace ObliqueSenastions.TimelineSpace
             if(isHolding)
             {
                 holdTimer += Time.deltaTime;
-                if(holdTimer > maxHoldtimeIfNotInNetwork)
-                HoldTimeline(false);
+                if(holdTimer > maxHoldtimeIfNotInNetwork);
+                //HoldTimeline(false);
             }
 
             else
@@ -180,7 +180,7 @@ namespace ObliqueSenastions.TimelineSpace
             TimelineTime timelineTime = GetComponent<TimelineTime>();
             //if(timelineTime.GetMode() == TimelineTimeMode.useCustomTime) return;
 
-            timelineTime.SetMode(TimelineTimeMode.useTimelineTime);
+            //timelineTime.SetMode(TimelineTimeMode.useTimelineTime);
 
             
         }
@@ -192,29 +192,29 @@ namespace ObliqueSenastions.TimelineSpace
             bool currentIsHolding = (speed < 0.005);
             bool newIsHolding = !currentIsHolding;
 
-            HoldTimeline(newIsHolding);
+            //HoldTimeline(newIsHolding);
             
             
         }
 
-        public void HoldTimeline(bool newIsHolding)
-        {
-            PlayTimeline(!newIsHolding);
-            TimelineTime timelineTime = GetComponent<TimelineTime>();
-            //if(timelineTime.GetMode() == TimelineTimeMode.useCustomTime) return;
+        // public void HoldTimeline(bool newIsHolding)
+        // {
+        //     PlayTimeline(!newIsHolding);
+        //     TimelineTime timelineTime = GetComponent<TimelineTime>();
+        //     //if(timelineTime.GetMode() == TimelineTimeMode.useCustomTime) return;
 
-            if(newIsHolding)
-            { 
-                isHolding = true;  
-                timelineTime.SetMode(TimelineTimeMode.useDeltaTime);
-            }
-            else
-            {
-                isHolding = false;
-                timelineTime.SetMode(TimelineTimeMode.useTimelineTime);
-            }
+        //     if(newIsHolding)
+        //     { 
+        //         isHolding = true;  
+        //         timelineTime.SetMode(TimelineTimeMode.useDeltaTime);
+        //     }
+        //     else
+        //     {
+        //         isHolding = false;
+        //         timelineTime.SetMode(TimelineTimeMode.useTimelineTime);
+        //     }
 
-        }
+        // }
 
         
 

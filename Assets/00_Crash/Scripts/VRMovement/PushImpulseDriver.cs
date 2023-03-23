@@ -341,7 +341,7 @@ namespace ObliqueSenastions.VRRigSpace
             if (!nullPositionSet) return;
 
 
-            print("thrust up for " + strength * thrustImpulseDurationFactor);
+//            print("thrust up for " + strength * thrustImpulseDurationFactor);
 
 
             StartCoroutine(InterruptAndThrustImpulseUp(strength * thrustImpulseDurationFactor));

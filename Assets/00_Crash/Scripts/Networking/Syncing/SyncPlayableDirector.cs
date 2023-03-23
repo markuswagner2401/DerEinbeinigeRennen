@@ -43,15 +43,11 @@ namespace ObliqueSenastions.PunNetworking
 
         float capturedVolume;
 
-
-
-
         float currentTime;
 
         float currentTimeOfOwner;
 
         float currentSpeed;
-
         float currentSpeedOfOwner;
         float lastTime;
 
@@ -96,7 +92,6 @@ namespace ObliqueSenastions.PunNetworking
                     playerCanGetOwnership = false;
                 }
 
-
             }
 
             currentTime = (float)director.time;
@@ -121,11 +116,7 @@ namespace ObliqueSenastions.PunNetworking
 
             else if (!PhotonNetwork.IsConnected)
             {
-
-
-
                 currentTimeOfOwner = (float)director.time;
-
             }
 
 
@@ -151,48 +142,7 @@ namespace ObliqueSenastions.PunNetworking
 
 
 
-        //// Ownership
-
-        // public void GetFixedOwnership(bool value)
-        // {
-        //     StartCoroutine(GetFixedOwnershipR(value));
-        // }
-
-        // IEnumerator GetFixedOwnershipR(bool getFixedOwnership)
-        // {
-        //     if(getFixedOwnership == false)
-        //     {
-        //         base.photonView.OwnershipTransfer = OwnershipOption.Takeover;
-        //         networkOwnership = capturedOwnership;
-
-        //         yield break;
-        //     }
-
-        //     capturedOwnership = networkOwnership;
-
-
-        //     networkOwnership = NetworkOwnership.inspizentJoker;
-
-
-
-        //     while (RequestNetworkOwnership() == false)
-        //     {
-        //         Debug.Log("SyncPlayableDirector: Trying to get fixed Ownership");
-        //         yield return null;
-        //     }
-
-        //     while (base.photonView.OwnershipTransfer != OwnershipOption.Fixed)
-        //     {
-        //         base.photonView.OwnershipTransfer = OwnershipOption.Fixed;
-        //         Debug.Log("SyncPlayableDirector: Fixing Ownership to local player");
-        //         yield return null;
-        //     }
-
-        //     Debug.Log("SyncPlayableDirector: Local Player has fixed ownership");
-
-
-        //     yield break;
-        // }
+        
 
 
         public void SetCanGetOwnership(bool value)
@@ -202,9 +152,7 @@ namespace ObliqueSenastions.PunNetworking
 
         public bool RequestNetworkOwnership()
         {
-            if (photonView.IsMine) return true;
-
-
+            if (photonView.IsMine || !PhotonNetwork.IsConnected) return true;
 
             if (networkOwnership == NetworkOwnership.alwaysOnAction)
             {
@@ -233,6 +181,12 @@ namespace ObliqueSenastions.PunNetworking
                 }
             }
 
+            return photonView.IsMine;
+        }
+
+        public bool GetIsMine()
+        {
+            if(!PhotonNetwork.IsConnected) return true;
             return photonView.IsMine;
         }
 

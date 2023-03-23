@@ -133,7 +133,7 @@ namespace ObliqueSenastions.UISpace
 
             if (timer > acceptedDurationWithoutMovement)
             {
-                print("arms not moving for more than 5 seconds");
+                //print("arms not moving for more than 5 seconds");
                 if (!motivationTriggered)
                 {
 
@@ -354,9 +354,9 @@ namespace ObliqueSenastions.UISpace
 
         }
 
-        private void GoIntoUITime(bool yes)
+        private void GoIntoUITime(bool value)
         {
-            TimeLineHandler.instance.GetComponent<TimelineTime>().UseCustomTime(yes);
+            TimeLineHandler.instance.GetComponent<TimeModeMachine>().SetUiTime(value);
         }
 
 

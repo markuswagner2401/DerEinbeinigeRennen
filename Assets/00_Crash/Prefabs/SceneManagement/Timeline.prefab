@@ -21,10 +21,11 @@ GameObject:
   - component: {fileID: 220214917067422980}
   - component: {fileID: 1475937562776655846}
   - component: {fileID: 807136875708010075}
-  - component: {fileID: 1334485501639563007}
   - component: {fileID: 3514082237926198445}
   - component: {fileID: 3186501716716577032}
   - component: {fileID: 329432249596978298}
+  - component: {fileID: 5587916549212931797}
+  - component: {fileID: 3204168408664924697}
   - component: {fileID: 8111994467344341127}
   - component: {fileID: 1181491379462798778}
   m_Layer: 0
@@ -239,6 +240,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: cb97cc69e5fe92347a622f74946a47fa, type: 2}
     - {fileID: 11400000, guid: 36092b7f32e473f40a7abd69c5f05577, type: 2}
     - {fileID: 11400000, guid: 26c90e94994902e4a93187b925ae4260, type: 2}
+    - {fileID: 11400000, guid: 395d1a450726c42429e00c2c81372586, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -284,11 +286,11 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1334485501639563007}
-          m_TargetAssemblyTypeName: ObliqueSenastions.TimelineSpace.TimelineScroller,
+        - m_Target: {fileID: 3204168408664924697}
+          m_TargetAssemblyTypeName: ObliqueSenastions.TimelineSpace.TimeModeMachine,
             Assembly-CSharp
-          m_MethodName: HoldTimeline
-          m_Mode: 6
+          m_MethodName: Hold
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -296,6 +298,21 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 1
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3204168408664924697}
+          m_TargetAssemblyTypeName: ObliqueSenastions.TimelineSpace.TimeModeMachine,
+            Assembly-CSharp
+          m_MethodName: Pause
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
           m_CallState: 2
 --- !u!114 &3547506762340347705
 MonoBehaviour:
@@ -361,7 +378,7 @@ MonoBehaviour:
     unityEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1334485501639563007}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: TimelineScroller, Assembly-CSharp
           m_MethodName: JumpToNextSceneClip
           m_Mode: 1
@@ -379,7 +396,7 @@ MonoBehaviour:
     unityEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1334485501639563007}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: TimelineScroller, Assembly-CSharp
           m_MethodName: JumpToPrevSceneClip
           m_Mode: 1
@@ -397,17 +414,18 @@ MonoBehaviour:
     unityEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1334485501639563007}
-          m_TargetAssemblyTypeName: TimelineScroller, Assembly-CSharp
-          m_MethodName: ScrollTimeline
-          m_Mode: 4
+        - m_Target: {fileID: 3204168408664924697}
+          m_TargetAssemblyTypeName: ObliqueSenastions.TimelineSpace.TimeModeMachine,
+            Assembly-CSharp
+          m_MethodName: FastForward
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 1
             m_StringArgument: 
-            m_BoolArgument: 0
+            m_BoolArgument: 1
           m_CallState: 2
   - note: stop scroll forward
     keycode: 120
@@ -415,10 +433,11 @@ MonoBehaviour:
     unityEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1334485501639563007}
-          m_TargetAssemblyTypeName: TimelineScroller, Assembly-CSharp
-          m_MethodName: StopScrollingTimeline
-          m_Mode: 1
+        - m_Target: {fileID: 3204168408664924697}
+          m_TargetAssemblyTypeName: ObliqueSenastions.TimelineSpace.TimeModeMachine,
+            Assembly-CSharp
+          m_MethodName: FastForward
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -433,17 +452,18 @@ MonoBehaviour:
     unityEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1334485501639563007}
-          m_TargetAssemblyTypeName: TimelineScroller, Assembly-CSharp
-          m_MethodName: ScrollTimeline
-          m_Mode: 4
+        - m_Target: {fileID: 3204168408664924697}
+          m_TargetAssemblyTypeName: ObliqueSenastions.TimelineSpace.TimeModeMachine,
+            Assembly-CSharp
+          m_MethodName: FastBackward
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: -1
             m_StringArgument: 
-            m_BoolArgument: 0
+            m_BoolArgument: 1
           m_CallState: 2
   - note: stop scroll back
     keycode: 121
@@ -451,10 +471,11 @@ MonoBehaviour:
     unityEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1334485501639563007}
-          m_TargetAssemblyTypeName: TimelineScroller, Assembly-CSharp
-          m_MethodName: StopScrollingTimeline
-          m_Mode: 1
+        - m_Target: {fileID: 3204168408664924697}
+          m_TargetAssemblyTypeName: ObliqueSenastions.TimelineSpace.TimeModeMachine,
+            Assembly-CSharp
+          m_MethodName: FastBackward
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -469,9 +490,10 @@ MonoBehaviour:
     unityEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1334485501639563007}
-          m_TargetAssemblyTypeName: TimelineScroller, Assembly-CSharp
-          m_MethodName: SwitchPauseTimeline
+        - m_Target: {fileID: 3204168408664924697}
+          m_TargetAssemblyTypeName: ObliqueSenastions.TimelineSpace.TimeModeMachine,
+            Assembly-CSharp
+          m_MethodName: SwitchPausePlay
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -487,9 +509,10 @@ MonoBehaviour:
     unityEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1334485501639563007}
-          m_TargetAssemblyTypeName: TimelineScroller, Assembly-CSharp
-          m_MethodName: SwitchHoldTimeline
+        - m_Target: {fileID: 3204168408664924697}
+          m_TargetAssemblyTypeName: ObliqueSenastions.TimelineSpace.TimeModeMachine,
+            Assembly-CSharp
+          m_MethodName: SwitchHoldPlay
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -595,30 +618,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e04df736215474481e839f5bd64832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 0
   playableDirector: {fileID: 220214917067423035}
+  timeModeMachine: {fileID: 3204168408664924697}
   jumpThreshold: 0.1
-  customDeltaTime: 0
---- !u!114 &1334485501639563007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 220214917067423039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12cb48952c43b0e4bb4ded85c8cad5ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playableDirector: {fileID: 220214917067423035}
-  enableScrolling: 1
-  enablePause: 0
-  nodeFF: 4
-  scrollFactor: 20
-  syncPlayableDirector: {fileID: 1181491379462798778}
-  timelineTime: {fileID: 807136875708010075}
-  maxHoldtimeIfNotInNetwork: 10
+  badTrackingDeltaTime: 0
+  uiDeltaTime: 0
 --- !u!114 &3514082237926198445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -692,6 +696,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneClips: []
+--- !u!114 &5587916549212931797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220214917067423039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b24f6bc380b1a8e44be810262812c254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playableDirector: {fileID: 220214917067423035}
+  syncPlayableDirector: {fileID: 1181491379462798778}
+  timelineTime: {fileID: 807136875708010075}
+  timeModeMachine: {fileID: 3204168408664924697}
+  scrollFactor: 5
+--- !u!114 &3204168408664924697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220214917067423039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d1a7bdef0c66294094485c57ac8d5c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTimelinePlayMode: 0
+  syncPlayableDirector: {fileID: 1181491379462798778}
+  enableScrolling: 1
+  maxHoldtimeIfNotInNetwork: Infinity
+  nodeFF: 4
+  goIntoBreakAtBadTracking: 1
+  leftHand: {fileID: 0}
+  rightHand: {fileID: 0}
+  acceptedTimeWithBadTracking: 1
 --- !u!114 &8111994467344341127
 MonoBehaviour:
   m_ObjectHideFlags: 0
