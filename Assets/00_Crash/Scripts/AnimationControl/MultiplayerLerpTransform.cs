@@ -4,6 +4,7 @@ using ObliqueSenastions.UISpace;
 using UnityEngine;
 using ObliqueSenastions.PunNetworking;
 using Photon.Pun;
+using ObliqueSenastions.TimelineSpace;
 
 namespace ObliqueSenastions.VRRigSpace
 {
@@ -23,6 +24,10 @@ namespace ObliqueSenastions.VRRigSpace
 
             
         }
+
+        [SerializeField] bool useTimelineTime;
+
+        [SerializeField] TimelineTime timelineTime = null;
 
         [SerializeField] float thresholdtoSwitchToNextFormation = 0.99f;
 
@@ -84,6 +89,8 @@ namespace ObliqueSenastions.VRRigSpace
             {
                 MultiplayerConnector.instance.my_OnJoinedRoom += SetupMultiplayerSources;
             }
+
+            
             
             
             
@@ -96,7 +103,13 @@ namespace ObliqueSenastions.VRRigSpace
         void Update()
         {
             
-
+            if(useTimelineTime)
+            {
+                if(timelineTime == null)
+                {
+                    timelineTime = TimeLineHandler.instance.GetComponent<TimelineTime>();
+                }
+            }
 
             if (readAtTacho)
             {
@@ -190,7 +203,8 @@ namespace ObliqueSenastions.VRRigSpace
 
         public void PlayWeight(int index, float speed)
         {
-            formations[index].weight = Mathf.Clamp01(formations[index].weight + Time.deltaTime * speed);
+            float deltaTime = useTimelineTime ? timelineTime.GetModeDependentTimelineDeltaTime() : Time.deltaTime;
+            formations[index].weight = Mathf.Clamp01(formations[index].weight + deltaTime * speed);
             
             //print("play weight: " + weight + "with speed: " + speed);
         }

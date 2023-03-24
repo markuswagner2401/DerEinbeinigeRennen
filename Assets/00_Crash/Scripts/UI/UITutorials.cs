@@ -109,7 +109,7 @@ namespace ObliqueSenastions.UISpace
             MultiplayerConnector.instance.my_OnJoinedRoom += PlayNetworkWelcomeTutorial;
         }
 
-        private void OnDisable() 
+        private void OnDisable()
         {
             MultiplayerConnector.instance.my_OnJoinedRoom -= PlayNetworkWelcomeTutorial;
         }
@@ -141,7 +141,7 @@ namespace ObliqueSenastions.UISpace
                 }
             }
 
-            
+
 
 
         }
@@ -253,19 +253,15 @@ namespace ObliqueSenastions.UISpace
 
             int i = 0;
 
-            bool loop = true;
+            bool stayInLoop = true;
 
-            while (loop)
+            while (stayInLoop)
             {
 
                 tmPro.text = "\n" + "<color=#DADADA>" + tutorials[index].messages[i].text + "\n" + "<color=#585858>" + capturedText;
                 capturedText = "\n" + tutorials[index].messages[i].text + "\n" + capturedText;
 
-                if (i >= tutorials[index].messages.Length - 1)
-                {
-                    messageComplete = true;
-                    print("message complete");
-                }
+
 
 
 
@@ -275,43 +271,41 @@ namespace ObliqueSenastions.UISpace
 
                 if (tutorials[index].loopMode == TutorialLoopModes.loopUntilNextTut)
                 {
-                    loop = true;
+                    stayInLoop = true;
                 }
                 else if (tutorials[index].loopMode == TutorialLoopModes.playOnce)
                 {
-                    loop = messageComplete ? false : true;
+                    stayInLoop = messageComplete ? false : true;
                 }
                 else if (tutorials[index].loopMode == TutorialLoopModes.playCompleteThenLoopUntilArmsMove)
                 {
                     if (!messageComplete)
                     {
-                        loop = true;
+                        stayInLoop = true;
                     }
                     else
                     {
                         //if message complete ->
-                        loop = armsMoving ? false : true;
-                        if (!loop) continue;
+                        stayInLoop = armsMoving ? false : true;
+                        if (!stayInLoop) continue;
                     }
                 }
                 else if (tutorials[index].loopMode == TutorialLoopModes.goOutImmediatelyWhenArmsMove)
                 {
-                    loop = armsMoving ? false : true;
+                    stayInLoop = armsMoving ? false : true;
+                    if (!stayInLoop) continue;
 
                 }
 
-                if (!loop)
-                {
-                    continue;
-                }
+                yield return new WaitForSeconds(tutorials[index].messages[i].duration);
                 
-                else
+                if (i >= tutorials[index].messages.Length - 1)
                 {
-                    yield return new WaitForSeconds(tutorials[index].messages[i].duration);
-                    i += 1;
-                    i %= tutorials[index].messages.Length;
+                    messageComplete = true;
+                    print("message complete");
                 }
-
+                i += 1;
+                i %= tutorials[index].messages.Length;
                 yield return null;
 
             }
