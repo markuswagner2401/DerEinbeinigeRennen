@@ -13,6 +13,7 @@ namespace ObliqueSenastions.SceneSpace
         vr,
         desktop
     }
+    [RequireComponent(typeof(UIConnectorActivator))]
     public class MultiplayerDeviceChecker : MonoBehaviour
     {
 
@@ -31,6 +32,8 @@ namespace ObliqueSenastions.SceneSpace
                 //onHMDActiveAtStart.Invoke();
 
                 clientsGameMode = GameMode.vr;
+
+                StartCoroutine(ActivateUIR(false));
 
 
                 print("hmd acitve");
@@ -60,6 +63,8 @@ namespace ObliqueSenastions.SceneSpace
                     connectorActivator.ShowConnector(value);
                     yield return null;
                 }
+
+                Debug.LogError("MultiplayerDeviceChecker trying to find UIConnectorActivator");
 
                 yield return null;
             }

@@ -34,6 +34,8 @@ namespace ObliqueSenastions.UISpace
 
             public bool eraseAtStart;
 
+            public Role[] excludeRoles;
+
             public TutorialLoopModes loopMode;
 
             public bool goIntoUiTime;
@@ -162,6 +164,10 @@ namespace ObliqueSenastions.UISpace
         public void PlayTutorial(int index)
         {
             if (tutorials[index].repetitionsCounter > tutorials[index].maxRepetitions) return;
+            foreach (var role in tutorials[index].excludeRoles)
+            {
+                if(MultiplayerConnector.instance.GetRole() == role) return;
+            }
             motivationTriggered = true;
             StopAllCoroutines();
             StartCoroutine(PlayMotivationR(index));
@@ -298,7 +304,7 @@ namespace ObliqueSenastions.UISpace
                 }
 
                 yield return new WaitForSeconds(tutorials[index].messages[i].duration);
-                
+
                 if (i >= tutorials[index].messages.Length - 1)
                 {
                     messageComplete = true;

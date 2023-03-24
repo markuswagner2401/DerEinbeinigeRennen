@@ -472,6 +472,7 @@ MonoBehaviour:
   tutorials:
   - name: StageMaster
     eraseAtStart: 1
+    excludeRoles: 04000000
     loopMode: 2
     goIntoUiTime: 1
     doOnStartTutorial:
@@ -532,6 +533,7 @@ MonoBehaviour:
     repetitionsCounter: 0
   - name: Reminder
     eraseAtStart: 1
+    excludeRoles: 0400000003000000
     loopMode: 3
     goIntoUiTime: 1
     doOnStartTutorial:
@@ -592,6 +594,7 @@ MonoBehaviour:
     repetitionsCounter: 0
   - name: WelcomeZuschauer
     eraseAtStart: 1
+    excludeRoles: 0000000004000000
     loopMode: 0
     goIntoUiTime: 1
     doOnStartTutorial:
@@ -648,6 +651,7 @@ MonoBehaviour:
     repetitionsCounter: 0
   - name: WelcomeRacer
     eraseAtStart: 1
+    excludeRoles: 0100000004000000
     loopMode: 0
     goIntoUiTime: 1
     doOnStartTutorial:
@@ -1094,6 +1098,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontColor.r
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4062513998735347910, guid: 109b52aaee903b64e9e499b4d0ca2918,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4279900672
       objectReference: {fileID: 0}
     - target: {fileID: 4247103204926001024, guid: 109b52aaee903b64e9e499b4d0ca2918,
         type: 3}
