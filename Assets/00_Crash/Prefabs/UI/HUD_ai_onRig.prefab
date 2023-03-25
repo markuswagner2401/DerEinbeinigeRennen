@@ -2206,24 +2206,32 @@ MonoBehaviour:
   onLeftHandIsMoving:
     m_PersistentCalls:
       m_Calls: []
+  onLeftHandIsNotMoving:
+    m_PersistentCalls:
+      m_Calls: []
   onLeftHandIsMovingWithStrength:
     m_PersistentCalls:
       m_Calls: []
   onRightHandIsMoving:
     m_PersistentCalls:
       m_Calls: []
+  onRightHandIsNotMoving:
+    m_PersistentCalls:
+      m_Calls: []
   onRightHandIsMovingWithStrength:
     m_PersistentCalls:
       m_Calls: []
-  outputNormalizedValue:
-    m_PersistentCalls:
-      m_Calls: []
+  velocityChangesLeft: 0
+  velocityChangesRight: 0
+  tmpChangesCounter: {fileID: 0}
   deveationThreshold: 0.5
   speedThreshold: 0.1
   mapStrengthMin: 0
   mapStrengthMax: 20
   mapSpeedMin: 0
   mapSpeedMax: 3
+  velocityTraceLength: 20
+  detectVelocityChange: 1
 --- !u!1 &6461564793500971467
 GameObject:
   m_ObjectHideFlags: 0

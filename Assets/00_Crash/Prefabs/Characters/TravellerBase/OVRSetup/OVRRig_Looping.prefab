@@ -1900,10 +1900,20 @@ PrefabInstance:
       propertyPath: simpleVelocityTrackersSinglePlayer.Array.data[1]
       value: 
       objectReference: {fileID: 3817925523203953447}
+    - target: {fileID: 2780758287123543427, guid: dbfdbbae64a5ddd439b1adcab071ee93,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3662539328718960784, guid: dbfdbbae64a5ddd439b1adcab071ee93,
         type: 3}
       propertyPath: m_Name
       value: UI(Rigs)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531157085315108198, guid: dbfdbbae64a5ddd439b1adcab071ee93,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4742710982984925008, guid: dbfdbbae64a5ddd439b1adcab071ee93,
         type: 3}
@@ -1953,7 +1963,7 @@ PrefabInstance:
     - target: {fileID: 4742710982984925008, guid: dbfdbbae64a5ddd439b1adcab071ee93,
         type: 3}
       propertyPath: hauDenLukasThresholds.Array.data[1].onThresholdBroke.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4742710982984925008, guid: dbfdbbae64a5ddd439b1adcab071ee93,
         type: 3}
@@ -1968,7 +1978,7 @@ PrefabInstance:
     - target: {fileID: 4742710982984925008, guid: dbfdbbae64a5ddd439b1adcab071ee93,
         type: 3}
       propertyPath: hauDenLukasThresholds.Array.data[1].onthresholdReturn.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4742710982984925008, guid: dbfdbbae64a5ddd439b1adcab071ee93,
         type: 3}
@@ -1988,7 +1998,7 @@ PrefabInstance:
     - target: {fileID: 4742710982984925008, guid: dbfdbbae64a5ddd439b1adcab071ee93,
         type: 3}
       propertyPath: hauDenLukasThresholds.Array.data[1].onthresholdReturn.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4742710982984925008, guid: dbfdbbae64a5ddd439b1adcab071ee93,
         type: 3}
@@ -2009,7 +2019,7 @@ PrefabInstance:
         type: 3}
       propertyPath: hauDenLukasThresholds.Array.data[1].onthresholdReturn.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 8131758977303276062}
+      objectReference: {fileID: 2316571721258647113}
     - target: {fileID: 4742710982984925008, guid: dbfdbbae64a5ddd439b1adcab071ee93,
         type: 3}
       propertyPath: hauDenLukasThresholds.Array.data[1].onThresholdBroke.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -2048,7 +2058,7 @@ PrefabInstance:
     - target: {fileID: 4742710982984925008, guid: dbfdbbae64a5ddd439b1adcab071ee93,
         type: 3}
       propertyPath: hauDenLukasThresholds.Array.data[1].onthresholdReturn.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResetCountedClaps
+      value: set_enabled
       objectReference: {fileID: 0}
     - target: {fileID: 4742710982984925008, guid: dbfdbbae64a5ddd439b1adcab071ee93,
         type: 3}
@@ -2068,7 +2078,7 @@ PrefabInstance:
     - target: {fileID: 4742710982984925008, guid: dbfdbbae64a5ddd439b1adcab071ee93,
         type: 3}
       propertyPath: hauDenLukasThresholds.Array.data[1].onthresholdReturn.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ObliqueSenastions.ClapSpace.ClapListener, Assembly-CSharp
+      value: UnityEngine.Behaviour, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4742710982984925008, guid: dbfdbbae64a5ddd439b1adcab071ee93,
         type: 3}
@@ -2099,6 +2109,21 @@ PrefabInstance:
         type: 3}
       propertyPath: hauDenLukasThresholds.Array.data[1].onthresholdReturn.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5411714187023325394, guid: dbfdbbae64a5ddd439b1adcab071ee93,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5812539600914922948, guid: dbfdbbae64a5ddd439b1adcab071ee93,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900130447175163855, guid: dbfdbbae64a5ddd439b1adcab071ee93,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6152119076674912683, guid: dbfdbbae64a5ddd439b1adcab071ee93,
         type: 3}
@@ -2169,6 +2194,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823481752801623190, guid: dbfdbbae64a5ddd439b1adcab071ee93,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbfdbbae64a5ddd439b1adcab071ee93, type: 3}

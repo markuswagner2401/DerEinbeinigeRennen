@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using ObliqueSenastions.UISpace;
 using UnityEngine;
 using ObliqueSenastions.VFXSpace;
+using ObliqueSenastions.ClapSpace;
 
 
 
@@ -15,7 +16,7 @@ namespace ObliqueSenastions.Animation
         [SerializeField] SkinnedMeshRenderer skinnedMesh;
         [SerializeField] Mesh mesh;
 
-        [SerializeField] bool useGlobalWeight = false;
+        
 
         float weightTachoInputNormaized = 0;
 
@@ -44,10 +45,18 @@ namespace ObliqueSenastions.Animation
 
         }
 
-        [SerializeField] Tachonadel blendShapesIndexTacho = null;
-        [SerializeField] Tachonadel blendShapesWeightTacho = null;
+        [SerializeField] Tachonadel indexTacho = null;
+        [SerializeField] bool readIndextAtLoadingBar = false;
+        [SerializeField] LoadingBar indexLoadingBar = null;
 
-        bool tachosSet = false;
+
+        [SerializeField] Tachonadel weightTacho = null;
+        [SerializeField] bool readWeightAtLoadingBar = false;
+        [SerializeField] LoadingBar weightLoadingBar = null;
+
+        [SerializeField] bool setupTachosOnSpawn = false;
+
+      
 
         bool allWeightsResetted = false;
 
@@ -74,51 +83,26 @@ namespace ObliqueSenastions.Animation
 
         void Update()
         {
-            if (!tachosSet)
+            if (setupTachosOnSpawn)
             {
-
-                if (!ReferenceEquals(blendShapesIndexTacho, null) && !ReferenceEquals(blendShapesWeightTacho, null))
+                if (!SetupTachos())
                 {
-                    tachosSet = true;
-                }
-
-                else
-                {
-
-                    GameObject tachoLinksGO = GameObject.FindWithTag("TachoPlayerLinks");
-                    GameObject tachoRechtsGO = GameObject.FindWithTag("TachoPlayerRechts");
-                    if (tachoLinksGO == null)
-                    {
-                        Debug.LogError("BlendShapesController: Cant Find Tachonadel Links; Tacho not set");
-                        tachosSet = false;
-                        return;
-                    }
-
-                    else
-                    {
-                        blendShapesIndexTacho = tachoLinksGO.GetComponent<Tachonadel>();
-                    }
-
-                    if (tachoRechtsGO == null)
-                    {
-                        Debug.LogError("BlendShapesController: Cant Find Tachonadel Rechts; Tacho not set");
-                        tachosSet = false;
-                        return;
-                    }
-
-                    else
-                    {
-                        blendShapesWeightTacho = tachoRechtsGO.GetComponent<Tachonadel>();
-                    }
-
-
-                    return;
+                    Debug.LogError("Tachos not set");
+                     return;
                 }
             }
+            //SetupTachos();
 
             // Set current Index
+            if (readIndextAtLoadingBar)
+            {
+                currentIndex = Mathf.RoundToInt(Mathf.Lerp(0, shapeControls.Length - 1, indexLoadingBar.GetHauDenLukasValue()));
+            }
+            else
+            {
+                currentIndex = Mathf.RoundToInt(Mathf.Lerp(0, shapeControls.Length - 1, indexTacho.GetNormedTargetPosition()));
+            }
 
-            currentIndex = Mathf.RoundToInt(Mathf.Lerp(0, shapeControls.Length - 1, blendShapesIndexTacho.GetNormedTargetPosition()));
 
             MultiplayerMethod();
 
@@ -157,14 +141,14 @@ namespace ObliqueSenastions.Animation
             {
                 shapeControls[currentIndex].targetWeight = Mathf.Lerp(shapeControls[currentIndex].minWeight,
                                                                               shapeControls[currentIndex].maxWeight,
-                                                                              blendShapesWeightTacho.GetNormedTargetPosition());
+                                                                              weightTacho.GetNormedTargetPosition());
             }
 
             else
             {
                 shapeControls[currentIndex].targetWeight = Mathf.Lerp(shapeControls[currentIndex].vFXControl.vfxParameters[0].valueMin,
                                                                        shapeControls[currentIndex].vFXControl.vfxParameters[0].valueMax,
-                                                                       blendShapesWeightTacho.GetNormedTargetPosition());
+                                                                       weightTacho.GetNormedTargetPosition());
             }
 
 
@@ -198,18 +182,105 @@ namespace ObliqueSenastions.Animation
                 }
             }
 
+        }
+
+        bool SetupTachos()
+        {
+           
+
+            // setup index tacho
+
+             bool indexTachoSet = false;
+
+            GameObject indexTachoGo = GameObject.FindWithTag("IndexTacho");
+            if (indexTachoGo == null)
+            {
+                Debug.LogError("index tacho not found");
+                return false;
+            }
+            else
+            {
+                if (readIndextAtLoadingBar)
+                {
+                    if (indexTachoGo.TryGetComponent<LoadingBar>(out indexLoadingBar))
+                    {
+                        indexTachoSet = true;
+                    }
+                    else
+                    {
+                        indexTachoSet = false;
+                    }
+                }
+                else
+                {
+                    if (indexTacho.TryGetComponent<Tachonadel>(out indexTacho))
+                    {
+                        indexTachoSet = true;
+                    }
+                    else
+                    {
+                        indexTachoSet = false;
+                    }
+
+                }
+
+                // setup weight tacho
 
 
+                bool weightTachoSet;
+                GameObject weightTachoGO = GameObject.FindWithTag("WeightTacho");
+                if (weightTachoGO == null)
+                {
+                    print("Weight tacho not found");
+                    return false;
+                }
+                else
+                {
+                    if (readWeightAtLoadingBar)
+                    {
+                        if (weightTachoGO.TryGetComponent<LoadingBar>(out weightLoadingBar))
+                        {
+                            weightTachoSet = true;
+                        }
+                        else
+                        {
+                            weightTachoSet = false;
+                        }
+                    }
 
+                    else
+                    {
+                        if (weightTachoGO.TryGetComponent<Tachonadel>(out weightTacho))
+                        {
+                            weightTachoSet = true;
+                        }
+                        else
+                        {
+                            weightTachoSet = false;
+                        }
+                    }
+                }
 
+                return (indexTachoSet && weightTachoSet);
+                
 
+            }
         }
 
         private void MultiplayerMethod()
         {
             // new Method
 
-            weightTachoInputNormaized = blendShapesWeightTacho.GetNormedTargetPosition();
+            if (readWeightAtLoadingBar)
+            {
+                weightTachoInputNormaized = weightLoadingBar.GetHauDenLukasValue();
+            }
+            else
+            {
+                weightTachoInputNormaized = weightTacho.GetNormedTargetPosition();
+            }
+
+
 
             for (int i = 0; i < shapeControls.Length; i++)
             {

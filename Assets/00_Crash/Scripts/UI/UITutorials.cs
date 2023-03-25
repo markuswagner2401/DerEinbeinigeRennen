@@ -14,6 +14,8 @@ namespace ObliqueSenastions.UISpace
         [SerializeField] bool playAtStart = false;
         [SerializeField] bool enableTutorialsOnArmsNotMoving = true;
 
+        [SerializeField] bool welcomeNetworkPlayer = true;
+
         [SerializeField] GameObject[] deactivateAtStart;
         [SerializeField] Tutorial[] tutorials;
 
@@ -163,6 +165,7 @@ namespace ObliqueSenastions.UISpace
 
         public void PlayTutorial(int index)
         {
+            if(!this.enabled) return;
             if (tutorials[index].repetitionsCounter > tutorials[index].maxRepetitions) return;
             foreach (var role in tutorials[index].excludeRoles)
             {
@@ -175,6 +178,15 @@ namespace ObliqueSenastions.UISpace
 
         void PlayNetworkWelcomeTutorial()
         {
+            if(!welcomeNetworkPlayer)
+            {
+                return;
+            }
+            else
+            {
+                this.enabled = true;
+            }
+            
             if (MultiplayerConnector.instance.GetRole() == Role.Rennfahrer)
             {
                 PlayTutorial("WelcomeRacer");
@@ -183,6 +195,7 @@ namespace ObliqueSenastions.UISpace
             else if (MultiplayerConnector.instance.GetRole() == Role.Zuschauer)
             {
                 PlayTutorial("WelcomeZuschauer");
+                print("welcome zuschauer");
             }
         }
 

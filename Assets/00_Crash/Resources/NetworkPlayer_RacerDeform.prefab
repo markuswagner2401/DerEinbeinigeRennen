@@ -2883,7 +2883,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1205799948074639401
 Transform:
   m_ObjectHideFlags: 0
@@ -3308,7 +3308,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7804251020221944322
 Transform:
   m_ObjectHideFlags: 0
@@ -4994,6 +4994,7 @@ MonoBehaviour:
   tachomode: 0
   averageHandSpeedTracker: {fileID: 0}
   speedPeakTracker: {fileID: 0}
+  velocityChangeDetectorBar: {fileID: 0}
   positionsMin: 0
   poitionsMax: 9
   targetPosition: 0
@@ -5001,6 +5002,8 @@ MonoBehaviour:
   rotMax: 180
   joint: {fileID: 7951293325207389515}
   smoothing: 0.1
+  tmpValue: {fileID: 0}
+  tmpTitel: {fileID: 0}
 --- !u!1001 &2634348373524035812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5911,7 +5914,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4600224907901806432}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 723cdee7d45247341bf3beff8d62531f, type: 3}
   m_Name: 
@@ -6222,6 +6225,7 @@ MonoBehaviour:
   tachomode: 0
   averageHandSpeedTracker: {fileID: 0}
   speedPeakTracker: {fileID: 0}
+  velocityChangeDetectorBar: {fileID: 0}
   positionsMin: 0
   poitionsMax: 12
   targetPosition: 0
@@ -6229,6 +6233,8 @@ MonoBehaviour:
   rotMax: 180
   joint: {fileID: 2384151430770737772}
   smoothing: 0.1
+  tmpValue: {fileID: 0}
+  tmpTitel: {fileID: 0}
 --- !u!1001 &4792100872894240683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6691,6 +6697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skinnedMesh: {fileID: 0}
   mesh: {fileID: 6873442620657365552, guid: b42d9cc920abf794eabbcda53b5f8687, type: 3}
+  useGlobalWeight: 0
   shapeControls:
   - resetAllWeights: 1
     blendShapeIndex: 0
@@ -6843,8 +6850,13 @@ MonoBehaviour:
         valueMin: 0
         valueMax: 1
         currentValue: 0
-  blendShapesIndexTacho: {fileID: 6464237302289110216}
-  blendShapesWeightTacho: {fileID: 4928271862757439357}
+  indexTacho: {fileID: 0}
+  readIndextAtLoadingBar: 0
+  indexLoadingBar: {fileID: 0}
+  weightTacho: {fileID: 0}
+  readWeightAtLoadingBar: 0
+  weightLoadingBar: {fileID: 0}
+  setupTachosOnSpawn: 1
   currentIndex: 0
 --- !u!1 &3367643124966402993 stripped
 GameObject:
@@ -6866,6 +6878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skinnedMesh: {fileID: 0}
   mesh: {fileID: 6873442620657365552, guid: b42d9cc920abf794eabbcda53b5f8687, type: 3}
+  useGlobalWeight: 0
   shapeControls:
   - resetAllWeights: 1
     blendShapeIndex: 0
@@ -7018,8 +7031,13 @@ MonoBehaviour:
         valueMin: 0
         valueMax: 1
         currentValue: 0
-  blendShapesIndexTacho: {fileID: 6464237302289110216}
-  blendShapesWeightTacho: {fileID: 4928271862757439357}
+  indexTacho: {fileID: 0}
+  readIndextAtLoadingBar: 0
+  indexLoadingBar: {fileID: 0}
+  weightTacho: {fileID: 0}
+  readWeightAtLoadingBar: 0
+  weightLoadingBar: {fileID: 0}
+  setupTachosOnSpawn: 0
   currentIndex: 0
 --- !u!114 &8775356159091879929 stripped
 MonoBehaviour:
