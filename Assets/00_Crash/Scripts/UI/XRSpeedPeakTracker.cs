@@ -118,7 +118,7 @@ namespace ObliqueSenastions.UISpace
 
         IEnumerator CalculateSpeedPeak(PeakTracker peakTracker)
         {
-            print("calculate speed peak");
+//            print("calculate speed peak");
             peakTracker.thresholdBroken = true;
             // print("calculate");
             float previousSpeed = 0f;

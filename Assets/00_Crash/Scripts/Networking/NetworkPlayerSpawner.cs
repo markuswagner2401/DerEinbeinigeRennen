@@ -60,6 +60,14 @@ namespace ObliqueSenastions.PunNetworking
 
         public AvatarSpawner[] avatarSpawnersInspizient;
 
+        [SerializeField] bool debugSpawn = false;
+
+        [SerializeField] int debugRacers = 1;
+
+        [SerializeField] int debugZuschauer = 15;
+
+        [SerializeField] int debugInspizienten = 1;
+
 
 
         //GameObject[] PlayerPrefabsInRoom;
@@ -147,6 +155,28 @@ namespace ObliqueSenastions.PunNetworking
             }
 
             /// Spawn
+
+            if(debugSpawn)
+            {
+                for (int i = 0; i < debugRacers; i++)
+                {
+                    yield return SetupXRRigAndSpawn(i, camTrav, avatarSpawnersRennfahrer, spawnSituation);
+                    yield return null;
+                }
+
+                for (int j = 0; j < debugZuschauer; j++)
+                {
+                    yield return SetupXRRigAndSpawn(j, camTrav, avatarSpawnersZuschauer, spawnSituation);
+                    yield return null;
+                }
+
+                for (int k = 0; k < debugInspizienten; k++)
+                {
+                    SetupXRRigAndSpawn(k, camTrav, avatarSpawnersInspizient, spawnSituation);
+                }
+
+                yield break;
+            }
 
 
 

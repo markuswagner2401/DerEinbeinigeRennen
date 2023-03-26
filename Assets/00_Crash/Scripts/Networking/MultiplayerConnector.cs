@@ -350,6 +350,7 @@ namespace ObliqueSenastions.PunNetworking
             Room room = PhotonNetwork.CurrentRoom;
             PhotonNetwork.LocalPlayer.NickName = clientsRole.ToString();
             Debug.Log("Player joined Room: " + room.Name + " . Playername: " + PhotonNetwork.LocalPlayer.NickName);
+            onConnectorMessage.Invoke("Player joined Room: " + room.Name + " . Playername: " + PhotonNetwork.LocalPlayer.NickName);
 
 
             playerCount = PhotonNetwork.CurrentRoom.PlayerCount;

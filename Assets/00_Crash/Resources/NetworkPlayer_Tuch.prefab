@@ -7167,6 +7167,11 @@ PrefabInstance:
       propertyPath: solver.spine.headTarget
       value: 
       objectReference: {fileID: 6234664996248809521}
+    - target: {fileID: 7742824129543042324, guid: e76855c236f00c94ea3d15f99d20829f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ee6e5f79a7e740d4aad7c5ddfb88b7b7, type: 2}
     - target: {fileID: 7845542350072289746, guid: e76855c236f00c94ea3d15f99d20829f,
         type: 3}
       propertyPath: m_Enabled
@@ -7174,6 +7179,261 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e76855c236f00c94ea3d15f99d20829f, type: 3}
+--- !u!137 &1399515351431431082 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7742824129543042324, guid: e76855c236f00c94ea3d15f99d20829f,
+    type: 3}
+  m_PrefabInstance: {fileID: 8653695588392154814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6549564770613137647 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2521066074833004113, guid: e76855c236f00c94ea3d15f99d20829f,
+    type: 3}
+  m_PrefabInstance: {fileID: 8653695588392154814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1310970759783562682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6549564770613137647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca6858d700257264cace8c50a26f9581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rend: []
+  skm:
+  - {fileID: 1399515351431431082}
+  skinnedMesh: 1
+  usePropertyBlock: 1
+  doOnStart:
+    m_PersistentCalls:
+      m_Calls: []
+  floatChangers: []
+  textureChangers: []
+  textureFader:
+    note: 
+    texRefA: 
+    texRefB: 
+    faderRef: 
+    faderIsLeft: 0
+    isInterrupted: 0
+  materialChangers: []
+  daumenkinoTimingMin: 1
+  daumenkinoChangeMax: 2
+  setFloatsToCurrent: 0
+  stetTexturesToCurrent: 0
+--- !u!114 &2132581783345332965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6549564770613137647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8afa90699c8a114d99a19b32d42fbed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smr: {fileID: 1399515351431431082}
+  materialPropertiesFader: {fileID: 1310970759783562682}
+  stageMaster: {fileID: 0}
+  sequences:
+  - note: Clapper
+    group: 0
+    images:
+    - {fileID: 2800000, guid: 1d88af9775bbe664385cc242cb39ef91, type: 3}
+    - {fileID: 2800000, guid: b64c05f6638cd3d4bb70aeb120ec1519, type: 3}
+    - {fileID: 2800000, guid: 0a01e320cfef08d4985db382cad58e9d, type: 3}
+    - {fileID: 2800000, guid: 73f399528f4027b4ba0d1995ca69d46a, type: 3}
+    - {fileID: 2800000, guid: 38b903528df8221499e1a66499a22783, type: 3}
+    - {fileID: 2800000, guid: 85ef64bd431dc384fbb91c649910c274, type: 3}
+    - {fileID: 2800000, guid: 89d15fa649dd166429272ef60676cb3c, type: 3}
+    - {fileID: 2800000, guid: 32ad4de583935f842851ba648eab9d77, type: 3}
+    - {fileID: 2800000, guid: 50f0818a3b01df54ab75107a7f5062e2, type: 3}
+    - {fileID: 2800000, guid: 4d127e325da216f45a34490bf3805834, type: 3}
+    - {fileID: 2800000, guid: b0d820a4f4534634da3fa3fb33943fe5, type: 3}
+    - {fileID: 2800000, guid: 982f4a94d78d424409e23b0c4703d8e9, type: 3}
+    - {fileID: 2800000, guid: 8dc29b7606b5b3445ad0eff7e4f5c44f, type: 3}
+    - {fileID: 2800000, guid: f958949370ec0fa45b6f206bbba1cfea, type: 3}
+    - {fileID: 2800000, guid: be75a5a54cfdfa54e9147e32ac603946, type: 3}
+    - {fileID: 2800000, guid: a9546386a379d2243b646c330691d869, type: 3}
+    - {fileID: 2800000, guid: bc6fe641b2eaaed47b1abc0f285c1d9a, type: 3}
+    - {fileID: 2800000, guid: 5811aaa0cd4cc364a9a65e83b2c238b7, type: 3}
+    - {fileID: 2800000, guid: 6959287fe07bc1642b62f317c3cef365, type: 3}
+    - {fileID: 2800000, guid: 120b43cb9cd11124f806469e25b6d899, type: 3}
+    - {fileID: 2800000, guid: 0e509df31e1ad554699f410d7fde0d32, type: 3}
+    - {fileID: 2800000, guid: 323aeaba48afd8849988f3a17d4cce4a, type: 3}
+    - {fileID: 2800000, guid: 6bdee8850fb8b5e42993f05d9de876fd, type: 3}
+    - {fileID: 2800000, guid: 05fef8a77281a434cbb328cf3d4d1506, type: 3}
+    - {fileID: 2800000, guid: 121a3c809a6362941a60226eae0f74ff, type: 3}
+    - {fileID: 2800000, guid: 41dc6cde3de7cc94f8c5e6c9c4d56e83, type: 3}
+    - {fileID: 2800000, guid: 30bd836355613aa4781045a853b2d077, type: 3}
+    - {fileID: 2800000, guid: 959b9099207280845aff0e058a9daaca, type: 3}
+    - {fileID: 2800000, guid: 1f2a10e066e3e3f409a56fd58ff6b179, type: 3}
+    - {fileID: 2800000, guid: c3764af6268a3cb4ea749b425629fe6f, type: 3}
+    - {fileID: 2800000, guid: 2fcf7e2bbb9c7df4d93bd3db316b7bb1, type: 3}
+    - {fileID: 2800000, guid: 71faa56b638e8ac4680368e54ed5c226, type: 3}
+    - {fileID: 2800000, guid: ddcbf32b961d0a74288ec2adf0bbf3f7, type: 3}
+    - {fileID: 2800000, guid: ed9746617732a33418d513252e6661d2, type: 3}
+    - {fileID: 2800000, guid: edfc362f2e6625640a24082398e84af8, type: 3}
+    - {fileID: 2800000, guid: fd202e527f9fa6c4fb400f866f1a4070, type: 3}
+    - {fileID: 2800000, guid: 9206a05f89209654ba759f6e348110d4, type: 3}
+    - {fileID: 2800000, guid: eeaa84e7d165789408ddda94070bfc81, type: 3}
+    - {fileID: 2800000, guid: 2eb38aefcd66e4448a9ca49f21c75d7b, type: 3}
+    - {fileID: 2800000, guid: 58a3bfb96a2af8f4f8913f011ebd3ff2, type: 3}
+    - {fileID: 2800000, guid: 5308f98f5af5b1748946d9864eb3f707, type: 3}
+    - {fileID: 2800000, guid: 6c390afa141f6d24fb7146fa95d1bbe4, type: 3}
+    - {fileID: 2800000, guid: aaead787d4d35564e90ad1c5670d3031, type: 3}
+    - {fileID: 2800000, guid: e920539db510cb94ba09f501c33de303, type: 3}
+    - {fileID: 2800000, guid: 781f7e16a85eaa849984a14d4a80eee8, type: 3}
+    - {fileID: 2800000, guid: d2c6fc327319ed14f83ff661a9c0f4bc, type: 3}
+    - {fileID: 2800000, guid: b125caef25f081d4abe67e312a622ad3, type: 3}
+    - {fileID: 2800000, guid: b2761a470e440bd48879f5fde1936f2e, type: 3}
+    - {fileID: 2800000, guid: 28816d933ed22f54192bb472964875e3, type: 3}
+    - {fileID: 2800000, guid: 94d0b7704748b43428c4f07ac599d531, type: 3}
+    - {fileID: 2800000, guid: a14ca93e81b75c3438e89bba83245d8c, type: 3}
+    - {fileID: 2800000, guid: dd13f5e176d53734f8bb963f6b62a9c5, type: 3}
+    - {fileID: 2800000, guid: d684bc13489e32e4b8348dbad172ffb0, type: 3}
+    - {fileID: 2800000, guid: 109c0d9abe4d1d44b9637c048dda3669, type: 3}
+    - {fileID: 2800000, guid: 5e5e3df0ccaf7424280577e36291d6c5, type: 3}
+    - {fileID: 2800000, guid: 2efc68a9d94c48144850fa769b231b7f, type: 3}
+    - {fileID: 2800000, guid: c1b25f34cf402d74380d97c4b760cb65, type: 3}
+    - {fileID: 2800000, guid: 330d6c9e89948ac4f859c541e92c8fcd, type: 3}
+    - {fileID: 2800000, guid: 8f3af1f6d1167064db78ad8b2e5610b8, type: 3}
+    - {fileID: 2800000, guid: 0bc5674ef01e4ed4c813d6c862abc890, type: 3}
+    - {fileID: 2800000, guid: 1381ed7eaf2bbf945a0878f741cff40b, type: 3}
+    - {fileID: 2800000, guid: fe635f2c580c3444e9eaff26f7a871f9, type: 3}
+    currentIndex: 0
+    play: 0
+    playTriggered: 0
+    fpsMin: 0.1
+    fpsMax: 1
+    stepSizeMin: 1
+    stepSizeMax: 8
+    targetPropRef: Texture2D_fb9c8cf16c0c407bbb8343fa9778ad90
+  currentSequenceGroup: -1
+  startSequenceGroup: 0
+  valueChangerGroups:
+  - note: SoftChanges
+    valueChangers:
+    - note: noiseBlend
+      changerGroup: 0
+      propRef: Vector1_6e4645dda6f24824a5caf42d0028e8d5
+      valueMin: -0.03
+      valueMax: -0.001
+      capturedValue: 0
+    - note: lerpImageAB
+      changerGroup: 0
+      propRef: Vector1_43c9ffaf338141b195ad85efb004f4b4
+      valueMin: -0.1
+      valueMax: -0.01
+      capturedValue: 0
+    - note: FracFac
+      changerGroup: 0
+      propRef: Vector1_29750860cf554ef6a9e71d37ec147d10
+      valueMin: 0.05
+      valueMax: 0.04
+      capturedValue: 0
+    - note: Saturation
+      changerGroup: 0
+      propRef: Vector1_91da82d37da74bfdac25c2138820465d
+      valueMin: 0
+      valueMax: 0
+      capturedValue: 0
+  - note: SoftChanges
+    valueChangers:
+    - note: noiseBlend
+      changerGroup: 0
+      propRef: Vector1_6e4645dda6f24824a5caf42d0028e8d5
+      valueMin: -0.02
+      valueMax: -0.003
+      capturedValue: 0
+    - note: lerpImageAB
+      changerGroup: 0
+      propRef: Vector1_43c9ffaf338141b195ad85efb004f4b4
+      valueMin: 5
+      valueMax: 17
+      capturedValue: 0
+    - note: FracFac
+      changerGroup: 0
+      propRef: Vector1_29750860cf554ef6a9e71d37ec147d10
+      valueMin: 0.048
+      valueMax: 0.042
+      capturedValue: 0
+    - note: Saturation
+      changerGroup: 0
+      propRef: Vector1_91da82d37da74bfdac25c2138820465d
+      valueMin: -0.3
+      valueMax: 0.3
+      capturedValue: 0
+  - note: SoftChanges
+    valueChangers:
+    - note: noiseBlend
+      changerGroup: 0
+      propRef: Vector1_6e4645dda6f24824a5caf42d0028e8d5
+      valueMin: -0.42
+      valueMax: -0.4
+      capturedValue: 0
+    - note: lerpImageAB
+      changerGroup: 0
+      propRef: Vector1_43c9ffaf338141b195ad85efb004f4b4
+      valueMin: 0.03
+      valueMax: 0.04
+      capturedValue: 0
+    - note: FracFac
+      changerGroup: 0
+      propRef: Vector1_29750860cf554ef6a9e71d37ec147d10
+      valueMin: -0.69
+      valueMax: -0.5
+      capturedValue: 0
+    - note: Saturation
+      changerGroup: 0
+      propRef: Vector1_91da82d37da74bfdac25c2138820465d
+      valueMin: -0.1
+      valueMax: -0.01
+      capturedValue: 0
+  - note: StrongChanges
+    valueChangers:
+    - note: noiseBlend
+      changerGroup: 0
+      propRef: Vector1_6e4645dda6f24824a5caf42d0028e8d5
+      valueMin: -0.01
+      valueMax: -0.2
+      capturedValue: 0
+    - note: lerpImageAB
+      changerGroup: 0
+      propRef: Vector1_43c9ffaf338141b195ad85efb004f4b4
+      valueMin: -0.1
+      valueMax: 0.1
+      capturedValue: 0
+    - note: FracFac
+      changerGroup: 0
+      propRef: Vector1_29750860cf554ef6a9e71d37ec147d10
+      valueMin: -3.7
+      valueMax: 1.7
+      capturedValue: 0
+    - note: Saturation
+      changerGroup: 0
+      propRef: Vector1_91da82d37da74bfdac25c2138820465d
+      valueMin: 0.3
+      valueMax: 0.6
+      capturedValue: 0
+  currentChangerGroup: 0
+  startChangerGroup: 0
+  changeValuesAfterXTimesMin: 1
+  changeValuesAfterXTimesMax: 4
+  autoPlay: 1
+  changeSequenceAfterXSecondsMin: Infinity
+  changeSequenceAfterXSecondesMax: Infinity
+  scrubbing: 0
+  scrubbingSpeedMin: 0.01
+  scrubbingSpeedMax: 0.2
+  changeValueGroupAfterXSecondsMin: 0.102
+  changeValueGroupAfterXSecondsMax: 1.03
+  stop: 0
 --- !u!1001 &9215970186739912536
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2749,7 +2749,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4262686938191141946}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: 1ba6619021f27964c95bea10d95725e1, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: d0e528df584afa4408bb69e344f6ff7e, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
@@ -2758,7 +2758,7 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 1
+      - m_Value: 0
         m_Name: Throttle
         m_Overridden: 1
     m_Vector2f:
@@ -3179,7 +3179,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5516543474852706022}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: 98080f5dd0bc16c4db772eedcae0b588, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: f0faf2f58b86f414f862008d60294e79, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
@@ -6699,7 +6699,7 @@ MonoBehaviour:
   - resetAllWeights: 0
     blendShapeIndex: 7
     minWeight: 0
-    maxWeight: -200
+    maxWeight: -300
     currentWeight: 0
     targetWeight: 0
     smoothing: 0.01
@@ -6713,6 +6713,19 @@ MonoBehaviour:
     blendShapeIndex: 0
     minWeight: -25
     maxWeight: 150
+    currentWeight: 0
+    targetWeight: 0
+    smoothing: 0.01
+    vfxEffect: 0
+    vFXControl:
+      visualEffect: {fileID: 0}
+      vfxParameters: []
+      duration: 0
+    vfxTriggered: 0
+  - resetAllWeights: 0
+    blendShapeIndex: 8
+    minWeight: 1
+    maxWeight: 800
     currentWeight: 0
     targetWeight: 0
     smoothing: 0.01
@@ -6809,7 +6822,7 @@ MonoBehaviour:
     smoothing: 0.01
     vfxEffect: 0
     vFXControl:
-      visualEffect: {fileID: 4991529099174692876}
+      visualEffect: {fileID: 0}
       vfxParameters:
       - parameterName: Throttle
         curve:
@@ -6849,19 +6862,6 @@ MonoBehaviour:
         valueMax: 1
         currentValue: 0
       duration: 3
-    vfxTriggered: 0
-  - resetAllWeights: 0
-    blendShapeIndex: 8
-    minWeight: 1
-    maxWeight: 500
-    currentWeight: 0
-    targetWeight: 0
-    smoothing: 0.01
-    vfxEffect: 0
-    vFXControl:
-      visualEffect: {fileID: 0}
-      vfxParameters: []
-      duration: 0
     vfxTriggered: 0
   - resetAllWeights: 0
     blendShapeIndex: 8
