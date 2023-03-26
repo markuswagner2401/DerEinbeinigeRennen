@@ -5,8 +5,8 @@ using ObliqueSenastions.UISpace;
 using UnityEngine;
 using ObliqueSenastions.VFXSpace;
 using ObliqueSenastions.ClapSpace;
-
-
+using UnityEngine.VFX;
+using UnityEngine.Events;
 
 namespace ObliqueSenastions.Animation
 {
@@ -16,11 +16,26 @@ namespace ObliqueSenastions.Animation
         [SerializeField] SkinnedMeshRenderer skinnedMesh;
         [SerializeField] Mesh mesh;
 
-        
+
 
         [SerializeField] float weightTachoInputNormaized = 0;
 
         [SerializeField] int currentIndex;
+
+        [SerializeField] bool healing;
+
+        [Tooltip("time necessary to stay on index before healing")]
+        [SerializeField] float healingthreshold = 0.6f;
+
+        float healingthresholdtimer;
+
+        [SerializeField] float pauseOnHealing = 5f;
+
+        [SerializeField] UnityEvent doOnHealing;
+
+        [SerializeField] UnityEvent doOnNotHealing;
+
+        float healingTimer = Mathf.Infinity;
 
         [Tooltip("match count with states of index tacho count")]
         [SerializeField] ShapeControl[] shapeControls;
@@ -44,6 +59,8 @@ namespace ObliqueSenastions.Animation
             public bool vfxEffect;
             public VFXControl vFXControl;
 
+            public bool vfxTriggered;
+
 
         }
 
@@ -58,11 +75,11 @@ namespace ObliqueSenastions.Animation
 
         [SerializeField] bool setupTachosOnSpawn = false;
 
-      
+
 
         bool allWeightsResetted = false;
 
-        
+
 
         int previousIndex;
 
@@ -89,24 +106,53 @@ namespace ObliqueSenastions.Animation
         {
             if (!tachosSet && setupTachosOnSpawn)
             {
-                
+
                 if (!SetupTachos())
                 {
                     Debug.LogError("Tachos not set");
-                     return;
+                    return;
                 }
             }
-            //SetupTachos();
 
-            // Set current Index
-            if (readIndextAtLoadingBar)
+            if (healing)
             {
-                currentIndex = Mathf.RoundToInt(Mathf.Lerp(0, shapeControls.Length - 1, indexLoadingBar.GetHauDenLukasValue()));
+                currentIndex = 8;
             }
             else
             {
-                
-                currentIndex = Mathf.RoundToInt(Mathf.Lerp(0, shapeControls.Length - 1, indexTacho.GetNormedTargetPosition()));
+                if (readIndextAtLoadingBar)
+                {
+                    currentIndex = Mathf.RoundToInt(Mathf.Lerp(0, shapeControls.Length - 1, indexLoadingBar.GetHauDenLukasValue()));
+                }
+                else
+                {
+
+                    currentIndex = Mathf.RoundToInt(Mathf.Lerp(0, shapeControls.Length - 1, indexTacho.GetNormedTargetPosition()));
+                }
+
+            }
+
+            //SetupTachos();
+
+            // Set current Index
+
+
+            if (shapeControls[currentIndex].resetAllWeights)
+            {
+                healingthresholdtimer += Time.deltaTime;
+
+                if (healingthresholdtimer > healingthreshold)
+                {
+                    if (!healing)
+                    {
+                        StartCoroutine(HealingRoutine());
+                    }
+                }
+            }
+
+            else
+            {
+                healingthresholdtimer = 0f;
             }
 
 
@@ -190,13 +236,24 @@ namespace ObliqueSenastions.Animation
 
         }
 
+        IEnumerator HealingRoutine()
+        {
+            healing = true;
+            doOnHealing.Invoke();
+            yield return new WaitForSeconds(pauseOnHealing);
+            healing = false;
+            doOnNotHealing.Invoke();
+            yield break;
+
+        }
+
         bool SetupTachos()
         {
-           
+
             print("setup tachos");
             // setup index tacho
 
-             bool indexTachoSet = false;
+            bool indexTachoSet = false;
 
             GameObject indexTachoGo = GameObject.FindWithTag("IndexTacho");
             if (indexTachoGo == null)
@@ -210,7 +267,7 @@ namespace ObliqueSenastions.Animation
                 {
                     if (indexTachoGo.TryGetComponent<LoadingBar>(out LoadingBar foundIndexLoadingBar))
                     {
-                        print("foundloadingbar: "+ foundIndexLoadingBar);
+                        print("foundloadingbar: " + foundIndexLoadingBar);
                         indexLoadingBar = foundIndexLoadingBar;
                         indexTachoSet = true;
                     }
@@ -274,23 +331,37 @@ namespace ObliqueSenastions.Animation
                 }
                 tachosSet = (indexTachoSet && weightTachoSet);
                 return tachosSet;
-                
+
 
             }
         }
 
+
+
         private void MultiplayerMethod()
         {
-            // new Method
-
-            if (readWeightAtLoadingBar)
+            if (healing)
             {
-                weightTachoInputNormaized = weightLoadingBar.GetHauDenLukasValue();
+                weightTachoInputNormaized = 0f;
             }
+
             else
             {
-                weightTachoInputNormaized = weightTacho.GetNormedTargetPosition();
+                if (readWeightAtLoadingBar)
+                {
+                    weightTachoInputNormaized = weightLoadingBar.GetHauDenLukasValue();
+                }
+                else
+                {
+                    weightTachoInputNormaized = weightTacho.GetNormedTargetPosition();
+                }
+
             }
+
+
+
+
+
 
 
 
@@ -303,7 +374,8 @@ namespace ObliqueSenastions.Animation
 
                 else
                 {
-                    shapeControls[i].targetWeight = shapeControls[i].minWeight;
+                    //shapeControls[i].targetWeight = shapeControls[i].minWeight;
+                    shapeControls[i].targetWeight = 0f;
                 }
             }
 
@@ -325,21 +397,74 @@ namespace ObliqueSenastions.Animation
                         skinnedMesh.SetBlendShapeWeight(shapeControls[i].blendShapeIndex, shapeControls[i].currentWeight);
                     }
 
-                    // if (shapeControls[currentIndex].vfxEffect && shapeControls[currentIndex].vFXControl.visualEffect != null)
-                    // {
-                    //     ControlVFXEffect();
-                    // }
+                    if (shapeControls[currentIndex].vfxEffect && shapeControls[currentIndex].vFXControl.visualEffect != null)
+                    {
+                        if (shapeControls[currentIndex].vfxTriggered) return;
+
+                        PlayVFXEffect(currentIndex);
+
+                        shapeControls[currentIndex].vfxTriggered = true;
+                    }
                 }
             }
 
 
         }
 
+        public void PlayVFXEffect(int index)
+        {
+            print("play vfx effect");
+            StartCoroutine(VFXRoutine(index));
+        }
+
+        IEnumerator VFXRoutine(int index)
+        {
+            float duration = shapeControls[index].vFXControl.duration;
+
+
+            for (int i = 0; i < shapeControls[index].vFXControl.vfxParameters.Length; i++)
+            {
+                float timer = 0;
+                VisualEffect vfx = shapeControls[index].vFXControl.visualEffect;
+                //vfx.gameObject.SetActive(true);
+                string parameterRef = shapeControls[index].vFXControl.vfxParameters[i].parameterName;
+                float startValue = shapeControls[index].vFXControl.vfxParameters[i].valueMin;
+                float targetValue = shapeControls[index].vFXControl.vfxParameters[i].valueMax;
+                AnimationCurve curve = shapeControls[index].vFXControl.vfxParameters[i].curve;
+                while (timer < duration)
+                {
+                    timer += Time.deltaTime;
+                    shapeControls[index].vFXControl.vfxParameters[i].currentValue =
+                        Mathf.Lerp(startValue, targetValue,
+                        curve.Evaluate(timer / duration));
+                    vfx.SetFloat(parameterRef, shapeControls[index].vFXControl.vfxParameters[i].currentValue);
+                    yield return null;
+                }
+
+                //vfx.gameObject.SetActive(false);
+                print("vfx played");
+
+                yield return null;
+
+            }
+
+            shapeControls[index].vfxTriggered = true;
+
+
+
+
+
+            yield break;
+        }
+
+
+
         private void ResetAllWeights()
         {
             for (int i = 0; i < shapeControls.Length; i++)
             {
-                shapeControls[i].targetWeight = shapeControls[i].minWeight;
+                //shapeControls[i].targetWeight = shapeControls[i].minWeight;
+                shapeControls[i].targetWeight = 0;
             }
         }
 
