@@ -18,7 +18,9 @@ namespace ObliqueSenastions.Animation
 
         
 
-        float weightTachoInputNormaized = 0;
+        [SerializeField] float weightTachoInputNormaized = 0;
+
+        [SerializeField] int currentIndex;
 
         [Tooltip("match count with states of index tacho count")]
         [SerializeField] ShapeControl[] shapeControls;
@@ -60,13 +62,15 @@ namespace ObliqueSenastions.Animation
 
         bool allWeightsResetted = false;
 
-        [SerializeField] int currentIndex;
+        
 
         int previousIndex;
 
         bool indexOutOfRange = false;
 
         float threshold = 0.001f;
+
+        bool tachosSet = false;
 
 
         void Start()
@@ -83,8 +87,9 @@ namespace ObliqueSenastions.Animation
 
         void Update()
         {
-            if (setupTachosOnSpawn)
+            if (!tachosSet && setupTachosOnSpawn)
             {
+                
                 if (!SetupTachos())
                 {
                     Debug.LogError("Tachos not set");
@@ -100,6 +105,7 @@ namespace ObliqueSenastions.Animation
             }
             else
             {
+                
                 currentIndex = Mathf.RoundToInt(Mathf.Lerp(0, shapeControls.Length - 1, indexTacho.GetNormedTargetPosition()));
             }
 
@@ -187,7 +193,7 @@ namespace ObliqueSenastions.Animation
         bool SetupTachos()
         {
            
-
+            print("setup tachos");
             // setup index tacho
 
              bool indexTachoSet = false;
@@ -202,8 +208,10 @@ namespace ObliqueSenastions.Animation
             {
                 if (readIndextAtLoadingBar)
                 {
-                    if (indexTachoGo.TryGetComponent<LoadingBar>(out indexLoadingBar))
+                    if (indexTachoGo.TryGetComponent<LoadingBar>(out LoadingBar foundIndexLoadingBar))
                     {
+                        print("foundloadingbar: "+ foundIndexLoadingBar);
+                        indexLoadingBar = foundIndexLoadingBar;
                         indexTachoSet = true;
                     }
                     else
@@ -213,8 +221,10 @@ namespace ObliqueSenastions.Animation
                 }
                 else
                 {
-                    if (indexTacho.TryGetComponent<Tachonadel>(out indexTacho))
+                    if (indexTachoGo.TryGetComponent<Tachonadel>(out Tachonadel foundIndexTacho))
                     {
+                        print("found index tacho: " + foundIndexTacho);
+                        indexTacho = foundIndexTacho;
                         indexTachoSet = true;
                     }
                     else
@@ -238,8 +248,9 @@ namespace ObliqueSenastions.Animation
                 {
                     if (readWeightAtLoadingBar)
                     {
-                        if (weightTachoGO.TryGetComponent<LoadingBar>(out weightLoadingBar))
+                        if (weightTachoGO.TryGetComponent<LoadingBar>(out LoadingBar foundWeightLoadingBar))
                         {
+                            weightLoadingBar = foundWeightLoadingBar;
                             weightTachoSet = true;
                         }
                         else
@@ -250,8 +261,9 @@ namespace ObliqueSenastions.Animation
 
                     else
                     {
-                        if (weightTachoGO.TryGetComponent<Tachonadel>(out weightTacho))
+                        if (weightTachoGO.TryGetComponent<Tachonadel>(out Tachonadel foundWeightTacho))
                         {
+                            weightTacho = foundWeightTacho;
                             weightTachoSet = true;
                         }
                         else
@@ -260,8 +272,8 @@ namespace ObliqueSenastions.Animation
                         }
                     }
                 }
-
-                return (indexTachoSet && weightTachoSet);
+                tachosSet = (indexTachoSet && weightTachoSet);
+                return tachosSet;
                 
 
             }

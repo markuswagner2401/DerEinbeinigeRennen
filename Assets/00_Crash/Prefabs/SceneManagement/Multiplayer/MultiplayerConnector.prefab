@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1823253367187787890}
   - component: {fileID: 1823253367187787889}
-  - component: {fileID: 235749882324881553}
-  - component: {fileID: 6633050846096986681}
   m_Layer: 0
   m_Name: MultiplayerConnector
   m_TagString: MultiplayerConnector
@@ -56,36 +54,3 @@ MonoBehaviour:
   maxAutos: 1
   maxInspizienten: 1
   currentRoomSection: 
---- !u!114 &235749882324881553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1823253367187787888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dc6b79078255c64fabb6a5053f36a6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6633050846096986681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1823253367187787888}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 668e83f77e705ea4c9f7679213085ebb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  usingOVR: 0
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
-  showConnectorAtStart: 0
-  connectorUiGos: []
-  durationBeforeConnectorUI: 9999999
-  messageObject: {fileID: 0}
-  messageTMP: {fileID: 0}
-  messageDuration: 3

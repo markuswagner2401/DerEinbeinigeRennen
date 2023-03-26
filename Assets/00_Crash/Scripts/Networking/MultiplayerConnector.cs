@@ -186,6 +186,34 @@ namespace ObliqueSenastions.PunNetworking
             return clientsPlayerIndex;
         }
 
+        public int GetNumberOfPlayersOfRole(Role role)
+        {
+            switch (role)
+            {
+                case Role.Rennfahrer:
+                return racerCounter;
+                
+
+                case Role.Auto:
+                return autoCounter;
+                
+
+                case Role.Zuschauer:
+                return zuschauerCounter;
+
+                case Role.Inspizient:
+                return inspizientCounter;
+
+                case Role.None:
+                return 0;
+                
+                default:
+                break;
+            }
+
+            return 0;
+        }
+
         public int GetInspizentenCount()
         {
             return inspizientCounter;

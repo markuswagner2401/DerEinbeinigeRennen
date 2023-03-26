@@ -231,7 +231,7 @@ namespace ObliqueSenastions.ClapSpace
         public void CountClap(float strength)
         {
 
-            print("Count clap " + strength);
+            //print("Count clap " + strength);
             timer = 0f;
 
             claps += 1;

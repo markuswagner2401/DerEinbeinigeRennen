@@ -25,6 +25,9 @@ namespace ObliqueSenastions.PunNetworking
         struct VisibilitySubject
         {
             public string note;
+
+            public bool roleAware;
+            public Role role;
             public GameObject[] objects;
 
             public Deactivation deactivation;
@@ -77,6 +80,13 @@ namespace ObliqueSenastions.PunNetworking
         {
             foreach (var item in visibilitySubjects)
             {
+                if(item.roleAware)
+                {
+                    if(MultiplayerConnector.instance.GetNumberOfPlayersOfRole(item.role) <= 0)
+                    {
+                        continue;
+                    }
+                }
                 switch (item.deactivation)
                 {
                     case Deactivation.gameObject:
