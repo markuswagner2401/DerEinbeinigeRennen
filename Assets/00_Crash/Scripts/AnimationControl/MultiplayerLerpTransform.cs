@@ -72,6 +72,10 @@ namespace ObliqueSenastions.VRRigSpace
 
         [SerializeField] bool setupAtStart = false;
 
+        
+
+        
+
         void Start()
         {
             if(setupAtStart)
@@ -111,6 +115,9 @@ namespace ObliqueSenastions.VRRigSpace
                 }
             }
 
+            if(currentFormation >= formations.Length) return;
+            if(formations[currentFormation].source == null) return;
+
             if (readAtTacho)
             {
                 float t = ReadWeightAtTacho(tacho);
@@ -122,6 +129,8 @@ namespace ObliqueSenastions.VRRigSpace
             {
                 CapturePositionAndChangeIndex(currentFormation + 1);
             }
+
+            
 
             if (formations[currentFormation].weight <= 0f) return;
 
@@ -144,9 +153,21 @@ namespace ObliqueSenastions.VRRigSpace
         void SetupMultiplayerSources()
         {
             multiplayerIndex = MultiplayerConnector.instance.GetClientsIndexInRole();
+            if(formations.Length <= 0) return;
             for (int i = 0; i < formations.Length; i++)
             {
-                formations[i].source = formations[i].multiplayerSources[multiplayerIndex];
+                int index;
+                if(formations[i].multiplayerSources.Length == 0)
+                {
+                    return;
+                }
+
+                else
+                {
+                    index = multiplayerIndex % formations[i].multiplayerSources.Length;
+                }
+                
+                formations[i].source = formations[i].multiplayerSources[index];
             }
 
         }

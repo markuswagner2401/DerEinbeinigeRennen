@@ -131,6 +131,8 @@ namespace ObliqueSenastions.Looping
 
             CapsuleFollowHeadset(headHeight, headPosition);
 
+            if(!continuousGrounding) return;
+
             UpdateHitInfo();
 
             //currentHit = GetHitInfo();

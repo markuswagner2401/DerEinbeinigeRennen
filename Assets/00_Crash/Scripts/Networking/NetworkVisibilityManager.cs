@@ -80,79 +80,81 @@ namespace ObliqueSenastions.PunNetworking
         {
             foreach (var item in visibilitySubjects)
             {
-                if(item.roleAware)
+                if (item.roleAware)
                 {
-                    if(MultiplayerConnector.instance.GetNumberOfPlayersOfRole(item.role) <= 0)
+                    if (MultiplayerConnector.instance.GetNumberOfPlayersOfRole(item.role) <= 0)
                     {
                         continue;
                     }
-                }
-                switch (item.deactivation)
-                {
-                    case Deactivation.gameObject:
-                        foreach (var obj in item.objects)
-                        {
-                            if (obj != null) obj.SetActive(state);
-                        }
-                        break;
 
-                    case Deactivation.renderer:
-                        foreach (var obj in item.objects)
-                        {
-                            if (obj.TryGetComponent<Renderer>(out Renderer renderer))
+                    switch (item.deactivation)
+                    {
+                        case Deactivation.gameObject:
+                            foreach (var obj in item.objects)
                             {
-                                renderer.enabled = state;
+                                if (obj != null) obj.SetActive(state);
                             }
-                        }
-                        break;
+                            break;
 
-                    case Deactivation.collider:
-                        foreach (var obj in item.objects)
-                        {
-                            if (obj.TryGetComponent<Collider>(out Collider collider))
+                        case Deactivation.renderer:
+                            foreach (var obj in item.objects)
                             {
-                                collider.enabled = state;
-                            }
-                        }
-                        break;
-
-                    case Deactivation.rendererInChildren:
-                        foreach (var obj in item.objects)
-                        {
-                            if (obj != null)
-                            {
-                                Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
-
-                                foreach (var renderer in renderers)
+                                if (obj.TryGetComponent<Renderer>(out Renderer renderer))
                                 {
                                     renderer.enabled = state;
                                 }
-
                             }
+                            break;
 
-                        }
-                        break;
-
-                    case Deactivation.colliderInChildren:
-                        foreach (var obj in item.objects)
-                        {
-                            if (obj != null)
+                        case Deactivation.collider:
+                            foreach (var obj in item.objects)
                             {
-                                Collider[] colliders = obj.GetComponentsInChildren<Collider>();
-                                foreach (var collider in colliders)
+                                if (obj.TryGetComponent<Collider>(out Collider collider))
                                 {
                                     collider.enabled = state;
                                 }
+                            }
+                            break;
+
+                        case Deactivation.rendererInChildren:
+                            foreach (var obj in item.objects)
+                            {
+                                if (obj != null)
+                                {
+                                    Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
+
+                                    foreach (var renderer in renderers)
+                                    {
+                                        renderer.enabled = state;
+                                    }
+
+                                }
 
                             }
+                            break;
 
-                        }
-                        break;
+                        case Deactivation.colliderInChildren:
+                            foreach (var obj in item.objects)
+                            {
+                                if (obj != null)
+                                {
+                                    Collider[] colliders = obj.GetComponentsInChildren<Collider>();
+                                    foreach (var collider in colliders)
+                                    {
+                                        collider.enabled = state;
+                                    }
+
+                                }
+
+                            }
+                            break;
 
 
-                    default:
-                        break;
+                        default:
+                            break;
+                    }
                 }
+
             }
 
             collidersReady = true;
