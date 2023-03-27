@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ObliqueSenastions.UISpace;
 using UnityEngine;
 using Photon.Pun;
+using ObliqueSenastions.ClapSpace;
 
 namespace ObliqueSenastions.VRRigSpace
 {
@@ -75,7 +76,10 @@ namespace ObliqueSenastions.VRRigSpace
             }
         }
 
-
+        public void AddLoadingBarContributor(LoadingBar[] loadingBarContributor)
+        {
+            
+        }
     }
 
 }

@@ -44,6 +44,10 @@ namespace ObliqueSenastions.ClapSpace
 
         bool interrupted;
 
+        [SerializeField] bool getSetExternally = false;
+
+        
+
 
         void Start()
         {
@@ -56,6 +60,8 @@ namespace ObliqueSenastions.ClapSpace
 
         private void FixedUpdate()
         {
+            if(getSetExternally) return;
+
             if (enableClapAccumulation)
             {
                 if (accumulativeBarValue > 0f)
@@ -73,6 +79,12 @@ namespace ObliqueSenastions.ClapSpace
 
 
 
+        }
+
+        public void SetLoadingBarValueExternally(float value)
+        {
+            getSetExternally = true;
+            SetLoadingBarValue(value);
         }
 
         public void SetClapFrameTime(float time)

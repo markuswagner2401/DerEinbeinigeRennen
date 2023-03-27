@@ -7,6 +7,7 @@ using Photon.Pun;
 using System;
 using ObliqueSenastions.VRRigSpace;
 using ObliqueSenastions.UISpace;
+using ObliqueSenastions.ClapSpace;
 
 namespace ObliqueSenastions.PunNetworking
 {
@@ -17,6 +18,7 @@ namespace ObliqueSenastions.PunNetworking
         [SerializeField] Role role;
 
         [SerializeField] SimpleVelocityTracker[] contributingVelocityTrackers;
+        //[SerializeField] LoadingBar[] loadingBarContributors;
 
 
         [Tooltip("Set to same as XR Rig")]
@@ -207,7 +209,9 @@ namespace ObliqueSenastions.PunNetworking
                     foreach (var item in iVelocityListeners)
                     {
                         item.AddVelocityContributor(contributingVelocityTrackers);
+                        //item.AddLoadingBarContributor(loadingBarContributors);
                     }
+                    
                 }
 
 

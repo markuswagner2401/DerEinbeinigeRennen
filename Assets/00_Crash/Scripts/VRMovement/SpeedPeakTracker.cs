@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using ObliqueSenastions.UISpace;
 using UnityEngine.Events;
+using ObliqueSenastions.ClapSpace;
 
 namespace ObliqueSenastions.VRRigSpace
 {
@@ -272,6 +273,11 @@ namespace ObliqueSenastions.VRRigSpace
         public void AddVelocityContributor(SimpleVelocityTracker[] velocityContributors)
         {
             AddMultiplayerTracker(velocityContributors);
+        }
+
+        public void AddLoadingBarContributor(LoadingBar[] loadingBarContributor)
+        {
+            throw new System.NotImplementedException();
         }
     }
 
