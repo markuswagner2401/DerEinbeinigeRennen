@@ -35,8 +35,7 @@ namespace ObliqueSenastions.TransformControl
 
             device = InputDevices.GetDeviceAtXRNode(node);
 
-            StartCoroutine(LerpMuscleToTargetValue(muscleTargetValue, lerpTimeMuscleOnStart));
-            StartCoroutine(LerpPinToTargetValue(pinTargetValue, lerpTimePinOnStart));
+            
 
 
 
@@ -56,6 +55,12 @@ namespace ObliqueSenastions.TransformControl
             //     alreadyPressed = true;
 
             // }
+        }
+
+        public void LerpPuppetWeights()
+        {
+            StartCoroutine(LerpMuscleToTargetValue(muscleTargetValue, lerpTimeMuscleOnStart));
+            StartCoroutine(LerpPinToTargetValue(pinTargetValue, lerpTimePinOnStart));
         }
 
 

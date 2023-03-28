@@ -41,6 +41,8 @@ namespace ObliqueSenastions.Looping
         [SerializeField] string absturzsicherungTag = "Absturzsicherung";
         [SerializeField] bool continuousGrounding = true;
 
+        
+
         // enum BehaviorOnLostGround
         // {
         //     rise,

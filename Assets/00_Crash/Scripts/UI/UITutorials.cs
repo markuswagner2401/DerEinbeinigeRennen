@@ -87,6 +87,8 @@ namespace ObliqueSenastions.UISpace
 
         [SerializeField] bool onlyChekcforArmsTracked = true;
 
+        [SerializeField] int reminderTutIndex = 1;
+
         float timer;
 
         bool armsMoving = false;
@@ -141,13 +143,30 @@ namespace ObliqueSenastions.UISpace
                 if (!motivationTriggered)
                 {
 
-                    PlayTutorial(1); // index 1 for reminder tutorial
+                    PlayTutorial(reminderTutIndex); // index 1 for reminder tutorial
                 }
             }
 
 
 
 
+        }
+
+        public void SetReminderIndex(string name)
+        {
+            int index = GetIndexByName(name);
+            if (index < 0)
+            {
+                print("no tutorial found with name: " + name);
+                return;
+            }
+            SetReminderIndex(index);
+
+        }
+
+        public void SetReminderIndex(int index)
+        {
+            reminderTutIndex = index;
         }
 
         public void ObserveArmsMoving(bool value)
@@ -165,11 +184,11 @@ namespace ObliqueSenastions.UISpace
 
         public void PlayTutorial(int index)
         {
-            if(!this.enabled) return;
+            if (!this.enabled) return;
             if (tutorials[index].repetitionsCounter > tutorials[index].maxRepetitions) return;
             foreach (var role in tutorials[index].excludeRoles)
             {
-                if(MultiplayerConnector.instance.GetRole() == role) return;
+                if (MultiplayerConnector.instance.GetRole() == role) return;
             }
             motivationTriggered = true;
             StopAllCoroutines();
@@ -178,7 +197,7 @@ namespace ObliqueSenastions.UISpace
 
         void PlayNetworkWelcomeTutorial()
         {
-            if(!welcomeNetworkPlayer)
+            if (!welcomeNetworkPlayer)
             {
                 return;
             }
@@ -186,7 +205,7 @@ namespace ObliqueSenastions.UISpace
             {
                 this.enabled = true;
             }
-            
+
             if (MultiplayerConnector.instance.GetRole() == Role.Rennfahrer)
             {
                 PlayTutorial("WelcomeRacer");
