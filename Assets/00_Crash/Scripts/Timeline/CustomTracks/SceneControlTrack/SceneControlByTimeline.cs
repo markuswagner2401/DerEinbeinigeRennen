@@ -33,7 +33,7 @@ namespace ObliqueSenastions.TimelineSpace
 
         public void ChangeSceneOnGoingForwardInTL(string sceneName)
         {
-            if(sceneName == SceneManager.GetActiveScene().name) return;
+            //if(sceneName == SceneManager.GetActiveScene().name) return;
 
             Debug.Log("SceneControlByTimeline: ChangeSceneOnGoingForwardInTL, going to: " + sceneName);
             if (Application.isPlaying)
@@ -45,7 +45,7 @@ namespace ObliqueSenastions.TimelineSpace
 
         public void ChangeSceneOnGoingForwardInTL(int sceneIndex)
         {
-            if(sceneIndex == SceneManager.GetActiveScene().buildIndex) return;
+            //if(sceneIndex == SceneManager.GetActiveScene().buildIndex) return;
 
             Debug.Log("SceneControlByTimeline: ChangeSceneOnGoingForwardInTL, going to: " + sceneIndex);
             if (Application.isPlaying)
@@ -57,12 +57,30 @@ namespace ObliqueSenastions.TimelineSpace
         public void ChangeSceneOnGoingBackInTL(int sceneIndex, bool jumpToSceneStart, int clipIndex)
         {
 
-            if(sceneIndex == SceneManager.GetActiveScene().buildIndex) return;
-            
+            //if(sceneIndex == SceneManager.GetActiveScene().buildIndex) return;
+
             Debug.Log("SceneControlByTimeline: ChangeSceneOnGoingBackInTL, going to: " + sceneIndex + ". jump To Start of Clip: " + jumpToSceneStart);
             if (Application.isPlaying)
             {
                 GetComponent<SceneChanger>().ChangeScene(sceneIndex);
+                if (jumpToSceneStart)
+                {
+                    PlayableDirector playableDirector = GetComponent<PlayableDirector>();
+                    playableDirector.time = sceneClips[clipIndex].startTime + 1d; // putting the playhead one second after the clip start, to make sure that the playhead is in the intended scene
+                }
+            }
+
+        }
+
+        public void ChangeSceneOnGoingBackInTL(string sceneName, bool jumpToSceneStart, int clipIndex)
+        {
+
+            //if(sceneIndex == SceneManager.GetActiveScene().buildIndex) return;
+
+            Debug.Log("SceneControlByTimeline: ChangeSceneOnGoingBackInTL, going to: " + sceneName + ". jump To Start of Clip: " + jumpToSceneStart);
+            if (Application.isPlaying)
+            {
+                GetComponent<SceneChanger>().ChangeScene(sceneName);
                 if (jumpToSceneStart)
                 {
                     PlayableDirector playableDirector = GetComponent<PlayableDirector>();

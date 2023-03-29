@@ -52,6 +52,7 @@ namespace ObliqueSenastions.SceneSpace
 
         public void ChangeScene(string name)
         {
+            
             portalToWhere = PortalToWhere.sceneByName;
             sceneByName = name;
             StartCoroutine(Transition());

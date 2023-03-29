@@ -137,7 +137,16 @@ namespace ObliqueSenastions.TimelineSpace
                 }
                 else
                 {
-                    sceneControlByTimeline.ChangeSceneOnGoingBackInTL(behaviourCurrentClip.sceneIndex, behaviourCurrentClip.jumpToClipStartOnGoingBackInTL, currentClipIndex);
+                    if(behaviourCurrentClip.useSceneName)
+                    {
+                        sceneControlByTimeline.ChangeSceneOnGoingBackInTL(behaviourCurrentClip.sceneName, behaviourCurrentClip.jumpToClipStartOnGoingBackInTL, currentClipIndex);
+                    }
+
+                    else
+                    {
+                        sceneControlByTimeline.ChangeSceneOnGoingBackInTL(behaviourCurrentClip.sceneIndex, behaviourCurrentClip.jumpToClipStartOnGoingBackInTL, currentClipIndex);
+                    }
+                    
                 }
 
             }
