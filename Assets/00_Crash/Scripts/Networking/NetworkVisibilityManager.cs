@@ -65,7 +65,8 @@ namespace ObliqueSenastions.PunNetworking
 
         public override void OnJoinedRoom()
         {
-            StartCoroutine(ManageVisibilitiesR(false));
+            //StartCoroutine(ManageVisibilitiesR(false));
+            ManageVisibilities(false);
         }
 
         public override void OnLeftRoom()

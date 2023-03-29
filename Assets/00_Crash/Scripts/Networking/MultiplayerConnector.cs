@@ -350,7 +350,7 @@ namespace ObliqueSenastions.PunNetworking
             Room room = PhotonNetwork.CurrentRoom;
             PhotonNetwork.LocalPlayer.NickName = clientsRole.ToString();
             Debug.Log("Player joined Room: " + room.Name + " . Playername: " + PhotonNetwork.LocalPlayer.NickName);
-            onConnectorMessage.Invoke("Player joined Room: " + room.Name + " . Playername: " + PhotonNetwork.LocalPlayer.NickName);
+            
 
 
             playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
@@ -401,6 +401,10 @@ namespace ObliqueSenastions.PunNetworking
             Debug.Log("Set Role identifier: Role: " + clientsRole + " index: " + (roleCount - 1));
 
             SetRoleIdentifier(clientsRole, roleCount - 1);
+
+            onConnectorMessage.Invoke("Player joined Room: " + room.Name + " . Playername: " + PhotonNetwork.LocalPlayer.NickName +"\n" + 
+                                    "Role: " + clientsRole + " index: " + (roleCount - 1) +"\n" + 
+                                    "Total Players in Room: " + playerCount);
 
 
             my_OnJoinedRoom.Invoke();
