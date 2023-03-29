@@ -8,6 +8,7 @@ using System;
 using ObliqueSenastions.VRRigSpace;
 using ObliqueSenastions.UISpace;
 using ObliqueSenastions.ClapSpace;
+using UnityEngine.SceneManagement;
 
 namespace ObliqueSenastions.PunNetworking
 {
@@ -50,7 +51,10 @@ namespace ObliqueSenastions.PunNetworking
 
         [SerializeField] SkinnedMeshRenderer[] smrsToSwitchOffIfIsMine;
 
-        [SerializeField] bool destroyOnSceneEnd = false;
+        //[SerializeField] bool destroyOnSceneEnd = false; // Destroying gets handled by homeScenes
+
+        [Tooltip("Empty if live in all scenes")]
+        [SerializeField] string[] homeScenes;
 
 
 
@@ -77,31 +81,30 @@ namespace ObliqueSenastions.PunNetworking
 
         Transform currentXROrigin = null;
 
+        bool inHomeScene = true;
+      
+
 
         private void Awake()
         {
             if (manualUpdate)
             {
                 onPlayerMappingUpdated += PlaceholderOnMappingReady;
+
             }
 
-            if (!destroyOnSceneEnd)
-            {
-                DontDestroyOnLoad(this.gameObject);
-            }
+            DontDestroyOnLoad(this.gameObject);
+
+            // if (!destroyOnSceneEnd)
+            // {
+
+            // }
         }
-
-
-
-
 
         void Start()
         {
 
-
-
-
-
+            SceneManager.sceneLoaded += OnSceneLoaded;
 
             if (capsuleCollider == null)
             {
@@ -109,14 +112,54 @@ namespace ObliqueSenastions.PunNetworking
 
             }
 
-            
+        }
 
+
+
+        
+
+
+        private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+        {
+            print("NetworkPlayer: OnSceneLoaded " + arg0.name);
+
+            if (arg0.name == "TransferScene") return;
+
+            bool bufferInHomeScene = false;
+            foreach (var item in homeScenes)
+            {
+                print("checking home scnes");
+                if (arg0.name == item)
+                {
+                    bufferInHomeScene = true;
+                }
+            }
+
+            if (!bufferInHomeScene)
+            {
+                inHomeScene = false;
+                if(this != null) StartCoroutine(DestroyInXSeconds(2f));
+                
+                //PhotonNetwork.Destroy(this.gameObject);
+            }
+        }
+
+        IEnumerator DestroyInXSeconds(float sec)
+        {
+            print("not in home scene: destroy");
+            yield return new WaitForSeconds(sec);
+            PhotonNetwork.Destroy(this.gameObject);
         }
 
         
 
+
+
+
+
         private void Update()
         {
+            
 
 
             // if (headRig == null) // Happens on change scene
@@ -155,7 +198,7 @@ namespace ObliqueSenastions.PunNetworking
 
         public void ManualUpdate()
         {
-            if (originRig == null) // Happens on change scene
+            if (originRig == null && inHomeScene) // Happens on change scene
             {
                 if ((PhotonNetwork.IsConnected && PhotonNetwork.InRoom && photonView.IsMine))
                 {
@@ -166,7 +209,7 @@ namespace ObliqueSenastions.PunNetworking
             }
 
             // Debug.Log("NetworkPlayer: ManualUpdate, invoked by traveller");
-            if (photonView.IsMine)
+            if (photonView.IsMine && inHomeScene)
             {
 
                 // rightHand.gameObject.SetActive(false);
@@ -185,7 +228,7 @@ namespace ObliqueSenastions.PunNetworking
                     UpdateHandAnimation(InputDevices.GetDeviceAtXRNode(XRNode.RightHand), npRightHandAnimator);
                 }
 
-                
+
 
 
 
@@ -211,7 +254,7 @@ namespace ObliqueSenastions.PunNetworking
                         item.AddVelocityContributor(contributingVelocityTrackers);
                         //item.AddLoadingBarContributor(loadingBarContributors);
                     }
-                    
+
                 }
 
 
@@ -379,7 +422,8 @@ namespace ObliqueSenastions.PunNetworking
         private void OnDestroy()
         {
 
-            //        currentCameraTraveller.onTravellerUpdateReady -= ManualUpdate;
+            currentCameraTraveller.onTravellerUpdateReady -= ManualUpdate;
+            onPlayerMappingUpdated -= PlaceholderOnMappingReady;
         }
     }
 

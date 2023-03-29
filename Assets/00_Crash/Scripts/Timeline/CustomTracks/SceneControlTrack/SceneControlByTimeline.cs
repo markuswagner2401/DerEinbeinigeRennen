@@ -2,6 +2,7 @@ using System;
 using ObliqueSenastions.SceneSpace;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 namespace ObliqueSenastions.TimelineSpace
 {
@@ -32,6 +33,8 @@ namespace ObliqueSenastions.TimelineSpace
 
         public void ChangeSceneOnGoingForwardInTL(string sceneName)
         {
+            if(sceneName == SceneManager.GetActiveScene().name) return;
+
             Debug.Log("SceneControlByTimeline: ChangeSceneOnGoingForwardInTL, going to: " + sceneName);
             if (Application.isPlaying)
             {
@@ -42,6 +45,8 @@ namespace ObliqueSenastions.TimelineSpace
 
         public void ChangeSceneOnGoingForwardInTL(int sceneIndex)
         {
+            if(sceneIndex == SceneManager.GetActiveScene().buildIndex) return;
+
             Debug.Log("SceneControlByTimeline: ChangeSceneOnGoingForwardInTL, going to: " + sceneIndex);
             if (Application.isPlaying)
             {
@@ -51,6 +56,9 @@ namespace ObliqueSenastions.TimelineSpace
 
         public void ChangeSceneOnGoingBackInTL(int sceneIndex, bool jumpToSceneStart, int clipIndex)
         {
+
+            if(sceneIndex == SceneManager.GetActiveScene().buildIndex) return;
+            
             Debug.Log("SceneControlByTimeline: ChangeSceneOnGoingBackInTL, going to: " + sceneIndex + ". jump To Start of Clip: " + jumpToSceneStart);
             if (Application.isPlaying)
             {

@@ -73,6 +73,8 @@ namespace ObliqueSenastions.PunNetworking
         //GameObject[] PlayerPrefabsInRoom;
         private GameObject spawnedPlayerPrefab;
 
+        
+
 
 
         private void Start()
@@ -82,6 +84,23 @@ namespace ObliqueSenastions.PunNetworking
             {
                 StartCoroutine(OnSceneStartLate());
             }
+            
+            MultiplayerConnector.instance.my_OnJoinedRoom += MyOnJoinedRoom;
+        }
+
+        void MyOnJoinedRoom() // gets called by MultiplayerConnector after player inventur
+        {
+            SpawnPrefab(SpawnSituation.initial);
+        }
+
+        public override void OnJoinedRoom()
+        {
+            
+        }
+
+        private void OnDestroy() 
+        {
+            MultiplayerConnector.instance.my_OnJoinedRoom -= MyOnJoinedRoom;
         }
 
 
@@ -99,10 +118,7 @@ namespace ObliqueSenastions.PunNetworking
         }
 
 
-        public override void OnJoinedRoom()
-        {
-            SpawnPrefab(SpawnSituation.initial);
-        }
+        
 
         private void SpawnPrefab(SpawnSituation spawnSituation)
         {
@@ -112,6 +128,7 @@ namespace ObliqueSenastions.PunNetworking
 
         IEnumerator SpawnPrefabRoutine(SpawnSituation spawnSituation)
         {
+            print("spawn routine: " + spawnSituation);
             Role role = MultiplayerConnector.instance.GetRole();
             int index = MultiplayerConnector.instance.GetClientsIndexInRole();
 
@@ -146,6 +163,8 @@ namespace ObliqueSenastions.PunNetworking
             Debug.Log("cameraTraveller found: " + camTrav.gameObject.name);
 
             camTrav.SetRoleIdentifier(role, index);
+
+            camTrav.OffsetMultiplayerLocations(index);
 
             /// Wait for Visibities Manager (because of colliders)
 

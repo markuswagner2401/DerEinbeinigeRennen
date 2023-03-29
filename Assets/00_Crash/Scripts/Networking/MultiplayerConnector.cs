@@ -111,7 +111,7 @@ namespace ObliqueSenastions.PunNetworking
 
         public override void OnEnable()
         {
-            SceneManager.sceneLoaded += OnSceneLoaded;
+            //SceneManager.sceneLoaded += OnSceneLoaded;
             my_OnJoinedRoom += PlaceholderOnJoinedRoom;
             onConnectorMessage += PlaceholderOnConnectorMessage;
             base.OnEnable();
@@ -138,7 +138,7 @@ namespace ObliqueSenastions.PunNetworking
 
         private void OnDestroy()
         {
-            SceneManager.sceneLoaded -= OnSceneLoaded;
+            //SceneManager.sceneLoaded -= OnSceneLoaded;
             my_OnJoinedRoom -= PlaceholderOnJoinedRoom;
             onConnectorMessage -= PlaceholderOnConnectorMessage;
         }
@@ -166,7 +166,7 @@ namespace ObliqueSenastions.PunNetworking
         public override void OnDisable()
         {
             base.OnDisable();
-            SceneManager.sceneLoaded -= OnSceneLoaded;
+            //SceneManager.sceneLoaded -= OnSceneLoaded;
             my_OnJoinedRoom -= PlaceholderOnJoinedRoom;
 
         }
@@ -491,28 +491,29 @@ namespace ObliqueSenastions.PunNetworking
 
 
 
+        // todo: find solution for transfer looping to monocoque
 
 
-        private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
-        {
-            if (arg0.name == "TransferScene") return;
+        // private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+        // {
+        //     if (arg0.name == "TransferScene") return;
 
 
 
-            string newRoomSection = TimeLineHandler.instance.GetComponent<SceneControlByTimeline>().GetRoomSectionThisClip();
+        //     string newRoomSection = TimeLineHandler.instance.GetComponent<SceneControlByTimeline>().GetRoomSectionThisClip();
 
-            if (newRoomSection == currentRoomSection)
-            {
-                my_OnJoinedRoom.Invoke();
-                return;
-            }
-            else
-            {
-                ChangeRoom();
-            }
+        //     if (newRoomSection == currentRoomSection)
+        //     {
+        //         my_OnJoinedRoom.Invoke();
+        //         return;
+        //     }
+        //     else
+        //     {
+        //         ChangeRoom();
+        //     }
 
 
-        }
+        // }
 
 
 

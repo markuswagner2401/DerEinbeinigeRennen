@@ -129,7 +129,7 @@ namespace ObliqueSenastions.UISpace
             else if (tachomode == Tachomode.readVelocityChangeDetector)
             {
                 if (velocityChangeDetectorBar == null) return;
-                SetTargetPositionWithNormedValue(velocityChangeDetectorBar.GetHauDenLukasValue());
+                SetTargetPositionWithNormedValue(velocityChangeDetectorBar.GetLoadingValue());
             }
 
             else if (tachomode == Tachomode.syncedByNetwork)

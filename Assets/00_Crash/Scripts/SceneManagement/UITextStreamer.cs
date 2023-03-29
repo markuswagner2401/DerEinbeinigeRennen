@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using ObliqueSenastions.PunNetworking;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -67,6 +68,21 @@ namespace ObliqueSenastions.UISpace
 
         public void ShowText(string currentText, Color color, FontStyles style, int size)
         {
+            ShowUI(currentText != "");
+
+
+            text.text = currentText;
+            text.color = color;
+            text.fontStyle = style;
+            text.fontSize = size;
+
+        }
+
+        public void ShowText(Role role,string currentText, Color color, FontStyles style, int size)
+        {
+            return;
+            if(role != MultiplayerConnector.instance.GetRole()) return;
+
             ShowUI(currentText != "");
 
 

@@ -121,7 +121,7 @@ namespace ObliqueSenastions.AnimatorSpace
             else if(inputMode == InputMode.readAtLoadingBar)
             {
                 if(loadingBar == null) return;
-                smoothedSpeed = SmoothedTachoSpeed(loadingBar.GetHauDenLukasValue());
+                smoothedSpeed = SmoothedTachoSpeed(loadingBar.GetLoadingValue());
             }
 
             

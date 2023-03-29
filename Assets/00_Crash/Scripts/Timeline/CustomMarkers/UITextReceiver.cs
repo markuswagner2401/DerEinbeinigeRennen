@@ -22,7 +22,15 @@ namespace ObliqueSenastions.TimelineSpace
                 }
 
                 if (textStreamer == null) return;
-                textStreamer.ShowText(uITextMarker.Text, uITextMarker.Color, uITextMarker.FontStyle, uITextMarker.Size);
+                if(uITextMarker.RoleAware)
+                {
+                    textStreamer.ShowText(uITextMarker.Role, uITextMarker.Text, uITextMarker.Color, uITextMarker.FontStyle, uITextMarker.Size);  
+                }
+                else
+                {
+                    textStreamer.ShowText(uITextMarker.Text, uITextMarker.Color, uITextMarker.FontStyle, uITextMarker.Size);
+                }
+                
                 //textStreamer.ShowText(uITextMarker.Text);
 
             }

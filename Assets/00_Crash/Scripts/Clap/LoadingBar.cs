@@ -226,9 +226,11 @@ namespace ObliqueSenastions.ClapSpace
             }
         }
 
-        public float GetHauDenLukasValue()
+        public float GetLoadingValue()
         {
-            return accumulativeBarValue;
+            if(material == null) return 0;
+            return material.GetFloat(valueReference);
+            //return accumulativeBarValue;
         }
 
         public void SetDeAccululationPerFrame(float value)

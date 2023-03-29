@@ -69,6 +69,11 @@ namespace ObliqueSenastions.PunNetworking
                 }
             }
         }
+
+        private void OnDestroy() 
+        {
+            stageMaster.onGoEvent -= PlayGoEvent;
+        }
     }
 
 }

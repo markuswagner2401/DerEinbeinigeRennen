@@ -193,11 +193,11 @@ namespace ObliqueSenastions.VRRigSpace
 
             prevTransPointIndex = currTransPointIndex;
 
-            if (previousPlayerIndex != playerIndex || previousRole != role)
-            {
-                //if(previousRole == role)
-                OffsetMultiplayerLocations(playerIndex);
-            }
+            // if (previousPlayerIndex != playerIndex || previousRole != role)
+            // {
+            //     //if(previousRole == role)
+            //     OffsetMultiplayerLocations(playerIndex);
+            // }
 
             previousRole = role;
             previousPlayerIndex = playerIndex;
@@ -484,6 +484,9 @@ namespace ObliqueSenastions.VRRigSpace
 
             string transPointNamePrevClip = travContr.GetTransPointNamePrevClip(role); // Returns "" if there is no prev Clip
                                                                                        //Debug.Log("camera traveller: transition point name prev clip: " + transPointNamePrevClip);
+
+
+
             int transPointPrevClip = transPointNamePrevClip == "" ? travContr.GetTransitionPointIndexPrevClip(role) : lookup[transPointNamePrevClip];
 
             string transPointNameCurrClip = travContr.GetTransPointNameCurrClip(role);

@@ -122,7 +122,7 @@ namespace ObliqueSenastions.Animation
             {
                 if (readIndextAtLoadingBar)
                 {
-                    currentIndex = Mathf.RoundToInt(Mathf.Lerp(0, shapeControls.Length - 1, indexLoadingBar.GetHauDenLukasValue()));
+                    currentIndex = Mathf.RoundToInt(Mathf.Lerp(0, shapeControls.Length - 1, indexLoadingBar.GetLoadingValue()));
                 }
                 else
                 {
@@ -349,7 +349,7 @@ namespace ObliqueSenastions.Animation
             {
                 if (readWeightAtLoadingBar)
                 {
-                    weightTachoInputNormaized = weightLoadingBar.GetHauDenLukasValue();
+                    weightTachoInputNormaized = weightLoadingBar.GetLoadingValue();
                 }
                 else
                 {
