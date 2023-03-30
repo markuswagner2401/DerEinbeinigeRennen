@@ -1,4 +1,5 @@
 using System.Collections;
+using ObliqueSenastions.TimelineSpace;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
@@ -24,6 +25,8 @@ namespace ObliqueSenastions.PunNetworking
 
         }
 
+        [SerializeField] TimeModeMachine timeModeMachine;
+
 
 
 
@@ -46,6 +49,7 @@ namespace ObliqueSenastions.PunNetworking
         float currentTime;
 
         float currentTimeOfOwner;
+        int currentPlayModeOfOwner; // 0-Play, 1-Pause-, 2-Hold, 3-FastForward, 4-FastBackward
 
         float currentSpeed;
         float currentSpeedOfOwner;
@@ -59,6 +63,7 @@ namespace ObliqueSenastions.PunNetworking
         {
             director = GetComponent<PlayableDirector>();
             PhotonNetwork.AddCallbackTarget(this);
+            if(timeModeMachine == null) timeModeMachine = GetComponent<TimeModeMachine>();
         }
 
         private void Start()
@@ -72,6 +77,8 @@ namespace ObliqueSenastions.PunNetworking
 
                 capturedVolume = audioSource.volume;
             }
+
+
         }
 
         private void Update()
@@ -112,6 +119,8 @@ namespace ObliqueSenastions.PunNetworking
 
                 }
 
+                timeModeMachine.SetTimelinePlayMode(currentPlayModeOfOwner);
+
             }
 
             else if (!PhotonNetwork.IsConnected)
@@ -140,7 +149,11 @@ namespace ObliqueSenastions.PunNetworking
 
 
 
-
+        public void FixOwnershipToLocalPlayer()
+        {
+            photonView.TransferOwnership(PhotonNetwork.LocalPlayer);
+            photonView.OwnershipTransfer = OwnershipOption.Fixed;
+        }
 
         
 
@@ -153,6 +166,8 @@ namespace ObliqueSenastions.PunNetworking
         public bool RequestNetworkOwnership()
         {
             if (photonView.IsMine || !PhotonNetwork.IsConnected) return true;
+
+            if(photonView.OwnershipTransfer == OwnershipOption.Fixed && PhotonNetwork.IsConnected) return false;
 
             if (networkOwnership == NetworkOwnership.alwaysOnAction)
             {
@@ -231,16 +246,18 @@ namespace ObliqueSenastions.PunNetworking
                 //Debug.Log("send speed: " + speed);
                 stream.SendNext((float)speed);
                 stream.SendNext((float)time);
-
+                stream.SendNext((int)timeModeMachine.GetTimelinePlayMode());
             }
             else
             {
                 float speed = (float)stream.ReceiveNext();
                 float time = (float)stream.ReceiveNext();
+                int playMode = (int)stream.ReceiveNext();
                 //Debug.Log("receive speed: " + speed);
                 // director.playableGraph.GetRootPlayable(0).SetSpeed((double)speed);
                 currentSpeedOfOwner = speed;
                 currentTimeOfOwner = time;
+                currentPlayModeOfOwner = playMode;
 
             }
         }

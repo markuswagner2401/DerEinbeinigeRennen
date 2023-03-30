@@ -4,6 +4,8 @@ using ObliqueSenastions.UISpace;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR;
+using Photon.Pun;
+
 
 namespace ObliqueSenastions.SceneSpace
 {
@@ -54,6 +56,8 @@ namespace ObliqueSenastions.SceneSpace
 
         IEnumerator ActivateUIR(bool value)
         {
+            if(PhotonNetwork.IsConnected) yield break;
+
             bool done = false;
             while (!done)
             {

@@ -176,9 +176,10 @@ namespace ObliqueSenastions.UISpace
 
         bool ArmMoving(SimpleVelocityTracker tracker, OVRHand hand)
         {
-            if (tracker == null) return true;
+            
             if (hand != null && !hand.IsDataHighConfidence) return false;
             if (onlyChekcforArmsTracked) return true;
+            if (tracker == null) return true;
             return tracker.GetLocalSpeed() > speedThreshold;
         }
 
