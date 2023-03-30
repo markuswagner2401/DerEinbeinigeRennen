@@ -77,7 +77,7 @@ namespace ObliqueSenastions.PunNetworking
 
                 capturedVolume = audioSource.volume;
 
-                MultiplayerConnector.instance.my_OnJoinedRoom += CheckIfAmInspizient;
+                //MultiplayerConnector.instance.my_OnJoinedRoom += CheckIfAmInspizient;
             }
 
 
@@ -85,13 +85,13 @@ namespace ObliqueSenastions.PunNetworking
 
        
 
-        private void CheckIfAmInspizient()
-        {
-            if (MultiplayerConnector.instance.GetRole() == Role.Inspizient)
-            {
-                FixOwnershipToLocalPlayer();
-            }
-        }
+        // private void CheckIfAmInspizient()
+        // {
+        //     if (MultiplayerConnector.instance.GetRole() == Role.Inspizient)
+        //     {
+        //         FixOwnershipToLocalPlayer();
+        //     }
+        // }
 
         private void Update()
         {
@@ -157,16 +157,16 @@ namespace ObliqueSenastions.PunNetworking
         private void OnDestroy()
         {
             PhotonNetwork.RemoveCallbackTarget(this);
-            MultiplayerConnector.instance.my_OnJoinedRoom -= CheckIfAmInspizient;
+            //MultiplayerConnector.instance.my_OnJoinedRoom -= CheckIfAmInspizient;
         }
 
 
 
-        public void FixOwnershipToLocalPlayer()
-        {
-            photonView.TransferOwnership(PhotonNetwork.LocalPlayer);
-            photonView.OwnershipTransfer = OwnershipOption.Fixed;
-        }
+        // public void FixOwnershipToLocalPlayer()
+        // {
+        //     photonView.TransferOwnership(PhotonNetwork.LocalPlayer);
+        //     photonView.OwnershipTransfer = OwnershipOption.Fixed;
+        // }
 
         
 
@@ -236,7 +236,12 @@ namespace ObliqueSenastions.PunNetworking
 
         public void OnOwnershipTransfered(PhotonView targetView, Player previousOwner)
         {
+            
             if (targetView != photonView) return;
+            if(base.photonView.AmOwner && MultiplayerConnector.instance.GetRole() == Role.Inspizient)
+            {
+                photonView.OwnershipTransfer = OwnershipOption.Fixed;
+            }
         }
 
         public void OnOwnershipTransferFailed(PhotonView targetView, Player senderOfFailedRequest)
