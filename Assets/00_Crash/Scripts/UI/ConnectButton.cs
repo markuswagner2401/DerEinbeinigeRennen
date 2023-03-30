@@ -75,7 +75,7 @@ namespace ObliqueSenastions.UISpace
                 case ButtonFunction.connectAsInspizient:
                     MultiplayerConnector.instance.Connect(true);
                     MultiplayerConnector.instance.SetRole(Role.Inspizient);
-                    TimeLineHandler.instance.GetComponent<SyncPlayableDirector>().FixOwnershipToLocalPlayer();
+                    //TimeLineHandler.instance.GetComponent<SyncPlayableDirector>().FixOwnershipToLocalPlayer(); -> has to be later -> from Multiplayer Connector
                     break;
 
 

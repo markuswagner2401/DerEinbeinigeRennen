@@ -409,6 +409,8 @@ namespace ObliqueSenastions.PunNetworking
 
             my_OnJoinedRoom.Invoke();
 
+            
+
         }
 
         public override void OnPlayerEnteredRoom(Player newPlayer)

@@ -76,9 +76,21 @@ namespace ObliqueSenastions.PunNetworking
                 }
 
                 capturedVolume = audioSource.volume;
+
+                MultiplayerConnector.instance.my_OnJoinedRoom += CheckIfAmInspizient;
             }
 
 
+        }
+
+       
+
+        private void CheckIfAmInspizient()
+        {
+            if (MultiplayerConnector.instance.GetRole() == Role.Inspizient)
+            {
+                FixOwnershipToLocalPlayer();
+            }
         }
 
         private void Update()
@@ -145,6 +157,7 @@ namespace ObliqueSenastions.PunNetworking
         private void OnDestroy()
         {
             PhotonNetwork.RemoveCallbackTarget(this);
+            MultiplayerConnector.instance.my_OnJoinedRoom -= CheckIfAmInspizient;
         }
 
 
