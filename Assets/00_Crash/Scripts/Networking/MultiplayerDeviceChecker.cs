@@ -27,7 +27,10 @@ namespace ObliqueSenastions.SceneSpace
 
         void Start()
         {
-
+            if(PhotonNetwork.IsConnected)
+            {
+                StartCoroutine(ActivateUIR(false));
+            }
 
             if (XRSettings.isDeviceActive)
             {
@@ -56,7 +59,7 @@ namespace ObliqueSenastions.SceneSpace
 
         IEnumerator ActivateUIR(bool value)
         {
-            if(PhotonNetwork.IsConnected) yield break;
+           
 
             bool done = false;
             while (!done)

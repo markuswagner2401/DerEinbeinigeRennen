@@ -72,7 +72,7 @@ namespace ObliqueSenastions.PunNetworking
 
         private void OnDestroy() 
         {
-            stageMaster.onGoEvent -= PlayGoEvent;
+            if(stageMaster != null) stageMaster.onGoEvent -= PlayGoEvent;
         }
     }
 
