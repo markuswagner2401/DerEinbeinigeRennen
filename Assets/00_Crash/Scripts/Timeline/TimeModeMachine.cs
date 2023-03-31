@@ -5,6 +5,7 @@ using ObliqueSenastions.PunNetworking;
 
 using UnityEngine.XR;
 using System;
+using UnityEngine.Events;
 
 namespace ObliqueSenastions.TimelineSpace
 {
@@ -32,6 +33,8 @@ namespace ObliqueSenastions.TimelineSpace
         private TimelinePlayMode capturedTimelinePlayMode;
         public bool currentBadTracking;
         public bool inUiTime;
+
+        public float currentAccidentTimeFactor;
 
 
         // networking
@@ -90,6 +93,30 @@ namespace ObliqueSenastions.TimelineSpace
 
 
         ////
+
+        // Accident Parameters
+
+        [SerializeField] AccidentTime[] accidentsTimes;
+
+        [System.Serializable]
+        public struct AccidentTime
+        {
+
+            public string note;
+            
+            public UnityEvent doAtStart;
+
+            [Tooltip("1 is no change. < 1 is slomo- > 1 is accceleration")]
+            public float strength;
+            public float goInDuration;
+            public AnimationCurve goInCurve;
+            public float stayInDuration;
+            public float goOutDuration;
+            public AnimationCurve goOutCurve;
+            public UnityEvent doAtEnd;
+        }
+
+        bool inAccident = false;
 
         private void Start()
         {
@@ -223,6 +250,8 @@ namespace ObliqueSenastions.TimelineSpace
         {
             inUiTime = value;
         }
+
+
 
         public void SwitchPausePlay()
         {
@@ -408,6 +437,87 @@ namespace ObliqueSenastions.TimelineSpace
             {
                 throw new ArgumentException("Invalid play mode index", nameof(playModeIndex));
             }
+        }
+
+
+        //// Accident Factor
+
+
+        public void PlayAccident(string name)
+        {
+            int index = GetAccIndexByName(name);
+            if(index < 0) return;
+            PlayAccident(index);
+        }
+
+        private int GetAccIndexByName(string name)
+        {
+            
+            for (int i = 0; i < accidentsTimes.Length; i++)
+            {
+                if(name == accidentsTimes[i].note)
+                {
+                    return i;
+                }
+            }
+
+            Debug.LogError("TimeModeMachine: No Accident found with name:" + name);
+
+            return -1;
+        }
+
+        public void PlayAccident(int index)
+        {
+            if (inAccident) return;
+            StartCoroutine(AccidentTimeRoutine(index));
+        }
+
+        IEnumerator AccidentTimeRoutine(int index)
+        {
+            print("play accident: " + accidentsTimes[index].note);
+            inAccident = true;
+            accidentsTimes[index].doAtStart.Invoke();
+
+            float startValue = currentAccidentTimeFactor;
+            float targetValue = accidentsTimes[index].strength;
+            float goInDuration = accidentsTimes[index].goInDuration;
+            AnimationCurve goInCurve = accidentsTimes[index].goInCurve;
+            float stayDuration = accidentsTimes[index].stayInDuration;
+            float goOutDuration = accidentsTimes[index].goInDuration;
+            AnimationCurve goOutCurve = accidentsTimes[index].goOutCurve;
+            float goInTimer = 0;
+            float goOutTimer = 0;
+            float outputValue;
+
+            while (goInTimer < goInDuration)
+            {
+                goInTimer += Time.deltaTime;
+                outputValue = Mathf.Lerp(startValue, targetValue, goInCurve.Evaluate(goInTimer / goInDuration));
+                currentAccidentTimeFactor = outputValue;
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(stayDuration);
+
+            startValue = currentAccidentTimeFactor;
+            targetValue = 1f;
+
+            while (goOutTimer < goOutDuration)
+            {
+                goOutTimer += Time.deltaTime;
+                outputValue = Mathf.Lerp(startValue, targetValue, goOutCurve.Evaluate(goOutTimer / goOutDuration));
+                currentAccidentTimeFactor = outputValue;
+                yield return null;
+            }
+            
+            accidentsTimes[index].doAtEnd.Invoke();
+            inAccident = false;
+            yield break;
+        }
+
+        public float GetCurrentAccidentTimeFactor()
+        {
+            return currentAccidentTimeFactor;
         }
 
 

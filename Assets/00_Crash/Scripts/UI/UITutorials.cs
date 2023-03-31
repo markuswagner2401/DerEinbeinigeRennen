@@ -25,7 +25,8 @@ namespace ObliqueSenastions.UISpace
             loopUntilNextTut,
             playOnce,
             playCompleteThenLoopUntilArmsMove,
-            goOutImmediatelyWhenArmsMove
+            goOutImmediatelyWhenArmsMove,
+            playOnceThenPlayNext
         }
 
 
@@ -98,6 +99,8 @@ namespace ObliqueSenastions.UISpace
 
 
         bool motivationTriggered = false;
+
+        
 
 
         void Start()
@@ -193,7 +196,7 @@ namespace ObliqueSenastions.UISpace
             }
             motivationTriggered = true;
             StopAllCoroutines();
-            StartCoroutine(PlayMotivationR(index));
+            StartCoroutine(PlayTutorialRoutine(index));
         }
 
         void PlayNetworkWelcomeTutorial()
@@ -258,8 +261,10 @@ namespace ObliqueSenastions.UISpace
         //     yield break;
         // }
 
-        IEnumerator PlayMotivationR(int index)
+        IEnumerator PlayTutorialRoutine(int index)
         {
+           
+
             tutorials[index].doOnStartTutorial.Invoke();
 
             tutorials[index].repetitionsCounter += 1;
@@ -336,6 +341,11 @@ namespace ObliqueSenastions.UISpace
 
                 }
 
+                else if(tutorials[index].loopMode == TutorialLoopModes.playOnceThenPlayNext)
+                {
+                    stayInLoop = messageComplete ? false : true;
+                }
+
                 yield return new WaitForSeconds(tutorials[index].messages[i].duration);
 
                 if (i >= tutorials[index].messages.Length - 1)
@@ -348,6 +358,8 @@ namespace ObliqueSenastions.UISpace
                 yield return null;
 
             }
+
+            
 
             if (tutorials[index].successMessages.Length > 0)
             {
@@ -363,6 +375,8 @@ namespace ObliqueSenastions.UISpace
                     yield return null;
                 }
             }
+
+            
 
 
 
@@ -383,6 +397,15 @@ namespace ObliqueSenastions.UISpace
 
             motivationTriggered = false;
             timer = 0;
+
+            if(tutorials[index].loopMode == TutorialLoopModes.playOnceThenPlayNext)
+            {
+                 int nextIndex = index + 1;
+                 if(nextIndex >= tutorials.Length) yield break;
+                 PlayTutorial(nextIndex);
+            }
+
+
             yield break;
 
         }

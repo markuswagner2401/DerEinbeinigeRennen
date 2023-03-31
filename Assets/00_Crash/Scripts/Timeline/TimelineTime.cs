@@ -87,7 +87,7 @@ namespace ObliqueSenastions.TimelineSpace
                     }
                     else
                     {
-                        return Time.deltaTime;
+                        return Time.deltaTime * timeModeMachine.GetCurrentAccidentTimeFactor();
                     }
 
                 
@@ -102,7 +102,7 @@ namespace ObliqueSenastions.TimelineSpace
                     }
                     else
                     {
-                        return timelineDeltaTime;
+                        return timelineDeltaTime * timeModeMachine.GetCurrentAccidentTimeFactor();
                     }
 
             }
