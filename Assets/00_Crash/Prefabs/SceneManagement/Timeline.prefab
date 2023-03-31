@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 3204168408664924697}
   - component: {fileID: 8111994467344341127}
   - component: {fileID: 1181491379462798778}
+  - component: {fileID: 762451799419658634}
   m_Layer: 0
   m_Name: Timeline
   m_TagString: Timeline
@@ -94,7 +95,7 @@ PlayableDirector:
   - key: {fileID: 5337285228324007446, guid: 2d0d7d9c249a3a14bbb42a162bbe53f1, type: 2}
     value: {fileID: 220214917067423036}
   - key: {fileID: -6371958062146910999, guid: 2d0d7d9c249a3a14bbb42a162bbe53f1, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 8152554283165209006}
   - key: {fileID: 7079687673707291307, guid: 2d0d7d9c249a3a14bbb42a162bbe53f1, type: 2}
     value: {fileID: 220214917067422983}
   - key: {fileID: -7915841014165652116, guid: 2d0d7d9c249a3a14bbb42a162bbe53f1, type: 2}
@@ -108,21 +109,23 @@ PlayableDirector:
   - key: {fileID: -1955373420829150874, guid: 2d0d7d9c249a3a14bbb42a162bbe53f1, type: 2}
     value: {fileID: 220214917067423034}
   - key: {fileID: -640226456773655407, guid: 2d0d7d9c249a3a14bbb42a162bbe53f1, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 8152554283165209006}
   - key: {fileID: 8003365389573649632, guid: 2d0d7d9c249a3a14bbb42a162bbe53f1, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 329432249596978298}
   - key: {fileID: 7666841824757086708, guid: 2d0d7d9c249a3a14bbb42a162bbe53f1, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 3514082237926198445}
   - key: {fileID: -5786013123383190731, guid: 2d0d7d9c249a3a14bbb42a162bbe53f1, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 3186501716716577032}
   - key: {fileID: 2956956292530087105, guid: 2d0d7d9c249a3a14bbb42a162bbe53f1, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 3186501716716577032}
   - key: {fileID: 6502069377586797843, guid: 2d0d7d9c249a3a14bbb42a162bbe53f1, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 3186501716716577032}
   - key: {fileID: -6660458069192777420, guid: 2d0d7d9c249a3a14bbb42a162bbe53f1, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 3186501716716577032}
   - key: {fileID: 4840431594766420808, guid: 2d0d7d9c249a3a14bbb42a162bbe53f1, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 3514082237926198445}
+  - key: {fileID: -2705638948258625814, guid: 2d0d7d9c249a3a14bbb42a162bbe53f1, type: 2}
+    value: {fileID: 762451799419658634}
   m_ExposedReferences:
     m_References:
     - 3b26b3b8ba59c0741b1a5cfd419bf41c: {fileID: 0}
@@ -653,7 +656,7 @@ MonoBehaviour:
   travellerControlForRacer:
     transitionPointIndexCurrentClip: 0
     transitionPointIndexPrevClip: 0
-    transitionPointNameCurrentClip: 
+    transitionPointNameCurrentClip: Seitenring1
     transitionPointNamePrevClip: 
     currentT: 0
     transitioning: 0
@@ -661,18 +664,18 @@ MonoBehaviour:
   travellerControlForZuschauer:
     transitionPointIndexCurrentClip: 0
     transitionPointIndexPrevClip: 0
-    transitionPointNameCurrentClip: 
+    transitionPointNameCurrentClip: Seitenring1
     transitionPointNamePrevClip: 
     currentT: 0
     transitioning: 0
-    transitionComplete: 0
+    transitionComplete: 1
   travellerControlForInspizient:
     transitionPointIndexCurrentClip: 0
     transitionPointIndexPrevClip: 0
-    transitionPointNameCurrentClip: 
+    transitionPointNameCurrentClip: Inspizient
     transitionPointNamePrevClip: 
-    currentT: 0
-    transitioning: 0
+    currentT: 1
+    transitioning: 1
     transitionComplete: 0
   roleAware: 0
   role: 3
@@ -726,6 +729,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTimelinePlayMode: 0
+  currentBadTracking: 0
+  inUiTime: 0
   syncPlayableDirector: {fileID: 1181491379462798778}
   enableScrolling: 1
   maxHoldtimeIfNotInNetwork: Infinity
@@ -770,6 +775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   networkOwnership: 1
+  timeModeMachine: {fileID: 0}
   playerCanGetOwnership: 1
   director: {fileID: 220214917067423035}
   initialSync: 0
@@ -777,3 +783,16 @@ MonoBehaviour:
   audioSource: {fileID: 8152554283165209006}
   jumpThreshold: 1
   speedJumpThreshold: 0.1
+--- !u!114 &762451799419658634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220214917067423039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 872cad75dbc605f46ab5cc84b309980d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeModeMachine: {fileID: 3204168408664924697}
