@@ -34,7 +34,7 @@ namespace ObliqueSenastions.TimelineSpace
         public bool currentBadTracking;
         public bool inUiTime;
 
-        public float currentAccidentTimeFactor;
+        public float currentAccidentTimeFactor = 1f;
 
 
         // networking
@@ -128,6 +128,7 @@ namespace ObliqueSenastions.TimelineSpace
 
         private void Update()
         {
+            if(!inAccident) currentAccidentTimeFactor = 1f;
             UnholdInSingelplayer();
 
             if (enableScrolling) // Scrolling with XR toolkit
