@@ -520,13 +520,11 @@ MonoBehaviour:
     - {fileID: 1650223173000188298}
     - {fileID: -4799026853766112758}
     - {fileID: 8519379617033250612}
-    - {fileID: 6187954253396151823}
     - {fileID: 4738477974801788052}
     - {fileID: -2710921306749429423}
     - {fileID: 4837348684833615562}
     - {fileID: 8970223352950540912}
     - {fileID: 2701677468376272855}
-    - {fileID: 5473115139358117934}
     - {fileID: 507865636892277342}
     - {fileID: -6453793014432688153}
     - {fileID: 4889596043011662294}
@@ -535,6 +533,7 @@ MonoBehaviour:
     - {fileID: -2011670032761032125}
     - {fileID: -2317828165725496359}
     - {fileID: 2219116445107822092}
+    - {fileID: -2315142829521924776}
 --- !u!114 &-7812671548227029460
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2424,6 +2423,23 @@ MonoBehaviour:
   goEventName: HideStaebchen
   retroactive: 1
   emitOnce: 0
+--- !u!114 &-3145763489890134940
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd1052dc315d7348b5df1a59f3fbae5, type: 3}
+  m_Name: Timeline Annotation
+  m_EditorClassIdentifier: 
+  m_Time: 442.51666666666654
+  title: Rennbeginn
+  color: {r: 0, g: 0, b: 0, a: 0}
+  description: 
+  showLineOverlay: 0
 --- !u!114 &-2988184574851649216
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2654,6 +2670,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Time: 1237.8833333333334
   goEventName: TutorialPerspektiven
+  retroactive: 0
+  emitOnce: 0
+--- !u!114 &-2315142829521924776
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
+  m_Name: Go Event Marker
+  m_EditorClassIdentifier: 
+  m_Time: 442.45
+  goEventName: StartRacing
   retroactive: 0
   emitOnce: 0
 --- !u!114 &-2275642797331916132
@@ -6002,22 +6034,6 @@ MonoBehaviour:
   note: Halt vor Raumbewegung
   displayModeInInspiUI: 1
   stopOrHold: 0
---- !u!114 &5473115139358117934
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
-  m_Name: Go Event Marker
-  m_EditorClassIdentifier: 
-  m_Time: 442.51666666666654
-  goEventName: StartRacing
-  retroactive: 0
-  emitOnce: 0
 --- !u!114 &5615749562774646335
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6127,22 +6143,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  retroactive: 0
-  emitOnce: 0
---- !u!114 &6187954253396151823
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
-  m_Name: Go Event Marker
-  m_EditorClassIdentifier: 
-  m_Time: 442.51666666666654
-  goEventName: LightGreen
   retroactive: 0
   emitOnce: 0
 --- !u!114 &6223783559460912237
@@ -8209,3 +8209,4 @@ MonoBehaviour:
     - {fileID: 8508665979565859426}
     - {fileID: -2695180007477313514}
     - {fileID: 6625482524750059243}
+    - {fileID: -3145763489890134940}

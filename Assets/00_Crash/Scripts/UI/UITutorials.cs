@@ -12,7 +12,9 @@ namespace ObliqueSenastions.UISpace
     public class UITutorials : MonoBehaviour
     {
         [SerializeField] bool playAtStart = false;
-        [SerializeField] bool enableTutorialsOnArmsNotMoving = true;
+
+        [SerializeField] int startTutorial = 1;
+        [SerializeField] bool enableReminderTutorialOnArmsNotMoving = true;
 
         [SerializeField] bool welcomeNetworkPlayer = true;
 
@@ -94,6 +96,8 @@ namespace ObliqueSenastions.UISpace
 
         bool armsMoving = false;
 
+        bool tutorialPlaying = false;
+
         //bool interrupted;
 
 
@@ -126,7 +130,7 @@ namespace ObliqueSenastions.UISpace
 
         void Update()
         {
-            if (!enableTutorialsOnArmsNotMoving) return;
+            
 
             if (!ArmMoving(observedTrackerLeft, leftHand) && !ArmMoving(observedTrackerRight, rightHand))
             {
@@ -140,19 +144,23 @@ namespace ObliqueSenastions.UISpace
                 armsMoving = true;
             }
 
+            if (!enableReminderTutorialOnArmsNotMoving) return;
+
             if (timer > acceptedDurationWithoutMovement)
             {
                 //print("arms not moving for more than 5 seconds");
                 if (!motivationTriggered)
                 {
-
+                    if(tutorialPlaying) return;
                     PlayTutorial(reminderTutIndex); // index 1 for reminder tutorial
                 }
             }
 
+        }
 
-
-
+        public void SetEnableReminderTutorial(bool value)
+        {
+            enableReminderTutorialOnArmsNotMoving = value;
         }
 
         public void SetReminderIndex(string name)
@@ -174,7 +182,7 @@ namespace ObliqueSenastions.UISpace
 
         public void ObserveArmsMoving(bool value)
         {
-            enableTutorialsOnArmsNotMoving = value;
+            enableReminderTutorialOnArmsNotMoving = value;
         }
 
         bool ArmMoving(SimpleVelocityTracker tracker, OVRHand hand)
@@ -261,10 +269,15 @@ namespace ObliqueSenastions.UISpace
         //     yield break;
         // }
 
+        
+
         IEnumerator PlayTutorialRoutine(int index)
         {
-           
+            tutorialPlaying = true;
 
+            print("Play Tutorial: " + tutorials[index].name + " at Go: " + gameObject.name);
+
+            
             tutorials[index].doOnStartTutorial.Invoke();
 
             tutorials[index].repetitionsCounter += 1;
@@ -401,11 +414,15 @@ namespace ObliqueSenastions.UISpace
             if(tutorials[index].loopMode == TutorialLoopModes.playOnceThenPlayNext)
             {
                  int nextIndex = index + 1;
-                 if(nextIndex >= tutorials.Length) yield break;
-                 PlayTutorial(nextIndex);
+                 if(nextIndex < tutorials.Length)
+                 {
+                    
+                    PlayTutorial(nextIndex);
+                 }
+                 
             }
 
-
+            tutorialPlaying = false;
             yield break;
 
         }
