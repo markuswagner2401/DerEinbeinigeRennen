@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using ObliqueSenastions.PunNetworking;
 
 namespace ObliqueSenastions.Animation
 {
 
-    public class BodyBlendShapesAnimator : MonoBehaviour
+    public class BodyBlendShapesAnimator : MonoBehaviourPun
     {
         [SerializeField] BlendShapesChanger[] blendShapesChangers;
 
@@ -24,6 +26,7 @@ namespace ObliqueSenastions.Animation
         [System.Serializable]
         public struct BlendShapeState
         {
+            public string name;
             public int BSIndex;
             public float targetValueMin;
 
@@ -35,28 +38,79 @@ namespace ObliqueSenastions.Animation
             public AnimationCurve curve;
         }
 
-        [SerializeField] int startIndexMin = 0;
+        [Tooltip("indeces < startIndexMin are reserved for if isMine")]
+        [SerializeField] int startIndexMin = 1;
         [SerializeField] int startIndexMax;
 
         [SerializeField] SkinnedMeshRenderer smr;
 
         bool interrupted = false;
 
+
+        ///
+
+        [Tooltip("Assign view of Transform Sync at Network Player Parent")]
+        [SerializeField] PhotonView photonView;
+
+        bool isMine = false;
+
+        
+
         private void Start()
         {
-            int checkedStartIndexMax = (startIndexMax >= blendShapesChangers.Length) ? blendShapesChangers.Length - 1 : startIndexMax;
-            //print("start index max " + checkedStartIndexMax);
-            int checkedStartIndexMin = (startIndexMin >= blendShapesChangers.Length) ? 0 : startIndexMin;
-            //print("start index min " + checkedStartIndexMin);
+            if(PhotonNetwork.IsConnected)
+            {
+                MultiplayerSetup();
+            }
 
-            int newStartIndex = Random.Range(checkedStartIndexMin, checkedStartIndexMax);
-            //print("start index: " + newStartIndex);
+            // int checkedStartIndexMax = (startIndexMax >= blendShapesChangers.Length) ? blendShapesChangers.Length - 1 : startIndexMax;
+            // //print("start index max " + checkedStartIndexMax);
+            // int checkedStartIndexMin = (startIndexMin >= blendShapesChangers.Length) ? 0 : startIndexMin;
+            // //print("start index min " + checkedStartIndexMin);
 
-            PlayBSShapesState(newStartIndex, 1f); // Lerp to start values in 1 second
+            // int newStartIndex = Random.Range(checkedStartIndexMin, checkedStartIndexMax);
+            // //print("start index: " + newStartIndex);
+
+            // PlayBSShapesState(newStartIndex, 1f); // Lerp to start values in 1 second
+
+            MultiplayerConnector.instance.my_OnJoinedRoom += MultiplayerSetup;
+        }
+
+        private void OnDestroy() 
+        {
+            MultiplayerConnector.instance.my_OnJoinedRoom -= MultiplayerSetup;
+        }
+
+        private void MultiplayerSetup()
+        {
+            if(photonView.IsMine)
+            {
+                isMine = true;
+                GoIntoIsMineShape(true);
+
+            }
+            else
+            {
+                isMine = false;
+                
+
+            }
+        }
+
+        void GoIntoIsMineShape(bool value)
+        {
+            print("GoIntoMineState");
+            int inMineIndex = value ? Random.Range(0, startIndexMin) : Random.Range(startIndexMin, startIndexMax);
+            
+            PlayBSShapesState(inMineIndex);
         }
 
         public void PlayBSShapesState(int index)
         {
+            if(isMine)
+            {
+                if(index >= startIndexMin) return;
+            }
             StartCoroutine(InterruptAndPlayBSShapesState(index, true, 1f));
         }
 
@@ -82,6 +136,7 @@ namespace ObliqueSenastions.Animation
 
         IEnumerator PlayBSShapesRoutine(int index, bool useIndividualDurations, float overwriteDuration)
         {
+            print("coroutine Play BS..." + index);
             for (int j = 0; j < blendShapesChangers[index].blendShapeStates.Length; j++)
             {
                 BlendShapeState blendShapeState = blendShapesChangers[index].blendShapeStates[j];

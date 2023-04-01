@@ -48,8 +48,10 @@ namespace ObliqueSenastions.PunNetworking
         [SerializeField] int maxRacers = 1;
         [SerializeField] int maxZuschauer = 20;
         [SerializeField] int maxAutos = 1;
-
         [SerializeField] int maxInspizienten = 1;
+
+        [Tooltip("to handle racer and zuschauer indices in prolog and for debugging")]
+        [SerializeField] int indexOffsetZuschauer = 0;
 
         
         
@@ -219,9 +221,13 @@ namespace ObliqueSenastions.PunNetworking
             return inspizientCounter;
         }
 
-        public void SetRoleIdentifier(Role role, int index)
+        private void SetRoleIdentifier(Role role, int index)
         {
             clientsRole = role;
+            if(role == Role.Zuschauer)
+            {
+                index += indexOffsetZuschauer;
+            }
             clientsPlayerIndex = index;
         }
 

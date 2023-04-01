@@ -37,6 +37,10 @@ namespace ObliqueSenastions.PunNetworking
             [Tooltip("-1 for Binding at xrRig, else, this index will be used to bind the Avatar to the VR Rig at the transitionPointIndex in the traveller")]
             public int transitionPointIndex;
 
+            
+            
+            
+
             public bool spawnOnSceneStart;
 
 
@@ -48,6 +52,8 @@ namespace ObliqueSenastions.PunNetworking
         public struct AvatarSpawner
         {
             public string note;
+
+            
 
             public Avatar[] avatars;
 
@@ -201,7 +207,7 @@ namespace ObliqueSenastions.PunNetworking
 
             if (role == Role.Rennfahrer)
             {
-
+                
                 yield return SetupXRRigAndSpawn(index, camTrav, avatarSpawnersRennfahrer, spawnSituation);
 
             }
