@@ -92,6 +92,14 @@ namespace ObliqueSenastions.UISpace
 
         }
 
+        public void PlayAllCountdowns()
+        {
+            for (int i = 0; i < scores.Length; i++)
+            {
+                PlayCountdown(i);
+            }
+        }
+
         IEnumerator CountdownRoutine(int index)
         {
             scores[index].inCountdown = true;
