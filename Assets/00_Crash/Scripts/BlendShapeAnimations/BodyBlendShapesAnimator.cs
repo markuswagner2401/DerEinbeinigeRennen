@@ -49,8 +49,7 @@ namespace ObliqueSenastions.Animation
 
         ///
 
-        [Tooltip("Assign view of Transform Sync at Network Player Parent")]
-        [SerializeField] PhotonView photonView;
+       
 
         bool isMine = false;
 
@@ -58,10 +57,10 @@ namespace ObliqueSenastions.Animation
 
         private void Start()
         {
-            if(PhotonNetwork.IsConnected)
-            {
-                MultiplayerSetup();
-            }
+            // if(PhotonNetwork.IsConnected)
+            // {
+            //     MultiplayerSetup();
+            // }
 
             // int checkedStartIndexMax = (startIndexMax >= blendShapesChangers.Length) ? blendShapesChangers.Length - 1 : startIndexMax;
             // //print("start index max " + checkedStartIndexMax);
@@ -73,31 +72,31 @@ namespace ObliqueSenastions.Animation
 
             // PlayBSShapesState(newStartIndex, 1f); // Lerp to start values in 1 second
 
-            MultiplayerConnector.instance.my_OnJoinedRoom += MultiplayerSetup;
+            //MultiplayerConnector.instance.my_OnJoinedRoom += MultiplayerSetup;
         }
 
         private void OnDestroy() 
         {
-            MultiplayerConnector.instance.my_OnJoinedRoom -= MultiplayerSetup;
+            //MultiplayerConnector.instance.my_OnJoinedRoom -= MultiplayerSetup;
         }
 
-        private void MultiplayerSetup()
-        {
-            if(photonView.IsMine)
-            {
-                isMine = true;
-                GoIntoIsMineShape(true);
+        // private void MultiplayerSetup()
+        // {
+        //     if(photonView.IsMine)
+        //     {
+        //         isMine = true;
+        //         GoIntoIsMineShape(true);
 
-            }
-            else
-            {
-                isMine = false;
+        //     }
+        //     else
+        //     {
+        //         isMine = false;
                 
 
-            }
-        }
+        //     }
+        // }
 
-        void GoIntoIsMineShape(bool value)
+        public void GoIntoIsMineShape(bool value)
         {
             print("GoIntoMineState");
             int inMineIndex = value ? Random.Range(0, startIndexMin) : Random.Range(startIndexMin, startIndexMax);

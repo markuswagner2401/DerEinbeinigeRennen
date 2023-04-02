@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using ObliqueSenastions.MaterialControl;
 using Photon.Pun;
+using ObliqueSenastions.Animation;
+using ObliqueSenastions.UISpace;
 
 namespace ObliqueSenastions.PunNetworking
 {
@@ -14,12 +16,18 @@ namespace ObliqueSenastions.PunNetworking
         {
             public string note;
 
+            public int blendShapesIndex;
+
         }
 
         [SerializeField] MaterialPropertiesFader_2 materialPropertiesFader_2 = null;
 
         [Tooltip("To Check if Owned By Local Player")]
         [SerializeField] PhotonView photonView = null;
+
+        [SerializeField] BodyBlendShapesAnimator bodyBlendShapesAnimator = null;
+
+        [SerializeField] ScoreDisplay scoreDisplay = null;
 
 
 
@@ -29,9 +37,33 @@ namespace ObliqueSenastions.PunNetworking
 
         public bool isMine = false;
 
+        public int score;
+
+        int lastScore;
+
         private void Start()
         {
+            GameObject scoreDisplayGo = GameObject.FindWithTag("ScoreDisplay");
+            {
+                if (scoreDisplayGo != null)
+                {
+                    scoreDisplay = scoreDisplayGo.GetComponent<ScoreDisplay>();
+                }
+            }
+
             StartCoroutine(LateStartRoutine());
+
+            lastScore = score;
+        }
+
+        private void Update() 
+        {
+            if(lastScore != score)
+            {
+                scoreDisplay.SetScore(identityIndex, score);
+            }
+            
+            lastScore = score;
         }
 
         IEnumerator LateStartRoutine()
@@ -46,7 +78,7 @@ namespace ObliqueSenastions.PunNetworking
                 yield break;
             }
             identityIndex = index;
-            DoOnHaveNumber(identityIndex);
+            
 
             // Mine Check
             if (photonView != null)
@@ -54,19 +86,23 @@ namespace ObliqueSenastions.PunNetworking
                 isMine = photonView.IsMine;
             }
 
-            DoOnIsMine(isMine);
+            SetMaterial(isMine);
+            SetColor(identityIndex);
+
+
 
 
             yield break;
         }
 
-        void DoOnHaveNumber(int number)
+        void SetColor(int number)
         {
             //print("do on have number");
             materialPropertiesFader_2.ChangeColor(number);
+            
         }
 
-        void DoOnIsMine(bool isMine)
+        void SetMaterial(bool isMine)
         {
             if (isMine)
             {
@@ -80,6 +116,35 @@ namespace ObliqueSenastions.PunNetworking
                 materialPropertiesFader_2.SetMaterial(3);
             }
 
+        }
+
+        void SetBlendShape(int number, bool isMine)
+        {
+            if(isMine)
+            {
+                if(bodyBlendShapesAnimator != null)
+                {
+                    bodyBlendShapesAnimator.GoIntoIsMineShape(true);
+                }
+            }
+
+            else
+            {
+                bodyBlendShapesAnimator.PlayBSShapesState(identities[identityIndex].blendShapesIndex);
+            }
+        }
+
+
+        /// Scoring
+
+        public void AddScore()
+        {
+            score += 1;
+        }
+
+        public void AddScore(int value)
+        {
+            score += value;
         }
 
 

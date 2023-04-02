@@ -56,7 +56,7 @@ namespace ObliqueSenastions.UISpace
 
         // scoring
 
-        
+        // RacerIdentity sets score
 
         public void SetScore(int index, int newScore)
         {
@@ -65,21 +65,28 @@ namespace ObliqueSenastions.UISpace
             scores[index].currentScore = newScore;
         }
 
-        public void AddScore(int index)
-        {
+        // public void AddScore(int index)
+        // {
             
-            if(index > scores.Length) return;
-            int newScore =scores[index].currentScore + 1;
-            SetScore(index, newScore);
-        }
+        //     if(index >= scores.Length) return;
+        //     int newScore =scores[index].currentScore + 1;
+        //     SetScore(index, newScore);
+        // }
 
-        public void SubtractScore(int index)
-        {
+        // public void AddScore(int index, int count)
+        // {
+        //     if(index >= scores.Length) return;
+        //     int newScore = scores[index].currentScore + count;
+        //     SetScore(index, newScore);
+        // }
+
+        // public void SubtractScore(int index)
+        // {
             
-            if(index > scores.Length) return;
-            int newScore = scores[index].currentScore - 1;
-            SetScore(index, newScore);
-        }
+        //     if(index > scores.Length) return;
+        //     int newScore = scores[index].currentScore - 1;
+        //     SetScore(index, newScore);
+        // }
 
         /// countdown
 
