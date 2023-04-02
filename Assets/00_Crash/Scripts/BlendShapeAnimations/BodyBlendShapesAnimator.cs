@@ -98,6 +98,7 @@ namespace ObliqueSenastions.Animation
 
         public void GoIntoIsMineShape(bool value)
         {
+            isMine = true;
             print("GoIntoMineState");
             int inMineIndex = value ? Random.Range(0, startIndexMin) : Random.Range(startIndexMin, startIndexMax);
             
@@ -106,10 +107,12 @@ namespace ObliqueSenastions.Animation
 
         public void PlayBSShapesState(int index)
         {
-            if(isMine)
-            {
-                if(index >= startIndexMin) return;
-            }
+            // if(isMine)
+            // {
+            //     if(index >= startIndexMin) return;
+
+            print("play bs state");
+            // }
             StartCoroutine(InterruptAndPlayBSShapesState(index, true, 1f));
         }
 

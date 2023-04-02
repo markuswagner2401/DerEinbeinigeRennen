@@ -62,7 +62,7 @@ namespace ObliqueSenastions.PunNetworking
             {
                 scoreDisplay.SetScore(identityIndex, score);
             }
-            
+
             lastScore = score;
         }
 
@@ -88,6 +88,7 @@ namespace ObliqueSenastions.PunNetworking
 
             SetMaterial(isMine);
             SetColor(identityIndex);
+            SetBlendShape(identityIndex, isMine);
 
 
 
@@ -124,7 +125,8 @@ namespace ObliqueSenastions.PunNetworking
             {
                 if(bodyBlendShapesAnimator != null)
                 {
-                    bodyBlendShapesAnimator.GoIntoIsMineShape(true);
+                    //bodyBlendShapesAnimator.GoIntoIsMineShape(true);
+                    bodyBlendShapesAnimator.PlayBSShapesState(0);
                 }
             }
 
