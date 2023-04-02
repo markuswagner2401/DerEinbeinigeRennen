@@ -99,6 +99,23 @@ namespace ObliqueSenastions.MaterialControl
             public int materialIndex;
         }
 
+        [SerializeField] ColorChanger[] colorChangers;
+
+        [System.Serializable]
+
+        struct ColorChanger
+        {
+            public string note;
+            public Color color;
+            public string colorPropRef;
+            public float fadeInDuration;
+            //public float fadeDurationMin;
+            //public float fadeDurationMax;
+            public AnimationCurve curve;
+
+            public bool isInterrupted;
+
+        }
         [SerializeField] float daumenkinoTimingMin = 1f;
         [SerializeField] float daumenkinoChangeMax = 2f;
 
@@ -108,6 +125,8 @@ namespace ObliqueSenastions.MaterialControl
 
         [SerializeField] bool setFloatsToCurrent;
         [SerializeField] bool stetTexturesToCurrent = false;
+
+        
 
 
         int currentTextureIndex = 0;
@@ -164,6 +183,12 @@ namespace ObliqueSenastions.MaterialControl
             {
                 textureFader.faderIsLeft = block.GetFloat(textureFader.faderRef) == 0 ? true : false;
             }
+
+            ///
+
+            
+
+
 
 
 
@@ -664,10 +689,76 @@ namespace ObliqueSenastions.MaterialControl
 
             }
 
+        }
 
+        /// color changer
 
+        public void ChangeColor(int index)
+        {
+            if(index >= colorChangers.Length) return;
+            
+            StartCoroutine(InterruptAndChangeColorR(index));
+        }
 
+        public void ChangeColor(string name)
+        {
+            int index = GetColorChangerIndexByName(name);
+            if(index < 0) return;
+            ChangeColor(index);
+        }
 
+        int GetColorChangerIndexByName(string name)
+        {
+            for (int i = 0; i < colorChangers.Length; i++)
+            {
+                if(name == colorChangers[i].note)
+                return i;
+            }
+
+            Debug.LogError("no color changer found with name: " + name);
+            return -1;
+        }
+
+        IEnumerator InterruptAndChangeColorR(int index)
+        {
+            
+            InterruptColorChangers(colorChangers[index].colorPropRef);
+            yield return new WaitForSeconds(0.1f);
+            colorChangers[index].isInterrupted = false;
+            StartCoroutine(ColorChangeRoutine(index));
+            yield break;
+        }
+
+        void InterruptColorChangers(string propRef)
+        {
+            for (int i = 0; i < colorChangers.Length; i++)
+            {
+                if(propRef == colorChangers[i].colorPropRef)
+                {
+                    colorChangers[i].isInterrupted = true;
+                }
+            }
+        }
+
+        IEnumerator ColorChangeRoutine(int index)
+        {
+            print("Start ColorChange Routine");
+            Color startColor = block.GetColor(colorChangers[index].colorPropRef);
+            Color targetColor = colorChangers[index].color;
+            Color newColor = startColor;
+            float duration = colorChangers[index].fadeInDuration;
+            AnimationCurve curve = colorChangers[index].curve;
+            float timer = 0;
+
+            while (timer < duration && !colorChangers[index].isInterrupted)
+            {
+                timer += Time.deltaTime;
+                newColor = Color.Lerp(startColor, targetColor, curve.Evaluate(timer / duration));
+                block.SetColor(colorChangers[index].colorPropRef, newColor);             
+                yield return null;
+            }
+
+            yield break;
         }
 
         /// Daumenkino
