@@ -32,6 +32,21 @@ namespace ObliqueSenastions.UISpace
             public TextMeshProUGUI tmp;
         }
 
+        [SerializeField] CoundownEndEvent[] countdownEndEventsRacer;
+
+        //[SerializeField] CoundownEndEvent[] countdownEndEventZuschauer;
+
+        [System.Serializable]
+        public struct CoundownEndEvent
+        {
+            public string note;
+
+            public UnityEvent countdownEndEvent;
+
+        }
+
+
+
         private void Start() 
         {
             for (int i = 0; i < scores.Length; i++)
@@ -126,6 +141,16 @@ namespace ObliqueSenastions.UISpace
             scores[index].onCountdownEnd.Invoke();
             yield break;
         }
+
+        public void SetCountdownEndEventRacer(int index)
+        {
+            if(index >= countdownEndEventsRacer.Length) return;
+            scores[0].onCountdownEnd = countdownEndEventsRacer[index].countdownEndEvent;
+        }
+
+        
+
+        
 
         /// display
 
