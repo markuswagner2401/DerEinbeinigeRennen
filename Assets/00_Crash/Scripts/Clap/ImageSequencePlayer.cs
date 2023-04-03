@@ -7,7 +7,9 @@ namespace ObliqueSenastions.MaterialControl
 {
     public class ImageSequencePlayer : MonoBehaviour
     {
-        [SerializeField] SkinnedMeshRenderer smr;
+        [SerializeField] SkinnedMeshRenderer smr = null;
+
+        [SerializeField] MeshRenderer rend = null;
 
         [SerializeField] MaterialPropertiesFader_2 materialPropertiesFader = null;
 
@@ -303,7 +305,15 @@ namespace ObliqueSenastions.MaterialControl
 
             if (!ReferenceEquals(block, null))
             {
-                smr.SetPropertyBlock(block);
+                if(!ReferenceEquals(smr, null))
+                {
+                    smr.SetPropertyBlock(block);
+                }
+                if(!ReferenceEquals(rend, null))
+                {
+                    rend.SetPropertyBlock(block);
+                }
+                
             }
 
         }

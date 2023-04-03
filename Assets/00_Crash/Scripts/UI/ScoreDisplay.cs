@@ -55,6 +55,9 @@ namespace ObliqueSenastions.UISpace
 
         }
 
+        public delegate void CountdownEnd();
+        public event CountdownEnd OnCountdownEnd;
+
 
 
         private void Start()
@@ -142,13 +145,14 @@ namespace ObliqueSenastions.UISpace
             int startNumber = scores[index].countdownStartNumber;
             for (int i = startNumber; i > 0; i--)
             {
-                 
+
                 scores[index].currentScore = i;
                 yield return new WaitForSeconds(scores[index].countdownTiming);
             }
 
             if (index == 0) // main racer end events
             {
+                OnCountdownEnd.Invoke();
                 if (currentCoundownEndGroupIndex >= 0 && currentCoundownEndGroupIndex < onCountdownEndEventGroups.Length)
                 {
                     if (!(onCountdownEndEventGroups[currentCoundownEndGroupIndex].playOnce && onCountdownEndEventGroups[currentCoundownEndGroupIndex].played))
@@ -176,7 +180,7 @@ namespace ObliqueSenastions.UISpace
             scores[index].inCountdown = false;
             scores[index].showText = capturedShowText;
 
-             yield break;
+            yield break;
 
         }
 
