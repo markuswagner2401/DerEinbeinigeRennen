@@ -361,7 +361,7 @@ namespace ObliqueSenastions.UISpace
 
                 yield return new WaitForSeconds(tutorials[index].messages[i].duration);
 
-                if (i >= tutorials[index].messages.Length - 1)
+                if (i >= tutorials[index].messages.Length)
                 {
                     messageComplete = true;
                     print("message complete");

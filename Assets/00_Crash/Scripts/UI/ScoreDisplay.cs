@@ -23,31 +23,41 @@ namespace ObliqueSenastions.UISpace
 
             public bool lastShowText;
             public int currentScore;
+
+            public string overwriteText;
             public int lastScore;
             public int countdownStartNumber;
             public float countdownTiming;
+
+            public String endOfCountdownText;
             public bool inCountdown;
 
-            public UnityEvent onCountdownEnd;
+
             public TextMeshProUGUI tmp;
         }
 
-        [SerializeField] CoundownEndEvent[] countdownEndEventsRacer;
+        [SerializeField] int currentCoundownEndGroupIndex = -1;
+
+        [SerializeField] CoundownEndEventGroup[] onCountdownEndEventGroups;
 
         //[SerializeField] CoundownEndEvent[] countdownEndEventZuschauer;
 
         [System.Serializable]
-        public struct CoundownEndEvent
+        public struct CoundownEndEventGroup
         {
             public string note;
 
-            public UnityEvent countdownEndEvent;
+            public UnityEvent[] countdownEndEvents;
+
+            public bool playOnce;
+
+            public bool played;
 
         }
 
 
 
-        private void Start() 
+        private void Start()
         {
             for (int i = 0; i < scores.Length; i++)
             {
@@ -55,11 +65,11 @@ namespace ObliqueSenastions.UISpace
             }
         }
 
-        private void Update() 
+        private void Update()
         {
             for (int i = 0; i < scores.Length; i++)
             {
-                if(scores[i].currentScore != scores[i].lastScore || scores[i].showText != scores[i].lastShowText)
+                if (scores[i].currentScore != scores[i].lastScore || scores[i].showText != scores[i].lastShowText)
                 {
                     UpdateDisplay(i);
                 }
@@ -75,14 +85,14 @@ namespace ObliqueSenastions.UISpace
 
         public void SetScore(int index, int newScore)
         {
-            if(scores[index].inCountdown) return;
-            if(index > scores.Length) return;
+            if (scores[index].inCountdown) return;
+            if (index > scores.Length) return;
             scores[index].currentScore = newScore;
         }
 
         // public void AddScore(int index)
         // {
-            
+
         //     if(index >= scores.Length) return;
         //     int newScore =scores[index].currentScore + 1;
         //     SetScore(index, newScore);
@@ -97,7 +107,7 @@ namespace ObliqueSenastions.UISpace
 
         // public void SubtractScore(int index)
         // {
-            
+
         //     if(index > scores.Length) return;
         //     int newScore = scores[index].currentScore - 1;
         //     SetScore(index, newScore);
@@ -105,11 +115,11 @@ namespace ObliqueSenastions.UISpace
 
         /// countdown
 
-        
+
 
         public void PlayCountdown(int index)
         {
-            if(scores[index].inCountdown) return;
+            if (scores[index].inCountdown) return;
             StartCoroutine(CountdownRoutine(index));
 
         }
@@ -128,29 +138,59 @@ namespace ObliqueSenastions.UISpace
             int capturedScoreBeforeCountdown = scores[index].currentScore;
             bool capturedShowText = scores[index].showText;
             scores[index].showText = true;
-            
+
             int startNumber = scores[index].countdownStartNumber;
             for (int i = startNumber; i > 0; i--)
             {
+                 
                 scores[index].currentScore = i;
                 yield return new WaitForSeconds(scores[index].countdownTiming);
             }
+
+            if (index == 0) // main racer end events
+            {
+                if (currentCoundownEndGroupIndex >= 0 && currentCoundownEndGroupIndex < onCountdownEndEventGroups.Length)
+                {
+                    if (!(onCountdownEndEventGroups[currentCoundownEndGroupIndex].playOnce && onCountdownEndEventGroups[currentCoundownEndGroupIndex].played))
+                    {
+                        for (int i = 0; i < onCountdownEndEventGroups[currentCoundownEndGroupIndex].countdownEndEvents.Length; i++)
+                        {
+                            onCountdownEndEventGroups[currentCoundownEndGroupIndex].countdownEndEvents[i].Invoke();
+                            yield return null;
+                        }
+
+                        onCountdownEndEventGroups[currentCoundownEndGroupIndex].played = true;
+                    }
+                }
+            }
+
+            // Last Countdown Text
+
+            scores[index].overwriteText = scores[index].endOfCountdownText;
+            yield return new WaitForSeconds(scores[index].countdownTiming);
+            scores[index].overwriteText = "";
+
+            // Out of countdown mode
+
             scores[index].currentScore = capturedScoreBeforeCountdown;
             scores[index].inCountdown = false;
             scores[index].showText = capturedShowText;
-            scores[index].onCountdownEnd.Invoke();
-            yield break;
+
+             yield break;
+
         }
 
-        public void SetCountdownEndEventRacer(int index)
+        public void SetCountdownEndEventGroup(int index)
         {
-            if(index >= countdownEndEventsRacer.Length) return;
-            scores[0].onCountdownEnd = countdownEndEventsRacer[index].countdownEndEvent;
+
+            if (index >= onCountdownEndEventGroups.Length) return;
+            currentCoundownEndGroupIndex = index;
+
         }
 
-        
 
-        
+
+
 
         /// display
 
@@ -162,9 +202,9 @@ namespace ObliqueSenastions.UISpace
             }
         }
 
-        public void SetShowText(int index ,bool value)
+        public void SetShowText(int index, bool value)
         {
-            if(index >= scores.Length) return;
+            if (index >= scores.Length) return;
             scores[index].showText = value;
         }
 
@@ -174,8 +214,8 @@ namespace ObliqueSenastions.UISpace
             //if(newText == scores[index].tmp.text) return; // safes performance not to set the text every frame (?)
             scores[index].tmp.text = newText;
         }
-        
-        
+
+
     }
 
 }
