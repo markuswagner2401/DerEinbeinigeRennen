@@ -2,11 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using ObliqueSenastions.TimelineSpace;
+using Photon.Pun;
 using UnityEngine;
 
 namespace ObliqueSenastions.PunNetworking
 {
-    public class ObstacleAnimator : MonoBehaviour
+    public class ObstacleAnimator : MonoBehaviourPun
     {
         [System.Serializable]
         public struct BlendShapeChanger
@@ -26,8 +27,11 @@ namespace ObliqueSenastions.PunNetworking
 
         public event Action OnObstacleDestroyed;
 
+
+
         private void Start()
         {
+
             triggerCollider = GetComponent<Collider>();
 
             if (triggerCollider != null)
@@ -57,6 +61,7 @@ namespace ObliqueSenastions.PunNetworking
         {
             DissolveObstacle();
             PlayAccident();
+
         }
 
         public void DissolveObstacle()
@@ -108,7 +113,9 @@ namespace ObliqueSenastions.PunNetworking
             if (index == 1)
             {
                 OnObstacleDestroyed?.Invoke();
-                Destroy(gameObject);
+                //Destroy(gameObject);
+                gameObject.SetActive(false);
+                photonView.RPC("ActivateObject", RpcTarget.Others, false);
             }
 
             if (index == 0)
@@ -117,9 +124,16 @@ namespace ObliqueSenastions.PunNetworking
                 {
                     triggerCollider.enabled = true;
                 }
+
+
             }
 
+        }
 
+        [PunRPC]
+        public void ActivateObject(bool isActive)
+        {
+            gameObject.SetActive(isActive);
         }
     }
 }

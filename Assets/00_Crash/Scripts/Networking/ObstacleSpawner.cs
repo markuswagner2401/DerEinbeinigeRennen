@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using Photon.Pun;
 using System;
+using ObliqueSenastions.SceneSpace;
 
 namespace ObliqueSenastions.PunNetworking
 {
@@ -134,7 +135,7 @@ namespace ObliqueSenastions.PunNetworking
                 }
                 else
                 {
-                    spawnedObstacle = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
+                    spawnedObstacle = ObstaclePool.Instance.SpawnFromPool(prefab.name, spawnPoint.position, spawnPoint.rotation);
                 }
 
 
