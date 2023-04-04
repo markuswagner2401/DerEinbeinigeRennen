@@ -1,4 +1,8 @@
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
+
+
 using UnityEngine;
 
 namespace ObliqueSenastions.TransformControl
@@ -19,23 +23,21 @@ namespace ObliqueSenastions.TransformControl
         {
             base.OnInspectorGUI();
 
-            if (GUILayout.Button("Toggle Edit Mode"))
+            if (GUILayout.Button("Toggle Placeholders"))
             {
                 isEditable = !isEditable;
 
                 if (!isEditable)
                 {
+                    ToggleRenderers(false);
                     SpawnObjects();
+
                 }
                 else
                 {
                     ClearObjects();
+                    ToggleRenderers(true);
                 }
-            }
-
-            if (GUILayout.Button("Toggle Renderers"))
-            {
-                ToggleRenderers();
             }
 
             if (Application.isPlaying)
@@ -43,9 +45,15 @@ namespace ObliqueSenastions.TransformControl
                 GUI.enabled = false;
             }
 
+            if (GUILayout.Button("Reset Spawned Objects"))
+            {
+                ResetSpawnedObjectsArray();
+            }
 
-
-
+            if (Application.isPlaying)
+            {
+                GUI.enabled = false;
+            }
         }
 
         private void SpawnObjects()
@@ -78,8 +86,31 @@ namespace ObliqueSenastions.TransformControl
                             break;
                     }
 
+#if UNITY_EDITOR
+                    spawner.spawnedObjects[i] = PrefabUtility.InstantiatePrefab(objectToSpawn, spawner.targetTransforms[i]) as GameObject;
+#else
                     spawner.spawnedObjects[i] = Instantiate(objectToSpawn, position, rotation);
+#endif
+                    spawner.spawnedObjects[i].transform.position = position;
+                    spawner.spawnedObjects[i].transform.rotation = rotation;
+
                     spawner.spawnedObjects[i].transform.SetParent(spawner.targetTransforms[i]);
+                }
+            }
+        }
+
+        private void ResetSpawnedObjectsArray()
+        {
+            if (spawner.targetTransforms == null || spawner.spawnedObjects == null) return;
+
+            ClearObjects();
+
+            spawner.spawnedObjects = new GameObject[spawner.targetTransforms.Length];
+            for (int i = 0; i < spawner.targetTransforms.Length; i++)
+            {
+                if (spawner.targetTransforms[i].childCount > 0)
+                {
+                    spawner.spawnedObjects[i] = spawner.targetTransforms[i].GetChild(0).gameObject;
                 }
             }
         }
@@ -95,13 +126,16 @@ namespace ObliqueSenastions.TransformControl
                     DestroyImmediate(spawner.spawnedObjects[i]);
                 }
             }
+
+            // Clear the references in the serialized array
+            spawner.spawnedObjects = null;
         }
 
-        private void ToggleRenderers()
+        private void ToggleRenderers(bool enableRenderers)
         {
             if (spawner.targetTransforms == null) return;
 
-            renderersEnabled = !renderersEnabled;
+            renderersEnabled = enableRenderers;
 
             foreach (Transform targetTransform in spawner.targetTransforms)
             {

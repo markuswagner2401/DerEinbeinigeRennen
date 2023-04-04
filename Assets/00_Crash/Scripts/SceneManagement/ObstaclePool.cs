@@ -19,7 +19,9 @@ namespace ObliqueSenastions.SceneSpace
         }
 
         public List<Pool> pools;
-        public Dictionary<string, Queue<GameObject>> poolDictionary;
+        public Dictionary<string, Queue<GameObject>> poolDictionary = null;
+
+        public Transform obstaclePoolParent;
 
 
 
@@ -35,10 +37,8 @@ namespace ObliqueSenastions.SceneSpace
             }
         }
 
-        private void Start()
+        void Start()
         {
-
-
             poolDictionary = new Dictionary<string, Queue<GameObject>>();
 
             foreach (Pool pool in pools)
@@ -49,11 +49,15 @@ namespace ObliqueSenastions.SceneSpace
                 {
                     GameObject obj = Instantiate(pool.prefab);
                     obj.SetActive(false);
+                    if(obstaclePoolParent != null)
+                    {
+                        obj.transform.SetParent(obstaclePoolParent); 
+                    }
+                    
                     objectPool.Enqueue(obj);
                 }
 
-                //poolDictionary.Add(pool.tag, objectPool);
-                poolDictionary.Add(pool.prefab.name, objectPool);
+                poolDictionary.Add(pool.tag, objectPool);
             }
         }
 
@@ -74,10 +78,9 @@ namespace ObliqueSenastions.SceneSpace
             if (PhotonNetwork.IsConnected)
             {
                 PhotonView photonView = objectToSpawn.GetComponent<PhotonView>();
-
                 if (photonView != null)
                 {
-                    photonView.RPC("ActivateObject", RpcTarget.Others, true);
+                    photonView.RPC("ActivateObject", RpcTarget.Others, position, rotation);
                 }
                 else
                 {

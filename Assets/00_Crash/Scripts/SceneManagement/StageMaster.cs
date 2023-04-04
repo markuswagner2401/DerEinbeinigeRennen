@@ -69,20 +69,20 @@ namespace ObliqueSenastions.StageMasterSpace
 
         void Update()
         {
-            if (goByController)
-            {
-                if (device.TryGetFeatureValue(CommonUsages.primaryButton, out bool buttonPressed) && buttonPressed)
-                {
-                    if (alreadyPressed) return;
-                    alreadyPressed = true;
-                    PlayNextGoEvent();
-                }
-                else
-                {
-                    alreadyPressed = false;
-                }
+            // if (goByController)
+            // {
+            //     if (device.TryGetFeatureValue(CommonUsages.primaryButton, out bool buttonPressed) && buttonPressed)
+            //     {
+            //         if (alreadyPressed) return;
+            //         alreadyPressed = true;
+            //         PlayNextGoEvent();
+            //     }
+            //     else
+            //     {
+            //         alreadyPressed = false;
+            //     }
 
-            }
+            // }
 
         }
 
@@ -114,9 +114,9 @@ namespace ObliqueSenastions.StageMasterSpace
 
             if (index >= goEvents.Length || index < 0) return;
 
-            currentIndex = index;
 
-            StartCoroutine(PlayGoEvent());
+
+            StartCoroutine(PlayGoEventRoutine(index));
         }
 
         private void PlaceholderOnGoEvent(string name)
@@ -168,7 +168,7 @@ namespace ObliqueSenastions.StageMasterSpace
         public void PlayNextGoEvent()
         {
 
-            StartCoroutine(PlayGoEvent());
+            StartCoroutine(PlayGoEventRoutine(currentIndex));
 
         }
 
@@ -177,41 +177,42 @@ namespace ObliqueSenastions.StageMasterSpace
             currentIndex = index;
         }
 
-        IEnumerator PlayGoEvent()
+        IEnumerator PlayGoEventRoutine(int index)
         {
+            currentIndex = index;
 
-            if (currentIndex < 0)
+            if (index < 0)
             {
                 print("no more events");
                 yield break;
             }
 
-            print("Go Event: " + goEvents[currentIndex].note);
+            print("Go Event: " + goEvents[index].note);
 
-            goEvents[currentIndex].reactions.Invoke();
+            goEvents[index].reactions.Invoke();
 
 
-            if (goEvents[currentIndex].automaticlyPlayNext)
+            if (goEvents[index].automaticlyPlayNext)
             {
-                yield return new WaitForSeconds(goEvents[currentIndex].waitTimeForNext);
-                currentIndex = NextIndex();
-                StartCoroutine(PlayGoEvent());
+                yield return new WaitForSeconds(goEvents[index].waitTimeForNext);
+                index = NextIndex(index);
+                StartCoroutine(PlayGoEventRoutine(index));
                 yield break;
             }
 
-            currentIndex = NextIndex();
+            index = NextIndex(index);
             yield break;
         }
 
-        private int NextIndex()
+        private int NextIndex(int index)
         {
-            if (currentIndex + 1 > goEvents.Length - 1)
+            if (index + 1 > goEvents.Length - 1)
             {
 
                 return -1;
             }
 
-            return currentIndex += 1;
+            return index += 1;
         }
 
         public void PlayStaticEvent(int index)

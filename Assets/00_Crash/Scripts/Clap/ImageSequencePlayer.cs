@@ -8,16 +8,11 @@ namespace ObliqueSenastions.MaterialControl
     public class ImageSequencePlayer : MonoBehaviour
     {
         [SerializeField] SkinnedMeshRenderer smr = null;
-
         [SerializeField] MeshRenderer rend = null;
-
         [SerializeField] MaterialPropertiesFader_2 materialPropertiesFader = null;
 
         [SerializeField] StageMaster stageMaster = null;
         MaterialPropertyBlock block = null;
-
-
-
         [SerializeField] ImageSequence[] sequences;
 
         // [SerializeField] VideoElement[] videoSequences;
@@ -80,32 +75,13 @@ namespace ObliqueSenastions.MaterialControl
             public ValueChanger[] valueChangers;
         }
 
-        //[SerializeField] int currentValueChangerGroupIndex = 0;
 
         [SerializeField] int changeValuesAfterXTimesMin = -1;
         [SerializeField] int changeValuesAfterXTimesMax = -1;
 
         int changeValuesAfterXTimes;
-
-
-
-
-
         int counter;
 
-
-
-        // public struct VideoElement
-        // {
-        //     public string note;
-        //     public  VideoClip videoClip;
-
-        //     public float fps;
-
-        //     public float scipFrames;
-
-        //     public string targetProRef;
-        // }
 
         [SerializeField] bool autoPlay = false;
         [SerializeField] float changeSequenceAfterXSecondsMin = Mathf.Infinity;
@@ -123,18 +99,10 @@ namespace ObliqueSenastions.MaterialControl
 
         float changeValueGroupAfterXSeconds;
 
-
-
-
         float changeSequenceTimer;
-
         float scrubbingTimer = 0;
-
         float changeValueGroupTimer = 0;
-
         [SerializeField] bool stop = false;
-
-
         bool scrubbingTriggered = false;
 
 
@@ -172,11 +140,11 @@ namespace ObliqueSenastions.MaterialControl
             }
 
 
-            //block = new MaterialPropertyBlock();
+
 
             CaptureStartValues();
 
-            //block.SetFloat("Vector1_1831ba61239d4da3b7c88edbf7638464", 0f);
+
 
             if (autoPlay)
             {
@@ -189,33 +157,9 @@ namespace ObliqueSenastions.MaterialControl
 
 
 
-        // private void CreateChangerGroups(){
 
-        // }
 
-        //  private int[] GroupIndices(){
-        //     List<int> groupIndices = new List<int>();
-        //     foreach (var item in valueChangers)
-        //     {
-        //         for (int i = 0; i < groupIndices.Count; i++)
-        //         {
-        //             if(groupIndices[i] == item.changerGroup) continue;
-        //             groupIndices.Add(item.changerGroup);
-        //         }
-        //     }
-        //     return groupIndices.ToArray();
-        // }
 
-        // private ValueChanger[] ValueChangerGroups(int groupIndex){
-        //     List<ValueChanger> valueChangerGroup = new List<ValueChanger>();
-
-        //     foreach (var item in valueChangers){
-        //         if (item.changerGroup == groupIndex){
-        //             valueChangerGroup.Add(item);
-        //         }  
-        //     }
-        //     return valueChangerGroup.ToArray();
-        // }
 
 
         int lastChangerGroup;
@@ -227,54 +171,45 @@ namespace ObliqueSenastions.MaterialControl
                 if (currentChangerGroup != lastChangerGroup)
                 {
                     ContinueWithRandomSequence(currentChangerGroup);
-//                    print("continue with random sequence");
+                    //               
                 }
 
             }
 
             lastChangerGroup = currentChangerGroup;
 
-            if (autoPlay && !stop)
+            if (valueChangerGroups.Length > 0)
             {
-                //changeSequenceTimer += Time.unscaledDeltaTime;
-                changeValueGroupTimer += Time.unscaledDeltaTime;
+                if (autoPlay && !stop)
+                {
+
+                    changeValueGroupTimer += Time.unscaledDeltaTime;
+                }
+
+                if (changeValueGroupTimer > changeValueGroupAfterXSeconds)
+                {
+                    changeValueGroupTimer = 0;
+
+                    changeValueGroupAfterXSeconds = UnityEngine.Random.Range(changeValueGroupAfterXSecondsMin, changeValueGroupAfterXSecondsMax);
+
+                    string currentGroupName = valueChangerGroups[currentChangerGroup].note;
+                    SetValueChangerGroupIndex(currentGroupName);
+
+                }
+
             }
+
+
+
+
 
             if (scrubbing && !stop)
             {
                 scrubbingTimer += Time.unscaledDeltaTime;
             }
 
-            // if(changeSequenceTimer > changeSequenceAfterXSeconds){
-            //     changeSequenceTimer = 0;
-
-            //     if(currentSequenceGroup < 0){
-
-            //         ContinueWithRandomSequence();
-            //     }
-            //     else{
-            //         ContinueWithRandomSequence(currentSequenceGroup);
-            //     }
 
 
-            //     changeSequenceAfterXSeconds = UnityEngine.Random.Range(changeSequenceAfterXSecondsMin, changeSequenceAfterXSecondesMax);
-            // }
-
-            if (changeValueGroupTimer > changeValueGroupAfterXSeconds)
-            {
-                changeValueGroupTimer = 0;
-
-                changeValueGroupAfterXSeconds = UnityEngine.Random.Range(changeValueGroupAfterXSecondsMin, changeValueGroupAfterXSecondsMax);
-
-                string currentGroupName = valueChangerGroups[currentChangerGroup].note;
-                SetValueChangerGroupIndex(currentGroupName);
-
-            }
-
-            // if(scrubbingTimer > scrubbingSpeed){
-            //     scrubbingTimer = 0;
-            //     ContinueWithRandomSequence(currentSequenceGroup); // scrub through all except 0
-            //     scrubbingSpeed = UnityEngine.Random.Range(scrubbingSpeedMin, scrubbingSpeedMax);
 
             // }
 
@@ -295,25 +230,19 @@ namespace ObliqueSenastions.MaterialControl
 
 
 
-            // if(Input.GetKeyDown(KeyCode.P)){
-            //     ContinueWithRandomSequence();
-            // }
-
-            // if(Input.GetKeyDown(KeyCode.S)){
-            //     PauseAllSequences();
-            // }
-
             if (!ReferenceEquals(block, null))
             {
-                if(!ReferenceEquals(smr, null))
+                if (materialPropertiesFader == null) // if its not null this component sets the block
                 {
-                    smr.SetPropertyBlock(block);
+                    if (smr != null)
+                    {
+                        smr.SetPropertyBlock(block);
+                    }
+                    if (!ReferenceEquals(rend, null))
+                    {
+                        rend.SetPropertyBlock(block);
+                    }
                 }
-                if(!ReferenceEquals(rend, null))
-                {
-                    rend.SetPropertyBlock(block);
-                }
-                
             }
 
         }
@@ -329,8 +258,6 @@ namespace ObliqueSenastions.MaterialControl
                 SetImage(sequenceIndex, imageIndex);
                 yield return new WaitForSeconds(0.1f);
             }
-
-
 
             yield break;
         }
@@ -353,16 +280,15 @@ namespace ObliqueSenastions.MaterialControl
 
         public void SetValueChangerGroupIndex(string groupName)
         {
+            if (valueChangerGroups.Length == 0) return;
+
             int tempIndex = currentChangerGroup;
             int counter = 0;
 
             do
             {
                 counter++;
-                //tempIndex++;
-                // if(tempIndex >= valueChangerGroups.Length){
-                //     tempIndex = 0;
-                // }
+
                 tempIndex = UnityEngine.Random.Range(0, valueChangerGroups.Length);
 
             } while (valueChangerGroups[tempIndex].note != groupName || !(counter > 100));
@@ -374,6 +300,8 @@ namespace ObliqueSenastions.MaterialControl
 
         public void SetValueChangerGroupIndex(int index)
         {
+            if (valueChangerGroups.Length == 0) return;
+
             if (index >= valueChangerGroups.Length)
             {
                 currentChangerGroup = 0;
@@ -389,7 +317,6 @@ namespace ObliqueSenastions.MaterialControl
 
         void CaptureStartValues()
         {
-
 
             for (int i = 0; i < valueChangerGroups.Length; i++)
             {
@@ -416,21 +343,19 @@ namespace ObliqueSenastions.MaterialControl
         {
 
             int randomNr = UnityEngine.Random.Range(0, sequences.Length);
-            //        print("continue with random sequence: " + randomNr);
             ContinueSequence(randomNr);
         }
 
         public void ContinueWithRandomSequence(int group)
         {
             int index = GetRandomIndexOfGroup(group);
-            //       print("continue with random sequence " + index + "of group " + group);
             ContinueSequence(index);
         }
 
         private int GetRandomIndexOfGroup(int group)
         {
 
-            int randomNr;
+            int randomNr = 0;
             int counter = 0;
             do
             {
@@ -438,7 +363,7 @@ namespace ObliqueSenastions.MaterialControl
                 //print("test new random number: " + randomNr + "to " + sequences[randomNr].group);
                 counter++;
             } while (sequences[randomNr].group != group && counter < 100);
-            //print("counter: "+ counter);
+
             return randomNr;
 
         }
@@ -451,16 +376,37 @@ namespace ObliqueSenastions.MaterialControl
 
         public void ContinueSequence(int index)
         {
-            if(sequences[index].play == true) return;
+            if (sequences[index].play == true) return;
 
             PauseOtherSequences(index);
 
             StartCoroutine(ContinueSequenceR(index));
-        
-            
+
+
         }
 
-       
+        public void ContinueSequence(string name)
+        {
+            int index = GetSequenceIndexOfName(name);
+            if (index < 0) return;
+            ContinueSequence(index);
+        }
+
+        int GetSequenceIndexOfName(string name)
+        {
+            for (int i = 0; i < sequences.Length; i++)
+            {
+                if (name == sequences[i].note)
+                {
+                    return i;
+                }
+            }
+
+            print("No seuqnece found with name: " + name);
+            return -1;
+        }
+
+
 
         private void PauseOtherSequences(int index)
         {
@@ -530,18 +476,18 @@ namespace ObliqueSenastions.MaterialControl
 
         private void ProcessValueChangers()
         {
-            
+
             if (changeValuesAfterXTimesMin < 0 || changeValuesAfterXTimesMax < 0) return;
             counter += 1;
             if (counter > changeValuesAfterXTimes)
             {
-                
+
 
                 print("change value");
                 // int index = UnityEngine.Random.Range(0, valueChangerGroups[currentChangerGroup].valueChangers.Length);
                 // ChangeValue(index);
 
-                
+
 
                 for (int i = 0; i < valueChangerGroups[currentChangerGroup].valueChangers.Length; i++)
                 {

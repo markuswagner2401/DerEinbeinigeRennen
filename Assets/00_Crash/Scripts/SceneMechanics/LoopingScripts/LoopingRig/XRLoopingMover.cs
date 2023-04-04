@@ -171,15 +171,17 @@ namespace ObliqueSenastions.Looping
 
                 if (distanceFromGround > racastStartpointOverGround) // Fall
                 {
-                    transform.position += transform.up * -Mathf.Abs(distanceFromGround - racastStartpointOverGround); // fallingSpeed * Time.deltaTime;Mathf.Abs(distanceFromGround-heightOverGround)
+                    transform.position += transform.up * -Mathf.Abs(distanceFromGround  - racastStartpointOverGround); // fallingSpeed * Time.deltaTime;Mathf.Abs(distanceFromGround-heightOverGround)
                                                                                                                       //print("fall");
                 }
 
                 else // Rise
                 {
-                    transform.position -= transform.up * -Mathf.Abs(distanceFromGround - racastStartpointOverGround); // fallingSpeed * Time.deltaTime;
+                    transform.position -= transform.up * -Mathf.Abs(distanceFromGround  - racastStartpointOverGround); // fallingSpeed * Time.deltaTime;
                                                                                                                       //print("rise");
                 }
+
+                transform.position -= transform.up * spherecastRadius;
 
 
 

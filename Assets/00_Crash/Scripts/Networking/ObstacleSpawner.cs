@@ -50,7 +50,7 @@ namespace ObliqueSenastions.PunNetworking
 
             // debugging
 
-            PlaySpawnSituation(0);
+            //PlaySpawnSituation(0);
         }
 
         private void UpdateSpawnerActivity()
@@ -142,11 +142,17 @@ namespace ObliqueSenastions.PunNetworking
 
                 occupiedSpawnPoints[spawnPoint] = spawnedObstacle;
 
-                ObstacleAnimator obstacleAnimator = spawnedObstacle.GetComponent<ObstacleAnimator>();
-                obstacleAnimator.OnObstacleDestroyed += () =>
+                if (spawnedObstacle != null)
+                {
+                    ObstacleAnimator obstacleAnimator = spawnedObstacle.GetComponent<ObstacleAnimator>();
+                    obstacleAnimator.OnObstacleDestroyed += () =>
                 {
                     occupiedSpawnPoints[spawnPoint] = null;
                 };
+                }
+
+
+
 
 
 

@@ -9,10 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7957038162109056576}
-  - component: {fileID: 6467960273489873381}
-  - component: {fileID: 9090015365788024111}
   - component: {fileID: 1110642399080862437}
   - component: {fileID: 3138107937968681009}
+  - component: {fileID: 2100271878848597911}
   m_Layer: 0
   m_Name: LedGeruestWall_SingleScreen
   m_TagString: Untagged
@@ -33,61 +32,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7791112257094922004}
+  - {fileID: 6408485672185126448}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -31.729, y: 90, z: 0}
---- !u!33 &6467960273489873381
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7288729239594769658}
-  m_Mesh: {fileID: 1925451362422842122, guid: 736277bd1c8984c419db4d2053c0bff2, type: 3}
---- !u!23 &9090015365788024111
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7288729239594769658}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: ec5c78803659b904dbe744ecfe8668f7, type: 2}
-  - {fileID: 2100000, guid: 7b26462b4c7ab964cb4eecfb09b4a771, type: 2}
-  - {fileID: 2100000, guid: 83ce6454d43f8254b89c56877c079594, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &1110642399080862437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,13 +49,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend:
-  - {fileID: 9090015365788024111}
+  - {fileID: 5234501215845983583}
   skm: []
   skinnedMesh: 0
   usePropertyBlock: 1
   doOnStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1110642399080862437}
+        m_TargetAssemblyTypeName: ObliqueSenastions.MaterialControl.MaterialPropertiesFader_2,
+          Assembly-CSharp
+        m_MethodName: ChangeFloat
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: StartImageWeight
+          m_BoolArgument: 0
+        m_CallState: 2
   floatChangers:
   - note: StartImageWeight
     propRef: _ImageWeight
@@ -247,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smr: {fileID: 0}
-  rend: {fileID: 0}
+  rend: {fileID: 5234501215845983583}
   materialPropertiesFader: {fileID: 1110642399080862437}
   stageMaster: {fileID: 0}
   sequences:
@@ -274,6 +235,27 @@ MonoBehaviour:
     stepSizeMin: 1
     stepSizeMax: 3
     targetPropRef: _ImageTexture
+  - note: WegZumStart
+    group: 0
+    images:
+    - {fileID: 2800000, guid: cab11be5a4f52674fb7cc5819e91ec1a, type: 3}
+    - {fileID: 2800000, guid: f372a1e3db7c4f54891c6c0623ba13ed, type: 3}
+    - {fileID: 2800000, guid: 1472d3a7659253b4b866487ab703ec5d, type: 3}
+    - {fileID: 2800000, guid: 4d7c4f9e63765d44dbeac54a4dd6569c, type: 3}
+    - {fileID: 2800000, guid: a6220073a90d4a04e8933cd57e7ca2cb, type: 3}
+    - {fileID: 2800000, guid: b66836eea44a4344994c7ed214ac54e0, type: 3}
+    - {fileID: 2800000, guid: 05e9a7590d0f57e469282b4bf5461635, type: 3}
+    - {fileID: 2800000, guid: 0f3cbd006004d7446976479cf278d981, type: 3}
+    - {fileID: 2800000, guid: ba3214cd8bed0024d894241da5c45eaf, type: 3}
+    - {fileID: 2800000, guid: 246609ba946bd244198e0cf86bcfc00a, type: 3}
+    currentIndex: 0
+    play: 0
+    playTriggered: 0
+    fpsMin: 1
+    fpsMax: 10
+    stepSizeMin: 1
+    stepSizeMax: 3
+    targetPropRef: _ImageTexture
   currentSequenceGroup: -1
   startSequenceGroup: -1
   valueChangerGroups: []
@@ -290,6 +272,66 @@ MonoBehaviour:
   changeValueGroupAfterXSecondsMin: Infinity
   changeValueGroupAfterXSecondsMax: Infinity
   stop: 0
+--- !u!114 &2100271878848597911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7288729239594769658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4085b75cb67c29840947a918e2cfc6e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageMasterEvents:
+  - name: PlaySeqPlayer
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1110642399080862437}
+          m_TargetAssemblyTypeName: ObliqueSenastions.MaterialControl.MaterialPropertiesFader_2,
+            Assembly-CSharp
+          m_MethodName: ChangeFloat
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: ShowImages
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 3138107937968681009}
+          m_TargetAssemblyTypeName: ObliqueSenastions.MaterialControl.ImageSequencePlayer,
+            Assembly-CSharp
+          m_MethodName: ContinueSequence
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: WegZumStart
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: StopSeqPlayer
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1110642399080862437}
+          m_TargetAssemblyTypeName: ObliqueSenastions.MaterialControl.MaterialPropertiesFader_2,
+            Assembly-CSharp
+          m_MethodName: ChangeFloat
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: HideImages
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &5992038030054134767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -330,7 +372,7 @@ PrefabInstance:
     - target: {fileID: 4555507050810424571, guid: 48d77af14b27cbc4e9facf5fffebee9d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.85
+      value: 4.106
       objectReference: {fileID: 0}
     - target: {fileID: 4555507050810424571, guid: 48d77af14b27cbc4e9facf5fffebee9d,
         type: 3}
@@ -385,4 +427,110 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4555507050810424571, guid: 48d77af14b27cbc4e9facf5fffebee9d,
     type: 3}
   m_PrefabInstance: {fileID: 5992038030054134767}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6873964996527339995
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7957038162109056576}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 736277bd1c8984c419db4d2053c0bff2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 736277bd1c8984c419db4d2053c0bff2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 736277bd1c8984c419db4d2053c0bff2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.15553689
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 736277bd1c8984c419db4d2053c0bff2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 736277bd1c8984c419db4d2053c0bff2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 736277bd1c8984c419db4d2053c0bff2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 736277bd1c8984c419db4d2053c0bff2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 736277bd1c8984c419db4d2053c0bff2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 736277bd1c8984c419db4d2053c0bff2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 736277bd1c8984c419db4d2053c0bff2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 736277bd1c8984c419db4d2053c0bff2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 736277bd1c8984c419db4d2053c0bff2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ec5c78803659b904dbe744ecfe8668f7, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 736277bd1c8984c419db4d2053c0bff2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b26462b4c7ab964cb4eecfb09b4a771, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 736277bd1c8984c419db4d2053c0bff2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 83ce6454d43f8254b89c56877c079594, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 736277bd1c8984c419db4d2053c0bff2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: f049fca811dc1a7448196a61d16c3745, type: 2}
+    - target: {fileID: 919132149155446097, guid: 736277bd1c8984c419db4d2053c0bff2,
+        type: 3}
+      propertyPath: m_Name
+      value: LedGeruestWall_lp
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 736277bd1c8984c419db4d2053c0bff2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 736277bd1c8984c419db4d2053c0bff2, type: 3}
+--- !u!23 &5234501215845983583 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 736277bd1c8984c419db4d2053c0bff2,
+    type: 3}
+  m_PrefabInstance: {fileID: 6873964996527339995}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6408485672185126448 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 736277bd1c8984c419db4d2053c0bff2,
+    type: 3}
+  m_PrefabInstance: {fileID: 6873964996527339995}
   m_PrefabAsset: {fileID: 0}

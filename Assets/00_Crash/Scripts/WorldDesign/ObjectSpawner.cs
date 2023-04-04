@@ -19,7 +19,8 @@ namespace ObliqueSenastions.TransformControl
         public SpawnMode spawnMode = SpawnMode.Cycle;
         public Vector3 positionOffset;
         public Vector3 rotationOffset;
-        [HideInInspector]
+        
+        [SerializeField]
         public GameObject[] spawnedObjects;
     }
 }

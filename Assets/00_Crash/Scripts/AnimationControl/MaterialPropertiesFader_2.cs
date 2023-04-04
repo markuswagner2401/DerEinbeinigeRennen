@@ -126,7 +126,7 @@ namespace ObliqueSenastions.MaterialControl
         [SerializeField] bool setFloatsToCurrent;
         [SerializeField] bool stetTexturesToCurrent = false;
 
-        
+
 
 
         int currentTextureIndex = 0;
@@ -186,7 +186,7 @@ namespace ObliqueSenastions.MaterialControl
 
             ///
 
-            
+
 
 
 
@@ -342,7 +342,8 @@ namespace ObliqueSenastions.MaterialControl
         public void ChangeFloat(string name)
         {
             int index = GetFloatChangerIndexOfName(name);
-            if (index >= 0)
+
+            if (index >= 0 )
             {
                 ChangeFloat(index);
             }
@@ -357,6 +358,8 @@ namespace ObliqueSenastions.MaterialControl
 
         public void ChangeFloat(int index)
         {
+            if (index < floatChangers.Length)
+            
             StartCoroutine(InterruptAndChangeFloatR(index));
         }
 
@@ -372,38 +375,7 @@ namespace ObliqueSenastions.MaterialControl
 
         IEnumerator ChangeFloatR(int index)
         {
-            // Material material;
-
-
-            // if(!usePropertyBlock)
-            // {
-            //     if(changeMaterialAsset && materialAsset != null)
-            //     {
-            //         material = materialAsset;
-            //     }
-
-            //     else
-            //     {
-            //         if(skinnedMesh)
-            //         {
-            //             material = skm[0].material;   
-
-
-            //         }
-            //         else
-            //         {   
-            //             material = rend[0].material;
-            //         }
-            //     }
-
-            // }
-
-            // else
-            // {
-            //     material = null;
-            // }
-
-
+            
             floatChangers[index].interrupted = false;
             float timer = 0f;
 
@@ -418,15 +390,11 @@ namespace ObliqueSenastions.MaterialControl
                 float newValue = Mathf.Lerp(startValue, floatChangers[index].targetValue, floatChangers[index].curve.Evaluate(timer / floatChangers[index].duration));
                 block.SetFloat(floatChangers[index].propRef, newValue);
 
-                //                print("change float " + floatChangers[index].note + " " + block.GetFloat(floatChangers[index].propRef));
-                // print("Set Float: " + floatChangers[index].note  +  block.GetFloat(floatChangers[index].propRef));
 
 
                 if (!usePropertyBlock)
                 {
 
-                    //materialAsset.SetFloat(floatChangers[index].propRef, newValue);
-                    //print("Set Float: " + "Material: " + material.name + " " + floatChangers[index].propRef + " Value: " + block.GetFloat(floatChangers[index].propRef));
 
                     if (skinnedMesh)
                     {
@@ -437,7 +405,7 @@ namespace ObliqueSenastions.MaterialControl
                     else
                     {
                         rend[0].sharedMaterial.SetFloat(floatChangers[index].propRef, block.GetFloat(floatChangers[index].propRef));
-                        //print(rend[0].sharedMaterial.name + " " + "Set Float " + floatChangers[index].propRef + " " + block.GetFloat(floatChangers[index].propRef));
+
                     }
                 }
 
@@ -457,23 +425,7 @@ namespace ObliqueSenastions.MaterialControl
 
         public void PushFloat(int index, float strength)
         {
-            // if(skinnedMesh) /// to do fix
-            // {
-            //     foreach (var item in skm)
-            //     {
-            //         if(!item.gameObject.activeInHierarchy){
-            //         continue;
-            //         }
-            //     }
-
-            // }
-            // else{
-            //     foreach (var item in rend)
-            //     if(!item.gameObject.activeInHierarchy){
-            //         continue;
-            //         }
-
-            //     }
+  
 
 
             StartCoroutine(InterruptAndPushFloatR(index, strength));
@@ -695,15 +647,15 @@ namespace ObliqueSenastions.MaterialControl
 
         public void ChangeColor(int index)
         {
-            if(index >= colorChangers.Length) return;
-            
+            if (index >= colorChangers.Length) return;
+
             StartCoroutine(InterruptAndChangeColorR(index));
         }
 
         public void ChangeColor(string name)
         {
             int index = GetColorChangerIndexByName(name);
-            if(index < 0) return;
+            if (index < 0) return;
             ChangeColor(index);
         }
 
@@ -711,8 +663,8 @@ namespace ObliqueSenastions.MaterialControl
         {
             for (int i = 0; i < colorChangers.Length; i++)
             {
-                if(name == colorChangers[i].note)
-                return i;
+                if (name == colorChangers[i].note)
+                    return i;
             }
 
             Debug.LogError("no color changer found with name: " + name);
@@ -721,7 +673,7 @@ namespace ObliqueSenastions.MaterialControl
 
         IEnumerator InterruptAndChangeColorR(int index)
         {
-            
+
             InterruptColorChangers(colorChangers[index].colorPropRef);
             yield return new WaitForSeconds(0.1f);
             colorChangers[index].isInterrupted = false;
@@ -733,7 +685,7 @@ namespace ObliqueSenastions.MaterialControl
         {
             for (int i = 0; i < colorChangers.Length; i++)
             {
-                if(propRef == colorChangers[i].colorPropRef)
+                if (propRef == colorChangers[i].colorPropRef)
                 {
                     colorChangers[i].isInterrupted = true;
                 }
@@ -754,7 +706,7 @@ namespace ObliqueSenastions.MaterialControl
             {
                 timer += Time.deltaTime;
                 newColor = Color.Lerp(startColor, targetColor, curve.Evaluate(timer / duration));
-                block.SetColor(colorChangers[index].colorPropRef, newColor);             
+                block.SetColor(colorChangers[index].colorPropRef, newColor);
                 yield return null;
             }
 

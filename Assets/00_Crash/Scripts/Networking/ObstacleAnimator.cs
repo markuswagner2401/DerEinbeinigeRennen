@@ -131,9 +131,11 @@ namespace ObliqueSenastions.PunNetworking
         }
 
         [PunRPC]
-        public void ActivateObject(bool isActive)
+        public void ActivateObject(Vector3 position, Quaternion rotation)
         {
-            gameObject.SetActive(isActive);
+            gameObject.SetActive(true);
+            gameObject.transform.position = position;
+            gameObject.transform.rotation = rotation;
         }
     }
 }
