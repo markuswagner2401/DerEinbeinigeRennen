@@ -50,23 +50,23 @@ namespace ObliqueSenastions.AnimatorSpace
             if (playChangerGroupAtStart)
             {
                 //PlayAnimationOfAnimationGroup(startChangerGroup);
-                StartCoroutine(DebugGroupChange());
+                //StartCoroutine(DebugGroupChange());
             }
         }
 
-        IEnumerator DebugGroupChange()
-        {
-            while (true)
-            {
-                PlayAnimationOfAnimationGroup("Waving");
-                yield return new WaitForSeconds(10f);
-                PlayAnimationOfAnimationGroup("Idle");
-                yield return new WaitForSeconds(10f);
+        // IEnumerator DebugGroupChange()
+        // {
+        //     while (true)
+        //     {
+        //         PlayAnimationOfAnimationGroup("Waving");
+        //         yield return new WaitForSeconds(10f);
+        //         PlayAnimationOfAnimationGroup("Idle");
+        //         yield return new WaitForSeconds(10f);
 
-            }
+        //     }
 
 
-        }
+        // }
 
 
 

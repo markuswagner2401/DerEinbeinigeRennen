@@ -32,7 +32,7 @@ namespace ObliqueSenastions.MaterialControl
         {
             if (other.gameObject.tag == triggerTag)
             {
-                print("trigger");
+                //print("trigger");
                 //videoPlayer.Play();
                 // screen.material = videoMaterial;
                 videoPlayer.Prepare();
@@ -55,7 +55,7 @@ namespace ObliqueSenastions.MaterialControl
         {
             if (other.gameObject.tag == triggerTag)
             {
-                print("trigger exit");
+                //print("trigger exit");
                 videoPlayer.Stop();
                 // screen.material = stopMaterial;
             }

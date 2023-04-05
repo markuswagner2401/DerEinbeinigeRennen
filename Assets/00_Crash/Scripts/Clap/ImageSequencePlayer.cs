@@ -433,7 +433,7 @@ namespace ObliqueSenastions.MaterialControl
 
         IEnumerator ContinueSequenceR(int sequenceIndex)
         {
-            print("continue sequence ");
+            //print("continue sequence ");
             sequences[sequenceIndex].play = true;
             int currentIndex = sequences[sequenceIndex].currentIndex;
 
@@ -456,7 +456,7 @@ namespace ObliqueSenastions.MaterialControl
                 //yield break;
             }
 
-            print("stop sequence r");
+            //print("stop sequence r");
 
             yield break;
         }
@@ -483,7 +483,7 @@ namespace ObliqueSenastions.MaterialControl
             {
 
 
-                print("change value");
+                //print("change value");
                 // int index = UnityEngine.Random.Range(0, valueChangerGroups[currentChangerGroup].valueChangers.Length);
                 // ChangeValue(index);
 

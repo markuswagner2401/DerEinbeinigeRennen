@@ -18,6 +18,8 @@ namespace ObliqueSenastions.FinalIKControl
         [SerializeField] bool setToMainCamera = false;
         Transform currentTarget;
 
+        bool maincamSetup;
+
         private void Start()
         {
             if (aimIK == null)
@@ -27,23 +29,41 @@ namespace ObliqueSenastions.FinalIKControl
 
             if(setToMainCamera)
             {
-                GameObject mainCameraGo = GameObject.FindWithTag("MainCamera");
-                if(mainCameraGo != null)
-                {
-                    currentTarget = mainCameraGo.transform;
-                }
+                SetupMainCamTarget();
             }
         }
 
+        private void SetupMainCamTarget()
+        {
+            if(maincamSetup) return;
+            GameObject mainCameraGo = GameObject.FindWithTag("MainCamera");
+            if (mainCameraGo != null)
+            {
+                maincamSetup = true;
+                currentTarget = mainCameraGo.transform;
+            }
+            else
+            {
+                Debug.LogError("IKTargetChanger: Didnt find Maincam");
+                maincamSetup = false;
+            }
+        }
 
         public void SetAimIKTarget(Transform target)
         {
+            
             currentTarget = target;
 
         }
 
         private void Update()
         {
+
+            if(setToMainCamera)
+            {
+                SetupMainCamTarget();
+            }
+            
             if (aimIKTarget != null && currentTarget != null)
             {
                 aimIKTarget.position = Vector3.Lerp(aimIKTarget.position, currentTarget.position, smoothing);
