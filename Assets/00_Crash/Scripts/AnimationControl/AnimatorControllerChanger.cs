@@ -8,12 +8,18 @@ namespace ObliqueSenastions.AnimatorSpace
 {
     public class AnimatorControllerChanger : MonoBehaviour
     {
+        [SerializeField] bool playChangerGroupAtStart = false;
+
+        [SerializeField] string startChangerGroup;
+
+
         [SerializeField] AnimationGroup[] animationGroups;
 
         [System.Serializable]
         public struct AnimationGroup
         {
             public string name;
+            public AnimationClip originalClip;
             public AnimationChangers[] animationChangers;
         }
 
@@ -27,7 +33,7 @@ namespace ObliqueSenastions.AnimatorSpace
         }
 
         [SerializeField] private string scoreDisplayTag;
-        
+
 
         private Animator animator;
         private AnimatorOverrideController animatorOverrideController;
@@ -40,11 +46,31 @@ namespace ObliqueSenastions.AnimatorSpace
             animator = GetComponent<Animator>();
             animatorOverrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
             animator.runtimeAnimatorController = animatorOverrideController;
+
+            if (playChangerGroupAtStart)
+            {
+                //PlayAnimationOfAnimationGroup(startChangerGroup);
+                StartCoroutine(DebugGroupChange());
+            }
         }
 
-        
+        IEnumerator DebugGroupChange()
+        {
+            while (true)
+            {
+                PlayAnimationOfAnimationGroup("Waving");
+                yield return new WaitForSeconds(10f);
+                PlayAnimationOfAnimationGroup("Idle");
+                yield return new WaitForSeconds(10f);
 
-        
+            }
+
+
+        }
+
+
+
+
 
         public void PlayAnimationOfAnimationGroup(string groupName)
         {
@@ -52,10 +78,7 @@ namespace ObliqueSenastions.AnimatorSpace
             if (groupIndex == -1) return;
             if (animationGroups[groupIndex].animationChangers.Length == 0) return;
             int changerIndex = Random.Range(0, animationGroups[groupIndex].animationChangers.Length);
-            AnimationChangers changer = animationGroups[groupIndex].animationChangers[changerIndex];
-            StartCoroutine(InterruptAndPlayAnimationR(changer));
-
-
+            StartCoroutine(InterruptAndPlayAnimationR(groupIndex, changerIndex));
         }
 
         int GetGroupIndexByName(string name)
@@ -69,16 +92,22 @@ namespace ObliqueSenastions.AnimatorSpace
             return -1;
         }
 
-        private IEnumerator InterruptAndPlayAnimationR(AnimationChangers changer)
+        private IEnumerator InterruptAndPlayAnimationR(int groupIndex, int changerIndex)
         {
             interrupted = true;
             yield return new WaitForSeconds(0.1f);
             interrupted = false;
+
+            AnimationChangers changer = animationGroups[groupIndex].animationChangers[changerIndex];
+
+            animatorOverrideController[animationGroups[groupIndex].originalClip] = changer.clip;
+
             StartCoroutine(PlayAnimationR(changer.boolParameter, changer.duration));
         }
 
         private IEnumerator PlayAnimationR(string boolParameter, float duration)
         {
+
             animator.SetBool(boolParameter, true);
             float timer = 0;
             interrupted = false;

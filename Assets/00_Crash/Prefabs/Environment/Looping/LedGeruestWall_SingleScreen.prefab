@@ -305,8 +305,8 @@ MonoBehaviour:
     currentIndex: 0
     play: 0
     playTriggered: 0
-    fpsMin: 1
-    fpsMax: 10
+    fpsMin: 0.2
+    fpsMax: 2
     stepSizeMin: 1
     stepSizeMax: 3
     targetPropRef: _ImageTexture
@@ -515,69 +515,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 398508160385210653, guid: 48d77af14b27cbc4e9facf5fffebee9d,
         type: 3}
-      propertyPath: animationGroups.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 398508160385210653, guid: 48d77af14b27cbc4e9facf5fffebee9d,
-        type: 3}
-      propertyPath: animationGroups.Array.data[0].name
-      value: Idle
-      objectReference: {fileID: 0}
-    - target: {fileID: 398508160385210653, guid: 48d77af14b27cbc4e9facf5fffebee9d,
-        type: 3}
-      propertyPath: animationGroups.Array.data[1].name
-      value: Waving
-      objectReference: {fileID: 0}
-    - target: {fileID: 398508160385210653, guid: 48d77af14b27cbc4e9facf5fffebee9d,
-        type: 3}
-      propertyPath: animationGroups.Array.data[2].name
-      value: Raving
-      objectReference: {fileID: 0}
-    - target: {fileID: 398508160385210653, guid: 48d77af14b27cbc4e9facf5fffebee9d,
-        type: 3}
-      propertyPath: animationGroups.Array.data[1].animationChangers.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 398508160385210653, guid: 48d77af14b27cbc4e9facf5fffebee9d,
-        type: 3}
-      propertyPath: animationGroups.Array.data[2].animationChangers.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 398508160385210653, guid: 48d77af14b27cbc4e9facf5fffebee9d,
-        type: 3}
-      propertyPath: animationGroups.Array.data[0].animationChangers.Array.data[0].clip
-      value: 
-      objectReference: {fileID: -2316079829308513851, guid: 57075d4973e8a7e4bbcc3fcf88ea90ad,
-        type: 3}
-    - target: {fileID: 398508160385210653, guid: 48d77af14b27cbc4e9facf5fffebee9d,
-        type: 3}
-      propertyPath: animationGroups.Array.data[0].animationChangers.Array.data[0].note
-      value: wippen
-      objectReference: {fileID: 0}
-    - target: {fileID: 398508160385210653, guid: 48d77af14b27cbc4e9facf5fffebee9d,
-        type: 3}
-      propertyPath: animationGroups.Array.data[1].animationChangers.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8953644770631740665, guid: 16a7b3d1a57e15946b225f309c38b954,
-        type: 3}
-    - target: {fileID: 398508160385210653, guid: 48d77af14b27cbc4e9facf5fffebee9d,
-        type: 3}
-      propertyPath: animationGroups.Array.data[1].animationChangers.Array.data[0].note
-      value: Waving1
-      objectReference: {fileID: 0}
-    - target: {fileID: 398508160385210653, guid: 48d77af14b27cbc4e9facf5fffebee9d,
-        type: 3}
-      propertyPath: animationGroups.Array.data[2].animationChangers.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 55227497767483386, guid: 59b549b28de753649a3cc13e131608bf,
-        type: 3}
-    - target: {fileID: 398508160385210653, guid: 48d77af14b27cbc4e9facf5fffebee9d,
-        type: 3}
-      propertyPath: animationGroups.Array.data[2].animationChangers.Array.data[0].note
-      value: Raving1
-      objectReference: {fileID: 0}
-    - target: {fileID: 398508160385210653, guid: 48d77af14b27cbc4e9facf5fffebee9d,
-        type: 3}
       propertyPath: animationGroups.Array.data[2].animationChangers.Array.data[1].clip
       value: 
       objectReference: {fileID: -814029950989792322, guid: 45e71226f2196a944ac516cbe8bf15d3,
@@ -622,11 +559,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 398508160385210653, guid: 48d77af14b27cbc4e9facf5fffebee9d,
         type: 3}
-      propertyPath: animationGroups.Array.data[2].animationChangers.Array.data[0].duration
-      value: 9999
-      objectReference: {fileID: 0}
-    - target: {fileID: 398508160385210653, guid: 48d77af14b27cbc4e9facf5fffebee9d,
-        type: 3}
       propertyPath: animationGroups.Array.data[2].animationChangers.Array.data[1].duration
       value: 9999
       objectReference: {fileID: 0}
@@ -644,21 +576,6 @@ PrefabInstance:
         type: 3}
       propertyPath: animationGroups.Array.data[2].animationChangers.Array.data[4].duration
       value: 9999
-      objectReference: {fileID: 0}
-    - target: {fileID: 398508160385210653, guid: 48d77af14b27cbc4e9facf5fffebee9d,
-        type: 3}
-      propertyPath: animationGroups.Array.data[0].animationChangers.Array.data[0].boolParameter
-      value: talking
-      objectReference: {fileID: 0}
-    - target: {fileID: 398508160385210653, guid: 48d77af14b27cbc4e9facf5fffebee9d,
-        type: 3}
-      propertyPath: animationGroups.Array.data[1].animationChangers.Array.data[0].boolParameter
-      value: rumba
-      objectReference: {fileID: 0}
-    - target: {fileID: 398508160385210653, guid: 48d77af14b27cbc4e9facf5fffebee9d,
-        type: 3}
-      propertyPath: animationGroups.Array.data[2].animationChangers.Array.data[0].boolParameter
-      value: cheering
       objectReference: {fileID: 0}
     - target: {fileID: 398508160385210653, guid: 48d77af14b27cbc4e9facf5fffebee9d,
         type: 3}
@@ -1518,7 +1435,7 @@ PrefabInstance:
     - target: {fileID: 4555507050810424571, guid: 48d77af14b27cbc4e9facf5fffebee9d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.6000035
+      value: 3.6000044
       objectReference: {fileID: 0}
     - target: {fileID: 4555507050810424571, guid: 48d77af14b27cbc4e9facf5fffebee9d,
         type: 3}

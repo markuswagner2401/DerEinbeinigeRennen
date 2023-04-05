@@ -21,6 +21,8 @@ namespace ObliqueSenastions.TimelineSpace
 
         [SerializeField] private Role role = Role.Rennfahrer;
 
+        [SerializeField] private bool timelineHalt = false;
+
         [Space(20)]
         [SerializeField] private bool retroactive = false;
         [SerializeField] private bool emitOnce = false;
@@ -32,6 +34,8 @@ namespace ObliqueSenastions.TimelineSpace
         public string Text => text;
         public Color Color => color;
         public int Size => size;
+
+        public bool TimelineHalt => timelineHalt;
         public FontStyles FontStyle => fontStyle;
 
         public bool RoleAware => roleAware;

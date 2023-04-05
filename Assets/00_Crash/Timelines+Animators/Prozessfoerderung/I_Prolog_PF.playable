@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 478.8333333333335
+  m_Time: 476.98333333333335
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -448,6 +448,7 @@ MonoBehaviour:
     - {fileID: 3077021233983854034}
     - {fileID: 1881845319760989472}
     - {fileID: -5374479571784100619}
+    - {fileID: -7818633474179994112}
 --- !u!114 &-7910358812938270926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -541,6 +542,22 @@ MonoBehaviour:
   m_Markers:
     m_Objects: []
   m_PostPlaybackState: 3
+--- !u!114 &-7818633474179994112
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
+  m_Name: Go Event Marker
+  m_EditorClassIdentifier: 
+  m_Time: 478.25
+  goEventName: StartCountdown
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &-7812671548227029460
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -682,6 +699,22 @@ MonoBehaviour:
     role: 0
     lastClipInScene: 0
     inactive: 0
+--- !u!114 &-7364624723230129596
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
+  m_Name: Haltepunkt Marker
+  m_EditorClassIdentifier: 
+  m_Time: 14.283333333333333
+  note: Halt vor Fade In
+  displayModeInInspiUI: 1
+  stopOrHold: 1
 --- !u!114 &-7357091873549844383
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -710,7 +743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 478.8333333333335
+  m_Time: 476.98333333333335
   note: Setzen
   spaceStateIndex: 2
   changeDurationToNextMarker: 1
@@ -1773,6 +1806,22 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
+--- !u!114 &-5606887878266085786
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
+  m_Name: Haltepunkt Marker
+  m_EditorClassIdentifier: 
+  m_Time: 478.21666666666664
+  note: Halt vor Countdown
+  displayModeInInspiUI: 1
+  stopOrHold: 0
 --- !u!114 &-5473048994069475182
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2006,7 +2055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 478.8333333333335
+  m_Time: 476.98333333333335
   goEventName: FadeOutSeq
   retroactive: 0
   emitOnce: 0
@@ -2222,7 +2271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd1052dc315d7348b5df1a59f3fbae5, type: 3}
   m_Name: Timeline Annotation
   m_EditorClassIdentifier: 
-  m_Time: 480.46666666666664
+  m_Time: 479.96666666666664
   title: Rennbeginn
   color: {r: 0, g: 0, b: 0, a: 0}
   description: 
@@ -2303,6 +2352,7 @@ MonoBehaviour:
     - {fileID: 8202483779370612664}
     - {fileID: 4490287252757045411}
     - {fileID: 2302057738487382138}
+    - {fileID: -545116993847450388}
 --- !u!114 &-2727541431285393067
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2406,6 +2456,8 @@ MonoBehaviour:
     - {fileID: -5417992019634216992}
     - {fileID: 3645137856896513456}
     - {fileID: -1387304666140990530}
+    - {fileID: -7364624723230129596}
+    - {fileID: -5606887878266085786}
 --- !u!114 &-2695180007477313514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2451,8 +2503,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 480.35
-  goEventName: StartRacing
+  m_Time: 477.78333333333336
+  goEventName: StartRacingTutorial
   retroactive: 0
   emitOnce: 0
 --- !u!114 &-2275642797331916132
@@ -2560,6 +2612,7 @@ MonoBehaviour:
     - {fileID: -4546420331005417921}
     - {fileID: -3216929797478872745}
     - {fileID: -4518963488638933623}
+    - {fileID: 9128411960716292192}
 --- !u!114 &-1823070615056592749
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2572,7 +2625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b48b7218308a9aa46aa8be71c4957714, type: 3}
   m_Name: UI Text Marker
   m_EditorClassIdentifier: 
-  m_Time: 10.004924231053641
+  m_Time: 7.366666666666666
   note: 
   text: OBLIQUE SENSATIONS - AUTO_NOMOS
   color: {r: 0.9, g: 0.9, b: 0.9, a: 1}
@@ -2580,6 +2633,7 @@ MonoBehaviour:
   fontStyle: 1
   roleAware: 0
   role: 0
+  timelineHalt: 1
   retroactive: 0
   emitOnce: 0
 --- !u!114 &-1666540754458943299
@@ -2617,7 +2671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
   m_Name: Haltepunkt Marker
   m_EditorClassIdentifier: 
-  m_Time: 493.45000000000005
+  m_Time: 481.53333333333336
   note: VorObstacleSituation1
   displayModeInInspiUI: 0
   stopOrHold: 0
@@ -3115,6 +3169,51 @@ MonoBehaviour:
   color: {r: 0, g: 0, b: 0, a: 0}
   description: 
   showLineOverlay: 0
+--- !u!114 &-545116993847450388
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
+  m_EditorClassIdentifier: 
+  m_Time: 479.1
+  note: FadeRandomTextures
+  textureChangerIndex: 1
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &-486580111311330078
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3266,6 +3365,7 @@ MonoBehaviour:
     - {fileID: -7560811811208488697}
     - {fileID: -2727541431285393067}
     - {fileID: 3238595348247036890}
+    - {fileID: 2463976077766411361}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3693,8 +3793,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
   m_Name: Haltepunkt Marker
   m_EditorClassIdentifier: 
-  m_Time: 478.8333333333335
-  note: Halt vor Rennen
+  m_Time: 477.3666666666667
+  note: Halt vor Rennen Tutorial
   displayModeInInspiUI: 1
   stopOrHold: 0
 --- !u!114 &1081224997340537834
@@ -3844,7 +3944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 10.400000000000006
+  m_Time: 11.5
   goEventName: ShowHands
   retroactive: 0
   emitOnce: 0
@@ -4027,7 +4127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b48b7218308a9aa46aa8be71c4957714, type: 3}
   m_Name: UI Text Marker
   m_EditorClassIdentifier: 
-  m_Time: 14.899999999999999
+  m_Time: 7.983333333333332
   note: FIGUREN/ DER FAHRER/ DER ZUSCHAUER/ DAS AUTO
   text: FIGUREN/ DER FAHRER/ DER ZUSCHAUER/ DAS AUTO
   color: {r: 0.9, g: 0.9, b: 0.9, a: 1}
@@ -4035,6 +4135,7 @@ MonoBehaviour:
   fontStyle: 1
   roleAware: 0
   role: 0
+  timelineHalt: 1
   retroactive: 0
   emitOnce: 0
 --- !u!114 &2302057738487382138
@@ -4052,6 +4153,51 @@ MonoBehaviour:
   m_Time: 549.9666666666665
   note: FadeRandomTextures
   textureChangerIndex: 2
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
+--- !u!114 &2463976077766411361
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
+  m_Name: Blend Shape Marker
+  m_EditorClassIdentifier: 
+  m_Time: 479.1
+  note: Setzen
+  spaceStateIndex: 2
   changeDurationToNextMarker: 1
   changeDuration: 0
   duration: 10
@@ -4664,7 +4810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 497.3500000000002
+  m_Time: 482.1
   goEventName: ObstacleSituation1
   retroactive: 0
   emitOnce: 0
@@ -4758,7 +4904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b48b7218308a9aa46aa8be71c4957714, type: 3}
   m_Name: UI Text Marker
   m_EditorClassIdentifier: 
-  m_Time: 19.983333333333334
+  m_Time: 9.25
   note: 
   text: 
   color: {r: 0.9, g: 0.9, b: 0.9, a: 1}
@@ -4766,6 +4912,7 @@ MonoBehaviour:
   fontStyle: 1
   roleAware: 0
   role: 0
+  timelineHalt: 1
   retroactive: 0
   emitOnce: 0
 --- !u!114 &3467741010093195622
@@ -4796,8 +4943,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
   m_Name: Haltepunkt Marker
   m_EditorClassIdentifier: 
-  m_Time: 14.933333333333334
-  note: Warten auf Strasse vor ersten Fahrt
+  m_Time: 6.316666666666666
+  note: Warten auf Netzwerkverbindung
   displayModeInInspiUI: 1
   stopOrHold: 1
 --- !u!114 &3645137856896513456
@@ -5052,7 +5199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Version: 3
   m_AnimClip: {fileID: 0}
-  m_Locked: 1
+  m_Locked: 0
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
@@ -5353,6 +5500,29 @@ MonoBehaviour:
   note: Warten auf Rennfahrer
   displayModeInInspiUI: 1
   stopOrHold: 1
+--- !u!114 &6424331686532377147
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b48b7218308a9aa46aa8be71c4957714, type: 3}
+  m_Name: UI Text Marker
+  m_EditorClassIdentifier: 
+  m_Time: 10.400000000000006
+  note: 
+  text: 
+  color: {r: 0.9, g: 0.9, b: 0.9, a: 1}
+  size: 20
+  fontStyle: 1
+  roleAware: 0
+  role: 0
+  timelineHalt: 0
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &6502069377586797843
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5874,6 +6044,7 @@ MonoBehaviour:
     - {fileID: 3458222109776552491}
     - {fileID: 8181391146068507952}
     - {fileID: 2243783591790111449}
+    - {fileID: 6424331686532377147}
 --- !u!114 &7426783111697682729
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5886,7 +6057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b48b7218308a9aa46aa8be71c4957714, type: 3}
   m_Name: UI Text Marker
   m_EditorClassIdentifier: 
-  m_Time: 20.01666666666667
+  m_Time: 8.63333333333333
   note: "EINE VIRTUELLE RECHERCHE ZUM THEATERST\xDCCK DER EINBEINIGE L\xC4UFER VON
     KATHARINA SCHMITT"
   text: "EINE VIRTUELLE RECHERCHE ZUM THEATERST\xDCCK DER EINBEINIGE L\xC4UFER VON
@@ -5896,6 +6067,7 @@ MonoBehaviour:
   fontStyle: 1
   roleAware: 0
   role: 0
+  timelineHalt: 1
   retroactive: 0
   emitOnce: 0
 --- !u!114 &7460762929946032066
@@ -6876,7 +7048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b48b7218308a9aa46aa8be71c4957714, type: 3}
   m_Name: UI Text Marker
   m_EditorClassIdentifier: 
-  m_Time: 26.533333333333335
+  m_Time: 9.816666666666666
   note: "DIE HANDLUNG SPIELT VOR, W\xC4HREND UND NACH EINEM AUTORENNEN"
   text: "DIE HANDLUNG SPIELT VOR, W\xC4HREND UND NACH EINEM AUTORENNEN"
   color: {r: 0.9, g: 0.9, b: 0.9, a: 1}
@@ -6884,6 +7056,7 @@ MonoBehaviour:
   fontStyle: 1
   roleAware: 0
   role: 0
+  timelineHalt: 1
   retroactive: 0
   emitOnce: 0
 --- !u!114 &8202483779370612664
@@ -7242,3 +7415,19 @@ MonoBehaviour:
     - {fileID: -2695180007477313514}
     - {fileID: 6625482524750059243}
     - {fileID: -3145763489890134940}
+--- !u!114 &9128411960716292192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
+  m_Name: Go Event Marker
+  m_EditorClassIdentifier: 
+  m_Time: 481.51666666666665
+  goEventName: TribuenenRennen1
+  retroactive: 0
+  emitOnce: 0

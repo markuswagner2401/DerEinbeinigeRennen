@@ -30,8 +30,13 @@ namespace ObliqueSenastions.TimelineSpace
                 {
                     textStreamer.ShowText(uITextMarker.Text, uITextMarker.Color, uITextMarker.FontStyle, uITextMarker.Size);
                 }
+
+                if(uITextMarker.TimelineHalt)
+                {
+                    GetComponent<TimeLineHandler>()?.GetComponent<TimeModeMachine>()?.SetTimelinePlayMode((int)TimelinePlayMode.Hold);
+                }
                 
-                //textStreamer.ShowText(uITextMarker.Text);
+              
 
             }
         }

@@ -1070,15 +1070,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1611c962b47eeb546af70c677090e847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playChangerGroupAtStart: 0
+  startChangerGroup: 
   animationGroups:
-  - name: Waving
+  - name: Idle
+    originalClip: {fileID: -203655887218126122, guid: 6f409b3c88ec60b43b0b3feb33cb95a5,
+      type: 3}
     animationChangers:
-    - note: Waving1
-      boolParameter: waving
+    - note: wippen
+      boolParameter: talking
       duration: 9999
-      clip: {fileID: 8953644770631740665, guid: 16a7b3d1a57e15946b225f309c38b954,
+      clip: {fileID: -2316079829308513851, guid: 57075d4973e8a7e4bbcc3fcf88ea90ad,
         type: 3}
   - name: Raving
+    originalClip: {fileID: -203655887218126122, guid: de883cc3d7fc25c43a61983e00dbd573,
+      type: 3}
     animationChangers:
     - note: Raving1
       boolParameter: cheering
@@ -1103,6 +1109,15 @@ MonoBehaviour:
       boolParameter: cheering
       duration: 9999
       clip: {fileID: 903883286120817792, guid: 50f4f071656a77b4aba551a5f282d6c8, type: 3}
+  - name: Waving
+    originalClip: {fileID: -203655887218126122, guid: 7a538698a8101854993fb0fd628dc597,
+      type: 3}
+    animationChangers:
+    - note: Waving1
+      boolParameter: rumba
+      duration: 9999
+      clip: {fileID: 8953644770631740665, guid: 16a7b3d1a57e15946b225f309c38b954,
+        type: 3}
   scoreDisplayTag: ScoreDisplay
 --- !u!114 &3577578964114867484
 MonoBehaviour:
