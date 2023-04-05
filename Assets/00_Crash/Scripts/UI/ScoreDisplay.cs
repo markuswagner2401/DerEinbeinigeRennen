@@ -24,8 +24,11 @@ namespace ObliqueSenastions.UISpace
             public bool lastShowText;
             public int currentScore;
 
-            public string overwriteText;
             public int lastScore;
+            public string overwriteText;
+
+            public string lastOverwriteText;
+
             public int countdownStartNumber;
             public float countdownTiming;
 
@@ -56,7 +59,7 @@ namespace ObliqueSenastions.UISpace
         }
 
         public delegate void CountdownEnd();
-        public event CountdownEnd OnCountdownEnd;
+        public event CountdownEnd OnCountdownEnd = null;
 
 
 
@@ -72,13 +75,18 @@ namespace ObliqueSenastions.UISpace
         {
             for (int i = 0; i < scores.Length; i++)
             {
-                if (scores[i].currentScore != scores[i].lastScore || scores[i].showText != scores[i].lastShowText)
+
+                if (scores[i].currentScore != scores[i].lastScore || scores[i].showText != scores[i].lastShowText || scores[i].overwriteText != scores[i].lastOverwriteText)
                 {
                     UpdateDisplay(i);
                 }
 
+
+
+
                 scores[i].lastScore = scores[i].currentScore;
                 scores[i].lastShowText = scores[i].showText;
+                scores[i].lastOverwriteText = scores[i].overwriteText;
             }
         }
 
@@ -152,7 +160,7 @@ namespace ObliqueSenastions.UISpace
 
             if (index == 0) // main racer end events
             {
-                OnCountdownEnd.Invoke();
+                if(OnCountdownEnd != null) OnCountdownEnd.Invoke();
                 if (currentCoundownEndGroupIndex >= 0 && currentCoundownEndGroupIndex < onCountdownEndEventGroups.Length)
                 {
                     if (!(onCountdownEndEventGroups[currentCoundownEndGroupIndex].playOnce && onCountdownEndEventGroups[currentCoundownEndGroupIndex].played))
@@ -214,7 +222,25 @@ namespace ObliqueSenastions.UISpace
 
         private void UpdateDisplay(int index)
         {
-            string newText = scores[index].showText ? scores[index].currentScore.ToString() : "";
+
+            string newText;
+            if(!scores[index].showText)
+            {
+                newText = "";
+            }
+            else
+            {
+                if(scores[index].overwriteText != "")
+                {
+                    newText = scores[index].overwriteText;
+                }
+                else
+                {
+                    newText = scores[index].currentScore.ToString();
+                }
+            }
+            
+            
             //if(newText == scores[index].tmp.text) return; // safes performance not to set the text every frame (?)
             scores[index].tmp.text = newText;
         }

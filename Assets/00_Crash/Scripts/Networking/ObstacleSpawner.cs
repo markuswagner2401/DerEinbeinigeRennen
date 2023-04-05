@@ -50,7 +50,7 @@ namespace ObliqueSenastions.PunNetworking
 
             // debugging
 
-            //PlaySpawnSituation(0);
+            PlaySpawnSituation(0);
         }
 
         private void UpdateSpawnerActivity()

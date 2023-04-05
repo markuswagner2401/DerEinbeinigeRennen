@@ -122,9 +122,14 @@ namespace ObliqueSenastions.StageMasterSpace
         private void PlaceholderOnGoEvent(string name)
         {
         }
-        public void PlayGoEvent(string name)
+
+        public void SendDelegateVoidOnGoEvent(string name)
         {
             onGoEvent.Invoke(name);
+        }
+        public void PlayGoEvent(string name)
+        {
+            
             int index = GetGoEventIndexByName(name);
             PlayGoEvent(index);
             print("play go event: " + name + " index: " + index);
@@ -196,7 +201,7 @@ namespace ObliqueSenastions.StageMasterSpace
             {
                 yield return new WaitForSeconds(goEvents[index].waitTimeForNext);
                 index = NextIndex(index);
-                StartCoroutine(PlayGoEventRoutine(index));
+                PlayGoEvent(index);
                 yield break;
             }
 

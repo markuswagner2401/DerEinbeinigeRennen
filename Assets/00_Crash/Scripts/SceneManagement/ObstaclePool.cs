@@ -13,7 +13,7 @@ namespace ObliqueSenastions.SceneSpace
         [System.Serializable]
         public class Pool
         {
-            public string tag;
+            public string note;
             public GameObject prefab;
             public int size;
         }
@@ -57,19 +57,20 @@ namespace ObliqueSenastions.SceneSpace
                     objectPool.Enqueue(obj);
                 }
 
-                poolDictionary.Add(pool.tag, objectPool);
+                poolDictionary.Add(pool.prefab.name, objectPool);
             }
         }
 
-        public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
+        public GameObject SpawnFromPool(string prefabName, Vector3 position, Quaternion rotation)
         {
-            if (!poolDictionary.ContainsKey(tag))
+            if(poolDictionary == null) return null;
+            if (!poolDictionary.ContainsKey(prefabName))
             {
-                Debug.LogWarning("Pool with tag " + tag + " doesn't exist.");
+                Debug.LogWarning("Pool with tag " + prefabName + " doesn't exist.");
                 return null;
             }
 
-            GameObject objectToSpawn = poolDictionary[tag].Dequeue();
+            GameObject objectToSpawn = poolDictionary[prefabName].Dequeue();
 
             objectToSpawn.SetActive(true);
             objectToSpawn.transform.position = position;
@@ -88,7 +89,7 @@ namespace ObliqueSenastions.SceneSpace
                 }
             }
 
-            poolDictionary[tag].Enqueue(objectToSpawn);
+            poolDictionary[prefabName].Enqueue(objectToSpawn);
 
             return objectToSpawn;
         }

@@ -321,7 +321,7 @@ namespace ObliqueSenastions.UISpace
                 capturedText = "\n" + tutorials[index].messages[i].text + "\n" + capturedText;
 
 
-                print("messageindex "+ i + "tutorial length: " + tutorials[index].messages.Length);
+                //print("messageindex "+ i + "tutorial length: " + tutorials[index].messages.Length);
 
                 if (i + 1 >= tutorials[index].messages.Length)
                 {
