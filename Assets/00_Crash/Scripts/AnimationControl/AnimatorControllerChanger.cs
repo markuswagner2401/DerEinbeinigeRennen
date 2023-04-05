@@ -8,6 +8,15 @@ namespace ObliqueSenastions.AnimatorSpace
 {
     public class AnimatorControllerChanger : MonoBehaviour
     {
+        [SerializeField] AnimationGroup[] animationGroups;
+
+        [System.Serializable]
+        public struct AnimationGroup
+        {
+            public string name;
+            public AnimationChangers[] animationChangers;
+        }
+
         [System.Serializable]
         public struct AnimationChangers
         {
@@ -18,7 +27,7 @@ namespace ObliqueSenastions.AnimatorSpace
         }
 
         [SerializeField] private string scoreDisplayTag;
-        [SerializeField] private AnimationChangers[] animationChangers;
+        
 
         private Animator animator;
         private AnimatorOverrideController animatorOverrideController;
@@ -28,88 +37,44 @@ namespace ObliqueSenastions.AnimatorSpace
         private void Start()
         {
 
-            /// Listen To Countdown
-
-            GameObject targetObject = GameObject.FindGameObjectWithTag(scoreDisplayTag);
-            if (targetObject != null)
-            {
-                ScoreDisplay scoreDisplay = targetObject.GetComponent<ScoreDisplay>();
-                if (scoreDisplay != null)
-                {
-                    scoreDisplay.OnCountdownEnd += OnCountdownMainPlayerEnd;
-                }
-                else
-                {
-                    Debug.LogError("ScoreDisplay component not found on the object with tag " + scoreDisplayTag);
-                }
-            }
-            else
-            {
-                Debug.LogError("No object found with tag " + scoreDisplayTag);
-            }
-
-            /// Listen To StageMaster
-            GameObject stageMasterGO = GameObject.FindWithTag("StageMaster");
-
-
             animator = GetComponent<Animator>();
             animatorOverrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
             animator.runtimeAnimatorController = animatorOverrideController;
         }
 
-        private void OnDestroy()
+        
+
+        
+
+        public void PlayAnimationOfAnimationGroup(string groupName)
         {
-            GameObject targetObject = GameObject.FindGameObjectWithTag(scoreDisplayTag);
-            if (targetObject != null)
-            {
-                ScoreDisplay scoreDisplay = targetObject.GetComponent<ScoreDisplay>();
-                if (scoreDisplay != null)
-                {
-                    scoreDisplay.OnCountdownEnd -= OnCountdownMainPlayerEnd;
-                }
-            }
+            int groupIndex = GetGroupIndexByName(groupName);
+            if (groupIndex == -1) return;
+            if (animationGroups[groupIndex].animationChangers.Length == 0) return;
+            int changerIndex = Random.Range(0, animationGroups[groupIndex].animationChangers.Length);
+            AnimationChangers changer = animationGroups[groupIndex].animationChangers[changerIndex];
+            StartCoroutine(InterruptAndPlayAnimationR(changer));
+
+
         }
 
-        public void OnCountdownMainPlayerEnd()
+        int GetGroupIndexByName(string name)
         {
-            int index = Random.Range(0, animationChangers.Length);
-            if (index >= 0 && index < animationChangers.Length)
+            for (int i = 0; i < animationGroups.Length; i++)
             {
-                AnimationChangers changer = animationChangers[index];
-                animatorOverrideController[animatorOverrideController.animationClips[0]] = changer.clip;
-                StartCoroutine(PlayAnimationR(changer.boolParameter, changer.duration));
+                if (name == animationGroups[i].name) return i;
             }
-            else
-            {
-                Debug.LogError("Index out of range: " + index);
-            }
+
+            Debug.LogError("AnimationControlChanger: No animation group found with name " + name);
+            return -1;
         }
 
-        public void PlayAnimation(string name)
+        private IEnumerator InterruptAndPlayAnimationR(AnimationChangers changer)
         {
-            int index = -1;
-
-            for (int i = 0; i < animationChangers.Length; i++)
-            {
-                if (animationChangers[i].note != name)
-                {
-                    index = i;
-                    break;
-                }
-            }
-
-            if (index >= 0 && index < animationChangers.Length)
-            {
-                AnimationChangers changer = animationChangers[index];
-                animatorOverrideController[animatorOverrideController.animationClips[0]] = changer.clip;
-
-                StartCoroutine(InterruptAndWaitForNextFrame());
-                StartCoroutine(PlayAnimationR(changer.boolParameter, changer.duration));
-            }
-            else
-            {
-                Debug.LogError("Animation not found: " + name);
-            }
+            interrupted = true;
+            yield return new WaitForSeconds(0.1f);
+            interrupted = false;
+            StartCoroutine(PlayAnimationR(changer.boolParameter, changer.duration));
         }
 
         private IEnumerator PlayAnimationR(string boolParameter, float duration)
@@ -126,14 +91,6 @@ namespace ObliqueSenastions.AnimatorSpace
 
             animator.SetBool(boolParameter, false);
         }
-
-        private IEnumerator InterruptAndWaitForNextFrame()
-        {
-            interrupted = true;
-            yield return null;
-            interrupted = false;
-        }
-
 
 
 

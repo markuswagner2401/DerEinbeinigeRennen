@@ -14,6 +14,8 @@ namespace ObliqueSenastions.FinalIKControl
         [SerializeField] float smoothing = 0.1f;
 
         [SerializeField] Transform aimIKTarget = null;
+
+        [SerializeField] bool setToMainCamera = false;
         Transform currentTarget;
 
         private void Start()
@@ -21,6 +23,15 @@ namespace ObliqueSenastions.FinalIKControl
             if (aimIK == null)
             {
                 aimIK = GetComponent<AimIK>();
+            }
+
+            if(setToMainCamera)
+            {
+                GameObject mainCameraGo = GameObject.FindWithTag("MainCamera");
+                if(mainCameraGo != null)
+                {
+                    currentTarget = mainCameraGo.transform;
+                }
             }
         }
 

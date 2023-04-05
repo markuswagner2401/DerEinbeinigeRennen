@@ -42,7 +42,8 @@ namespace ObliqueSenastions.PunNetworking
 
         public void SetupStageMasterListener()  // gets setup by NetworkPlayerSpawner
         {
-            
+
+
 
             if (ReferenceEquals(stageMaster, null))
             {
@@ -63,6 +64,8 @@ namespace ObliqueSenastions.PunNetworking
 
         void PlayGoEvent(string name)
         {
+            if (gameObject.activeInHierarchy == false) return;
+            
             foreach (var item in stageMasterEvents)
             {
                 if (name == item.name)
@@ -72,9 +75,9 @@ namespace ObliqueSenastions.PunNetworking
             }
         }
 
-        private void OnDestroy() 
+        private void OnDestroy()
         {
-            if(stageMaster != null) stageMaster.onGoEvent -= PlayGoEvent;
+            if (stageMaster != null) stageMaster.onGoEvent -= PlayGoEvent;
         }
     }
 

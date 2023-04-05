@@ -46,6 +46,13 @@ namespace ObliqueSenastions.UISpace
         {
             if (text == null)
             {
+                GameObject textStreamGo = GameObject.FindGameObjectWithTag(textStreamTag);
+                if(textStreamGo == null)
+                {
+                    Debug.LogError("UITextStrreamer: no text Stream GO found, with tag: " + textStreamTag);
+                    return;
+                }
+                
                 text = GameObject.FindGameObjectWithTag(textStreamTag).GetComponent<TextMeshProUGUI>();
             }
 
@@ -80,7 +87,7 @@ namespace ObliqueSenastions.UISpace
 
         public void ShowText(Role role,string currentText, Color color, FontStyles style, int size)
         {
-            return;
+            //return;
             if(role != MultiplayerConnector.instance.GetRole()) return;
 
             ShowUI(currentText != "");

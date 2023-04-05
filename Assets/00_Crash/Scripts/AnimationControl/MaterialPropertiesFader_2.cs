@@ -288,7 +288,7 @@ namespace ObliqueSenastions.MaterialControl
                 }
                 else
                 {
-                    print("not matching: " + name + " " + floatChangers[i].note);
+                    print("float changer not matching: " + name + " " + floatChangers[i].note);
                     continue;
                 }
             }

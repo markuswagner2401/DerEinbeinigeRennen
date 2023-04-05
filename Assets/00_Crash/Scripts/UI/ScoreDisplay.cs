@@ -59,7 +59,11 @@ namespace ObliqueSenastions.UISpace
         }
 
         public delegate void CountdownEnd();
-        public event CountdownEnd OnCountdownEnd = null;
+        public event CountdownEnd OnCountdownEndDelegate = null;
+
+        public delegate void CountdownStart();
+
+        public event CountdownStart OnCountdownStartDelegate = null;
 
 
 
@@ -145,6 +149,14 @@ namespace ObliqueSenastions.UISpace
 
         IEnumerator CountdownRoutine(int index)
         {
+             
+            if(index == 0) 
+            {
+                if(OnCountdownStartDelegate != null )OnCountdownStartDelegate.Invoke(); // Send Message to countdown listeners
+            }
+
+            //
+
             scores[index].inCountdown = true;
             int capturedScoreBeforeCountdown = scores[index].currentScore;
             bool capturedShowText = scores[index].showText;
@@ -160,7 +172,8 @@ namespace ObliqueSenastions.UISpace
 
             if (index == 0) // main racer end events
             {
-                if(OnCountdownEnd != null) OnCountdownEnd.Invoke();
+                if(OnCountdownEndDelegate != null) OnCountdownEndDelegate.Invoke(); // Send Message to listeners
+
                 if (currentCoundownEndGroupIndex >= 0 && currentCoundownEndGroupIndex < onCountdownEndEventGroups.Length)
                 {
                     if (!(onCountdownEndEventGroups[currentCoundownEndGroupIndex].playOnce && onCountdownEndEventGroups[currentCoundownEndGroupIndex].played))

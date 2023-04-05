@@ -50,7 +50,7 @@ namespace ObliqueSenastions.PunNetworking
 
             // debugging
 
-            PlaySpawnSituation(0);
+            //PlaySpawnSituation(0);
         }
 
         private void UpdateSpawnerActivity()
@@ -116,7 +116,7 @@ namespace ObliqueSenastions.PunNetworking
 
                 Transform spawnPoint = situation.spawnPoints[newIndex];
 
-                print("try point: " + spawnPoint + " index " + newIndex);
+                //print("try point: " + spawnPoint + " index " + newIndex);
 
                 // Check if the spawn point is occupied
                 if (occupiedSpawnPoints.ContainsKey(spawnPoint) && occupiedSpawnPoints[spawnPoint] != null)

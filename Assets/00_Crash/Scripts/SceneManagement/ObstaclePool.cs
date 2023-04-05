@@ -45,9 +45,19 @@ namespace ObliqueSenastions.SceneSpace
             {
                 Queue<GameObject> objectPool = new Queue<GameObject>();
 
+                GameObject obj;
+
                 for (int i = 0; i < pool.size; i++)
                 {
-                    GameObject obj = Instantiate(pool.prefab);
+                    if(PhotonNetwork.IsConnected)
+                    {
+                        obj = PhotonNetwork.Instantiate(pool.prefab.name, Vector3.zero, Quaternion.identity);
+                    }
+                    else
+                    {
+                        obj = Instantiate(pool.prefab);
+                    }
+                    
                     obj.SetActive(false);
                     if(obstaclePoolParent != null)
                     {
@@ -66,7 +76,7 @@ namespace ObliqueSenastions.SceneSpace
             if(poolDictionary == null) return null;
             if (!poolDictionary.ContainsKey(prefabName))
             {
-                Debug.LogWarning("Pool with tag " + prefabName + " doesn't exist.");
+                Debug.LogWarning("Pool with key " + prefabName + " doesn't exist.");
                 return null;
             }
 
