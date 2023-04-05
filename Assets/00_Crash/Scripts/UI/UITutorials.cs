@@ -57,6 +57,8 @@ namespace ObliqueSenastions.UISpace
 
             public float durationAfterMessages;
 
+            public GameObject[] objectsToDeactivate;
+
             public UnityEvent doOnEndTutorial;
 
             public int maxRepetitions;
@@ -319,9 +321,13 @@ namespace ObliqueSenastions.UISpace
                 capturedText = "\n" + tutorials[index].messages[i].text + "\n" + capturedText;
 
 
+                print("messageindex "+ i + "tutorial length: " + tutorials[index].messages.Length);
 
-
-
+                if (i + 1 >= tutorials[index].messages.Length)
+                {
+                    messageComplete = true;
+                    print("message complete");
+                }
 
 
                 /// determine loop
@@ -357,15 +363,12 @@ namespace ObliqueSenastions.UISpace
                 else if(tutorials[index].loopMode == TutorialLoopModes.playOnceThenPlayNext)
                 {
                     stayInLoop = messageComplete ? false : true;
+                    
                 }
 
                 yield return new WaitForSeconds(tutorials[index].messages[i].duration);
 
-                if (i >= tutorials[index].messages.Length)
-                {
-                    messageComplete = true;
-                    print("message complete");
-                }
+                
                 i += 1;
                 i %= tutorials[index].messages.Length;
                 yield return null;
@@ -395,7 +398,7 @@ namespace ObliqueSenastions.UISpace
 
             yield return new WaitForSeconds(tutorials[index].durationAfterMessages);
 
-            foreach (var item in tutorials[index].objectsToActivate)
+            foreach (var item in tutorials[index].objectsToDeactivate)
             {
                 item.SetActive(false);
             }

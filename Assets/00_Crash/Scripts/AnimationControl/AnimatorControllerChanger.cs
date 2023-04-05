@@ -23,8 +23,13 @@ namespace ObliqueSenastions.AnimatorSpace
         private Animator animator;
         private AnimatorOverrideController animatorOverrideController;
 
+        private bool interrupted;
+
         private void Start()
         {
+
+            /// Listen To Countdown
+
             GameObject targetObject = GameObject.FindGameObjectWithTag(scoreDisplayTag);
             if (targetObject != null)
             {
@@ -42,6 +47,10 @@ namespace ObliqueSenastions.AnimatorSpace
             {
                 Debug.LogError("No object found with tag " + scoreDisplayTag);
             }
+
+            /// Listen To StageMaster
+            GameObject stageMasterGO = GameObject.FindWithTag("StageMaster");
+
 
             animator = GetComponent<Animator>();
             animatorOverrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
@@ -63,12 +72,12 @@ namespace ObliqueSenastions.AnimatorSpace
 
         public void OnCountdownMainPlayerEnd()
         {
-            int index = Random.Range(0,animationChangers.Length);
+            int index = Random.Range(0, animationChangers.Length);
             if (index >= 0 && index < animationChangers.Length)
             {
                 AnimationChangers changer = animationChangers[index];
                 animatorOverrideController[animatorOverrideController.animationClips[0]] = changer.clip;
-                StartCoroutine(PlayAnimation(changer.boolParameter, changer.duration));
+                StartCoroutine(PlayAnimationR(changer.boolParameter, changer.duration));
             }
             else
             {
@@ -76,12 +85,58 @@ namespace ObliqueSenastions.AnimatorSpace
             }
         }
 
-        private IEnumerator PlayAnimation(string boolParameter, float duration)
+        public void PlayAnimation(string name)
+        {
+            int index = -1;
+
+            for (int i = 0; i < animationChangers.Length; i++)
+            {
+                if (animationChangers[i].note != name)
+                {
+                    index = i;
+                    break;
+                }
+            }
+
+            if (index >= 0 && index < animationChangers.Length)
+            {
+                AnimationChangers changer = animationChangers[index];
+                animatorOverrideController[animatorOverrideController.animationClips[0]] = changer.clip;
+
+                StartCoroutine(InterruptAndWaitForNextFrame());
+                StartCoroutine(PlayAnimationR(changer.boolParameter, changer.duration));
+            }
+            else
+            {
+                Debug.LogError("Animation not found: " + name);
+            }
+        }
+
+        private IEnumerator PlayAnimationR(string boolParameter, float duration)
         {
             animator.SetBool(boolParameter, true);
-            yield return new WaitForSeconds(duration);
+            float timer = 0;
+            interrupted = false;
+
+            while (timer < duration && !interrupted)
+            {
+                timer += Time.deltaTime;
+                yield return null;
+            }
+
             animator.SetBool(boolParameter, false);
         }
+
+        private IEnumerator InterruptAndWaitForNextFrame()
+        {
+            interrupted = true;
+            yield return null;
+            interrupted = false;
+        }
+
+
+
+
     }
 
 }

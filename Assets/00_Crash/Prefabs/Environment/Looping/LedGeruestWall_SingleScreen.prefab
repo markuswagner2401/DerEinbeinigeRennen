@@ -181,6 +181,80 @@ MonoBehaviour:
     automaticlyPlayNext: 1
     waitTime: 0
     playDaumenkino: 0
+  - note: BilderErsteFahrt
+    propRef: _ImageWeight
+    targetValue: 1
+    randomRangeMin: 0
+    randomRangeMax: 0
+    duration: 10
+    pushFactor: 0
+    playFloat: 0
+    playSpeed: 0
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    interrupted: 0
+    automaticlyPlayNext: 0
+    waitTime: 0
+    playDaumenkino: 0
+  - note: BilderErsteFahrtFadeOut
+    propRef: _ImageWeight
+    targetValue: 0
+    randomRangeMin: 0
+    randomRangeMax: 0
+    duration: 1
+    pushFactor: 0
+    playFloat: 0
+    playSpeed: 0
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    interrupted: 0
+    automaticlyPlayNext: 0
+    waitTime: 0
+    playDaumenkino: 0
   textureChangers: []
   textureFader:
     note: 
@@ -299,7 +373,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: ShowImages
+            m_StringArgument: BilderErsteFahrt
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 3138107937968681009}
@@ -329,7 +403,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: HideImages
+            m_StringArgument: BilderErsteFahrtFadeOut
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1001 &5992038030054134767
@@ -509,7 +583,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[3]
       value: 
-      objectReference: {fileID: 2100000, guid: f049fca811dc1a7448196a61d16c3745, type: 2}
+      objectReference: {fileID: 2100000, guid: d577fd9f91481d74ca2c201075236eec, type: 2}
     - target: {fileID: 919132149155446097, guid: 736277bd1c8984c419db4d2053c0bff2,
         type: 3}
       propertyPath: m_Name
