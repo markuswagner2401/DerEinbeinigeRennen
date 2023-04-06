@@ -293,10 +293,12 @@ namespace ObliqueSenastions.UISpace
                 tmPro.text = "";
             }
 
-            if (tutorials[index].goIntoUiTime)
-            {
-                GoIntoUITime(true);
-            }
+            // if (tutorials[index].goIntoUiTime)
+            // {
+            //     GoIntoUITime(true);
+            // }
+
+            GoIntoUITime(tutorials[index].goIntoUiTime);
 
 
             foreach (var item in tutorials[index].objectsToActivate)
@@ -320,6 +322,7 @@ namespace ObliqueSenastions.UISpace
                 tmPro.text = "\n" + "<color=#DADADA>" + tutorials[index].messages[i].text + "\n" + "<color=#585858>" + capturedText;
                 capturedText = "\n" + tutorials[index].messages[i].text + "\n" + capturedText;
 
+                yield return new WaitForSeconds(tutorials[index].messages[i].duration);
 
                 //print("messageindex "+ i + "tutorial length: " + tutorials[index].messages.Length);
 
@@ -340,6 +343,7 @@ namespace ObliqueSenastions.UISpace
                 {
                     stayInLoop = messageComplete ? false : true;
                 }
+
                 else if (tutorials[index].loopMode == TutorialLoopModes.playCompleteThenLoopUntilArmsMove)
                 {
                     if (!messageComplete)
@@ -350,7 +354,7 @@ namespace ObliqueSenastions.UISpace
                     {
                         //if message complete ->
                         stayInLoop = armsMoving ? false : true;
-                        if (!stayInLoop) continue;
+                        // if (!stayInLoop) continue;
                     }
                 }
                 else if (tutorials[index].loopMode == TutorialLoopModes.goOutImmediatelyWhenArmsMove)
@@ -366,7 +370,7 @@ namespace ObliqueSenastions.UISpace
                     
                 }
 
-                yield return new WaitForSeconds(tutorials[index].messages[i].duration);
+                
 
                 
                 i += 1;
@@ -405,10 +409,12 @@ namespace ObliqueSenastions.UISpace
 
             tutorials[index].doOnEndTutorial.Invoke();
 
-            if (tutorials[index].goIntoUiTime)
-            {
-                GoIntoUITime(false);
-            }
+            // if (tutorials[index].goIntoUiTime)
+            // {
+            //     GoIntoUITime(false);
+            // }
+
+            GoIntoUITime(false);
 
 
             motivationTriggered = false;
