@@ -14,21 +14,21 @@ namespace ObliqueSenastions.TimelineSpace
         public struct Bremsung
         {
             public string name;
-            public int index;
+
 
             public string otherTag;
 
         }
 
-        private void Start() 
+        private void Start()
         {
-            
+
         }
 
         public void SetBremsung(string name)
         {
             int index = GetIndexByName(name);
-            if(index < 0) return;
+            if (index < 0) return;
             currentBremsung = index;
         }
 
@@ -36,7 +36,7 @@ namespace ObliqueSenastions.TimelineSpace
         {
             for (int i = 0; i < bremsungen.Length; i++)
             {
-                if(name == bremsungen[i].name)
+                if (name == bremsungen[i].name)
                 {
                     return i;
                 }
@@ -45,13 +45,24 @@ namespace ObliqueSenastions.TimelineSpace
             return -1;
         }
 
-        private void OnCollisionEnter(Collision other)
+        // private void OnCollisionEnter(Collision other)
+        // {
+        //     if (other.gameObject.tag == bremsungen[currentBremsung].otherTag)
+        //     {
+        //         print("Unfallbremsung: Sending to TimeModeMachine: " + bremsungen[currentBremsung].name);
+        //         TimeLineHandler.instance.GetComponent<TimeModeMachine>().PlayAccident(bremsungen[currentBremsung].name);
+        //     }
+
+        // }
+
+        private void OnTriggerEnter(Collider other)
         {
-            if(other.gameObject.tag == bremsungen[currentBremsung].otherTag)
+            if (other.gameObject.tag == bremsungen[currentBremsung].otherTag)
             {
+                print("Unfallbremsung: Sending to TimeModeMachine: " + bremsungen[currentBremsung].name);
                 TimeLineHandler.instance.GetComponent<TimeModeMachine>().PlayAccident(bremsungen[currentBremsung].name);
             }
-            
+
         }
     }
 

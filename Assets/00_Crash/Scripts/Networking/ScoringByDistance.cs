@@ -41,7 +41,7 @@ namespace ObliqueSenastions.PunNetworking
 
             if(points != lastPoints)
             {
-                racerIdentity.AddScore();
+                racerIdentity?.AddScore();
             }
 
             lastPoints = points;

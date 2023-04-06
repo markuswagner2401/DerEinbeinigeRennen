@@ -149,10 +149,10 @@ namespace ObliqueSenastions.UISpace
 
         IEnumerator CountdownRoutine(int index)
         {
-             
-            if(index == 0) 
+
+            if (index == 0)
             {
-                if(OnCountdownStartDelegate != null )OnCountdownStartDelegate.Invoke(); // Send Message to countdown listeners
+                if (OnCountdownStartDelegate != null) OnCountdownStartDelegate.Invoke(); // Send Message to countdown listeners
             }
 
             //
@@ -170,9 +170,25 @@ namespace ObliqueSenastions.UISpace
                 yield return new WaitForSeconds(scores[index].countdownTiming);
             }
 
+
+
+            // Last Countdown Text
+
+            scores[index].overwriteText = scores[index].endOfCountdownText;
+            yield return new WaitForSeconds(scores[index].countdownTiming);
+            scores[index].overwriteText = "";
+
+            // Out of countdown mode
+
+            scores[index].currentScore = capturedScoreBeforeCountdown;
+            scores[index].inCountdown = false;
+            scores[index].showText = capturedShowText;
+
+            // 
+
             if (index == 0) // main racer end events
             {
-                if(OnCountdownEndDelegate != null) OnCountdownEndDelegate.Invoke(); // Send Message to listeners
+                if (OnCountdownEndDelegate != null) OnCountdownEndDelegate.Invoke(); // Send Message to listeners
 
                 if (currentCoundownEndGroupIndex >= 0 && currentCoundownEndGroupIndex < onCountdownEndEventGroups.Length)
                 {
@@ -188,18 +204,6 @@ namespace ObliqueSenastions.UISpace
                     }
                 }
             }
-
-            // Last Countdown Text
-
-            scores[index].overwriteText = scores[index].endOfCountdownText;
-            yield return new WaitForSeconds(scores[index].countdownTiming);
-            scores[index].overwriteText = "";
-
-            // Out of countdown mode
-
-            scores[index].currentScore = capturedScoreBeforeCountdown;
-            scores[index].inCountdown = false;
-            scores[index].showText = capturedShowText;
 
             yield break;
 
@@ -237,13 +241,13 @@ namespace ObliqueSenastions.UISpace
         {
 
             string newText;
-            if(!scores[index].showText)
+            if (!scores[index].showText)
             {
                 newText = "";
             }
             else
             {
-                if(scores[index].overwriteText != "")
+                if (scores[index].overwriteText != "")
                 {
                     newText = scores[index].overwriteText;
                 }
@@ -252,8 +256,8 @@ namespace ObliqueSenastions.UISpace
                     newText = scores[index].currentScore.ToString();
                 }
             }
-            
-            
+
+
             //if(newText == scores[index].tmp.text) return; // safes performance not to set the text every frame (?)
             scores[index].tmp.text = newText;
         }

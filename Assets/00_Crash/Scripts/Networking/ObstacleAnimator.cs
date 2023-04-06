@@ -50,7 +50,7 @@ namespace ObliqueSenastions.PunNetworking
 
         private void OnTriggerEnter(Collider other)
         {
-            print("Obstacle Trigger Enter");
+            
             if (other.gameObject.tag == "NetworkPlayer")
             {
                 print("obstakle trigger: other network player");

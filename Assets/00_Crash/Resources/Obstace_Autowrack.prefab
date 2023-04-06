@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 1990499187809603649}
   - component: {fileID: 4325458344156500765}
   - component: {fileID: 4853054016729075914}
-  - component: {fileID: 7034239172264987205}
-  - component: {fileID: 3067314999855739988}
+  - component: {fileID: 6446682871731176362}
   m_Layer: 26
   m_Name: Obstace_Autowrack
   m_TagString: Untagged
@@ -33,7 +32,8 @@ Transform:
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7324446920867542708}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -153,12 +153,21 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 0
         value: 0.0062561035
-        inSlope: 2.5135975
-        outSlope: 2.5135975
-        tangentMode: 0
+        inSlope: 1.6055809
+        outSlope: 1.6055809
+        tangentMode: 34
         weightedMode: 0
         inWeight: 0
-        outWeight: 0.082051285
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.39022967
+        value: 0.6328014
+        inSlope: 1.2015282
+        outSlope: 1.2015282
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
         value: 1
@@ -171,7 +180,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-    duration: 2
+    duration: 6
   triggerCollider: {fileID: 4325458344156500765}
 --- !u!65 &4325458344156500765
 BoxCollider:
@@ -184,8 +193,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.21035, y: 1.9818754, z: 6.948247}
-  m_Center: {x: 0.05269146, y: 0.9284556, z: -0.1492933}
+  m_Size: {x: 5.579033, y: 1.9818754, z: 8.713203}
+  m_Center: {x: 0.089872114, y: 0.92846924, z: -0.12131261}
 --- !u!114 &4853054016729075914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,24 +218,7 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &7034239172264987205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3152342807490106930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6186c05c3c1373447ab7a865c06543f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bremsungen:
-  - name: CrashInObstacle
-    index: 0
-    otherTag: Player
-  currentBremsung: 0
---- !u!54 &3067314999855739988
+--- !u!54 &6446682871731176362
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -242,3 +234,103 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1001 &3501465864973853113
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2374680925981428872}
+    m_Modifications:
+    - target: {fileID: 3586790843925629455, guid: c7e6cd65d7be6a746a5d41562b64b5a2,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.49902162
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586790843925629455, guid: c7e6cd65d7be6a746a5d41562b64b5a2,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.49522436
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586790843925629455, guid: c7e6cd65d7be6a746a5d41562b64b5a2,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.08955645
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586790843925629455, guid: c7e6cd65d7be6a746a5d41562b64b5a2,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.00003339393
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586790843925629455, guid: c7e6cd65d7be6a746a5d41562b64b5a2,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.010641796
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139001187697907469, guid: c7e6cd65d7be6a746a5d41562b64b5a2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139001187697907469, guid: c7e6cd65d7be6a746a5d41562b64b5a2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139001187697907469, guid: c7e6cd65d7be6a746a5d41562b64b5a2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139001187697907469, guid: c7e6cd65d7be6a746a5d41562b64b5a2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139001187697907469, guid: c7e6cd65d7be6a746a5d41562b64b5a2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139001187697907469, guid: c7e6cd65d7be6a746a5d41562b64b5a2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139001187697907469, guid: c7e6cd65d7be6a746a5d41562b64b5a2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139001187697907469, guid: c7e6cd65d7be6a746a5d41562b64b5a2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139001187697907469, guid: c7e6cd65d7be6a746a5d41562b64b5a2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139001187697907469, guid: c7e6cd65d7be6a746a5d41562b64b5a2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139001187697907469, guid: c7e6cd65d7be6a746a5d41562b64b5a2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8872945012094534531, guid: c7e6cd65d7be6a746a5d41562b64b5a2,
+        type: 3}
+      propertyPath: m_Name
+      value: Unfalltrigger_Player
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c7e6cd65d7be6a746a5d41562b64b5a2, type: 3}
+--- !u!4 &7324446920867542708 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6139001187697907469, guid: c7e6cd65d7be6a746a5d41562b64b5a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 3501465864973853113}
+  m_PrefabAsset: {fileID: 0}
