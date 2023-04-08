@@ -129,14 +129,16 @@ namespace ObliqueSenastions.PunNetworking
 
                 GameObject spawnedObstacle;
 
-                if (PhotonNetwork.IsConnected)
-                {
-                    spawnedObstacle = PhotonNetwork.Instantiate(prefab.name, spawnPoint.position, spawnPoint.rotation);
-                }
-                else
-                {
-                    spawnedObstacle = ObstaclePool.Instance.SpawnFromPool(prefab.name, spawnPoint.position, spawnPoint.rotation);
-                }
+                // if (PhotonNetwork.IsConnected)
+                // {
+                //     spawnedObstacle = PhotonNetwork.Instantiate(prefab.name, spawnPoint.position, spawnPoint.rotation);
+                // }
+                // else
+                // {
+                //     spawnedObstacle = ObstaclePool.Instance.SpawnFromPool(prefab.name, spawnPoint.position, spawnPoint.rotation);
+                // }
+
+                spawnedObstacle = ObstaclePool.Instance.SpawnFromPool(prefab.name, spawnPoint.position, spawnPoint.rotation);
 
 
 

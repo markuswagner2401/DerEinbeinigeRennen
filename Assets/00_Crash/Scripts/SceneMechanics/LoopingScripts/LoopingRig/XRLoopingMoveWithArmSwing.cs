@@ -86,11 +86,11 @@ namespace ObliqueSenastions.Looping
                 else
                 {
 
-                    speedLeft = leftHand.IsDataHighConfidence ? simpleVelocityTrackerLeft.GetLocalSpeed() : Mathf.Lerp(prevSpeedLeft, 0, smoothing);
-                    speedRight = rightHand.IsDataHighConfidence ? simpleVelocityTrackerRight.GetLocalSpeed() : Mathf.Lerp(prevSpeedRight, 0, smoothing);
+                    //speedLeft = leftHand.IsDataHighConfidence ? simpleVelocityTrackerLeft.GetLocalSpeed() : Mathf.Lerp(prevSpeedLeft, 0, smoothing);
+                    //speedRight = rightHand.IsDataHighConfidence ? simpleVelocityTrackerRight.GetLocalSpeed() : Mathf.Lerp(prevSpeedRight, 0, smoothing);
 
-                    // speedLeft = simpleVelocityTrackerLeft.GetLocalSpeed();
-                    // speedRight = simpleVelocityTrackerRight.GetLocalSpeed();
+                    speedLeft = simpleVelocityTrackerLeft.GetLocalSpeed();
+                    speedRight = simpleVelocityTrackerRight.GetLocalSpeed();
 
                 }
 

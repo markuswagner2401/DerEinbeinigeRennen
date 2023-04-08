@@ -122,7 +122,19 @@ namespace ObliqueSenastions.VRRigSpace
 
             //speedGate = (Mathf.Abs(lastLocalSpeed - currentLocalSpeed) > speedChangeGate) ? true : false;
 
+            //
+
             
+
+            // speedGate = (Mathf.Abs(lastLocalSpeed - currentLocalSpeed) > speedChangeGate) ? true : false;
+
+            // speedGateRecoverTimer = speedGate ? (speedGateRecoverTimer += Time.deltaTime) : 0;
+
+            // interruptspeedGate = speedGateRecoverTimer > maxSpeedGateRecoverDuration ? true : false;
+
+            // currentLocalSpeed = (speedGate && !interruptspeedGate) ? Mathf.Clamp(lastLocalSpeed - 0.0001f, 0, maxSpeed) : 
+
+
 
             
 
@@ -172,7 +184,7 @@ namespace ObliqueSenastions.VRRigSpace
         public float GetLocalSpeed()
         {
             //print("get local speed: " + (speedGate ? lastLocalSpeed : currentLocalSpeed));
-            if (speedGate) return lastLocalSpeed;
+            //if (speedGate) return lastLocalSpeed;
             return currentLocalSpeed;
         }
 

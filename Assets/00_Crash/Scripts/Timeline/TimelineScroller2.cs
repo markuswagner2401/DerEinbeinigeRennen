@@ -93,6 +93,12 @@ namespace ObliqueSenastions.TimelineSpace
 
         }
 
+        public void JumpToTime(float time)
+        {
+            PlayableDirector playableDirector = GetComponent<PlayableDirector>();
+            playableDirector.time = time;
+        }
+
         public void JumpToNextSceneClip()
         {
             /// Check Network Sync

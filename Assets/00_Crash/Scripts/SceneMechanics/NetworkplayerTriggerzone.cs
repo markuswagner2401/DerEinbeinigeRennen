@@ -7,7 +7,11 @@ using UnityEngine;
 public class NetworkplayerTriggerzone : MonoBehaviour
 {
     [SerializeField] int playerIndex;
-    [SerializeField] string nameOfEvent;
+
+    [SerializeField] string otherTag = "NetworkPlayer";
+    [SerializeField] string nameOfEnterEvent;
+
+    [SerializeField] string nameOfExitEvent;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,13 +26,25 @@ public class NetworkplayerTriggerzone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "NetworkPlayer")
+        if (other.gameObject.tag == otherTag)
         {
-            if(MultiplayerConnector.instance.GetClientsIndexInRole() == playerIndex)
+            if (MultiplayerConnector.instance.GetClientsIndexInRole() == playerIndex)
             {
-                GameObject.FindWithTag("StageMaster").GetComponent<NetworkplayerTriggerMaster>().TriggerEvent(nameOfEvent);
+                GameObject.FindWithTag("StageMaster").GetComponent<NetworkplayerTriggerMaster>().TriggerEvent(nameOfEnterEvent);
             }
-            
+
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == otherTag)
+        {
+            if (MultiplayerConnector.instance.GetClientsIndexInRole() == playerIndex)
+            {
+                GameObject.FindWithTag("StageMaster").GetComponent<NetworkplayerTriggerMaster>().TriggerEvent(nameOfExitEvent);
+            }
+
         }
 
     }
