@@ -34,6 +34,10 @@ namespace ObliqueSenastions.Animation
 
             public AnimationCurve curve;
             public string blendShapeName;
+
+            public bool automaticlyPlayNext;
+            public string nextName;
+            public float waitBeforeNext;
         }
 
 
@@ -55,6 +59,10 @@ namespace ObliqueSenastions.Animation
             public float fadeDuration;
 
             public AnimationCurve curve;
+
+            public bool automaticlyPlayNext;
+            public string nextName;
+            public float waitBeforeNext;
 
         }
 
@@ -79,6 +87,10 @@ namespace ObliqueSenastions.Animation
             public int numberOfActive;
             public float frequencyMin;
             public float frequencyMax;
+
+            public bool autmoaticlyPlayNext;
+            public string nextName;
+            public float waitBeforeNext;
         }
 
         bool activatorInterrupted = false;
@@ -168,6 +180,12 @@ namespace ObliqueSenastions.Animation
             if (index < 0) return;
             ChangeTribunesBlendShapes(index);
         }
+
+
+        
+
+
+
 
         ///public texture methods
 
@@ -433,6 +451,17 @@ namespace ObliqueSenastions.Animation
                 yield return new WaitForSeconds(waiting);
 
             }
+
+            // next handling
+
+            if (activators[index].autmoaticlyPlayNext)
+            {
+                int nextIndex = GetActivatorIndexByName(activators[index].nextName);
+                if (nextIndex < 0) yield break;
+                yield return new WaitForSeconds(activators[index].waitBeforeNext);
+                PlayActivator(nextIndex);
+            }
+
             yield break;
         }
 

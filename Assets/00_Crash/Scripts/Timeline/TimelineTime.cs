@@ -50,7 +50,7 @@ namespace ObliqueSenastions.TimelineSpace
 
             if (Mathf.Abs(timelineDeltaTime) > jumpThreshold) // Jump Threshold
             {
-                Debug.Log("TimelineTime jump threshold");
+//                Debug.Log("TimelineTime jump threshold");
                 timelineDeltaTime = Time.deltaTime;
             }
 

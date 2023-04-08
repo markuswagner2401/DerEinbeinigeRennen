@@ -149,6 +149,13 @@ namespace ObliqueSenastions.PunNetworking
             score += value;
         }
 
+        /// Getter
+
+        public int GetPlayerIdentity()
+        {
+            return identityIndex;
+        }
+
 
     }
 

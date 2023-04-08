@@ -14,6 +14,19 @@ namespace ObliqueSenastions.Looping
         [SerializeField] float speedFactor = 10f;
         [SerializeField] AnimationCurve speedChangeCurve;
         [SerializeField] float speedChangeTime = 5f;
+
+        [SerializeField] SpeedChanger[] speedChangers;
+
+        [System.Serializable]
+        public struct SpeedChanger
+        {
+            public string name;
+
+            public float targetValue;
+            public float duration;
+            public AnimationCurve curve;
+        }
+
         [SerializeField] float threshold = .1f;
 
         [SerializeField] bool usingOVR = false;
@@ -33,6 +46,10 @@ namespace ObliqueSenastions.Looping
 
         [SerializeField] LoopingControllerForwardVector forwardHead = null;
         [SerializeField] float smoothing;
+
+
+
+        bool speedChangeInterrupted;
 
         XRLoopingMover loopingMover = null;
 
@@ -68,7 +85,7 @@ namespace ObliqueSenastions.Looping
 
                 else
                 {
-                    
+
                     speedLeft = leftHand.IsDataHighConfidence ? simpleVelocityTrackerLeft.GetLocalSpeed() : Mathf.Lerp(prevSpeedLeft, 0, smoothing);
                     speedRight = rightHand.IsDataHighConfidence ? simpleVelocityTrackerRight.GetLocalSpeed() : Mathf.Lerp(prevSpeedRight, 0, smoothing);
 
@@ -111,16 +128,55 @@ namespace ObliqueSenastions.Looping
 
         }
 
-        public void ChangeSpeed(float newSpeed)
+        //// speed change
+
+        public void ChangeSpeed(string name)
         {
-            StartCoroutine(FadeValue(speedFactor, newSpeed, speedChangeTime));
+            int index = GetSpeedChangerIndexByName(name);
+            if (index < 0) return;
+            ChangeSpeed(index);
         }
 
-        private IEnumerator FadeValue(float startValue, float targetValue, float duration)
+        int GetSpeedChangerIndexByName(string name)
+        {
+            for (int i = 0; i < speedChangers.Length; i++)
+            {
+                if (speedChangers[i].name == name)
+                {
+                    return i;
+                }
+            }
+            Debug.LogError("XRLoopingMoveWithArmSwing: No speed Changer found with name: " + name);
+            return -1;
+        }
+
+        public void ChangeSpeed(int index)
+        {
+            StartCoroutine(InterruptAndChangeSpeed(index));
+        }
+
+        public IEnumerator InterruptAndChangeSpeed(int index)
+        {
+            speedChangeInterrupted = true;
+            yield return new WaitForSeconds(0.1f);
+            speedChangeInterrupted = false;
+            StartCoroutine(FadeValue(speedFactor, speedChangers[index].targetValue, speedChangers[index].duration, speedChangers[index].curve));
+            yield break;
+        }
+
+
+        ////
+
+        public void ChangeSpeed(float newSpeed)
+        {
+            StartCoroutine(FadeValue(speedFactor, newSpeed, speedChangeTime, speedChangeCurve));
+        }
+
+        private IEnumerator FadeValue(float startValue, float targetValue, float duration, AnimationCurve speedChangeCurve)
         {
             float time = 0;
             float currentResult;
-            while (time <= duration)
+            while (time <= duration && !speedChangeInterrupted)
             {
                 time += Time.deltaTime;
                 currentResult = Mathf.Lerp(startValue, targetValue, speedChangeCurve.Evaluate(time / duration));
@@ -131,6 +187,8 @@ namespace ObliqueSenastions.Looping
 
             yield break;
         }
+
+
     }
 
 }

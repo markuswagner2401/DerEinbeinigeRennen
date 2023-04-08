@@ -217,6 +217,19 @@ namespace ObliqueSenastions.UISpace
 
         }
 
+        public void SetAllOverwriteText(string text)
+        {
+            for (int i = 0; i < scores.Length; i++)
+            {
+                SetOverwriteText(i, text);
+            }
+        }
+
+        private void SetOverwriteText(int playerIndex, string text)
+        {
+            scores[playerIndex].overwriteText = text;
+        }
+
 
 
 

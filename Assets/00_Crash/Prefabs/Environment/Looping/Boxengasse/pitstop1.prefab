@@ -1,0 +1,486 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8289503557244163235
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 640369138139278764}
+  - component: {fileID: 6963551956946690669}
+  - component: {fileID: 1218997160243331436}
+  m_Layer: 0
+  m_Name: pitstop1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &640369138139278764
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8289503557244163235}
+  m_LocalRotation: {x: 7.272286e-17, y: 1.7347235e-18, z: 1.7347235e-18, w: 1}
+  m_LocalPosition: {x: -9.094947e-15, y: 0, z: -30}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4501599070736772129}
+  - {fileID: 1766455182960335920}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6963551956946690669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8289503557244163235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca6858d700257264cace8c50a26f9581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rend:
+  - {fileID: 4439329779012946379}
+  skm: []
+  skinnedMesh: 0
+  usePropertyBlock: 1
+  doOnStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6963551956946690669}
+        m_TargetAssemblyTypeName: ObliqueSenastions.MaterialControl.MaterialPropertiesFader_2,
+          Assembly-CSharp
+        m_MethodName: ChangeFloat
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: StartImgeWeight
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6963551956946690669}
+        m_TargetAssemblyTypeName: ObliqueSenastions.MaterialControl.MaterialPropertiesFader_2,
+          Assembly-CSharp
+        m_MethodName: ChangeColor
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: PlayerColor
+          m_BoolArgument: 0
+        m_CallState: 2
+  floatChangers:
+  - note: StartImgeWeight
+    propRef: _ImageWeight
+    targetValue: 0
+    randomRangeMin: 0
+    randomRangeMax: 0
+    duration: 0.1
+    pushFactor: 0
+    playFloat: 0
+    playSpeed: 0
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    interrupted: 0
+    automaticlyPlayNext: 0
+    waitTime: 0
+    playDaumenkino: 0
+  - note: Boxenstop
+    propRef: _ImageWeight
+    targetValue: 1
+    randomRangeMin: 1
+    randomRangeMax: 1
+    duration: 0.5
+    pushFactor: 0
+    playFloat: 0
+    playSpeed: 0
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    interrupted: 0
+    automaticlyPlayNext: 0
+    waitTime: 0
+    playDaumenkino: 0
+  - note: BoxenstopEnd
+    propRef: _ImageWeight
+    targetValue: 0
+    randomRangeMin: 0
+    randomRangeMax: 0
+    duration: 0.5
+    pushFactor: 0
+    playFloat: 0
+    playSpeed: 0
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    interrupted: 0
+    automaticlyPlayNext: 0
+    waitTime: 0
+    playDaumenkino: 0
+  textureChangers: []
+  textureFader:
+    note: 
+    texRefA: 
+    texRefB: 
+    faderRef: 
+    faderIsLeft: 0
+    isInterrupted: 0
+  materialChangers: []
+  colorChangers:
+  - note: PlayerColor
+    color: {r: 1, g: 0, b: 0, a: 1}
+    colorPropRef: _ImageTint
+    fadeInDuration: 0.1
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    isInterrupted: 0
+  daumenkinoTimingMin: 1
+  daumenkinoChangeMax: 2
+  setFloatsToCurrent: 0
+  stetTexturesToCurrent: 0
+--- !u!114 &1218997160243331436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8289503557244163235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4085b75cb67c29840947a918e2cfc6e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageMasterEvents:
+  - name: Boxenstop
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6963551956946690669}
+          m_TargetAssemblyTypeName: ObliqueSenastions.MaterialControl.MaterialPropertiesFader_2,
+            Assembly-CSharp
+          m_MethodName: ChangeFloat
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Boxenstop
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: BoxenstopEnd
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6963551956946690669}
+          m_TargetAssemblyTypeName: ObliqueSenastions.MaterialControl.MaterialPropertiesFader_2,
+            Assembly-CSharp
+          m_MethodName: ChangeFloat
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: BoxenstopEnd
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!1001 &2236332830160518107
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 640369138139278764}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 16419f3e7214b3d4188393859281fbed,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 16419f3e7214b3d4188393859281fbed,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 16419f3e7214b3d4188393859281fbed,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 16419f3e7214b3d4188393859281fbed,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 16419f3e7214b3d4188393859281fbed,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 16419f3e7214b3d4188393859281fbed,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 16419f3e7214b3d4188393859281fbed,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 16419f3e7214b3d4188393859281fbed,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 16419f3e7214b3d4188393859281fbed,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 16419f3e7214b3d4188393859281fbed,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 16419f3e7214b3d4188393859281fbed,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 16419f3e7214b3d4188393859281fbed,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b26462b4c7ab964cb4eecfb09b4a771, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 16419f3e7214b3d4188393859281fbed,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 104c99190d51ac648971f423122168c2, type: 2}
+    - target: {fileID: -6732135743925014000, guid: 16419f3e7214b3d4188393859281fbed,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dac46377afbfdff41a146e4145b47664, type: 2}
+    - target: {fileID: 919132149155446097, guid: 16419f3e7214b3d4188393859281fbed,
+        type: 3}
+      propertyPath: m_Name
+      value: Pitstop 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 16419f3e7214b3d4188393859281fbed, type: 3}
+--- !u!4 &1766455182960335920 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 16419f3e7214b3d4188393859281fbed,
+    type: 3}
+  m_PrefabInstance: {fileID: 2236332830160518107}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &4439329779012946379 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -6732135743925014000, guid: 16419f3e7214b3d4188393859281fbed,
+    type: 3}
+  m_PrefabInstance: {fileID: 2236332830160518107}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7894097154266645404
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 640369138139278764}
+    m_Modifications:
+    - target: {fileID: 1715891669954058197, guid: 7f88c07630df4a3448a1c3b8a0760396,
+        type: 3}
+      propertyPath: nameOfEvent
+      value: BoxErreicht
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715891669954058197, guid: 7f88c07630df4a3448a1c3b8a0760396,
+        type: 3}
+      propertyPath: networkplayerTag
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284336977875745550, guid: 7f88c07630df4a3448a1c3b8a0760396,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739190735173530100, guid: 7f88c07630df4a3448a1c3b8a0760396,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049903338655461309, guid: 7f88c07630df4a3448a1c3b8a0760396,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049903338655461309, guid: 7f88c07630df4a3448a1c3b8a0760396,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049903338655461309, guid: 7f88c07630df4a3448a1c3b8a0760396,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049903338655461309, guid: 7f88c07630df4a3448a1c3b8a0760396,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049903338655461309, guid: 7f88c07630df4a3448a1c3b8a0760396,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049903338655461309, guid: 7f88c07630df4a3448a1c3b8a0760396,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049903338655461309, guid: 7f88c07630df4a3448a1c3b8a0760396,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049903338655461309, guid: 7f88c07630df4a3448a1c3b8a0760396,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049903338655461309, guid: 7f88c07630df4a3448a1c3b8a0760396,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049903338655461309, guid: 7f88c07630df4a3448a1c3b8a0760396,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049903338655461309, guid: 7f88c07630df4a3448a1c3b8a0760396,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049903338655461309, guid: 7f88c07630df4a3448a1c3b8a0760396,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049903338655461309, guid: 7f88c07630df4a3448a1c3b8a0760396,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071523432857172787, guid: 7f88c07630df4a3448a1c3b8a0760396,
+        type: 3}
+      propertyPath: m_Name
+      value: Boxenstoptrigger
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7f88c07630df4a3448a1c3b8a0760396, type: 3}
+--- !u!4 &4501599070736772129 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6049903338655461309, guid: 7f88c07630df4a3448a1c3b8a0760396,
+    type: 3}
+  m_PrefabInstance: {fileID: 7894097154266645404}
+  m_PrefabAsset: {fileID: 0}

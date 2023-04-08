@@ -83,6 +83,33 @@ MonoBehaviour:
     role: 0
     lastClipInScene: 0
     inactive: 1
+--- !u!114 &-9003864948409781763
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
+  m_Name: Blend Shape Marker
+  m_EditorClassIdentifier: 
+  m_Time: 703.95
+  note: Landschaft
+  spaceStateIndex: 4
+  changeDurationToNextMarker: 0
+  changeDuration: 0
+  duration: 10
+  changeCurve: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &-8932798558463078340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -173,6 +200,51 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
+--- !u!114 &-8808278232815235312
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
+  m_EditorClassIdentifier: 
+  m_Time: 759.1166666666659
+  note: FadeRandomTextures
+  textureChangerIndex: 1
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &-8715622674415019648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -189,6 +261,22 @@ MonoBehaviour:
   note: Bewegen im Raum
   displayModeInInspiUI: 1
   stopOrHold: 0
+--- !u!114 &-8644759284865332938
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
+  m_Name: Go Event Marker
+  m_EditorClassIdentifier: 
+  m_Time: 779.3666666666667
+  goEventName: BoxenstopEnd
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &-8632308498371579114
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -204,6 +292,51 @@ MonoBehaviour:
   m_Time: 476.98333333333335
   note: FadeRandomTextures
   textureChangerIndex: 1
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
+--- !u!114 &-8555059666373685406
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
+  m_EditorClassIdentifier: 
+  m_Time: 660.3500000000003
+  note: FadeRandomTextures
+  textureChangerIndex: 2
   changeDurationToNextMarker: 1
   changeDuration: 0
   duration: 10
@@ -313,6 +446,51 @@ MonoBehaviour:
   color: {r: 0, g: 0, b: 0, a: 0}
   description: 
   showLineOverlay: 0
+--- !u!114 &-8359990878587675046
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
+  m_Name: Blend Shape Marker
+  m_EditorClassIdentifier: 
+  m_Time: 697.8500000000001
+  note: Loch
+  spaceStateIndex: 5
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &-8344700125497512697
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -345,6 +523,51 @@ MonoBehaviour:
   note: Halt vor Szenenwechsel
   displayModeInInspiUI: 1
   stopOrHold: 0
+--- !u!114 &-8325004798056518734
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
+  m_EditorClassIdentifier: 
+  m_Time: 776.5166666666667
+  note: FadeRandomTextures
+  textureChangerIndex: 2
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &-8103552235666840173
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -448,6 +671,9 @@ MonoBehaviour:
     - {fileID: 1881845319760989472}
     - {fileID: -5374479571784100619}
     - {fileID: -7818633474179994112}
+    - {fileID: 8109505272454488714}
+    - {fileID: -6778994255885102519}
+    - {fileID: -8644759284865332938}
 --- !u!114 &-7910358812938270926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -573,6 +799,33 @@ MonoBehaviour:
     parameterName: Fade
     value: 0
     firstClipInTrack: 0
+--- !u!114 &-7801393420680477322
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
+  m_Name: Blend Shape Marker
+  m_EditorClassIdentifier: 
+  m_Time: 743.2666666666667
+  note: Sitzflaechen
+  spaceStateIndex: 3
+  changeDurationToNextMarker: 0
+  changeDuration: 0
+  duration: 10
+  changeCurve: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &-7759888259912813843
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -836,6 +1089,51 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
+--- !u!114 &-7064482589100305386
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
+  m_Name: Blend Shape Marker
+  m_EditorClassIdentifier: 
+  m_Time: 552.1500000000001
+  note: Hoch
+  spaceStateIndex: 1
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &-7031177749719197511
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -895,6 +1193,22 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
+--- !u!114 &-6778994255885102519
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
+  m_Name: Go Event Marker
+  m_EditorClassIdentifier: 
+  m_Time: 778.3
+  goEventName: Boxenstop
   retroactive: 0
   emitOnce: 0
 --- !u!114 &-6750032109285342879
@@ -961,6 +1275,51 @@ MonoBehaviour:
     role: 3
     lastClipInScene: 1
     inactive: 0
+--- !u!114 &-6693400243441302634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
+  m_EditorClassIdentifier: 
+  m_Time: 717.1666666666667
+  note: FadeRandomTextures
+  textureChangerIndex: 2
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &-6660458069192777420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1219,6 +1578,51 @@ MonoBehaviour:
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: 7f70a0b25f7ea9c438f69be0080c5b28, type: 2}
+--- !u!114 &-6244334259377311542
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
+  m_EditorClassIdentifier: 
+  m_Time: 597.4500000000003
+  note: FadeRandomTextures
+  textureChangerIndex: 1
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &-6231757300982276487
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1264,7 +1668,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
---- !u!114 &-6150439753488383443
+--- !u!114 &-6125417553575493898
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1273,12 +1677,57 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
-  m_Name: Blend Shape Marker
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 504.54999999999995
-  note: Setzen
-  spaceStateIndex: 2
+  m_Time: 666.5833333333336
+  note: FadeRandomTextures
+  textureChangerIndex: 1
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
+--- !u!114 &-6090269235767918086
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
+  m_EditorClassIdentifier: 
+  m_Time: 578.0166666666669
+  note: FadeRandomTextures
+  textureChangerIndex: 1
   changeDurationToNextMarker: 1
   changeDuration: 0
   duration: 10
@@ -1914,6 +2363,22 @@ MonoBehaviour:
   goEventName: DummyWaving
   retroactive: 0
   emitOnce: 0
+--- !u!114 &-5352579010185610951
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
+  m_Name: Go Event Marker
+  m_EditorClassIdentifier: 
+  m_Time: 776.166666666667
+  goEventName: PresentTribunes
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &-5284775760822789626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1930,6 +2395,33 @@ MonoBehaviour:
     parameterName: Fade
     value: 1.4
     firstClipInTrack: 0
+--- !u!114 &-5273763540762326863
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
+  m_Name: Blend Shape Marker
+  m_EditorClassIdentifier: 
+  m_Time: 716.6166666666668
+  note: Landschaft
+  spaceStateIndex: 4
+  changeDurationToNextMarker: 0
+  changeDuration: 0
+  duration: 10
+  changeCurve: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &-5052867852418534254
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1979,6 +2471,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Time: 147.75000000000003
   goEventName: HolesOsscilate
+  retroactive: 0
+  emitOnce: 0
+--- !u!114 &-4620633171220026431
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
+  m_EditorClassIdentifier: 
+  m_Time: 697.8666666666668
+  note: FadeRandomTextures
+  textureChangerIndex: 2
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
 --- !u!114 &-4546420331005417921
@@ -2042,7 +2579,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
---- !u!114 &-4518963488638933623
+--- !u!114 &-4455717044471126190
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2051,13 +2588,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
-  m_Name: Go Event Marker
+  m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
+  m_Name: Haltepunkt Marker
   m_EditorClassIdentifier: 
-  m_Time: 476.98333333333335
-  goEventName: FadeOutSeq
-  retroactive: 0
-  emitOnce: 0
+  m_Time: 778.85
+  note: Boxenstop
+  displayModeInInspiUI: 0
+  stopOrHold: 0
 --- !u!114 &-4332745370836732344
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2202,6 +2739,51 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
+--- !u!114 &-3903752560220907033
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
+  m_EditorClassIdentifier: 
+  m_Time: 704.0500000000002
+  note: FadeRandomTextures
+  textureChangerIndex: 1
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &-3678945818248442404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2225,6 +2807,96 @@ MonoBehaviour:
   m_Clips: []
   m_Markers:
     m_Objects: []
+--- !u!114 &-3647798618926066938
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
+  m_EditorClassIdentifier: 
+  m_Time: 767.3333333333328
+  note: FadeRandomTextures
+  textureChangerIndex: 2
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
+--- !u!114 &-3398063328545610920
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
+  m_Name: Blend Shape Marker
+  m_EditorClassIdentifier: 
+  m_Time: 646.95
+  note: Setzen
+  spaceStateIndex: 2
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &-3221340027295813957
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2275,6 +2947,51 @@ MonoBehaviour:
   color: {r: 0, g: 0, b: 0, a: 0}
   description: 
   showLineOverlay: 0
+--- !u!114 &-2985425738385814857
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
+  m_EditorClassIdentifier: 
+  m_Time: 731.6166666666668
+  note: FadeRandomTextures
+  textureChangerIndex: 2
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &-2900942247337996452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2294,6 +3011,51 @@ MonoBehaviour:
     role: 0
     lastClipInScene: 0
     inactive: 0
+--- !u!114 &-2854116162246734786
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
+  m_EditorClassIdentifier: 
+  m_Time: 624.6333333333336
+  note: FadeRandomTextures
+  textureChangerIndex: 2
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &-2809004975204904268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2352,6 +3114,32 @@ MonoBehaviour:
     - {fileID: 4490287252757045411}
     - {fileID: 2302057738487382138}
     - {fileID: -545116993847450388}
+    - {fileID: 6206974148196866758}
+    - {fileID: -244328333796367158}
+    - {fileID: -6090269235767918086}
+    - {fileID: 7913024379882170164}
+    - {fileID: -6244334259377311542}
+    - {fileID: 8209490336586098744}
+    - {fileID: 4315673289254715490}
+    - {fileID: -2854116162246734786}
+    - {fileID: 494743907827715654}
+    - {fileID: 9015306683669527197}
+    - {fileID: 1549667585519890320}
+    - {fileID: -8555059666373685406}
+    - {fileID: -6125417553575493898}
+    - {fileID: 687786772330524275}
+    - {fileID: 3979459938177223038}
+    - {fileID: -4620633171220026431}
+    - {fileID: -3903752560220907033}
+    - {fileID: 3354192930030539168}
+    - {fileID: -6693400243441302634}
+    - {fileID: 2047572717703803583}
+    - {fileID: -2985425738385814857}
+    - {fileID: 1072185252039359217}
+    - {fileID: -756794016424417801}
+    - {fileID: -8808278232815235312}
+    - {fileID: -3647798618926066938}
+    - {fileID: -8325004798056518734}
 --- !u!114 &-2727541431285393067
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2457,6 +3245,7 @@ MonoBehaviour:
     - {fileID: -1387304666140990530}
     - {fileID: -7364624723230129596}
     - {fileID: -5606887878266085786}
+    - {fileID: -4455717044471126190}
 --- !u!114 &-2695180007477313514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2610,8 +3399,55 @@ MonoBehaviour:
     - {fileID: -2173003754060252209}
     - {fileID: -4546420331005417921}
     - {fileID: -3216929797478872745}
-    - {fileID: -4518963488638933623}
     - {fileID: 9128411960716292192}
+    - {fileID: 7016968798739536690}
+    - {fileID: 8467534166098186052}
+    - {fileID: -5352579010185610951}
+--- !u!114 &-1859251229305915034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
+  m_Name: Blend Shape Marker
+  m_EditorClassIdentifier: 
+  m_Time: 629.8833333333334
+  note: Setzen
+  spaceStateIndex: 2
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &-1823070615056592749
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2844,6 +3680,51 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
+--- !u!114 &-756794016424417801
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
+  m_EditorClassIdentifier: 
+  m_Time: 752.883333333333
+  note: FadeRandomTextures
+  textureChangerIndex: 2
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &-719506519377017885
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2905,6 +3786,22 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
+--- !u!114 &-711989577679947116
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98e8f388390bc24fb92da541e12412c, type: 3}
+  m_Name: FloatControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  template:
+    parameterName: Fade
+    value: 1.4
+    firstClipInTrack: 0
 --- !u!114 &-640226456773655407
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3265,6 +4162,22 @@ MonoBehaviour:
   color: {r: 0, g: 0, b: 0, a: 0}
   description: 
   showLineOverlay: 0
+--- !u!114 &-253406398038090804
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98e8f388390bc24fb92da541e12412c, type: 3}
+  m_Name: FloatControlClip(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  template:
+    parameterName: Fade
+    value: 0
+    firstClipInTrack: 0
 --- !u!114 &-247102148730930379
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3284,6 +4197,51 @@ MonoBehaviour:
     jumpToClipStartOnGoingBackInTL: 0
     clipDuration: 0
     roomSection: Monocoque
+--- !u!114 &-244328333796367158
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
+  m_EditorClassIdentifier: 
+  m_Time: 571.1166666666669
+  note: FadeRandomTextures
+  textureChangerIndex: 2
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &-234926133594290774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3360,11 +4318,23 @@ MonoBehaviour:
     - {fileID: 1945666268105794294}
     - {fileID: -7140168260273995864}
     - {fileID: 7704524415625298134}
-    - {fileID: -6150439753488383443}
     - {fileID: -7560811811208488697}
     - {fileID: -2727541431285393067}
     - {fileID: 3238595348247036890}
     - {fileID: 2463976077766411361}
+    - {fileID: -7064482589100305386}
+    - {fileID: -1859251229305915034}
+    - {fileID: -3398063328545610920}
+    - {fileID: 3379658958852975876}
+    - {fileID: -8359990878587675046}
+    - {fileID: -9003864948409781763}
+    - {fileID: -5273763540762326863}
+    - {fileID: -7801393420680477322}
+    - {fileID: 3299264752914538703}
+    - {fileID: 4044008502130658099}
+    - {fileID: 5843510830439877668}
+    - {fileID: 5556851103011072736}
+    - {fileID: 2050950803041046162}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3613,6 +4583,51 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
+--- !u!114 &494743907827715654
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
+  m_EditorClassIdentifier: 
+  m_Time: 630.8666666666669
+  note: FadeRandomTextures
+  textureChangerIndex: 1
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &507865636892277342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3780,6 +4795,51 @@ MonoBehaviour:
   note: Halt vor Szenenwechsel
   displayModeInInspiUI: 1
   stopOrHold: 0
+--- !u!114 &687786772330524275
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
+  m_EditorClassIdentifier: 
+  m_Time: 674.8000000000002
+  note: FadeRandomTextures
+  textureChangerIndex: 2
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &1068625858417590424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3796,6 +4856,51 @@ MonoBehaviour:
   note: Halt vor Rennen Tutorial
   displayModeInInspiUI: 1
   stopOrHold: 0
+--- !u!114 &1072185252039359217
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
+  m_EditorClassIdentifier: 
+  m_Time: 741.3166666666666
+  note: FadeRandomTextures
+  textureChangerIndex: 1
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &1081224997340537834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3856,6 +4961,51 @@ MonoBehaviour:
   m_Time: 525.8166666666662
   note: FadeRandomTextures
   textureChangerIndex: 2
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
+--- !u!114 &1549667585519890320
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
+  m_EditorClassIdentifier: 
+  m_Time: 648.7833333333335
+  note: FadeRandomTextures
+  textureChangerIndex: 1
   changeDurationToNextMarker: 1
   changeDuration: 0
   duration: 10
@@ -4082,6 +5232,96 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde0d25a170598d46a0b9dc16b4527a5, type: 3}
   m_Name: ActivationPlayableAsset
   m_EditorClassIdentifier: 
+--- !u!114 &2047572717703803583
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
+  m_EditorClassIdentifier: 
+  m_Time: 723.4
+  note: FadeRandomTextures
+  textureChangerIndex: 1
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
+--- !u!114 &2050950803041046162
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
+  m_Name: Blend Shape Marker
+  m_EditorClassIdentifier: 
+  m_Time: 778.3
+  note: Setzen
+  spaceStateIndex: 1
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 5
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &2170468043613074024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4875,6 +6115,51 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
+--- !u!114 &3299264752914538703
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
+  m_Name: Blend Shape Marker
+  m_EditorClassIdentifier: 
+  m_Time: 762.8166666666666
+  note: Setzen
+  spaceStateIndex: 2
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &3299697414635074971
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4889,6 +6174,96 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Time: 1085.966666666667
   goEventName: EnablePuppet
+  retroactive: 0
+  emitOnce: 0
+--- !u!114 &3354192930030539168
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
+  m_EditorClassIdentifier: 
+  m_Time: 706.1666666666669
+  note: FadeRandomTextures
+  textureChangerIndex: 1
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
+--- !u!114 &3379658958852975876
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
+  m_Name: Blend Shape Marker
+  m_EditorClassIdentifier: 
+  m_Time: 683.4000000000001
+  note: Loch
+  spaceStateIndex: 5
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
 --- !u!114 &3458222109776552491
@@ -5039,6 +6414,51 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
+--- !u!114 &3979459938177223038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
+  m_EditorClassIdentifier: 
+  m_Time: 684.5000000000002
+  note: FadeRandomTextures
+  textureChangerIndex: 1
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &3981623622768973155
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5074,6 +6494,51 @@ MonoBehaviour:
   note: Halt vor Raumbewegung
   displayModeInInspiUI: 1
   stopOrHold: 0
+--- !u!114 &4044008502130658099
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
+  m_Name: Blend Shape Marker
+  m_EditorClassIdentifier: 
+  m_Time: 764.9333333333334
+  note: Setzen
+  spaceStateIndex: 2
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &4241337558019578342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5105,6 +6570,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Time: 1063.5499999999995
   goEventName: PlayTutorialZuschauer
+  retroactive: 0
+  emitOnce: 0
+--- !u!114 &4315673289254715490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
+  m_EditorClassIdentifier: 
+  m_Time: 615.1000000000003
+  note: FadeRandomTextures
+  textureChangerIndex: 1
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
 --- !u!114 &4490287252757045411
@@ -5422,6 +6932,96 @@ MonoBehaviour:
   note: Halt vor Raumbewegung
   displayModeInInspiUI: 1
   stopOrHold: 0
+--- !u!114 &5556851103011072736
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
+  m_Name: Blend Shape Marker
+  m_EditorClassIdentifier: 
+  m_Time: 505.39999999999975
+  note: Flach
+  spaceStateIndex: 0
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
+--- !u!114 &5843510830439877668
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
+  m_Name: Blend Shape Marker
+  m_EditorClassIdentifier: 
+  m_Time: 496.33333333333314
+  note: Flach
+  spaceStateIndex: 0
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &6067719535068210776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5437,6 +7037,51 @@ MonoBehaviour:
   m_Time: 362.08333333333326
   note: FadeRandomTextures
   textureChangerIndex: 2
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
+--- !u!114 &6206974148196866758
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
+  m_EditorClassIdentifier: 
+  m_Time: 557.6833333333335
+  note: FadeRandomTextures
+  textureChangerIndex: 1
   changeDurationToNextMarker: 1
   changeDuration: 0
   duration: 10
@@ -5906,6 +7551,22 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
+--- !u!114 &7016968798739536690
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
+  m_Name: Go Event Marker
+  m_EditorClassIdentifier: 
+  m_Time: 771.2166666666667
+  goEventName: PresentTribunes
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &7076484710841000847
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6190,7 +7851,7 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 4
     m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 829.0333333333333
+    m_PostExtrapolationTime: 764.8333333333334
     m_PreExtrapolationTime: 14.899999999999999
     m_DisplayName: Fade
   - m_Version: 1
@@ -6260,7 +7921,7 @@ MonoBehaviour:
     m_PostExtrapolationMode: 0
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 3.3166666666667197
-    m_PreExtrapolationTime: 0
+    m_PreExtrapolationTime: 57.316666666666606
     m_DisplayName: Fade
   - m_Version: 1
     m_Start: 1051.0724477704302
@@ -6568,6 +8229,144 @@ MonoBehaviour:
     m_PostExtrapolationTime: Infinity
     m_PreExtrapolationTime: 0
     m_DisplayName: Fade
+  - m_Version: 1
+    m_Start: 801.8666666666667
+    m_ClipIn: 0
+    m_Asset: {fileID: -253406398038090804}
+    m_Duration: 3.25
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 7666841824757086708}
+    m_EaseInDuration: 3
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0.38333333333332575
+    m_PreExtrapolationTime: 0
+    m_DisplayName: Fade
+  - m_Version: 1
+    m_Start: 805.5
+    m_ClipIn: 0
+    m_Asset: {fileID: -711989577679947116}
+    m_Duration: 3.25
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 7666841824757086708}
+    m_EaseInDuration: 3
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 57.316666666666606
+    m_PreExtrapolationTime: 0.38333333333332575
+    m_DisplayName: Fade
   m_Markers:
     m_Objects:
     - {fileID: -588641177160450554}
@@ -6688,6 +8487,51 @@ MonoBehaviour:
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
   m_Time: 412.01666666666677
+  note: FadeRandomTextures
+  textureChangerIndex: 2
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
+--- !u!114 &7913024379882170164
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
+  m_EditorClassIdentifier: 
+  m_Time: 589.1500000000001
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -7019,6 +8863,22 @@ MonoBehaviour:
     m_DisplayName: 'Scene: II_3 Finish Room: Monocoque'
   m_Markers:
     m_Objects: []
+--- !u!114 &8109505272454488714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
+  m_Name: Go Event Marker
+  m_EditorClassIdentifier: 
+  m_Time: 477.01666666666665
+  goEventName: FadeOutSeq
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &8181391146068507952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7057,6 +8917,51 @@ MonoBehaviour:
   m_Time: 532.049999999999
   note: FadeRandomTextures
   textureChangerIndex: 1
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
+--- !u!114 &8209490336586098744
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
+  m_EditorClassIdentifier: 
+  m_Time: 605.3333333333336
+  note: FadeRandomTextures
+  textureChangerIndex: 2
   changeDurationToNextMarker: 1
   changeDuration: 0
   duration: 10
@@ -7130,6 +9035,22 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
+--- !u!114 &8467534166098186052
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
+  m_Name: Go Event Marker
+  m_EditorClassIdentifier: 
+  m_Time: 771.8333333333334
+  goEventName: NoTribunes
   retroactive: 0
   emitOnce: 0
 --- !u!114 &8508665979565859426
@@ -7398,6 +9319,51 @@ MonoBehaviour:
     - {fileID: -2695180007477313514}
     - {fileID: 6625482524750059243}
     - {fileID: -3145763489890134940}
+--- !u!114 &9015306683669527197
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
+  m_Name: Texture Fader Marker
+  m_EditorClassIdentifier: 
+  m_Time: 639.0833333333336
+  note: FadeRandomTextures
+  textureChangerIndex: 2
+  changeDurationToNextMarker: 1
+  changeDuration: 0
+  duration: 10
+  changeCurve: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &9128411960716292192
 MonoBehaviour:
   m_ObjectHideFlags: 1
