@@ -169,7 +169,11 @@ namespace ObliqueSenastions.Animation
             List<int> allIndices = new List<int>();
             for (int i = 0; i < tribuenen.Length; i++)
             {
-                allIndices.Add(i);
+                if(tribuenen[i].blendShapePlayer.gameObject.activeInHierarchy)
+                {
+                    allIndices.Add(i);
+                }
+                
             }
             return allIndices.ToArray();
         }
@@ -182,7 +186,7 @@ namespace ObliqueSenastions.Animation
         }
 
 
-        
+
 
 
 

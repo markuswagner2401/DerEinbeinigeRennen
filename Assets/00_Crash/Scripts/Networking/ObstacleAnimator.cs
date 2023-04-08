@@ -55,14 +55,14 @@ namespace ObliqueSenastions.PunNetworking
             {
                 print("obstakle trigger: other network player");
                 DissolveObstacle();
-                PlayAccident();
+                //PlayAccident();
             }
         }
 
         public void DebugTriggerOnEnter()
         {
             DissolveObstacle();
-            PlayAccident();
+            //PlayAccident();
 
         }
 
@@ -81,18 +81,18 @@ namespace ObliqueSenastions.PunNetworking
             OnObstacleDestroyed?.Invoke();
         }
 
-        private void PlayAccident()
-        {
-            TimeModeMachine timeModeMachine = TimeLineHandler.instance?.GetComponent<TimeModeMachine>();
-            if (timeModeMachine != null)
-            {
-                timeModeMachine.PlayAccident(accidentName);
-            }
-            else
-            {
-                Debug.LogWarning("TimeModeMachine not found on TimeLineHandler instance");
-            }
-        }
+        // private void PlayAccident()
+        // {
+        //     TimeModeMachine timeModeMachine = TimeLineHandler.instance?.GetComponent<TimeModeMachine>();
+        //     if (timeModeMachine != null)
+        //     {
+        //         timeModeMachine.PlayAccident(accidentName);
+        //     }
+        //     else
+        //     {
+        //         Debug.LogWarning("TimeModeMachine not found on TimeLineHandler instance");
+        //     }
+        // }
 
         private IEnumerator AnimateBlendShape(int index)
         {
