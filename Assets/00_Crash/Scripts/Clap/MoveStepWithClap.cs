@@ -71,7 +71,7 @@ namespace ObliqueSenastions.ClapSpace
 
             while (timer < stepTime)
             {
-                timer += Time.deltaTime;
+                timer += Time.fixedDeltaTime;
                 stepSpeed = Mathf.Clamp(strength, 0, 1f) * curve.Evaluate(timer / stepTime);
                 mover.Move(movingDirection * stepSpeed * velocityFactor);
                 yield return null;

@@ -25,7 +25,7 @@ namespace ObliqueSenastions.Looping
 
 
 
-        void Update()
+        void FixedUpdate()
         {
             loopingMover.Move(direction.forward * currentSpeed * Time.deltaTime);
 

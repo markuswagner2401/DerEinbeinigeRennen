@@ -34,7 +34,7 @@ namespace ObliqueSenastions.Looping
         }
 
 
-        void Update()
+        void FixedUpdate()
         {
             MoveTowardsTarget();
         }

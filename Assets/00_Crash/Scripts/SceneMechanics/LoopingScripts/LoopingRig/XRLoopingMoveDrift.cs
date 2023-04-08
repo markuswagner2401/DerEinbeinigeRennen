@@ -52,7 +52,7 @@ namespace ObliqueSenastions.Looping
         }
 
         // Update is called once per frame
-        void Update()
+        void FixedUpdate()
         {
             if (readAtTimeline)
             {

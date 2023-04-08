@@ -182,7 +182,7 @@ namespace ObliqueSenastions.UISpace
 
             scores[index].currentScore = capturedScoreBeforeCountdown;
             scores[index].inCountdown = false;
-            scores[index].showText = capturedShowText;
+            //scores[index].showText = capturedShowText;
 
             // 
 
@@ -225,6 +225,7 @@ namespace ObliqueSenastions.UISpace
 
         public void ShowAllText(bool value)
         {
+            print("show all texts");
             for (int i = 0; i < scores.Length; i++)
             {
                 scores[i].showText = value;

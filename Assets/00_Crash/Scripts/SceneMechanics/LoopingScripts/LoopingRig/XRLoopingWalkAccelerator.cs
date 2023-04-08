@@ -54,7 +54,7 @@ namespace ObliqueSenastions.Looping
         }
 
 
-        void Update()
+        void FixedUpdate()
         {
             headVelocity = CalculateHeadVelocity();
 

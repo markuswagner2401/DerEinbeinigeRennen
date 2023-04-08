@@ -41,6 +41,8 @@ namespace ObliqueSenastions.Looping
         [SerializeField] string absturzsicherungTag = "Absturzsicherung";
         [SerializeField] bool continuousGrounding = true;
 
+        Rigidbody rb = null;
+
         
 
         // enum BehaviorOnLostGround
@@ -82,6 +84,8 @@ namespace ObliqueSenastions.Looping
             {
                 rig = GetComponent<XROrigin>();
             }
+
+            rb = GetComponent<Rigidbody>();
 
 
 
@@ -141,9 +145,13 @@ namespace ObliqueSenastions.Looping
 
             // rotate to normal
 
+            
 
+            
 
             transform.up = Vector3.Lerp(transform.up, currentHit.normal, smoothing);
+
+            //transform.up = currentHit.normal;
 
             //correct forward
 
@@ -224,16 +232,21 @@ namespace ObliqueSenastions.Looping
 
         public void Move(Vector3 velocity)
         {
+
 //            print("move : " + velocity);
             if (useTimelineTime && timelineTime != null)
             {
                 //transform.position += velocity * timelineTime.GetTimelineDeltaTime() * 72f;
                 transform.position += velocity * timelineTime.GetModeDependentTimelineDeltaTime() * 72f;
+
+                //rb.position = transform.position + velocity * timelineTime.GetModeDependentTimelineDeltaTime() * 72f;
             }
 
             else
             {
                 transform.position += velocity * (Time.deltaTime * 72f);
+
+                //rb.position = transform.position + velocity * (Time.deltaTime * 72f);
             }
 
         }
