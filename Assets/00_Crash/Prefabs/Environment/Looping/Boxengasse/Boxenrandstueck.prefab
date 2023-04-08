@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 916573474455285285}
   - component: {fileID: 4258022800234439040}
   - component: {fileID: 2086150023307597130}
+  - component: {fileID: 1382109562830217088}
   m_Layer: 0
   m_Name: Boxenrandstueck
   m_TagString: Untagged
@@ -85,6 +86,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1382109562830217088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572944602596881567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4085b75cb67c29840947a918e2cfc6e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageMasterEvents:
+  - name: BoxenstopEnd
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4723709711787637130}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!1 &5562257944312714371
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,6 +379,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4923197965997203447, guid: ea7cd5c4649fd8644ae9efb9c546f71b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8289503557244163235, guid: ea7cd5c4649fd8644ae9efb9c546f71b,
         type: 3}
       propertyPath: m_Name
@@ -481,6 +516,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1715891669954058197, guid: 7f88c07630df4a3448a1c3b8a0760396,
         type: 3}
+      propertyPath: triggerOnce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715891669954058197, guid: 7f88c07630df4a3448a1c3b8a0760396,
+        type: 3}
       propertyPath: nameOfExitEvent
       value: OnSeitenstreifenExit
       objectReference: {fileID: 0}
@@ -493,6 +533,11 @@ PrefabInstance:
         type: 3}
       propertyPath: networkplayerTag
       value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3017343573038996587, guid: 7f88c07630df4a3448a1c3b8a0760396,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5284336977875745550, guid: 7f88c07630df4a3448a1c3b8a0760396,
         type: 3}
@@ -579,8 +624,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Seitenstreifen exit
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9071523432857172787, guid: 7f88c07630df4a3448a1c3b8a0760396,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3017343573038996587, guid: 7f88c07630df4a3448a1c3b8a0760396, type: 3}
+    - {fileID: 5739190735173530100, guid: 7f88c07630df4a3448a1c3b8a0760396, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7f88c07630df4a3448a1c3b8a0760396, type: 3}
+--- !u!1 &4723709711787637130 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9071523432857172787, guid: 7f88c07630df4a3448a1c3b8a0760396,
+    type: 3}
+  m_PrefabInstance: {fileID: 4353145254031868601}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8042559783565094148 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6049903338655461309, guid: 7f88c07630df4a3448a1c3b8a0760396,

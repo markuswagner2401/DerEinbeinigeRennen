@@ -24,6 +24,17 @@ namespace ObliqueSenastions.MaterialControl
 
         }
 
+        [System.Serializable]
+        public struct ColorChanger
+        {
+            public string note;
+            public string propRef;
+            public Color newColor;
+
+            public AnimationCurve curve;
+            public bool interrupted;
+        }
+
         bool setFloatsToCurrent;
 
 

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5970478842174655148}
   - component: {fileID: 2273500489542449873}
   - component: {fileID: 447528966460671015}
+  - component: {fileID: 8385022522643424855}
   m_Layer: 25
   m_Name: Sphere (1)
   m_TagString: Untagged
@@ -176,6 +177,303 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 0
     interrupted: 0
+--- !u!114 &8385022522643424855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4591895768390249980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca6858d700257264cace8c50a26f9581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rend:
+  - {fileID: 5970478842174655148}
+  skm: []
+  skinnedMesh: 0
+  usePropertyBlock: 1
+  doOnStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8385022522643424855}
+        m_TargetAssemblyTypeName: ObliqueSenastions.MaterialControl.MaterialPropertiesFader_2,
+          Assembly-CSharp
+        m_MethodName: ChangeFloat
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: StartAB
+          m_BoolArgument: 0
+        m_CallState: 2
+  floatChangers:
+  - note: StartAB
+    propRef: _ABblend
+    targetValue: 0
+    randomRangeMin: 0
+    randomRangeMax: 0
+    duration: 0.1
+    pushFactor: 0
+    playFloat: 0
+    playSpeed: 0
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    interrupted: 0
+    automaticlyPlayNext: 0
+    waitTime: 0
+    playDaumenkino: 0
+  - note: UIFocus
+    propRef: _ABblend
+    targetValue: 1
+    randomRangeMin: 1
+    randomRangeMax: 1
+    duration: 1
+    pushFactor: 0
+    playFloat: 0
+    playSpeed: 0
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    interrupted: 0
+    automaticlyPlayNext: 0
+    waitTime: 0
+    playDaumenkino: 0
+  - note: UIUnfocus
+    propRef: _ABblend
+    targetValue: 0
+    randomRangeMin: 0
+    randomRangeMax: 0
+    duration: 1
+    pushFactor: 0
+    playFloat: 0
+    playSpeed: 0
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    interrupted: 0
+    automaticlyPlayNext: 0
+    waitTime: 0
+    playDaumenkino: 0
+  - note: Accident
+    propRef: _ABblend
+    targetValue: 1
+    randomRangeMin: 1
+    randomRangeMax: 1
+    duration: 0.1
+    pushFactor: 0
+    playFloat: 0
+    playSpeed: 0
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    interrupted: 0
+    automaticlyPlayNext: 1
+    waitTime: 3
+    playDaumenkino: 0
+  - note: AccidentOut
+    propRef: _ABblend
+    targetValue: 0
+    randomRangeMin: 0
+    randomRangeMax: 0
+    duration: 0.1
+    pushFactor: 0
+    playFloat: 0
+    playSpeed: 0
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    interrupted: 0
+    automaticlyPlayNext: 0
+    waitTime: 0
+    playDaumenkino: 0
+  textureChangers: []
+  textureFader:
+    note: 
+    texRefA: 
+    texRefB: 
+    faderRef: 
+    faderIsLeft: 0
+    isInterrupted: 0
+  materialChangers: []
+  colorChangers:
+  - note: Accident
+    color: {r: 1, g: 0, b: 0, a: 1}
+    colorPropRef: _UIColor
+    fadeInDuration: 0.1
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    automaticlyPlayNext: 1
+    waitBeforeNext: 3
+    nextChanger: AccidentOut
+    isInterrupted: 0
+  - note: AccidentOut
+    color: {r: 0.5764706, g: 0.5647059, b: 0.5411765, a: 0}
+    colorPropRef: _UIColor
+    fadeInDuration: 0.1
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    automaticlyPlayNext: 0
+    waitBeforeNext: 0
+    nextChanger: 
+    isInterrupted: 0
+  daumenkinoTimingMin: 1
+  daumenkinoChangeMax: 2
+  setFloatsToCurrent: 0
+  stetTexturesToCurrent: 0
 --- !u!1001 &1158168057163191649
 PrefabInstance:
   m_ObjectHideFlags: 0

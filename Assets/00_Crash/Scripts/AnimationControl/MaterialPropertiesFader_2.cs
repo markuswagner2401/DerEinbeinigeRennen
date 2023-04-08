@@ -113,6 +113,12 @@ namespace ObliqueSenastions.MaterialControl
             //public float fadeDurationMax;
             public AnimationCurve curve;
 
+            public bool automaticlyPlayNext;
+
+            public float waitBeforeNext;
+
+            public string nextChanger;
+
             public bool isInterrupted;
 
         }
@@ -708,6 +714,13 @@ namespace ObliqueSenastions.MaterialControl
                 newColor = Color.Lerp(startColor, targetColor, curve.Evaluate(timer / duration));
                 block.SetColor(colorChangers[index].colorPropRef, newColor);
                 yield return null;
+            }
+
+            if(colorChangers[index].automaticlyPlayNext)
+            {
+                yield return new WaitForSeconds(colorChangers[index].waitBeforeNext);
+                ChangeColor(colorChangers[index].nextChanger);
+
             }
 
             yield break;

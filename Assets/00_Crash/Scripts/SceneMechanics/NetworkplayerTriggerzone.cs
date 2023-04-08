@@ -6,12 +6,16 @@ using UnityEngine;
 
 public class NetworkplayerTriggerzone : MonoBehaviour
 {
+    [Tooltip("-1 for all players")]
     [SerializeField] int playerIndex;
 
     [SerializeField] string otherTag = "NetworkPlayer";
     [SerializeField] string nameOfEnterEvent;
 
     [SerializeField] string nameOfExitEvent;
+
+    [SerializeField] bool triggerOnce = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,9 +32,14 @@ public class NetworkplayerTriggerzone : MonoBehaviour
     {
         if (other.gameObject.tag == otherTag)
         {
-            if (MultiplayerConnector.instance.GetClientsIndexInRole() == playerIndex)
+
+            if (playerIndex == -1 || MultiplayerConnector.instance.GetClientsIndexInRole() == playerIndex)
             {
                 GameObject.FindWithTag("StageMaster").GetComponent<NetworkplayerTriggerMaster>().TriggerEvent(nameOfEnterEvent);
+                if(triggerOnce)
+                {
+                    gameObject.SetActive(false);
+                }
             }
 
         }
@@ -40,9 +49,13 @@ public class NetworkplayerTriggerzone : MonoBehaviour
     {
         if (other.gameObject.tag == otherTag)
         {
-            if (MultiplayerConnector.instance.GetClientsIndexInRole() == playerIndex)
+            if (playerIndex == -1 || MultiplayerConnector.instance.GetClientsIndexInRole() == playerIndex)
             {
                 GameObject.FindWithTag("StageMaster").GetComponent<NetworkplayerTriggerMaster>().TriggerEvent(nameOfExitEvent);
+                if(triggerOnce)
+                {
+                    gameObject.SetActive(false);
+                }
             }
 
         }

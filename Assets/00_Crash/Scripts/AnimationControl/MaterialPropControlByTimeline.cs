@@ -34,7 +34,16 @@ namespace ObliqueSenastions.MaterialControl
 
         private void OnEnable()
         {
-            block = new MaterialPropertyBlock();
+            if(TryGetComponent<MaterialPropertiesFader_2>(out MaterialPropertiesFader_2 materialPropertiesFader_2))
+            {
+                block = materialPropertiesFader_2.GetPropertyBlock();
+            }
+            else
+            {
+                block = new MaterialPropertyBlock();
+            }
+            
+            
         }
         void Start()
         {
