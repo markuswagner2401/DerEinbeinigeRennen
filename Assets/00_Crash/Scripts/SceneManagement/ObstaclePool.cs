@@ -49,6 +49,8 @@ namespace ObliqueSenastions.SceneSpace
 
                 for (int i = 0; i < pool.size; i++)
                 {
+                    //obj = PhotonNetwork.Instantiate(pool.prefab.name, Vector3.zero, Quaternion.identity);
+
                     if(PhotonNetwork.IsConnected)
                     {
                         obj = PhotonNetwork.Instantiate(pool.prefab.name, Vector3.zero, Quaternion.identity);

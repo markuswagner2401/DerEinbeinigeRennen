@@ -12,9 +12,17 @@ public class NetworkplayerTriggerzone : MonoBehaviour
     [SerializeField] string otherTag = "NetworkPlayer";
     [SerializeField] string nameOfEnterEvent;
 
+    [SerializeField] bool triggerEnterOnce;
+
+    [SerializeField] bool enterActive;
+
     [SerializeField] string nameOfExitEvent;
 
-    [SerializeField] bool triggerOnce = false;
+    [SerializeField] bool triggerExitOnce;
+
+    [SerializeField] bool exitAcitive;
+
+   
 
     // Start is called before the first frame update
     void Start()
@@ -30,38 +38,48 @@ public class NetworkplayerTriggerzone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(!enterActive) return;
+
         if (other.gameObject.tag == otherTag)
         {
-
             if (playerIndex == -1 || MultiplayerConnector.instance.GetClientsIndexInRole() == playerIndex)
             {
                 GameObject.FindWithTag("StageMaster").GetComponent<NetworkplayerTriggerMaster>().TriggerEvent(nameOfEnterEvent);
-                if(triggerOnce)
+                if(triggerEnterOnce)
                 {
-                    gameObject.SetActive(false);
+                    enterActive = false;
                 }
             }
-
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
+        if(!exitAcitive) return;
+
         if (other.gameObject.tag == otherTag)
         {
-            print("triggerd by: " + otherTag);
-
+            
+            
             if (playerIndex == -1 || MultiplayerConnector.instance.GetClientsIndexInRole() == playerIndex)
             {
                 GameObject.FindWithTag("StageMaster").GetComponent<NetworkplayerTriggerMaster>().TriggerEvent(nameOfExitEvent);
-                print("trigger: " + nameOfExitEvent);
-                if(triggerOnce)
+                
+                if(triggerExitOnce)
                 {
-                    gameObject.SetActive(false);
+                    exitAcitive = false;
                 }
             }
-
         }
+    }
 
+    public void ActivateTriggerEnter(bool value)
+    {
+        enterActive = value;
+    }
+
+    public void ActivateTriggerExit(bool value)
+    {
+        exitAcitive = value;
     }
 }

@@ -22,8 +22,8 @@ namespace ObliqueSensations.OVRRigSpace
 
         void Start()
         {
-            currentPosition = source.position;
-            currentRotation = source.rotation;
+            currentPosition = source.localPosition;
+            currentRotation = source.localRotation;
             lastSafePosition = currentPosition;
             lastSafeRotation = currentRotation;
         }
@@ -70,24 +70,24 @@ namespace ObliqueSensations.OVRRigSpace
                 {
                     if (hand.IsDataHighConfidence)
                     {
-                        print("data high confidence");
-                        currentPosition = source.position;
-                        currentRotation = source.rotation;
+                        //print("data high confidence");
+                        currentPosition = source.localPosition;
+                        currentRotation = source.localRotation;
                         lastSafePosition = currentPosition;
                         lastSafeRotation = currentRotation;
                     }
 
                     else
                     {
-                        print("data no confidence");
+                        //print("data no confidence");
                         currentPosition = lastSafePosition;
                         currentRotation = lastSafeRotation;
                     }
 
-                    transform.position = currentPosition;
+                    transform.localPosition = currentPosition;
                     
                     
-                    transform.rotation = currentRotation;
+                    transform.localRotation = currentRotation;
                     transform.Rotate(offsetHandRotation, Space.Self);
                     return;
 

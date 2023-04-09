@@ -95,15 +95,15 @@ namespace ObliqueSenastions.VRRigSpace
 
             // Capturing
 
-            if((Mathf.Abs(lastLocalSpeed - currentLocalSpeed) > speedChangeGate)) 
-            {
-                speedGate = true;
+            // if((Mathf.Abs(lastLocalSpeed - currentLocalSpeed) > speedChangeGate)) 
+            // {
+            //     speedGate = true;
 
-                //currentLocalSpeed = Mathf.Clamp(lastLocalSpeed - 0.001f, 0, maxSpeed);
+            //     //currentLocalSpeed = Mathf.Clamp(lastLocalSpeed - 0.001f, 0, maxSpeed);
 
-                currentLocalVelocity = previousLocalVelocity;
+            //     currentLocalVelocity = previousLocalVelocity;
 
-            }
+            // }
 
 
             // if((Mathf.Abs(lastLocalSpeed - currentLocalSpeed) > speedChangeGate) && !interruptspeedGate) 
