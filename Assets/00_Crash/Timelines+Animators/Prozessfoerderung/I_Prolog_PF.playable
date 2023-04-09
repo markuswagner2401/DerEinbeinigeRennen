@@ -677,6 +677,7 @@ MonoBehaviour:
     - {fileID: -8100081972550339118}
     - {fileID: -4610145076659601703}
     - {fileID: 2921021698794629522}
+    - {fileID: -2509544388175504258}
 --- !u!114 &-7911866034997730812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2505,6 +2506,22 @@ MonoBehaviour:
   goEventName: HolesOsscilate
   retroactive: 0
   emitOnce: 0
+--- !u!114 &-4710457065023022012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
+  m_Name: Haltepunkt Marker
+  m_EditorClassIdentifier: 
+  m_Time: 776.6333333333333
+  note: Vor Boxenstop
+  displayModeInInspiUI: 0
+  stopOrHold: 0
 --- !u!114 &-4620633171220026431
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3079,7 +3096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 774.8
+  m_Time: 743.2666666666667
   goEventName: PrepareBoxenstop
   retroactive: 0
   emitOnce: 0
@@ -3449,6 +3466,8 @@ MonoBehaviour:
     - {fileID: -7364624723230129596}
     - {fileID: -4455717044471126190}
     - {fileID: 103486129779223276}
+    - {fileID: 4826755881030958149}
+    - {fileID: -4710457065023022012}
 --- !u!114 &-2695180007477313514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3466,6 +3485,22 @@ MonoBehaviour:
   color: {r: 0, g: 0, b: 0, a: 0}
   description: 
   showLineOverlay: 0
+--- !u!114 &-2509544388175504258
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
+  m_Name: Go Event Marker
+  m_EditorClassIdentifier: 
+  m_Time: 569.3166666666667
+  goEventName: Schneller
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &-2317828165725496359
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7123,6 +7158,22 @@ MonoBehaviour:
     parameterName: Fade
     value: 0
     firstClipInTrack: 0
+--- !u!114 &4826755881030958149
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
+  m_Name: Haltepunkt Marker
+  m_EditorClassIdentifier: 
+  m_Time: 478
+  note: Halt vor Countdown
+  displayModeInInspiUI: 0
+  stopOrHold: 0
 --- !u!114 &4829795504680394476
 MonoBehaviour:
   m_ObjectHideFlags: 1

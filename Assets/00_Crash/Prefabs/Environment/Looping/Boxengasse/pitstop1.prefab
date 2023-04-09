@@ -218,6 +218,9 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
+    automaticlyPlayNext: 0
+    waitBeforeNext: 0
+    nextChanger: 
     isInterrupted: 0
   daumenkinoTimingMin: 1
   daumenkinoChangeMax: 2
@@ -253,6 +256,19 @@ MonoBehaviour:
             m_StringArgument: Boxenstop
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 6963551956946690669}
+          m_TargetAssemblyTypeName: ObliqueSenastions.MaterialControl.MaterialPropertiesFader_2,
+            Assembly-CSharp
+          m_MethodName: ChangeColor
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: PlayerColor
+            m_BoolArgument: 0
+          m_CallState: 2
   - name: BoxenstopEnd
     unityEvent:
       m_PersistentCalls:
@@ -268,6 +284,19 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: BoxenstopEnd
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6963551956946690669}
+          m_TargetAssemblyTypeName: ObliqueSenastions.MaterialControl.MaterialPropertiesFader_2,
+            Assembly-CSharp
+          m_MethodName: ChangeColor
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: PlayerColor
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1001 &2236332830160518107

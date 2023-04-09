@@ -16,6 +16,11 @@ namespace ObliqueSenastions.StageMasterSpace
             public UnityEvent onTiggerEvents;
         }
 
+        public delegate void OnTriggerEventDelegate(string name);
+        public OnTriggerEventDelegate onTriggerEventDelegate;
+
+
+
         public void TriggerEvent(string name)
         {
             for (int i = 0; i < eventTriggerers.Length; i++)
@@ -23,8 +28,15 @@ namespace ObliqueSenastions.StageMasterSpace
                 if(eventTriggerers[i].name == name)
                 {
                     eventTriggerers[i].onTiggerEvents.Invoke();
+                    
                 }
             }
+        }
+
+        public void SendDelegateTriggerEvent(string name)
+        {
+            if(onTriggerEventDelegate == null) return;
+            onTriggerEventDelegate.Invoke(name);
         }
 
     }

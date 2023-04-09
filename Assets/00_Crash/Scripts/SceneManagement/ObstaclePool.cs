@@ -6,7 +6,7 @@ using UnityEngine;
 namespace ObliqueSenastions.SceneSpace
 {
 
-    public class ObstaclePool : MonoBehaviour
+    public class ObstaclePool : MonoBehaviourPunCallbacks
     {
         public static ObstaclePool Instance;
 
@@ -22,6 +22,8 @@ namespace ObliqueSenastions.SceneSpace
         public Dictionary<string, Queue<GameObject>> poolDictionary = null;
 
         public Transform obstaclePoolParent;
+
+        [SerializeField] bool waitForNetwork = true;
 
 
 
@@ -39,6 +41,25 @@ namespace ObliqueSenastions.SceneSpace
 
         void Start()
         {
+            if(!waitForNetwork)
+            {
+                CreatePool();
+            }
+            
+        }
+
+        public override void OnJoinedRoom()
+        {
+            if(waitForNetwork)
+            {
+                CreatePool();
+            }
+        }
+
+        
+
+        private void CreatePool()
+        {
             poolDictionary = new Dictionary<string, Queue<GameObject>>();
 
             foreach (Pool pool in pools)
@@ -49,9 +70,9 @@ namespace ObliqueSenastions.SceneSpace
 
                 for (int i = 0; i < pool.size; i++)
                 {
-                    //obj = PhotonNetwork.Instantiate(pool.prefab.name, Vector3.zero, Quaternion.identity);
 
-                    if(PhotonNetwork.IsConnected)
+
+                    if (PhotonNetwork.IsConnected)
                     {
                         obj = PhotonNetwork.Instantiate(pool.prefab.name, Vector3.zero, Quaternion.identity);
                     }
@@ -59,13 +80,13 @@ namespace ObliqueSenastions.SceneSpace
                     {
                         obj = Instantiate(pool.prefab);
                     }
-                    
+
                     obj.SetActive(false);
-                    if(obstaclePoolParent != null)
+                    if (obstaclePoolParent != null)
                     {
-                        obj.transform.SetParent(obstaclePoolParent); 
+                        obj.transform.SetParent(obstaclePoolParent);
                     }
-                    
+
                     objectPool.Enqueue(obj);
                 }
 

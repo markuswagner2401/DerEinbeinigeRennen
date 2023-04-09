@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4258022800234439040}
   - component: {fileID: 2086150023307597130}
   - component: {fileID: 1382109562830217088}
+  - component: {fileID: 6173854287673894971}
   m_Layer: 0
   m_Name: Boxenrandstueck
   m_TagString: Untagged
@@ -163,6 +164,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 3150664771214677356}
+          m_TargetAssemblyTypeName: NetworkplayerTriggerzone, Assembly-CSharp
+          m_MethodName: ActivateTriggerExit
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - name: BoxenstopEnd
     unityEvent:
       m_PersistentCalls:
@@ -230,6 +243,35 @@ MonoBehaviour:
         - m_Target: {fileID: 5441072868142654136}
           m_TargetAssemblyTypeName: NetworkplayerTriggerzone, Assembly-CSharp
           m_MethodName: ActivateTriggerEnter
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &6173854287673894971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572944602596881567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008a673b92e577a4d84414655658c4a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerMasterEvents:
+  - name: PlayerExitSeitenstreifen
+    onTriggerMasterEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3150664771214677356}
+          m_TargetAssemblyTypeName: NetworkplayerTriggerzone, Assembly-CSharp
+          m_MethodName: ActivateTriggerExit
           m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

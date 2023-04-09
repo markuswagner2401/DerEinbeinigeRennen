@@ -74,6 +74,9 @@ namespace ObliqueSenastions.Looping
 
         float prevSpeedRight;
 
+        float speedSum;
+        float prevSpeedSum;
+
         void OnEnable()
         {
             if (loopingMover == null) loopingMover = GetComponent<XRLoopingMover>();
@@ -110,6 +113,7 @@ namespace ObliqueSenastions.Looping
                 case InputMode.readAtTacho:
                     speedLeft = tachoLeft.GetNormedTargetPosition();
                     speedRight = tachoRight.GetNormedTargetPosition();
+                  
                     break;
 
                 default:
@@ -117,21 +121,52 @@ namespace ObliqueSenastions.Looping
             }
 
 
+            ////
+
+            speedSum = 0;
 
             if (armSwingLeft && speedLeft > threshold)
             {
-                speedLeft = Mathf.Lerp(prevSpeedLeft, speedLeft, smoothing);
-                loopingMover.Move(forwardHead.GetControllerForward() * speedLeft * speedFactor * Time.deltaTime);
+                speedSum += speedLeft;
             }
 
             if (armSwingRight && speedRight > threshold)
             {
-                speedRight = Mathf.Lerp(prevSpeedRight, speedRight, smoothing);
-                loopingMover.Move(forwardHead.GetControllerForward() * speedRight * speedFactor * Time.deltaTime);
+                speedSum += speedRight;
             }
+
+            speedSum = Mathf.Lerp(prevSpeedSum, speedSum, smoothing);
+
+
+
+            loopingMover.Move(forwardHead.GetControllerForward() * speedSum * speedFactor * Time.deltaTime);
+
+
+
+
+
+            
+
+            ////
+
+
+
+
+            // if (armSwingLeft && speedLeft > threshold)
+            // {
+            //     speedLeft = Mathf.Lerp(prevSpeedLeft, speedLeft, smoothing);
+            //     loopingMover.Move(forwardHead.GetControllerForward() * speedLeft * speedFactor * Time.deltaTime);
+            // }
+
+            // if (armSwingRight && speedRight > threshold)
+            // {
+            //     speedRight = Mathf.Lerp(prevSpeedRight, speedRight, smoothing);
+            //     loopingMover.Move(forwardHead.GetControllerForward() * speedRight * speedFactor * Time.deltaTime);
+            // }
 
             prevSpeedLeft = speedLeft;
             prevSpeedRight = speedRight;
+            prevSpeedSum = speedSum;
 
 
         }
