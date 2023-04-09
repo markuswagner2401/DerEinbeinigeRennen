@@ -70,7 +70,7 @@ namespace ObliqueSensations.OVRRigSpace
                 {
                     if (hand.IsDataHighConfidence)
                     {
-
+                        print("data high confidence");
                         currentPosition = source.position;
                         currentRotation = source.rotation;
                         lastSafePosition = currentPosition;
@@ -79,7 +79,7 @@ namespace ObliqueSensations.OVRRigSpace
 
                     else
                     {
-
+                        print("data no confidence");
                         currentPosition = lastSafePosition;
                         currentRotation = lastSafeRotation;
                     }
@@ -93,8 +93,8 @@ namespace ObliqueSensations.OVRRigSpace
 
                 }
 
-                transform.position = currentPosition;
-                transform.rotation = currentRotation;
+                //transform.position = currentPosition;
+                //transform.rotation = currentRotation;
 
             }
 

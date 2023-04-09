@@ -53,10 +53,10 @@ namespace ObliqueSenastions.TimelineSpace
             }
         }
 
-       
+
         void Update()
         {
-            if( !syncPlayableDirector.GetIsMine()) return;
+            if (!syncPlayableDirector.GetIsMine()) return;
 
             switch (timeModeMachine.GetTimelinePlayMode())
             {
@@ -95,6 +95,16 @@ namespace ObliqueSenastions.TimelineSpace
 
         public void JumpToTime(float time)
         {
+            /// Check Network Sync
+
+            if (syncPlayableDirector != null && !syncPlayableDirector.RequestNetworkOwnership())
+            {
+                Debug.Log("TimelineScroller: Timeline Owned by another Player. Jump receted");
+                return;
+            }
+
+            //
+            
             PlayableDirector playableDirector = GetComponent<PlayableDirector>();
             playableDirector.time = time;
         }

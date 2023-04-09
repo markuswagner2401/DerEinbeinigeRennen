@@ -49,9 +49,12 @@ public class NetworkplayerTriggerzone : MonoBehaviour
     {
         if (other.gameObject.tag == otherTag)
         {
+            print("triggerd by: " + otherTag);
+
             if (playerIndex == -1 || MultiplayerConnector.instance.GetClientsIndexInRole() == playerIndex)
             {
                 GameObject.FindWithTag("StageMaster").GetComponent<NetworkplayerTriggerMaster>().TriggerEvent(nameOfExitEvent);
+                print("trigger: " + nameOfExitEvent);
                 if(triggerOnce)
                 {
                     gameObject.SetActive(false);

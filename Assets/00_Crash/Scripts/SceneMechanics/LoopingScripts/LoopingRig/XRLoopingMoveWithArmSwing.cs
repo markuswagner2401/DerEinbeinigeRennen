@@ -3,12 +3,21 @@ using System.Collections.Generic;
 using ObliqueSenastions.VRRigSpace;
 using Oculus.Interaction.Input;
 using UnityEngine;
+using ObliqueSenastions.UISpace;
 
 namespace ObliqueSenastions.Looping
 {
 
     public class XRLoopingMoveWithArmSwing : MonoBehaviour
     {
+        enum InputMode
+        {
+            ovrHand,
+            readAtTacho,
+            xrToolkit
+        }
+
+        [SerializeField] InputMode inputMode;
         [SerializeField] bool armSwingRight = true;
         [SerializeField] bool armSwingLeft = true;
         [SerializeField] float speedFactor = 10f;
@@ -30,6 +39,11 @@ namespace ObliqueSenastions.Looping
         [SerializeField] float threshold = .1f;
 
         [SerializeField] bool usingOVR = false;
+
+        [SerializeField] bool readAtTacho = false;
+
+        [SerializeField] Tachonadel tachoLeft = null;
+        [SerializeField] Tachonadel tachoRight = null;
 
         [SerializeField] XRVelocityTracker velocityTrackerRight = null;
         [SerializeField] XRVelocityTracker velocityTrackerLeft = null;
@@ -66,48 +80,42 @@ namespace ObliqueSenastions.Looping
 
             prevSpeedLeft = speedLeft;
             prevSpeedRight = speedRight;
+
+            if(inputMode == InputMode.readAtTacho)
+            {
+                if(tachoLeft == null || tachoRight == null)
+                {
+                    inputMode = InputMode.ovrHand;
+                }
+            }
         }
 
 
         void FixedUpdate()
         {
-            if (usingOVR)
+            
+
+
+            switch (inputMode)
             {
-                OVRInput.FixedUpdate();
+                case InputMode.ovrHand:
+                    ProcessOVRInput();
+                    break;
 
-                if (OVRInput.GetActiveController() == OVRInput.Controller.Touch)
-                {
-                    print("hands not active");
-                    speedLeft = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.LTouch).magnitude;
-                    speedRight = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RTouch).magnitude;
+                case InputMode.xrToolkit:
+                    speedLeft = velocityTrackerLeft.GetSpeed();
+                    speedRight = velocityTrackerRight.GetSpeed();
+                    break;
 
-                }
+                case InputMode.readAtTacho:
+                    speedLeft = tachoLeft.GetNormedTargetPosition();
+                    speedRight = tachoRight.GetNormedTargetPosition();
+                    break;
 
-                else
-                {
-
-                    //speedLeft = leftHand.IsDataHighConfidence ? simpleVelocityTrackerLeft.GetLocalSpeed() : Mathf.Lerp(prevSpeedLeft, 0, smoothing);
-                    //speedRight = rightHand.IsDataHighConfidence ? simpleVelocityTrackerRight.GetLocalSpeed() : Mathf.Lerp(prevSpeedRight, 0, smoothing);
-
-                    speedLeft = simpleVelocityTrackerLeft.GetLocalSpeed();
-                    speedRight = simpleVelocityTrackerRight.GetLocalSpeed();
-
-                }
-
-
-
-
-
-
-
+                default:
+                    break;
             }
 
-            else
-            {
-                speedLeft = velocityTrackerLeft.GetSpeed();
-                speedRight = velocityTrackerRight.GetSpeed();
-
-            }
 
 
             if (armSwingLeft && speedLeft > threshold)
@@ -125,6 +133,28 @@ namespace ObliqueSenastions.Looping
             prevSpeedLeft = speedLeft;
             prevSpeedRight = speedRight;
 
+
+        }
+
+        private void ProcessOVRInput()
+        {
+            OVRInput.FixedUpdate();
+
+            if (OVRInput.GetActiveController() == OVRInput.Controller.Touch)
+            {
+                print("hands not active");
+                speedLeft = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.LTouch).magnitude;
+                speedRight = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RTouch).magnitude;
+
+            }
+
+            else
+            {
+                //speedLeft = leftHand.IsDataHighConfidence ? simpleVelocityTrackerLeft.GetLocalSpeed() : Mathf.Lerp(prevSpeedLeft, 0, smoothing);
+                //speedRight = rightHand.IsDataHighConfidence ? simpleVelocityTrackerRight.GetLocalSpeed() : Mathf.Lerp(prevSpeedRight, 0, smoothing);
+                speedLeft = simpleVelocityTrackerLeft.GetLocalSpeed();
+                speedRight = simpleVelocityTrackerRight.GetLocalSpeed();
+            }
 
         }
 

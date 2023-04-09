@@ -34,7 +34,13 @@ namespace ObliqueSenastions.MaterialControl
 
         private void OnEnable()
         {
-            if(TryGetComponent<MaterialPropertiesFader_2>(out MaterialPropertiesFader_2 materialPropertiesFader_2))
+
+
+
+        }
+        void Start()
+        {
+            if (TryGetComponent<MaterialPropertiesFader_2>(out MaterialPropertiesFader_2 materialPropertiesFader_2))
             {
                 block = materialPropertiesFader_2.GetPropertyBlock();
             }
@@ -42,11 +48,8 @@ namespace ObliqueSenastions.MaterialControl
             {
                 block = new MaterialPropertyBlock();
             }
+
             
-            
-        }
-        void Start()
-        {
             if (floatControlByTimeline == null)
             {
                 floatControlByTimeline = TimeLineHandler.instance.GetComponent<FloatControlByTimeline>();
