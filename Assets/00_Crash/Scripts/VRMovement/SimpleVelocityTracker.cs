@@ -9,7 +9,8 @@ namespace ObliqueSenastions.VRRigSpace
     public class SimpleVelocityTracker : MonoBehaviour
     {
 
-
+        public float positionThreshold = 0.001f;
+        public float rotationThreshold = 0.001f;
         public float currentSpeed;
 
         float lastSpeed;
@@ -38,8 +39,8 @@ namespace ObliqueSenastions.VRRigSpace
 
         bool interruptspeedGate = false;
 
-       
-        
+
+
 
 
 
@@ -55,7 +56,7 @@ namespace ObliqueSenastions.VRRigSpace
 
         Vector3 previousLocalVelocity = new Vector3();
 
-        
+
 
         [SerializeField] float smoothing;
 
@@ -68,97 +69,56 @@ namespace ObliqueSenastions.VRRigSpace
         }
 
 
-        void Update()
+        void LateUpdate()
         {
             // position
+            Vector3 positionDelta = transform.position - previousPosition;
 
-            currentVelocity = (transform.position - previousPosition) / Time.deltaTime;
-            currentVelocity = Vector3.Lerp(previousVelocity, currentVelocity, smoothing);
-            currentSpeed = currentVelocity.magnitude;
+            if (positionDelta.magnitude > positionThreshold)
+            {
+                currentVelocity = positionDelta / Time.deltaTime;
+                currentVelocity = Vector3.Lerp(previousVelocity, currentVelocity, smoothing);
+                currentSpeed = currentVelocity.magnitude;
+            }
+            else
+            {
+                currentVelocity = Vector3.zero;
+                currentSpeed = 0;
+            }
 
             // local position
-    
-            currentLocalVelocity = ((transform.localPosition - previousLocalPosition) / Time.deltaTime);
-            currentLocalVelocity = Vector3.Lerp(previousLocalVelocity, currentLocalVelocity, smoothing);
-            currentLocalSpeed = Mathf.Clamp(currentLocalVelocity.magnitude, 0, maxSpeed);
-            //currentLocalSpeed = currentLocalVelocity.magnitude;
+            Vector3 localPositionDelta = transform.localPosition - previousLocalPosition;
+
+            if (localPositionDelta.magnitude > positionThreshold)
+            {
+                currentLocalVelocity = localPositionDelta / Time.deltaTime;
+                currentLocalVelocity = Vector3.Lerp(previousLocalVelocity, currentLocalVelocity, smoothing);
+                currentLocalSpeed = Mathf.Clamp(currentLocalVelocity.magnitude, 0, maxSpeed);
+            }
+            else
+            {
+                currentLocalVelocity = Vector3.zero;
+                currentLocalSpeed = 0;
+            }
 
             // rotation
-
             Quaternion deltaRotation = transform.rotation * Quaternion.Inverse(previousRotation);
             deltaRotation.ToAngleAxis(out var angle, out var axis);
             angle *= Mathf.Deg2Rad;
 
-            angularVelocitiy = (1.0f / Time.deltaTime) * angle * axis;
-            angularVelocitiy = Vector3.Lerp(previousAngularVelocity, angularVelocitiy, smoothing);
-            angularSpeed = angularVelocitiy.magnitude;
-
-            // Capturing
-
-            // if((Mathf.Abs(lastLocalSpeed - currentLocalSpeed) > speedChangeGate)) 
-            // {
-            //     speedGate = true;
-
-            //     //currentLocalSpeed = Mathf.Clamp(lastLocalSpeed - 0.001f, 0, maxSpeed);
-
-            //     // currentLocalVelocity = previousLocalVelocity;
-            //     // currentLocalSpeed = lastLocalSpeed;
-
-            // }
+            if (angle > rotationThreshold)
+            {
+                angularVelocitiy = (1.0f / Time.deltaTime) * angle * axis;
+                angularVelocitiy = Vector3.Lerp(previousAngularVelocity, angularVelocitiy, smoothing);
+                angularSpeed = angularVelocitiy.magnitude;
+            }
+            else
+            {
+                angularVelocitiy = Vector3.zero;
+                angularSpeed = 0;
+            }
 
 
-            // if((Mathf.Abs(lastLocalSpeed - currentLocalSpeed) > speedChangeGate) && !interruptspeedGate) 
-            // {
-            //     speedGate = true;
-
-            //     //currentLocalSpeed = Mathf.Clamp(lastLocalSpeed - 0.001f, 0, maxSpeed);
-
-            //     currentLocalVelocity = previousLocalVelocity;
-
-            //     speedGateRecoverTimer += Time.deltaTime;
-
-            //     if(speedGateRecoverTimer > maxSpeedGateRecoverDuration)
-            //     {
-            //         interruptspeedGate = true;
-                    
-            //     }
-
-            // }
-
-            // else
-            // {
-            //     speedGateRecoverTimer = 0;
-
-            //     speedGate = false;
-
-            //     interruptspeedGate = false;
-            // }
-            
-
-
-
-            /////
-
-
-            //speedGate = (Mathf.Abs(lastLocalSpeed - currentLocalSpeed) > speedChangeGate) ? true : false;
-
-            //
-
-            
-
-            // speedGate = (Mathf.Abs(lastLocalSpeed - currentLocalSpeed) > speedChangeGate) ? true : false;
-
-            // speedGateRecoverTimer = speedGate ? (speedGateRecoverTimer += Time.deltaTime) : 0;
-
-            // interruptspeedGate = speedGateRecoverTimer > maxSpeedGateRecoverDuration ? true : false;
-
-            // currentLocalSpeed = (speedGate && !interruptspeedGate) ? Mathf.Clamp(lastLocalSpeed - 0.0001f, 0, maxSpeed) : 
-
-
-
-            
-
-            //
 
             previousPosition = transform.position;
             previousVelocity = currentVelocity;
@@ -172,20 +132,20 @@ namespace ObliqueSenastions.VRRigSpace
             lastSpeed = currentSpeed;
             lastLocalSpeed = currentLocalSpeed;
 
-           
-
-            
-
-            
 
 
 
-            
+
+
+
+
+
+
         }
 
         ///////
 
-        
+
 
 
         ///////
@@ -195,11 +155,11 @@ namespace ObliqueSenastions.VRRigSpace
             if (speedGate)
             {
                 return 0;
-            } 
+            }
             return currentSpeed;
         }
 
-        
+
 
         public float GetLocalSpeed()
         {
@@ -208,9 +168,9 @@ namespace ObliqueSenastions.VRRigSpace
             return currentLocalSpeed;
         }
 
-        
 
-        
+
+
 
         public Vector3 GetVelocity()
         {
@@ -241,3 +201,70 @@ namespace ObliqueSenastions.VRRigSpace
     }
 
 }
+
+// Capturing
+
+// if((Mathf.Abs(lastLocalSpeed - currentLocalSpeed) > speedChangeGate)) 
+// {
+//     speedGate = true;
+
+//     //currentLocalSpeed = Mathf.Clamp(lastLocalSpeed - 0.001f, 0, maxSpeed);
+
+//     // currentLocalVelocity = previousLocalVelocity;
+//     // currentLocalSpeed = lastLocalSpeed;
+
+// }
+
+
+// if((Mathf.Abs(lastLocalSpeed - currentLocalSpeed) > speedChangeGate) && !interruptspeedGate) 
+// {
+//     speedGate = true;
+
+//     //currentLocalSpeed = Mathf.Clamp(lastLocalSpeed - 0.001f, 0, maxSpeed);
+
+//     currentLocalVelocity = previousLocalVelocity;
+
+//     speedGateRecoverTimer += Time.deltaTime;
+
+//     if(speedGateRecoverTimer > maxSpeedGateRecoverDuration)
+//     {
+//         interruptspeedGate = true;
+
+//     }
+
+// }
+
+// else
+// {
+//     speedGateRecoverTimer = 0;
+
+//     speedGate = false;
+
+//     interruptspeedGate = false;
+// }
+
+
+
+
+/////
+
+
+//speedGate = (Mathf.Abs(lastLocalSpeed - currentLocalSpeed) > speedChangeGate) ? true : false;
+
+//
+
+
+
+// speedGate = (Mathf.Abs(lastLocalSpeed - currentLocalSpeed) > speedChangeGate) ? true : false;
+
+// speedGateRecoverTimer = speedGate ? (speedGateRecoverTimer += Time.deltaTime) : 0;
+
+// interruptspeedGate = speedGateRecoverTimer > maxSpeedGateRecoverDuration ? true : false;
+
+// currentLocalSpeed = (speedGate && !interruptspeedGate) ? Mathf.Clamp(lastLocalSpeed - 0.0001f, 0, maxSpeed) : 
+
+
+
+
+
+//
