@@ -101,7 +101,8 @@ namespace ObliqueSenastions.VRRigSpace
 
             //     //currentLocalSpeed = Mathf.Clamp(lastLocalSpeed - 0.001f, 0, maxSpeed);
 
-            //     currentLocalVelocity = previousLocalVelocity;
+            //     // currentLocalVelocity = previousLocalVelocity;
+            //     // currentLocalSpeed = lastLocalSpeed;
 
             // }
 
@@ -203,7 +204,7 @@ namespace ObliqueSenastions.VRRigSpace
         public float GetLocalSpeed()
         {
             //print("get local speed: " + (speedGate ? lastLocalSpeed : currentLocalSpeed));
-            //if (speedGate) return lastLocalSpeed;
+            if (speedGate) return lastLocalSpeed;
             return currentLocalSpeed;
         }
 
