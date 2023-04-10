@@ -13,6 +13,8 @@ namespace ObliqueSensations.OVRRigSpace
         [Tooltip("leave empty if is head")]
         [SerializeField] OVRHand hand = null;
 
+        [SerializeField] bool isSafeOVRSource = false;
+
         Vector3 currentPosition = new Vector3();
         Quaternion currentRotation = new Quaternion();
 
@@ -46,6 +48,8 @@ namespace ObliqueSensations.OVRRigSpace
                 return;
             }
 
+            
+
             // controllers
 
             if (OVRInput.GetActiveController() == OVRInput.Controller.Touch)
@@ -68,6 +72,19 @@ namespace ObliqueSensations.OVRRigSpace
             {
                 if (hand != null)
                 {
+                    if (isSafeOVRSource)
+                    {
+                        currentPosition = source.position;
+                        currentRotation = source.rotation;
+                        lastSafePosition = currentPosition;
+                        lastSafeRotation = currentRotation;
+
+                        transform.position = currentPosition;
+                        transform.rotation = currentRotation;
+
+                        return;
+                    }
+                    
                     if (hand.IsDataHighConfidence)
                     {
                         //print("data high confidence");
@@ -85,8 +102,8 @@ namespace ObliqueSensations.OVRRigSpace
                     }
 
                     transform.localPosition = currentPosition;
-                    
-                    
+
+
                     transform.localRotation = currentRotation;
                     transform.Rotate(offsetHandRotation, Space.Self);
                     return;
