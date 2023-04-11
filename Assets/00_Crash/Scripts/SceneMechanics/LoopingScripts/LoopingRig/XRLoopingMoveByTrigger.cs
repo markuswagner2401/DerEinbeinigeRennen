@@ -34,6 +34,12 @@ namespace ObliqueSenastions.Looping
         [SerializeField] LoopingControllerForwardVector forwardHandRight = null;
         [SerializeField] LoopingControllerForwardVector forwardHead = null;
 
+        [SerializeField] GameObject directionIndicatorLeft = null;
+
+        [SerializeField] GameObject directionIndicatorRight = null;
+
+        [SerializeField] bool showDirectionIndicatorsAtStart = false;
+
 
 
         [SerializeField] float speed = 10f;
@@ -56,6 +62,8 @@ namespace ObliqueSenastions.Looping
 
 
 
+
+
         void Start()
         {
             moveDeviceTriggerLeft = InputDevices.GetDeviceAtXRNode(moveHandTriggerLeft);
@@ -73,7 +81,7 @@ namespace ObliqueSenastions.Looping
                 rightHand = GameObject.FindWithTag("RightOVRHand").GetComponent<OVRHand>();
             }
 
-            
+            ShowDirectionIndicators(showDirectionIndicatorsAtStart);
             
 
         }
@@ -123,6 +131,12 @@ namespace ObliqueSenastions.Looping
 
         }
 
+        public void ShowDirectionIndicators(bool value)
+        {
+            if(directionIndicatorLeft != null) directionIndicatorLeft.SetActive(value);
+            if(directionIndicatorRight != null) directionIndicatorRight.SetActive(value);
+        }
+
         
 
         private void ProcessOVRInput()
@@ -138,7 +152,7 @@ namespace ObliqueSenastions.Looping
 
                 if (leftIsPinching)
                 {
-                    moveTriggerValueL += increaseValueOnPinch;
+                    moveTriggerValueL = Mathf.Clamp(moveTriggerValueL + increaseValueOnPinch, 0, maxSpeedOnPinch) ;
                     directionLeftController = GetControllerForwardDirection(forwardHandLeft);
                     
                 }
@@ -150,7 +164,8 @@ namespace ObliqueSenastions.Looping
 
                 if (rightIsPinching)
                 {
-                    moveTriggerValueR += increaseValueOnPinch;
+                    
+                    moveTriggerValueR = Mathf.Clamp(moveTriggerValueR + increaseValueOnPinch, 0, maxSpeedOnPinch) ;
                     directionRightController = GetControllerForwardDirection(forwardHandRight);
                 }
 

@@ -17,6 +17,7 @@ namespace ObliqueSenastions.VRRigSpace
 
             public float maxStayTime;
         }
+        
 
         [SerializeField] bool followBaseTransform;
         [SerializeField] Transform baseTransform;
@@ -106,7 +107,7 @@ namespace ObliqueSenastions.VRRigSpace
                     leftHandPinchTriggered = true;
                     if (!inPerspective)
                     {
-                        VisitPerspective();
+                        VisitCurrentPerspective();
 
                     }
                     SetNextIndex();
@@ -132,7 +133,7 @@ namespace ObliqueSenastions.VRRigSpace
                     rightHandPinchTriggered = true;
                     if (!inPerspective)
                     {
-                        VisitPerspective();
+                        VisitCurrentPerspective();
                     }
                     SetNextIndex();
 
@@ -205,11 +206,13 @@ namespace ObliqueSenastions.VRRigSpace
 
         ////
 
+        
+
 
 
         ////
 
-        public void VisitPerspective()
+        public void VisitCurrentPerspective()
         {
             StartCoroutine(VisitFlexiblePerspectiveR());
         }
@@ -260,7 +263,16 @@ namespace ObliqueSenastions.VRRigSpace
             int newIndex = (currentPerspective + 1) % perspektiven.Length;
             currentPerspective = newIndex;
         }
+
+        public Transform GetCurrentPerspectiveTransform()
+        {
+            return perspektiven[currentPerspective].location;
+        }
     }
+
+    //
+
+    
 
 }
 
