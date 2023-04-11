@@ -82,6 +82,8 @@ namespace ObliqueSensations.OVRRigSpace
                         transform.position = currentPosition;
                         transform.rotation = currentRotation;
 
+                        transform.Rotate(offsetHandRotation, Space.Self);
+
                         return;
                     }
                     

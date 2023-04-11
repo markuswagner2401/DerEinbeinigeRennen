@@ -39,7 +39,7 @@ namespace ObliqueSenastions.Looping
             MoveTowardsTarget();
         }
 
-        public void SetMoveTowardsTarget(bool value)
+        public void EnableMoveTowardsTarget(bool value)
         {
             moveTowardsTarget = value;
         }

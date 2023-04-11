@@ -18,6 +18,9 @@ namespace ObliqueSenastions.VRRigSpace
             public float maxStayTime;
         }
 
+        [SerializeField] bool followBaseTransform;
+        [SerializeField] Transform baseTransform;
+
         [SerializeField] bool listenToLeftHandPinch = false;
         [SerializeField] OVRHand leftHand = null;
         bool leftHandPinchTriggered;
@@ -37,9 +40,13 @@ namespace ObliqueSenastions.VRRigSpace
 
         bool inNoDisturbTime = false;
 
-        float noDistutbTimer = 0;
+        float inPerspectiveTimer = 0;
 
-        bool inFlexPerspective;
+        [SerializeField] float maxStayTimeInPerspective = 5f;
+
+
+
+        bool inPerspective;
 
         void Start()
         {
@@ -49,12 +56,27 @@ namespace ObliqueSenastions.VRRigSpace
 
         void Update()
         {
-            noDistutbTimer += Time.deltaTime;
+
+            ///
+
+            if (followBaseTransform && !inPerspective)
+            {
+                transform.position = baseTransform.position;
+                transform.rotation = baseTransform.rotation;
+            }
+
+            if(!listenToLeftHandPinch && !listenToRightHandPinch) return;
+
+
+            ////
+            inPerspectiveTimer += Time.deltaTime;
 
             if (currentPerspective != lastPerspective)
             {
-                noDistutbTimer = 0;
+                inPerspectiveTimer = 0;
             }
+
+
 
             lastPerspective = currentPerspective;
 
@@ -64,6 +86,12 @@ namespace ObliqueSenastions.VRRigSpace
             {
                 interrupted = true;
             }
+
+            if (inPerspectiveTimer > maxStayTimeInPerspective)
+            {
+                interrupted = true;
+            }
+
 
 
 
@@ -76,9 +104,10 @@ namespace ObliqueSenastions.VRRigSpace
                 {
                     if (leftHandPinchTriggered) return;
                     leftHandPinchTriggered = true;
-                    if (!inFlexPerspective)
+                    if (!inPerspective)
                     {
-                        VisitFlexiblePerspective();
+                        VisitPerspective();
+
                     }
                     SetNextIndex();
 
@@ -101,9 +130,9 @@ namespace ObliqueSenastions.VRRigSpace
                 {
                     if (rightHandPinchTriggered) return;
                     rightHandPinchTriggered = true;
-                    if (!inFlexPerspective)
+                    if (!inPerspective)
                     {
-                        VisitFlexiblePerspective();
+                        VisitPerspective();
                     }
                     SetNextIndex();
 
@@ -115,29 +144,38 @@ namespace ObliqueSenastions.VRRigSpace
 
             }
 
+        }
 
+        public void ListenToLeftHandPinch(bool value)
+        {
+            listenToLeftHandPinch = value;
+        }
 
-
-
-
-
+        public void ListentoRightHandPinch(bool value)
+        {
+            listenToRightHandPinch = value;
         }
 
 
 
 
 
-        public void VisitFixPerspective(int index)
+        public void VisitTemporaryPerspective(int index)
         {
             if (index >= perspektiven.Length) return;
             //if(inPerspective) return;
             StartCoroutine(VisitFixPerspectiveR(index));
         }
 
+
+
         IEnumerator VisitFixPerspectiveR(int index)
         {
             float timer = 0;
-            CaptureLocation();
+            if (!followBaseTransform)
+            {
+                CaptureLocation();
+            }
 
             while (timer < perspektiven[index].minStayTime)
             {
@@ -171,7 +209,7 @@ namespace ObliqueSenastions.VRRigSpace
 
         ////
 
-        public void VisitFlexiblePerspective()
+        public void VisitPerspective()
         {
             StartCoroutine(VisitFlexiblePerspectiveR());
         }
@@ -179,8 +217,12 @@ namespace ObliqueSenastions.VRRigSpace
         IEnumerator VisitFlexiblePerspectiveR()
         {
 
-            inFlexPerspective = true;
-            CaptureLocation();
+            inPerspective = true;
+            if (!followBaseTransform)
+            {
+                CaptureLocation();
+            }
+
             interrupted = false;
             while (!interrupted)
             {
@@ -192,10 +234,13 @@ namespace ObliqueSenastions.VRRigSpace
             }
 
             //reset location to captured
-            transform.position = capturedPosition;
-            transform.rotation = capturedRotation;
+            if (!followBaseTransform)
+            {
+                transform.position = capturedPosition;
+                transform.rotation = capturedRotation;
+            }
 
-            inFlexPerspective = false;
+            inPerspective = false;
 
             yield break;
         }
@@ -211,7 +256,7 @@ namespace ObliqueSenastions.VRRigSpace
         void SetNextIndex()
         {
             if (perspektiven.Length <= 0) return;
-            if (noDistutbTimer < perspektiven[currentPerspective].minStayTime) return;
+            if (inPerspectiveTimer < perspektiven[currentPerspective].minStayTime) return;
             int newIndex = (currentPerspective + 1) % perspektiven.Length;
             currentPerspective = newIndex;
         }
