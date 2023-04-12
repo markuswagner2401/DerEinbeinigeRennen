@@ -160,20 +160,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 611739902}
   gearSwitchAudioSource: {fileID: 877806858}
-  simpleVelocityTracker: {fileID: 611739907}
+  inputValue: 0
   lowGearSound: {fileID: 8300000, guid: fdb7c9fa50f93854a8fb04e691b3848b, type: 3}
   midGearSound: {fileID: 8300000, guid: 7621bdcfa6cbb21469f22b0535ae1cdd, type: 3}
   highGearSound: {fileID: 8300000, guid: 66df2d8921b886347906556b51708d12, type: 3}
   gearSwitchSound: {fileID: 8300000, guid: d16b0aad793dafa4fb78adaae796fbfe, type: 3}
-  minPitch: 0.5
-  maxPitch: 2
+  minPitch:
+  - 0.3
+  - 0.1
+  - 0.1
+  maxPitch:
+  - 2
+  - 1
+  - 1
   minVelocity: 0
-  maxVelocity: 30
-  midGearThreshold: 10
-  highGearThreshold: 20
+  maxVelocity: 1
+  midGearThreshold: 0.3
+  highGearThreshold: 0.6
   pitchSmoothing: 2
   gearSwitchDuration: 0.3
-  gearSwitchPitchOffset: 0.5
+  gearSwitchPitchOffset: 0
+  currentGear: 0
 --- !u!54 &611739901
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -377,6 +384,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32d7f6cae76115b43a21921545fa2ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  positionThreshold: 0.001
+  rotationThreshold: 0.001
   currentSpeed: 0
   angularSpeed: 0
   currentVelocity: {x: 0, y: 0, z: 0}
