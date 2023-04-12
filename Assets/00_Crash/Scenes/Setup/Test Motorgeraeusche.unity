@@ -158,29 +158,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd07897679d169440a639fe0fa5d3697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volume: 0.8
   audioSource: {fileID: 611739902}
   gearSwitchAudioSource: {fileID: 877806858}
   inputValue: 0
-  lowGearSound: {fileID: 8300000, guid: fdb7c9fa50f93854a8fb04e691b3848b, type: 3}
-  midGearSound: {fileID: 8300000, guid: 7621bdcfa6cbb21469f22b0535ae1cdd, type: 3}
-  highGearSound: {fileID: 8300000, guid: 66df2d8921b886347906556b51708d12, type: 3}
   gearSwitchSound: {fileID: 8300000, guid: d16b0aad793dafa4fb78adaae796fbfe, type: 3}
-  minPitch:
-  - 0.3
-  - 0.1
-  - 0.1
-  maxPitch:
-  - 2
-  - 1
-  - 1
   minVelocity: 0
   maxVelocity: 1
-  midGearThreshold: 0.3
-  highGearThreshold: 0.6
-  pitchSmoothing: 2
+  gears:
+  - gearSound: {fileID: 8300000, guid: fdb7c9fa50f93854a8fb04e691b3848b, type: 3}
+    minPitch: 0.1
+    maxPitch: 2
+    startVolume: 0
+    gearSwitch: 0
+  - gearSound: {fileID: 8300000, guid: 66df2d8921b886347906556b51708d12, type: 3}
+    minPitch: -0.2
+    maxPitch: 0.8
+    startVolume: 0
+    gearSwitch: 0.117
+  pitchSmoothing: 10
   gearSwitchDuration: 0.3
-  gearSwitchPitchOffset: 0
-  currentGear: 0
+  volumeFadeDuration: 0.1
+  motorRunning: 1
+  fixGear: -1
 --- !u!54 &611739901
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -379,7 +379,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 611739899}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32d7f6cae76115b43a21921545fa2ae1, type: 3}
   m_Name: 
