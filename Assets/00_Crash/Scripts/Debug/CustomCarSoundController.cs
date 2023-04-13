@@ -1,6 +1,7 @@
 using UnityEngine;
 using ObliqueSenastions.VRRigSpace;
 using System.Collections;
+using ObliqueSenastions.UISpace;
 
 
 public class CustomCarSoundController : MonoBehaviour
@@ -21,6 +22,10 @@ public class CustomCarSoundController : MonoBehaviour
     public AudioSource gearSwitchAudioSource;
 
     [SerializeField][Range(0, 1)] float inputValue;
+
+    [SerializeField] bool readAtTacho;
+
+    [SerializeField] Tachonadel[] tachos = null;
     public AudioClip gearSwitchSound;
     public float minVelocity = 0.0f;
     public float maxVelocity = 30.0f;
@@ -49,6 +54,18 @@ public class CustomCarSoundController : MonoBehaviour
 
     private void Update()
     {
+
+        if(readAtTacho && tachos.Length > 0)
+        {
+            float tachoSum = 0;
+            for (int i = 0; i < tachos.Length; i++)
+            {
+                tachoSum += tachos[i].GetNormedTargetPosition();
+            }
+            inputValue = tachoSum / tachos.Length;
+        }
+
+
         HandleMotorRunning();
 
         if (!motorRunning) return;

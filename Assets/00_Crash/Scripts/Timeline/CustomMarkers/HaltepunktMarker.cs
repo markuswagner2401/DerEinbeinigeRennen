@@ -14,7 +14,10 @@ namespace ObliqueSenastions.TimelineSpace
         [SerializeField] bool displayModeInInspiUI;
         [SerializeField] bool stopOrHold;
 
-        [SerializeField] bool stopInOfflineMode;
+        [SerializeField] bool haltInOfflineMode;
+
+        [Tooltip("Set -1 for infinite wait time")]
+        [SerializeField] float waitDurationInOfflineMode;
         
 
         
@@ -26,7 +29,9 @@ namespace ObliqueSenastions.TimelineSpace
 
         public bool DisplayModeInInspiUI => displayModeInInspiUI;
 
-        public bool StopInOfflineMode => stopInOfflineMode;
+        public bool HaltInOfflineMode => haltInOfflineMode;
+
+        public float WaitDurationInOfflineMode => waitDurationInOfflineMode;
         
 
 

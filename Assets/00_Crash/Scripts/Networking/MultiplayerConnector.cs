@@ -452,7 +452,7 @@ namespace ObliqueSenastions.PunNetworking
 
             
 
-            my_OnJoinedRoom.Invoke();
+            //my_OnJoinedRoom.Invoke();
             if(onJoinedOffline != null)
             {
                 onJoinedOffline.Invoke();

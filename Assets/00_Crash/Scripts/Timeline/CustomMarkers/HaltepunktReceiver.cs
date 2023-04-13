@@ -40,13 +40,27 @@ namespace ObliqueSenastions.TimelineSpace
             {
                 if(MultiplayerConnector.instance.GetJoinedInOfflineMode()) 
                 {
-                    if(haltpunktMarker.StopInOfflineMode)
+                    if(haltpunktMarker.HaltInOfflineMode)
                     {
-                        GameObject.FindWithTag("Traveller")?.GetComponent<UIConnectorActivator>()?.ShowGoOnButton(true);
+                        if(haltpunktMarker.WaitDurationInOfflineMode > 0)
+                        {
+                            TimeLineHandler.instance?.GetComponent<TimeModeMachine>()?.SetUnholdTime(haltpunktMarker.WaitDurationInOfflineMode);
+                        }
+                        else /// wait until push button
+                        {
+                            TimeLineHandler.instance?.GetComponent<TimeModeMachine>()?.SetUnholdTime(Mathf.Infinity);
+                            GameObject.FindWithTag("Traveller")?.GetComponent<UIConnectorActivator>()?.ShowGoOnButton(true);
+                        }
+                        
+
                     }
+
+                    
+
 
                     else
                     {
+                        //TimeLineHandler.instance?.GetComponent<TimeModeMachine>()?.SetUnholdTime(Mathf.Infinity);
                         return;
                     }
                 }

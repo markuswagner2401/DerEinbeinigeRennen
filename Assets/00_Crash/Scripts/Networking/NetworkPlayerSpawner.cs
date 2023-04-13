@@ -338,7 +338,7 @@ namespace ObliqueSenastions.PunNetworking
 
 
 
-            spawnedPlayerPrefab = PhotonNetwork.Instantiate(avatarPrefab.name, newPosition, newRotation);
+            //spawnedPlayerPrefab = PhotonNetwork.Instantiate(avatarPrefab.name, newPosition, newRotation);
 
             spawnedPlayerPrefab.name = MultiplayerConnector.instance.GetRole().ToString();
 

@@ -6,6 +6,7 @@ using ObliqueSenastions.PunNetworking;
 using UnityEngine.XR;
 using System;
 using UnityEngine.Events;
+using Photon.Pun;
 
 namespace ObliqueSenastions.TimelineSpace
 {
@@ -103,7 +104,7 @@ namespace ObliqueSenastions.TimelineSpace
         {
 
             public string note;
-            
+
             public UnityEvent doAtStart;
 
             [Tooltip("1 is no change. < 1 is slomo- > 1 is accceleration")]
@@ -128,8 +129,23 @@ namespace ObliqueSenastions.TimelineSpace
 
         private void Update()
         {
-            if(!inAccident) currentAccidentTimeFactor = 1f;
-            UnholdInSingelplayer();
+            if (MultiplayerConnector.instance.GetJoinedInOfflineMode())
+            {
+                if (!inAccident) 
+                {
+                    UnholdInSingelplayer();
+
+                }
+
+            }
+
+            if(!inAccident)
+            {
+                currentAccidentTimeFactor = 1f;
+            }
+
+
+
 
             if (enableScrolling) // Scrolling with XR toolkit
             {
@@ -174,13 +190,18 @@ namespace ObliqueSenastions.TimelineSpace
             }
         }
 
+        public void SetUnholdTime(float value)
+        {
+            maxHoldtimeIfNotInNetwork = value;
+        }
+
         private void UnholdInSingelplayer()
         {
             if (currentTimelinePlayMode == TimelinePlayMode.Hold || currentTimelinePlayMode == TimelinePlayMode.Pause)
             {
                 holdTimer += Time.deltaTime;
                 if (holdTimer > maxHoldtimeIfNotInNetwork)
-                    SwitchHoldPlay();
+                    Play();
             }
 
             else
@@ -447,16 +468,16 @@ namespace ObliqueSenastions.TimelineSpace
         public void PlayAccident(string name)
         {
             int index = GetAccIndexByName(name);
-            if(index < 0) return;
+            if (index < 0) return;
             PlayAccident(index);
         }
 
         private int GetAccIndexByName(string name)
         {
-            
+
             for (int i = 0; i < accidentsTimes.Length; i++)
             {
-                if(name == accidentsTimes[i].note)
+                if (name == accidentsTimes[i].note)
                 {
                     return i;
                 }
@@ -510,7 +531,7 @@ namespace ObliqueSenastions.TimelineSpace
                 currentAccidentTimeFactor = outputValue;
                 yield return null;
             }
-            
+
             accidentsTimes[index].doAtEnd.Invoke();
             inAccident = false;
             yield break;
