@@ -19,6 +19,7 @@ namespace ObliqueSenastions.UISpace
         [SerializeField] int textSize;
 
 
+
         float deltaTime = 0.0f;
 
         void Start()
@@ -55,6 +56,8 @@ namespace ObliqueSenastions.UISpace
         public void ShowUI(bool value)
         {
             fps.transform.parent.gameObject.SetActive(value);
+            debugLog.transform.parent.gameObject.SetActive(value);
+
         }
 
         public void MyDebugLog(string text)
