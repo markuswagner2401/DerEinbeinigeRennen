@@ -9,6 +9,7 @@ using TMPro;
 using Photon.Pun;
 
 using ObliqueSenastions.PunNetworking;
+using System;
 
 namespace ObliqueSenastions.UISpace
 {
@@ -27,6 +28,8 @@ namespace ObliqueSenastions.UISpace
 
         [Tooltip("Put here Ray Interactors and Connector UI")]
         [SerializeField] GameObject[] connectorUiGos;
+
+        [SerializeField] GameObject[] goOnUiGos;
 
 
         [Tooltip("after pressing secondary keys of both controllers for that duration, the ConnectorUI will be shown; Infinite Value for disabling")]
@@ -62,6 +65,7 @@ namespace ObliqueSenastions.UISpace
         private void OnEnable()
         {
             ShowConnector(showConnectorAtStart);
+            ShowGoOnButton(false);
         }
         private void Start()
         {
@@ -71,12 +75,18 @@ namespace ObliqueSenastions.UISpace
             rightHandDevice = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
 
             MultiplayerConnector.instance.onConnectorMessage += ShowMessage;
+            MultiplayerConnector.instance.onJoinedOffline += OnJoinedOffline;
         }
 
+        
         private void OnDestroy()
         {
             MultiplayerConnector.instance.onConnectorMessage -= ShowMessage;
+            MultiplayerConnector.instance.onJoinedOffline -= OnJoinedOffline;
         }
+
+        
+
         private void Update()
         {
             ProcessInput();
@@ -168,6 +178,11 @@ namespace ObliqueSenastions.UISpace
             }
         }
 
+        private void OnJoinedOffline()
+        {
+            ShowGoOnButton(true);
+        }
+
         public void ShowConnector(bool value)
         {
 
@@ -205,6 +220,20 @@ namespace ObliqueSenastions.UISpace
             yield break;
         }
 
+
+        /// Offline Fallback
+
+        public void ShowGoOnButton(bool value)
+        {
+            Debug.Log("show Weiter Button: " + value);
+            
+            if(goOnUiGos.Length <= 0) return;
+
+            foreach (var item in goOnUiGos)
+            {
+                item.gameObject.SetActive(value);
+            }
+        }
     }
 
 }

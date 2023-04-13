@@ -37,9 +37,9 @@ namespace ObliqueSenastions.PunNetworking
             [Tooltip("-1 for Binding at xrRig, else, this index will be used to bind the Avatar to the VR Rig at the transitionPointIndex in the traveller")]
             public int transitionPointIndex;
 
-            
-            
-            
+
+
+
 
             public bool spawnOnSceneStart;
 
@@ -53,7 +53,7 @@ namespace ObliqueSenastions.PunNetworking
         {
             public string note;
 
-            
+
 
             public Avatar[] avatars;
 
@@ -79,7 +79,7 @@ namespace ObliqueSenastions.PunNetworking
         //GameObject[] PlayerPrefabsInRoom;
         private GameObject spawnedPlayerPrefab;
 
-        
+
 
 
 
@@ -90,7 +90,7 @@ namespace ObliqueSenastions.PunNetworking
             {
                 StartCoroutine(OnSceneStartLate());
             }
-            
+
             MultiplayerConnector.instance.my_OnJoinedRoom += MyOnJoinedRoom;
         }
 
@@ -101,10 +101,10 @@ namespace ObliqueSenastions.PunNetworking
 
         public override void OnJoinedRoom()
         {
-            
+
         }
 
-        private void OnDestroy() 
+        private void OnDestroy()
         {
             MultiplayerConnector.instance.my_OnJoinedRoom -= MyOnJoinedRoom;
         }
@@ -124,7 +124,7 @@ namespace ObliqueSenastions.PunNetworking
         }
 
 
-        
+
 
         private void SpawnPrefab(SpawnSituation spawnSituation)
         {
@@ -181,7 +181,7 @@ namespace ObliqueSenastions.PunNetworking
 
             /// Spawn
 
-            if(debugSpawn)
+            if (debugSpawn)
             {
                 for (int i = 0; i < debugRacers; i++)
                 {
@@ -207,7 +207,7 @@ namespace ObliqueSenastions.PunNetworking
 
             if (role == Role.Rennfahrer)
             {
-                
+
                 yield return SetupXRRigAndSpawn(index, camTrav, avatarSpawnersRennfahrer, spawnSituation);
 
             }
@@ -325,6 +325,17 @@ namespace ObliqueSenastions.PunNetworking
             Quaternion newRotation = currentTravellerLocation.transform.rotation;
 
             Debug.Log("new position + new rotation set");
+
+            if (PhotonNetwork.IsConnected)
+            {
+                spawnedPlayerPrefab = PhotonNetwork.Instantiate(avatarPrefab.name, newPosition, newRotation);
+            }
+
+            else
+            {
+                spawnedPlayerPrefab = Instantiate(avatarPrefab, newPosition, newRotation);
+            }
+
 
 
             spawnedPlayerPrefab = PhotonNetwork.Instantiate(avatarPrefab.name, newPosition, newRotation);

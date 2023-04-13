@@ -20,7 +20,8 @@ namespace ObliqueSenastions.UISpace
             connectAsInspizient,
             disconnect,
             requestTimeline,
-            cancel
+            cancel,
+            weiter
         }
 
         public float resetDuration = 1f;
@@ -92,6 +93,10 @@ namespace ObliqueSenastions.UISpace
                     TimeLineHandler.instance.GetComponent<SyncPlayableDirector>().SetCanGetOwnership(toggleOn);
                     break;
 
+                case ButtonFunction.weiter:
+                    TimeLineHandler.instance.GetComponent<TimeModeMachine>().Play();
+                    break;
+
                 case ButtonFunction.cancel:
                     break;
 
@@ -108,8 +113,21 @@ namespace ObliqueSenastions.UISpace
             //button.Select();
             if (uIConnectorActivator != null)
             {
-                uIConnectorActivator.ShowConnector(false);
+                if(buttonFunction == ButtonFunction.weiter)
+                {
+                    print("Connect Button: hide weiter");
+                    uIConnectorActivator.ShowGoOnButton(false);
+                }
+
+                else
+                {
+                    uIConnectorActivator.ShowConnector(false);
+                }
+                
+                
             }
+
+            
 
             OnReset.Invoke();
         }

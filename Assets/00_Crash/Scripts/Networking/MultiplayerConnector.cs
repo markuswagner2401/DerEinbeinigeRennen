@@ -39,7 +39,7 @@ namespace ObliqueSenastions.PunNetworking
 
         [SerializeField] Role clientsRole = Role.None;
 
-        [SerializeField] int clientsPlayerIndex = -1;
+        [SerializeField] int clientsPlayerIndex = 0;
 
         [SerializeField] GameMode clientsGameMode;
 
@@ -53,8 +53,10 @@ namespace ObliqueSenastions.PunNetworking
         [Tooltip("to handle racer and zuschauer indices in prolog and for debugging")]
         [SerializeField] int indexOffsetZuschauer = 0;
 
-        
-        
+        [SerializeField] bool joinedInOfflineMode;
+
+
+
 
         public delegate void My_OnJoinedRoom();
         public My_OnJoinedRoom my_OnJoinedRoom;
@@ -63,6 +65,9 @@ namespace ObliqueSenastions.PunNetworking
         public delegate void OnConnectorMessage(string message);
         public OnConnectorMessage onConnectorMessage;
 
+        public delegate void OnJoinedOffline();
+
+        public OnJoinedOffline onJoinedOffline;
 
         // [SerializeField] MeetingRoom meetingRoom;
 
@@ -123,7 +128,7 @@ namespace ObliqueSenastions.PunNetworking
 
         private void Start()
         {
-            
+
 
             //SceneManager.activeSceneChanged += OnSceneChanged;
             // if(PhotonNetwork.IsConnected && PhotonNetwork.InRoom)
@@ -193,24 +198,24 @@ namespace ObliqueSenastions.PunNetworking
             switch (role)
             {
                 case Role.Rennfahrer:
-                return racerCounter;
-                
+                    return racerCounter;
+
 
                 case Role.Auto:
-                return autoCounter;
-                
+                    return autoCounter;
+
 
                 case Role.Zuschauer:
-                return zuschauerCounter;
+                    return zuschauerCounter;
 
                 case Role.Inspizient:
-                return inspizientCounter;
+                    return inspizientCounter;
 
                 case Role.None:
-                return 0;
-                
+                    return 0;
+
                 default:
-                break;
+                    break;
             }
 
             return 0;
@@ -224,7 +229,7 @@ namespace ObliqueSenastions.PunNetworking
         private void SetRoleIdentifier(Role role, int index)
         {
             clientsRole = role;
-            if(role == Role.Zuschauer)
+            if (role == Role.Zuschauer)
             {
                 index += indexOffsetZuschauer;
             }
@@ -266,6 +271,8 @@ namespace ObliqueSenastions.PunNetworking
 
             Debug.Log("MultiplayerConnector. Connect -> Already Connected to Server");
         }
+
+        
 
         private void Disconnect()
         {
@@ -328,7 +335,7 @@ namespace ObliqueSenastions.PunNetworking
             if (PhotonNetwork.IsConnectedAndReady)
             {
                 string roomName;
-                if(TimeLineHandler.instance == null)
+                if (TimeLineHandler.instance == null)
                 {
                     roomName = "noTimelineRoom";
                 }
@@ -337,7 +344,7 @@ namespace ObliqueSenastions.PunNetworking
                 {
                     roomName = TimeLineHandler.instance.GetComponent<SceneControlByTimeline>().GetRoomSectionThisClip();
                 }
-                
+
                 currentRoomSection = roomName;
                 RoomOptions roomOptions = new RoomOptions { MaxPlayers = 18 };
                 PhotonNetwork.JoinOrCreateRoom(roomName, roomOptions, TypedLobby.Default);
@@ -356,7 +363,7 @@ namespace ObliqueSenastions.PunNetworking
             Room room = PhotonNetwork.CurrentRoom;
             PhotonNetwork.LocalPlayer.NickName = clientsRole.ToString();
             Debug.Log("Player joined Room: " + room.Name + " . Playername: " + PhotonNetwork.LocalPlayer.NickName);
-            
+
 
 
             playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
@@ -408,16 +415,57 @@ namespace ObliqueSenastions.PunNetworking
 
             SetRoleIdentifier(clientsRole, roleCount - 1);
 
-            onConnectorMessage.Invoke("Player joined Room: " + room.Name + " . Playername: " + PhotonNetwork.LocalPlayer.NickName +"\n" + 
-                                    "Role: " + clientsRole + " index: " + (roleCount - 1) +"\n" + 
+            onConnectorMessage.Invoke("Player joined Room: " + room.Name + " . Playername: " + PhotonNetwork.LocalPlayer.NickName + "\n" +
+                                    "Role: " + clientsRole + " index: " + (roleCount - 1) + "\n" +
                                     "Total Players in Room: " + playerCount);
 
 
             my_OnJoinedRoom.Invoke();
 
-            
+
 
         }
+
+        //// Fallback
+
+        public override void OnJoinRoomFailed(short returnCode, string message)
+        {
+            JoinInOfflineMode();
+            
+        }
+
+        public override void OnDisconnected(DisconnectCause cause)
+        {
+            joinedInOfflineMode = true;
+            JoinInOfflineMode();
+        }
+
+        public void JoinInOfflineMode()
+        {
+            print("join in offline mode");
+            playerCount = 1;
+            onConnectorMessage.Invoke("Connection failed, in Offline Mode.\n" +
+                                    "Role: " + clientsRole + "\n" +
+                                    "Total Players in Room: " + playerCount);
+
+            joinedInOfflineMode = true;
+
+            
+
+            my_OnJoinedRoom.Invoke();
+            if(onJoinedOffline != null)
+            {
+                onJoinedOffline.Invoke();
+            }
+            
+        }
+
+        public bool GetJoinedInOfflineMode()
+        {
+            return joinedInOfflineMode;
+        }
+
+        /////
 
         public override void OnPlayerEnteredRoom(Player newPlayer)
         {
@@ -429,6 +477,7 @@ namespace ObliqueSenastions.PunNetworking
         {
             Player[] players = PhotonNetwork.PlayerList;
             PlayerInventur(players);
+
         }
 
         void PlayerInventur(Player[] playersInRoom)

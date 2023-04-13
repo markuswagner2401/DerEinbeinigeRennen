@@ -7,6 +7,7 @@ using System.Linq;
 using ObliqueSenastions.Animation;
 using ObliqueSenastions.PunNetworking;
 using TMPro;
+using ObliqueSenastions.UISpace;
 
 namespace ObliqueSenastions.TimelineSpace
 {
@@ -37,6 +38,18 @@ namespace ObliqueSenastions.TimelineSpace
 
             if (notification is HaltepunktMarker haltpunktMarker)
             {
+                if(MultiplayerConnector.instance.GetJoinedInOfflineMode()) 
+                {
+                    if(haltpunktMarker.StopInOfflineMode)
+                    {
+                        GameObject.FindWithTag("Traveller")?.GetComponent<UIConnectorActivator>()?.ShowGoOnButton(true);
+                    }
+
+                    else
+                    {
+                        return;
+                    }
+                }
 
                 TimelinePlayMode newMode = haltpunktMarker.pauseOrHold ? TimelinePlayMode.Pause : TimelinePlayMode.Hold;
                 if(newMode == TimelinePlayMode.Pause)

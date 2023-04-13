@@ -11,21 +11,22 @@ namespace ObliqueSenastions.TimelineSpace
     public class HaltepunktMarker : Marker, INotification, IMarker
     {
         [SerializeField]  string note;
-
         [SerializeField] bool displayModeInInspiUI;
         [SerializeField] bool stopOrHold;
+
+        [SerializeField] bool stopInOfflineMode;
         
 
         
 
 
         public PropertyName id { get { return new PropertyName(); } }
-
-        
         public string Note => note;
         public bool pauseOrHold => stopOrHold;
 
         public bool DisplayModeInInspiUI => displayModeInInspiUI;
+
+        public bool StopInOfflineMode => stopInOfflineMode;
         
 
 
