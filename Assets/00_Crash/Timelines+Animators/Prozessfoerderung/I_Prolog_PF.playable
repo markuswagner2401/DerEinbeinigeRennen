@@ -261,6 +261,8 @@ MonoBehaviour:
   note: Vor Schieben
   displayModeInInspiUI: 1
   stopOrHold: 0
+  haltInOfflineMode: 0
+  waitDurationInOfflineMode: 0
 --- !u!114 &-8644759284865332938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -506,6 +508,8 @@ MonoBehaviour:
   note: Halt vor Szenenwechsel
   displayModeInInspiUI: 1
   stopOrHold: 0
+  haltInOfflineMode: 0
+  waitDurationInOfflineMode: 0
 --- !u!114 &-8325004798056518734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1015,6 +1019,8 @@ MonoBehaviour:
   note: Halt vor Fade In
   displayModeInInspiUI: 1
   stopOrHold: 1
+  haltInOfflineMode: 0
+  waitDurationInOfflineMode: 0
 --- !u!114 &-7357091873549844383
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1180,6 +1186,22 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
+--- !u!114 &-7009921490319908547
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
+  m_Name: Go Event Marker
+  m_EditorClassIdentifier: 
+  m_Time: 1116.1
+  goEventName: MoveTowardsRacer
   retroactive: 0
   emitOnce: 0
 --- !u!114 &-6927271712397018396
@@ -2363,6 +2385,8 @@ MonoBehaviour:
   note: Halt vor Fahrt auf andere Seite
   displayModeInInspiUI: 1
   stopOrHold: 0
+  haltInOfflineMode: 0
+  waitDurationInOfflineMode: 0
 --- !u!114 &-5374479571784100619
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2505,6 +2529,8 @@ MonoBehaviour:
   note: Vor Boxenstop
   displayModeInInspiUI: 0
   stopOrHold: 0
+  haltInOfflineMode: 0
+  waitDurationInOfflineMode: 0
 --- !u!114 &-4620633171220026431
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2654,6 +2680,8 @@ MonoBehaviour:
   note: Boxenstop
   displayModeInInspiUI: 0
   stopOrHold: 0
+  haltInOfflineMode: 0
+  waitDurationInOfflineMode: 0
 --- !u!114 &-4332745370836732344
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3575,6 +3603,7 @@ MonoBehaviour:
     - {fileID: 623029014763386084}
     - {fileID: -2879621734562150937}
     - {fileID: -522452320539264657}
+    - {fileID: -7009921490319908547}
 --- !u!114 &-1859251229305915034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4389,6 +4418,8 @@ MonoBehaviour:
   note: Halt vor Fahrt
   displayModeInInspiUI: 1
   stopOrHold: 0
+  haltInOfflineMode: 0
+  waitDurationInOfflineMode: 0
 --- !u!114 &-330652238041162438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4637,6 +4668,8 @@ MonoBehaviour:
   note: Vor Wiederholung
   displayModeInInspiUI: 0
   stopOrHold: 0
+  haltInOfflineMode: 0
+  waitDurationInOfflineMode: 0
 --- !u!114 &134834128878457073
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5043,6 +5076,8 @@ MonoBehaviour:
   note: Halt vor Szenenwechsel
   displayModeInInspiUI: 1
   stopOrHold: 0
+  haltInOfflineMode: 0
+  waitDurationInOfflineMode: 0
 --- !u!114 &623029014763386084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5137,6 +5172,8 @@ MonoBehaviour:
   note: Halt vor Rennen Tutorial
   displayModeInInspiUI: 1
   stopOrHold: 0
+  haltInOfflineMode: 0
+  waitDurationInOfflineMode: 0
 --- !u!114 &1072185252039359217
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5664,6 +5701,8 @@ MonoBehaviour:
   note: "Vor Rennfahrer st\xFCrzt"
   displayModeInInspiUI: 1
   stopOrHold: 0
+  haltInOfflineMode: 0
+  waitDurationInOfflineMode: 0
 --- !u!114 &2219116445107822092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6411,6 +6450,8 @@ MonoBehaviour:
   note: Halt vor Fahrt zum Start
   displayModeInInspiUI: 1
   stopOrHold: 0
+  haltInOfflineMode: 0
+  waitDurationInOfflineMode: 0
 --- !u!114 &3226447939727678970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6663,6 +6704,8 @@ MonoBehaviour:
   note: Warten auf Netzwerkverbindung
   displayModeInInspiUI: 1
   stopOrHold: 1
+  haltInOfflineMode: 0
+  waitDurationInOfflineMode: 0
 --- !u!114 &3645137856896513456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6679,6 +6722,8 @@ MonoBehaviour:
   note: "Auf der Zuschauertrib\xFCne"
   displayModeInInspiUI: 1
   stopOrHold: 0
+  haltInOfflineMode: 0
+  waitDurationInOfflineMode: 0
 --- !u!114 &3762049683460931508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6711,6 +6756,8 @@ MonoBehaviour:
   note: Halt vor Finish
   displayModeInInspiUI: 1
   stopOrHold: 0
+  haltInOfflineMode: 0
+  waitDurationInOfflineMode: 0
 --- !u!114 &3923889219641760590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6863,6 +6910,8 @@ MonoBehaviour:
   note: Halt vor Raumbewegung
   displayModeInInspiUI: 1
   stopOrHold: 0
+  haltInOfflineMode: 0
+  waitDurationInOfflineMode: 0
 --- !u!114 &4044008502130658099
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7108,6 +7157,8 @@ MonoBehaviour:
   note: Halt vor Countdown
   displayModeInInspiUI: 0
   stopOrHold: 0
+  haltInOfflineMode: 0
+  waitDurationInOfflineMode: 0
 --- !u!114 &4829795504680394476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7407,6 +7458,8 @@ MonoBehaviour:
   note: Halt vor Raumbewegung
   displayModeInInspiUI: 1
   stopOrHold: 0
+  haltInOfflineMode: 0
+  waitDurationInOfflineMode: 0
 --- !u!114 &5556851103011072736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7603,6 +7656,8 @@ MonoBehaviour:
   note: Warten auf Rennfahrer
   displayModeInInspiUI: 1
   stopOrHold: 1
+  haltInOfflineMode: 0
+  waitDurationInOfflineMode: 0
 --- !u!114 &6424331686532377147
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8033,6 +8088,8 @@ MonoBehaviour:
   note: Halt vor Rohrschachtest
   displayModeInInspiUI: 1
   stopOrHold: 0
+  haltInOfflineMode: 0
+  waitDurationInOfflineMode: 0
 --- !u!114 &6874024913913437791
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8907,6 +8964,8 @@ MonoBehaviour:
   note: Letzter Halt
   displayModeInInspiUI: 1
   stopOrHold: 0
+  haltInOfflineMode: 0
+  waitDurationInOfflineMode: 0
 --- !u!114 &7832906387666455129
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9797,6 +9856,8 @@ MonoBehaviour:
   note: "Bevor Rennfahrer in den verletzten K\xF6rper f\xE4hrt"
   displayModeInInspiUI: 1
   stopOrHold: 0
+  haltInOfflineMode: 0
+  waitDurationInOfflineMode: 0
 --- !u!114 &9009776917913571505
 MonoBehaviour:
   m_ObjectHideFlags: 1
