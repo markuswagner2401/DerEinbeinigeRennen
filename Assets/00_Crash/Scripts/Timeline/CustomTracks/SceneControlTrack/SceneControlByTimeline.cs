@@ -36,16 +36,7 @@ namespace ObliqueSenastions.TimelineSpace
             if(sceneName == SceneManager.GetActiveScene().name) return false;
             
             //Check if Scene Exists
-            bool sceneExitsInBuild = false;
-            for (int i = 0; i < SceneManager.sceneCount; i++)
-            {
-                if(SceneManager.GetSceneAt(i).name == sceneName)
-                {
-                    sceneExitsInBuild = true;
-                }
-            }
-
-            return sceneExitsInBuild;
+            return GetComponent<SceneListManager>().CheckIfSceneExists(sceneName);
 
         }
 
