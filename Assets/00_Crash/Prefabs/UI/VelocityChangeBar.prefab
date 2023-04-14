@@ -92,6 +92,7 @@ MonoBehaviour:
   valueReference: _LoadingValue
   uiImage: {fileID: 4379953940470949044}
   material: {fileID: 0}
+  loadingBarMaterialBlock: {fileID: 0}
   clapFrameTime: 0
   onLoadingComlete:
     m_PersistentCalls:
@@ -102,6 +103,7 @@ MonoBehaviour:
   deAccumulationPerFrame: 0.001
   accumulativeBarValue: 0
   hauDenLukasThresholds: []
+  getSetExternally: 0
 --- !u!1 &4379953941309561569
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,6 +116,7 @@ GameObject:
   - component: {fileID: 4379953941309561570}
   - component: {fileID: 4379953941309561571}
   - component: {fileID: 4379953941309561568}
+  - component: {fileID: 2381525665069024907}
   m_Layer: 5
   m_Name: HauDenLukasBar
   m_TagString: Untagged
@@ -194,6 +197,7 @@ MonoBehaviour:
   valueReference: _LoadingValue
   uiImage: {fileID: 4379953941309561571}
   material: {fileID: 0}
+  loadingBarMaterialBlock: {fileID: 2381525665069024907}
   clapFrameTime: 2.1
   onLoadingComlete:
     m_PersistentCalls:
@@ -204,6 +208,19 @@ MonoBehaviour:
   deAccumulationPerFrame: 0.003
   accumulativeBarValue: 0
   hauDenLukasThresholds: []
+  getSetExternally: 0
+--- !u!114 &2381525665069024907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4379953941309561569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83bdc796c9884e34582e206576a71289, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4379953941325182605
 GameObject:
   m_ObjectHideFlags: 0

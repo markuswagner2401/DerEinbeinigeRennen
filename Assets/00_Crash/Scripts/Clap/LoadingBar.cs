@@ -13,6 +13,9 @@ namespace ObliqueSenastions.ClapSpace
         [SerializeField] string valueReference = "";
         [SerializeField] Image uiImage = null;
         [SerializeField] Material material;
+
+        
+        [SerializeField] LoadingBarMaterialBlock loadingBarMaterialBlock;
         [SerializeField] float clapFrameTime;
 
         [SerializeField] UnityEvent onLoadingComlete;
@@ -95,7 +98,18 @@ namespace ObliqueSenastions.ClapSpace
         public void SetLoadingBarValue(float value)
         {
             //print("set loading bar value: " + value);
-            material.SetFloat(valueReference, value);
+            if(loadingBarMaterialBlock != null)
+            {
+                loadingBarMaterialBlock.SetFloat(valueReference, value);
+            }
+
+            else
+            {
+                material.SetFloat(valueReference, value);
+            }
+            
+            
+
         }
 
         public void InterruptLoading()

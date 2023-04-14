@@ -445,6 +445,7 @@ MonoBehaviour:
   valueReference: _LoadingValue
   uiImage: {fileID: 1479283415201060226}
   material: {fileID: 0}
+  loadingBarMaterialBlock: {fileID: 0}
   clapFrameTime: 2.1
   onLoadingComlete:
     m_PersistentCalls:
@@ -455,6 +456,7 @@ MonoBehaviour:
   deAccumulationPerFrame: 0.003
   accumulativeBarValue: 0
   hauDenLukasThresholds: []
+  getSetExternally: 0
 --- !u!1 &1698442355476412420
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,6 +789,7 @@ MonoBehaviour:
   valueReference: _LoadingValue
   uiImage: {fileID: 1512571789894623577}
   material: {fileID: 0}
+  loadingBarMaterialBlock: {fileID: 0}
   clapFrameTime: 0
   onLoadingComlete:
     m_PersistentCalls:
@@ -797,6 +800,7 @@ MonoBehaviour:
   deAccumulationPerFrame: 0.001
   accumulativeBarValue: 0
   hauDenLukasThresholds: []
+  getSetExternally: 0
 --- !u!1 &2487548111274051588
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,6 +1130,7 @@ MonoBehaviour:
   valueReference: _LoadingValue
   uiImage: {fileID: 2616883990662233286}
   material: {fileID: 0}
+  loadingBarMaterialBlock: {fileID: 0}
   clapFrameTime: 0
   onLoadingComlete:
     m_PersistentCalls:
@@ -1136,6 +1141,7 @@ MonoBehaviour:
   deAccumulationPerFrame: 0.001
   accumulativeBarValue: 0
   hauDenLukasThresholds: []
+  getSetExternally: 0
 --- !u!1 &3505094907844572332
 GameObject:
   m_ObjectHideFlags: 0
@@ -1595,6 +1601,7 @@ GameObject:
   - component: {fileID: 8899132172692555145}
   - component: {fileID: 6931500721234854767}
   - component: {fileID: 1325795224896655155}
+  - component: {fileID: 1431685263948718664}
   m_Layer: 5
   m_Name: HauDenLukasBar
   m_TagString: Untagged
@@ -1675,6 +1682,7 @@ MonoBehaviour:
   valueReference: _LoadingValue
   uiImage: {fileID: 6931500721234854767}
   material: {fileID: 0}
+  loadingBarMaterialBlock: {fileID: 1431685263948718664}
   clapFrameTime: 2.1
   onLoadingComlete:
     m_PersistentCalls:
@@ -1685,6 +1693,21 @@ MonoBehaviour:
   deAccumulationPerFrame: 0.003
   accumulativeBarValue: 0
   hauDenLukasThresholds: []
+  getSetExternally: 0
+--- !u!114 &1431685263948718664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5014685414263293227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83bdc796c9884e34582e206576a71289, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!1 &5116491635915929265
 GameObject:
   m_ObjectHideFlags: 0

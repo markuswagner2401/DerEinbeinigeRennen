@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.XR;
+using System;
 
 namespace ObliqueSenastions.PunNetworking
 {
@@ -41,8 +42,21 @@ namespace ObliqueSenastions.PunNetworking
         {
             if (PhotonNetwork.InRoom)
             {
-                OnJoinedRoom();
+                MyOnJoinedRoom();
             }
+            MultiplayerConnector.instance.my_OnJoinedRoom += MyOnJoinedRoom;
+        }
+
+        private void OnDestroy() 
+        {
+            MultiplayerConnector.instance.my_OnJoinedRoom -= MyOnJoinedRoom;
+        }
+
+        private void MyOnJoinedRoom()
+        {
+            //StartCoroutine(ManageVisibilitiesR(false));
+            ManageVisibilities(false);
+
         }
 
         private bool HandsReady()
@@ -63,11 +77,11 @@ namespace ObliqueSenastions.PunNetworking
 
 
 
-        public override void OnJoinedRoom()
-        {
-            //StartCoroutine(ManageVisibilitiesR(false));
-            ManageVisibilities(false);
-        }
+        // public override void OnJoinedRoom()
+        // {
+        //     StartCoroutine(ManageVisibilitiesR(false));
+        //     //ManageVisibilities(false);
+        // }
 
         public override void OnLeftRoom()
         {
