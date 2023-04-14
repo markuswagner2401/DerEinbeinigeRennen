@@ -31,9 +31,30 @@ namespace ObliqueSenastions.TimelineSpace
 
         /// set by behaviour
 
+        bool CheckSceneChange(string sceneName)
+        {
+            if(sceneName == SceneManager.GetActiveScene().name) return false;
+            
+            //Check if Scene Exists
+            bool sceneExitsInBuild = false;
+            for (int i = 0; i < SceneManager.sceneCount; i++)
+            {
+                if(SceneManager.GetSceneAt(i).name == sceneName)
+                {
+                    sceneExitsInBuild = true;
+                }
+            }
+
+            return sceneExitsInBuild;
+
+        }
+
         public void ChangeSceneOnGoingForwardInTL(string sceneName)
         {
-            //if(sceneName == SceneManager.GetActiveScene().name) return;
+            
+            if(!CheckSceneChange(sceneName)) return;
+
+            //
 
             Debug.Log("SceneControlByTimeline: ChangeSceneOnGoingForwardInTL, going to: " + sceneName);
             if (Application.isPlaying)
@@ -74,7 +95,8 @@ namespace ObliqueSenastions.TimelineSpace
 
         public void ChangeSceneOnGoingBackInTL(string sceneName, bool jumpToSceneStart, int clipIndex)
         {
-
+            if(!CheckSceneChange(sceneName)) return;
+            
             //if(sceneIndex == SceneManager.GetActiveScene().buildIndex) return;
 
             Debug.Log("SceneControlByTimeline: ChangeSceneOnGoingBackInTL, going to: " + sceneName + ". jump To Start of Clip: " + jumpToSceneStart);
