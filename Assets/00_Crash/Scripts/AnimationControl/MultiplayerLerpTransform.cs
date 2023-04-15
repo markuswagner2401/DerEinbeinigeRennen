@@ -225,7 +225,8 @@ namespace ObliqueSenastions.VRRigSpace
         public void PlayWeight(int index, float speed)
         {
             float deltaTime = useTimelineTime ? timelineTime.GetModeDependentTimelineDeltaTime() : Time.deltaTime;
-            formations[index].weight = Mathf.Clamp01(formations[index].weight + deltaTime * speed);
+            formations[index].weight = Mathf.Clamp01(Mathf.Lerp(formations[index].weight, formations[index].weight + deltaTime * speed, 0.1f )) ;
+            
             
             //print("play weight: " + weight + "with speed: " + speed);
         }

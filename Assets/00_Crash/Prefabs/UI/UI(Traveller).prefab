@@ -1518,6 +1518,11 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1325795224896655155, guid: 6fbed021086f5ac4a855168fb1015814,
+        type: 3}
+      propertyPath: loadingBarMaterialBlock
+      value: 
+      objectReference: {fileID: 5111372730913049793}
     - target: {fileID: 1826918315976149446, guid: 6fbed021086f5ac4a855168fb1015814,
         type: 3}
       propertyPath: m_RootOrder
@@ -1779,8 +1784,27 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1431685263948718664, guid: 6fbed021086f5ac4a855168fb1015814, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6fbed021086f5ac4a855168fb1015814, type: 3}
+--- !u!1 &4905425508385222002 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5014685414263293227, guid: 6fbed021086f5ac4a855168fb1015814,
+    type: 3}
+  m_PrefabInstance: {fileID: 109264321171679321}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5111372730913049793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4905425508385222002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f3dfb53947c2844bd0d097aa25dd12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6737115554082492196 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6699990329591293821, guid: 6fbed021086f5ac4a855168fb1015814,
