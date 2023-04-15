@@ -30,6 +30,7 @@ namespace ObliqueSenastions.SceneSpace
             if(PhotonNetwork.IsConnected)
             {
                 StartCoroutine(ActivateUIR(false));
+                return;
             }
 
             if (XRSettings.isDeviceActive)
