@@ -6101,6 +6101,11 @@ PrefabInstance:
       propertyPath: stageMasterEvents.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5039185173019272802, guid: e297a9997fa8de84daabf5bb02c06201,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8316713123728284240, guid: e297a9997fa8de84daabf5bb02c06201,
         type: 3}
       propertyPath: smoothing
@@ -6340,7 +6345,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12fb6fa222da7104bbe7ab3256885230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contributingRole: 1
+  contributeToLoadingBar: 1
+  setupSource: 0
+  setupTarget: 0
 --- !u!114 &5953397925229168129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6368,6 +6375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 405f35532fc4c5f4eae3793fd49fdce8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sourceValue: 0
 --- !u!4 &4600224907901806433 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9209123197275735955, guid: e297a9997fa8de84daabf5bb02c06201,

@@ -312,6 +312,7 @@ namespace ObliqueSenastions.Looping
 
         void CapsuleFollowHeadset(float headHeight, Vector3 headPosition)
         {
+            if(capsule == null) return;
             capsule.height = headHeight + heightOverHead;
             Vector3 capsuleCenter = transform.InverseTransformPoint(headPosition);
             capsule.center = new Vector3(capsuleCenter.x, capsule.height / 2, capsuleCenter.z);

@@ -488,16 +488,20 @@ namespace ObliqueSenastions.PunNetworking
 
         IEnumerator PlayerInventurRoutine()
         {
-            while (PhotonNetwork.PlayerList.Length > PlayersSum())
+            
+
+            while (PhotonNetwork.PlayerList.Length > RolePlayersSum())
             {
                 PlayerInventur(PhotonNetwork.PlayerList, false);
                 yield return null;
             }
 
+            onPlayerCountChanged?.Invoke();
+
             yield break;
         }
 
-        int PlayersSum()
+        int RolePlayersSum()
         {
             return racerCounter + zuschauerCounter + inspizientCounter + autoCounter;
             

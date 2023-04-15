@@ -46,13 +46,20 @@ namespace ObliqueSenastions.PunNetworking
                 MyOnJoinedRoom();
             }
             MultiplayerConnector.instance.my_OnJoinedRoom += MyOnJoinedRoom;
+            MultiplayerConnector.instance.onPlayerCountChanged += SwichOffObjects;
         }
 
-        
 
-        private void OnDestroy() 
+
+        private void OnDestroy()
         {
             MultiplayerConnector.instance.my_OnJoinedRoom -= MyOnJoinedRoom;
+            MultiplayerConnector.instance.onPlayerCountChanged -= SwichOffObjects;
+        }
+
+        void SwichOffObjects()
+        {
+            ManageVisibilities(false);
         }
 
         private void MyOnJoinedRoom()
@@ -105,150 +112,39 @@ namespace ObliqueSenastions.PunNetworking
                         continue;
                     }
 
-                    switch (item.deactivation)
-                    {
-                        case Deactivation.gameObject:
-                            foreach (var obj in item.objects)
-                            {
-                                if (obj != null) obj.SetActive(state);
-                            }
-                            break;
 
-                        case Deactivation.renderer:
-                            foreach (var obj in item.objects)
-                            {
-                                if (obj.TryGetComponent<Renderer>(out Renderer renderer))
-                                {
-                                    renderer.enabled = state;
-                                }
-                            }
-                            break;
-
-                        case Deactivation.collider:
-                            foreach (var obj in item.objects)
-                            {
-                                if (obj.TryGetComponent<Collider>(out Collider collider))
-                                {
-                                    collider.enabled = state;
-                                }
-                            }
-                            break;
-
-                        case Deactivation.rendererInChildren:
-                            foreach (var obj in item.objects)
-                            {
-                                if (obj != null)
-                                {
-                                    Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
-
-                                    foreach (var renderer in renderers)
-                                    {
-                                        renderer.enabled = state;
-                                    }
-
-                                }
-
-                            }
-                            break;
-
-                        case Deactivation.colliderInChildren:
-                            foreach (var obj in item.objects)
-                            {
-                                if (obj != null)
-                                {
-                                    Collider[] colliders = obj.GetComponentsInChildren<Collider>();
-                                    foreach (var collider in colliders)
-                                    {
-                                        collider.enabled = state;
-                                    }
-
-                                }
-
-                            }
-                            break;
-
-
-                        default:
-                            break;
-                    }
                 }
 
-            }
-
-            collidersReady = true;
-        }
-
-
-        IEnumerator ManageVisibilitiesR(bool state)
-        {
-            bool handsReady = false;
-            while (!handsReady)
-            {
-                handsReady = HandsReady();
-
-                foreach (var item in visibilitySubjects)
+                switch (item.deactivation)
                 {
-                    if (item.deactivation == Deactivation.gameObject)
-                    {
+                    case Deactivation.gameObject:
                         foreach (var obj in item.objects)
                         {
-                            if (obj == null)
-                            {
-                                Debug.LogError("VisibilityManager: " + obj.name + " not found, to manage Visibility. Visibility Not ready");
-
-                            }
-                            else
-                            {
-                                obj.SetActive(state);
-                            }
-                            yield return null;
+                            if (obj != null) obj.SetActive(state);
                         }
-                    }
+                        break;
 
-                    else if (item.deactivation == Deactivation.renderer)
-                    {
+                    case Deactivation.renderer:
                         foreach (var obj in item.objects)
                         {
-                            if (obj == null)
+                            if (obj.TryGetComponent<Renderer>(out Renderer renderer))
                             {
-                                Debug.LogError("VisibilityManager: " + obj.name + " not found, to manage Visibility. Visibility Not ready");
-
-
+                                renderer.enabled = state;
                             }
-
-                            else
-                            {
-                                if (obj.TryGetComponent<Renderer>(out Renderer renderer))
-                                {
-                                    renderer.enabled = state;
-                                }
-
-                                else
-                                {
-                                    Debug.LogError("VisibilityManager: Renderer in " + obj.name + " not found, to manage Visibility. Visibility Not ready");
-
-                                }
-                            }
-
-                            yield return null;
                         }
+                        break;
 
-                    }
-
-                    else if (item.deactivation == Deactivation.collider)
-                    {
+                    case Deactivation.collider:
                         foreach (var obj in item.objects)
                         {
                             if (obj.TryGetComponent<Collider>(out Collider collider))
                             {
                                 collider.enabled = state;
                             }
-                            yield return null;
                         }
-                    }
+                        break;
 
-                    else if (item.deactivation == Deactivation.rendererInChildren)
-                    {
+                    case Deactivation.rendererInChildren:
                         foreach (var obj in item.objects)
                         {
                             if (obj != null)
@@ -261,13 +157,11 @@ namespace ObliqueSenastions.PunNetworking
                                 }
 
                             }
-                            yield return null;
+
                         }
+                        break;
 
-                    }
-
-                    else if (item.deactivation == Deactivation.colliderInChildren)
-                    {
+                    case Deactivation.colliderInChildren:
                         foreach (var obj in item.objects)
                         {
                             if (obj != null)
@@ -281,15 +175,130 @@ namespace ObliqueSenastions.PunNetworking
                             }
 
                         }
-                        yield return null;
+                        break;
 
-                    }
-                    yield return null;
+
+                    default:
+                        break;
                 }
-                collidersReady = true;
 
             }
+
+            collidersReady = true;
         }
+
+
+        // IEnumerator ManageVisibilitiesR(bool state)
+        // {
+        //     bool handsReady = false;
+        //     while (!handsReady)
+        //     {
+        //         handsReady = HandsReady();
+
+        //         foreach (var item in visibilitySubjects)
+        //         {
+        //             if (item.deactivation == Deactivation.gameObject)
+        //             {
+        //                 foreach (var obj in item.objects)
+        //                 {
+        //                     if (obj == null)
+        //                     {
+        //                         Debug.LogError("VisibilityManager: " + obj.name + " not found, to manage Visibility. Visibility Not ready");
+
+        //                     }
+        //                     else
+        //                     {
+        //                         obj.SetActive(state);
+        //                     }
+        //                     yield return null;
+        //                 }
+        //             }
+
+        //             else if (item.deactivation == Deactivation.renderer)
+        //             {
+        //                 foreach (var obj in item.objects)
+        //                 {
+        //                     if (obj == null)
+        //                     {
+        //                         Debug.LogError("VisibilityManager: " + obj.name + " not found, to manage Visibility. Visibility Not ready");
+
+
+        //                     }
+
+        //                     else
+        //                     {
+        //                         if (obj.TryGetComponent<Renderer>(out Renderer renderer))
+        //                         {
+        //                             renderer.enabled = state;
+        //                         }
+
+        //                         else
+        //                         {
+        //                             Debug.LogError("VisibilityManager: Renderer in " + obj.name + " not found, to manage Visibility. Visibility Not ready");
+
+        //                         }
+        //                     }
+
+        //                     yield return null;
+        //                 }
+
+        //             }
+
+        //             else if (item.deactivation == Deactivation.collider)
+        //             {
+        //                 foreach (var obj in item.objects)
+        //                 {
+        //                     if (obj.TryGetComponent<Collider>(out Collider collider))
+        //                     {
+        //                         collider.enabled = state;
+        //                     }
+        //                     yield return null;
+        //                 }
+        //             }
+
+        //             else if (item.deactivation == Deactivation.rendererInChildren)
+        //             {
+        //                 foreach (var obj in item.objects)
+        //                 {
+        //                     if (obj != null)
+        //                     {
+        //                         Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
+
+        //                         foreach (var renderer in renderers)
+        //                         {
+        //                             renderer.enabled = state;
+        //                         }
+
+        //                     }
+        //                     yield return null;
+        //                 }
+
+        //             }
+
+        //             else if (item.deactivation == Deactivation.colliderInChildren)
+        //             {
+        //                 foreach (var obj in item.objects)
+        //                 {
+        //                     if (obj != null)
+        //                     {
+        //                         Collider[] colliders = obj.GetComponentsInChildren<Collider>();
+        //                         foreach (var collider in colliders)
+        //                         {
+        //                             collider.enabled = state;
+        //                         }
+
+        //                     }
+
+        //                 }
+        //                 yield return null;
+
+        //             }
+        //             yield return null;
+        //         }
+        //         collidersReady = true;
+
+        //     }
+        // }
         public bool GetVisibiliesReady()
         {
             return collidersReady;
