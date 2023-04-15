@@ -12,7 +12,7 @@ namespace ObliqueSenastions.PunNetworking
         // SyncLoadingBar -> NetworkLoadingBar -> ExposeLoadingBar (On traveller) -> LoadingBar.GetHaudenlukasValue
         // SyncLoadingBar -> AverageLoadinValue: AddContributingLoadingBar (TODO: would be better with interface because like this it is circular)
    
-        float sourceValue;
+        [SerializeField] float sourceValue;
 
         private void Start() 
         {
@@ -23,6 +23,8 @@ namespace ObliqueSenastions.PunNetworking
 
         public void SetValue(float value)
         {
+            if(!photonView.IsMine) return;
+            
             sourceValue = value;
         }
 

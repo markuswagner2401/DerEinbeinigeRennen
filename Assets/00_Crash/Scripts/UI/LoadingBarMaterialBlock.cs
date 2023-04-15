@@ -22,4 +22,10 @@ public class LoadingBarMaterialBlock : MonoBehaviour
     {
         material.SetFloat(propertyName, value);
     }
+
+    public float GetFloat(string propertyName)
+    {
+        if(material == null) return 0;
+        return material.GetFloat(propertyName);
+    }
 }

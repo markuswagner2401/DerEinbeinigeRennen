@@ -32,21 +32,19 @@ namespace ObliqueSenastions.UISpace
         {
             if(!PhotonNetwork.InRoom) return;
 
-            foreach (var item in excludeRoles)
-            {
-                if(MultiplayerConnector.instance.GetRole() == item)
-                {
-                    return;
-                }
-            }
+            // foreach (var item in excludeRoles)
+            // {
+            //     if(MultiplayerConnector.instance.GetRole() == item)
+            //     {
+            //         return;
+            //     }
+            // }
 
             if(contibutingLoadingBars.Count <= 0) return;
 
             if(contibutingLoadingBars[currentActiveBar].GetStreamedBarValue() < 0.01)
             {
                 int newBar = PickRandomActiveBar();
-                
-                
                 currentActiveBar = newBar;
             }
 
@@ -64,6 +62,11 @@ namespace ObliqueSenastions.UISpace
         public void AddContributingLoadingBar(SyncLoadingBar newContributer)
         {
             contibutingLoadingBars.Add(newContributer);
+        }
+
+        public void RemoveContributinLoadingBar(SyncLoadingBar bar)
+        {
+            contibutingLoadingBars.Remove(bar);
         }
 
         float CalculateAverageValue()

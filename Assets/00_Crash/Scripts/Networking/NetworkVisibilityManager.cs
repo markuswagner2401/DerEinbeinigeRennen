@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using UnityEngine.XR;
 using System;
+using Photon.Realtime;
 
 namespace ObliqueSenastions.PunNetworking
 {
@@ -46,6 +47,8 @@ namespace ObliqueSenastions.PunNetworking
             }
             MultiplayerConnector.instance.my_OnJoinedRoom += MyOnJoinedRoom;
         }
+
+        
 
         private void OnDestroy() 
         {

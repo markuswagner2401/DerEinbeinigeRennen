@@ -7,7 +7,7 @@ namespace ObliqueSenastions.PunNetworking
 {
     public class ExposeLoadingBar : MonoBehaviour
     {
-        [SerializeField] LoadingBar sourceBar;
+        [SerializeField] LoadingBar sourceBar = null;
         [SerializeField] float exposedValue;
 
         private void Update()

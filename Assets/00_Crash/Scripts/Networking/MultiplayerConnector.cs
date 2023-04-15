@@ -69,6 +69,11 @@ namespace ObliqueSenastions.PunNetworking
 
         public OnJoinedOffline onJoinedOffline;
 
+
+        public delegate void OnPlayerCountChanged();
+
+        public OnPlayerCountChanged onPlayerCountChanged;
+
         // [SerializeField] MeetingRoom meetingRoom;
 
         // [System.Serializable]
@@ -380,7 +385,7 @@ namespace ObliqueSenastions.PunNetworking
 
             Player[] players = PhotonNetwork.PlayerList;
 
-            PlayerInventur(players);
+            PlayerInventur(players, true);
 
 
             int roleCount;
@@ -469,18 +474,36 @@ namespace ObliqueSenastions.PunNetworking
 
         public override void OnPlayerEnteredRoom(Player newPlayer)
         {
-            Player[] players = PhotonNetwork.PlayerList;
-            PlayerInventur(players);
+            Debug.Log("MultiplayerConnector: A Player entered The Room: " + newPlayer.NickName);
+            StartCoroutine(PlayerInventurRoutine());
         }
 
         public override void OnPlayerLeftRoom(Player otherPlayer)
         {
+            Debug.Log("MultiplayerConnector: A Player left The Room: " + otherPlayer.NickName);
             Player[] players = PhotonNetwork.PlayerList;
-            PlayerInventur(players);
+            PlayerInventur(players, false);
 
         }
 
-        void PlayerInventur(Player[] playersInRoom)
+        IEnumerator PlayerInventurRoutine()
+        {
+            while (PhotonNetwork.PlayerList.Length > PlayersSum())
+            {
+                PlayerInventur(PhotonNetwork.PlayerList, false);
+                yield return null;
+            }
+
+            yield break;
+        }
+
+        int PlayersSum()
+        {
+            return racerCounter + zuschauerCounter + inspizientCounter + autoCounter;
+            
+        }
+
+        void PlayerInventur(Player[] playersInRoom, bool onJoining)
         {
             racerCounter = 0;
             zuschauerCounter = 0;
@@ -495,7 +518,7 @@ namespace ObliqueSenastions.PunNetworking
                 {
                     autoCounter += 1;
 
-                    if (autoCounter > maxAutos)
+                    if (onJoining && autoCounter > maxAutos)
                     {
                         Debug.Log("NetworkPlayerSpawner: Too many autos in room: Disconnecting. Try to connect in another role");
                         onConnectorMessage.Invoke("ABGELEHNT | ROLLE BESETZT");
@@ -506,7 +529,7 @@ namespace ObliqueSenastions.PunNetworking
                 else if (player.NickName == Role.Rennfahrer.ToString())
                 {
                     racerCounter += 1;
-                    if (racerCounter > maxRacers)
+                    if (onJoining && racerCounter > maxRacers)
                     {
                         Debug.Log("NetworkPlayerSpawner: Too many racers in room: Disconnecting. Try to connect in another role");
                         onConnectorMessage.Invoke("ABGELEHNT | ROLLE BESETZT");
@@ -517,7 +540,7 @@ namespace ObliqueSenastions.PunNetworking
                 else if (player.NickName == Role.Zuschauer.ToString())
                 {
                     zuschauerCounter += 1;
-                    if (zuschauerCounter > maxZuschauer)
+                    if (onJoining && zuschauerCounter > maxZuschauer)
                     {
                         Debug.Log("NetworkPlayerSpawner: Too many zuschauer in room: Disconnecting. Try to connect in another role");
                         onConnectorMessage.Invoke("ABGELEHNT | ROLLE BESETZT");
@@ -528,7 +551,7 @@ namespace ObliqueSenastions.PunNetworking
                 else if (player.NickName == Role.Inspizient.ToString())
                 {
                     inspizientCounter += 1;
-                    if (inspizientCounter > maxInspizienten)
+                    if (onJoining && inspizientCounter > maxInspizienten)
                     {
                         Debug.Log("NetworkPlayerSpawner: Too many Inspizienten in room: Disconnecting. Try to connect in another role");
                         onConnectorMessage.Invoke("ABGELEHNT | ROLLE BESETZT");

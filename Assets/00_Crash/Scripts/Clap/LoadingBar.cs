@@ -14,7 +14,7 @@ namespace ObliqueSenastions.ClapSpace
         [SerializeField] Image uiImage = null;
         [SerializeField] Material material;
 
-        
+
         [SerializeField] LoadingBarMaterialBlock loadingBarMaterialBlock;
         [SerializeField] float clapFrameTime;
 
@@ -49,7 +49,7 @@ namespace ObliqueSenastions.ClapSpace
 
         [SerializeField] bool getSetExternally = false;
 
-        
+
 
 
         void Start()
@@ -63,7 +63,7 @@ namespace ObliqueSenastions.ClapSpace
 
         private void FixedUpdate()
         {
-            if(getSetExternally) return;
+            if (getSetExternally) return;
 
             if (enableClapAccumulation)
             {
@@ -98,7 +98,7 @@ namespace ObliqueSenastions.ClapSpace
         public void SetLoadingBarValue(float value)
         {
             //print("set loading bar value: " + value);
-            if(loadingBarMaterialBlock != null)
+            if (loadingBarMaterialBlock != null)
             {
                 loadingBarMaterialBlock.SetFloat(valueReference, value);
             }
@@ -107,8 +107,8 @@ namespace ObliqueSenastions.ClapSpace
             {
                 material.SetFloat(valueReference, value);
             }
-            
-            
+
+
 
         }
 
@@ -120,7 +120,7 @@ namespace ObliqueSenastions.ClapSpace
         public void StartLoadingBar(float loadingTime)
         {
             gameObject.SetActive(true);
-            if(!gameObject.activeInHierarchy) return;
+            if (!gameObject.activeInHierarchy) return;
             StartCoroutine(InterruptandStartLoadingBar(loadingTime));
         }
 
@@ -242,8 +242,17 @@ namespace ObliqueSenastions.ClapSpace
 
         public float GetLoadingValue()
         {
-            if(material == null) return 0;
-            return material.GetFloat(valueReference);
+            if (loadingBarMaterialBlock != null)
+            {
+                return loadingBarMaterialBlock.GetFloat(valueReference);
+            }
+            else
+            {
+                if (material == null) return 0;
+                return material.GetFloat(valueReference);
+
+            }
+
             //return accumulativeBarValue;
         }
 
