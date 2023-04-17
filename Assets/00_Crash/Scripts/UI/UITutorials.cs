@@ -211,6 +211,7 @@ namespace ObliqueSenastions.UISpace
 
         void PlayNetworkWelcomeTutorial()
         {
+            Debug.Log("PlayTutorial on MyOnjoinedRoom");
             if (!welcomeNetworkPlayer)
             {
                 return;

@@ -90,7 +90,7 @@ namespace ObliqueSenastions.UISpace
                     ColorBlock colors = button.colors;
                     colors.normalColor = toggleOn ? activeColor : inactiveColor;
                     button.colors = colors;
-                    TimeLineHandler.instance.GetComponent<SyncPlayableDirector>().SetCanGetOwnership(toggleOn);
+                    //TimeLineHandler.instance.GetComponent<SyncPlayableDirector>().SetCanGetOwnership(toggleOn);
                     break;
 
                 case ButtonFunction.weiter:

@@ -153,8 +153,7 @@ namespace ObliqueSenastions.PunNetworking
         private void OnDestroy()
         {
             //SceneManager.sceneLoaded -= OnSceneLoaded;
-            my_OnJoinedRoom -= PlaceholderOnJoinedRoom;
-            onConnectorMessage -= PlaceholderOnConnectorMessage;
+            
         }
 
         private void Update()
@@ -182,6 +181,8 @@ namespace ObliqueSenastions.PunNetworking
             base.OnDisable();
             //SceneManager.sceneLoaded -= OnSceneLoaded;
             my_OnJoinedRoom -= PlaceholderOnJoinedRoom;
+            
+            onConnectorMessage -= PlaceholderOnConnectorMessage;
 
         }
 
@@ -197,11 +198,13 @@ namespace ObliqueSenastions.PunNetworking
 
         public int GetClientsIndexInRole()
         {
+            Debug.Log("MultiplayerConnector: GetClientsIndexInRole");
             return clientsPlayerIndex;
         }
 
         public int GetNumberOfPlayersOfRole(Role role)
         {
+            Debug.Log("MultiplayerConnector: GetNumberOfPlayersOfRole");
             switch (role)
             {
                 case Role.Rennfahrer:
@@ -230,6 +233,7 @@ namespace ObliqueSenastions.PunNetworking
 
         public int GetInspizentenCount()
         {
+            Debug.Log("MultiplayerConnector: GetInspizientenCount");
             return inspizientCounter;
         }
 
@@ -250,6 +254,7 @@ namespace ObliqueSenastions.PunNetworking
 
         public GameMode GetClientsGameMode()
         {
+            Debug.Log("MultiplayerConnector: GetClientsGameMode");
             return clientsGameMode;
         }
 
@@ -260,6 +265,7 @@ namespace ObliqueSenastions.PunNetworking
         {
             if (value)
             {
+
                 Connect();
             }
             else
@@ -276,7 +282,12 @@ namespace ObliqueSenastions.PunNetworking
                 Debug.Log("MultiplayerConnector: ConnectUsingSettings");
             }
 
-            Debug.Log("MultiplayerConnector. Connect -> Already Connected to Server");
+            else
+            {
+                Debug.Log("MultiplayerConnector. Connect -> Already Connected to Server");
+            }
+
+            
         }
 
         
@@ -287,7 +298,7 @@ namespace ObliqueSenastions.PunNetworking
             {
                 PhotonNetwork.LeaveRoom();
                 PhotonNetwork.Disconnect();
-                Debug.Log("MultiplayerConnector: PhotonNetwork.Disconnect");
+                Debug.Log("MultiplayerConnector: PhotonNetwork.Disconnect + LeaveRoom");
 
             }
         }
@@ -308,11 +319,13 @@ namespace ObliqueSenastions.PunNetworking
 
         public int GetNetworkPlayerIndex()
         {
+            Debug.Log("MultiplayerConnector. GetNetworkPlayerIndex");
             return clientsPlayerIndex;
         }
 
         public void RequestTimelineOwnership()
         {
+            Debug.Log("MultiplayerConnector. RequestTimelineOwnership");
             if (PhotonNetwork.IsConnectedAndReady)
             {
                 SyncPlayableDirector syncPlayableDirector = GetComponent<SyncPlayableDirector>();
@@ -333,6 +346,7 @@ namespace ObliqueSenastions.PunNetworking
 
         public void ChangeRoom()
         {
+            Debug.Log("MultiplayerConnector: ChangeRoom");
             if (PhotonNetwork.IsConnected && PhotonNetwork.InRoom)
             {
                 PhotonNetwork.LeaveRoom();//Connect to Master
@@ -367,6 +381,7 @@ namespace ObliqueSenastions.PunNetworking
 
         public override void OnJoinedRoom()
         {
+            Debug.Log("MultiplayerConnector: OnJoinedRoom");
             Room room = PhotonNetwork.CurrentRoom;
             PhotonNetwork.LocalPlayer.NickName = clientsRole.ToString();
             Debug.Log("Player joined Room: " + room.Name + " . Playername: " + PhotonNetwork.LocalPlayer.NickName);
@@ -428,6 +443,8 @@ namespace ObliqueSenastions.PunNetworking
 
 
             my_OnJoinedRoom.Invoke();
+
+            Debug.Log("Invoke MyOnJoinedRoom");
 
 
 
@@ -513,6 +530,7 @@ namespace ObliqueSenastions.PunNetworking
 
         void PlayerInventur(Player[] playersInRoom, bool onJoining)
         {
+            Debug.Log("MultiplayerConnector: PlayerInventur");
             racerCounter = 0;
             zuschauerCounter = 0;
             autoCounter = 0;

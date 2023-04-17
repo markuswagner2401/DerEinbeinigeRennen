@@ -1088,6 +1088,9 @@ MonoBehaviour:
   forwardHandLeft: {fileID: 6769724015024600440}
   forwardHandRight: {fileID: 8295298164590128801}
   forwardHead: {fileID: 5141029702480467617}
+  directionIndicatorLeft: {fileID: 0}
+  directionIndicatorRight: {fileID: 0}
+  showDirectionIndicatorsAtStart: 0
   speed: 5
 --- !u!114 &16102405
 MonoBehaviour:
@@ -1101,6 +1104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a786d6f50e5001f479464624bcdfaae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputMode: 0
   armSwingRight: 1
   armSwingLeft: 1
   speedFactor: 5
@@ -1129,8 +1133,12 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   speedChangeTime: 5
+  speedChangers: []
   threshold: 0.01
   usingOVR: 1
+  readAtTacho: 0
+  tachoLeft: {fileID: 0}
+  tachoRight: {fileID: 0}
   velocityTrackerRight: {fileID: 0}
   velocityTrackerLeft: {fileID: 0}
   simpleVelocityTrackerRight: {fileID: 3817925523203953447}
@@ -1696,6 +1704,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32d7f6cae76115b43a21921545fa2ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  positionThreshold: 0.001
+  rotationThreshold: 0.001
   currentSpeed: 0
   angularSpeed: 0
   currentVelocity: {x: 0, y: 0, z: 0}
@@ -1724,6 +1734,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32d7f6cae76115b43a21921545fa2ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  positionThreshold: 0.001
+  rotationThreshold: 0.001
   currentSpeed: 0
   angularSpeed: 0
   currentVelocity: {x: 0, y: 0, z: 0}
@@ -1875,6 +1887,11 @@ PrefabInstance:
       propertyPath: simpleVelocityTrackersSingleplayer.Array.data[1]
       value: 
       objectReference: {fileID: 3817925523203953447}
+    - target: {fileID: 2031498520955864176, guid: dbfdbbae64a5ddd439b1adcab071ee93,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2266574261147297376, guid: dbfdbbae64a5ddd439b1adcab071ee93,
         type: 3}
       propertyPath: simpleVelocityTrackersMultiplayer.Array.size

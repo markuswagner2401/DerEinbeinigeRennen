@@ -11,19 +11,19 @@ namespace ObliqueSenastions.PunNetworking
     public class SyncPlayableDirector : MonoBehaviourPun, IPunObservable, IPunOwnershipCallbacks
     {
 
-        [SerializeField] NetworkOwnership networkOwnership = NetworkOwnership.alwaysOnAction;
+        // [SerializeField] NetworkOwnership networkOwnership = NetworkOwnership.alwaysOnAction;
 
-        NetworkOwnership capturedOwnership = NetworkOwnership.onlyIfCanGetOw;
+        // NetworkOwnership capturedOwnership = NetworkOwnership.onlyIfCanGetOw;
 
-        [System.Serializable]
-        public enum NetworkOwnership
-        {
-            alwaysOnAction,
-            onlyIfCanGetOw,
-            never,
+        // [System.Serializable]
+        // public enum NetworkOwnership
+        // {
+        //     alwaysOnAction,
+        //     onlyIfCanGetOw,
+        //     never,
 
 
-        }
+        // }
 
         [SerializeField] TimeModeMachine timeModeMachine;
 
@@ -63,7 +63,7 @@ namespace ObliqueSenastions.PunNetworking
         {
             director = GetComponent<PlayableDirector>();
             PhotonNetwork.AddCallbackTarget(this);
-            if(timeModeMachine == null) timeModeMachine = GetComponent<TimeModeMachine>();
+            if (timeModeMachine == null) timeModeMachine = GetComponent<TimeModeMachine>();
         }
 
         private void Start()
@@ -83,7 +83,7 @@ namespace ObliqueSenastions.PunNetworking
 
         }
 
-       
+
 
         // private void CheckIfAmInspizient()
         // {
@@ -93,25 +93,52 @@ namespace ObliqueSenastions.PunNetworking
         //     }
         // }
 
+        bool PlayerCanGetOwnership()
+        {
+            if (!PhotonNetwork.IsConnected) return true;
+            if (photonView.IsMine) return true;
+            if (MultiplayerConnector.instance.GetRole() == Role.Inspizient)
+            {
+                return true;
+            }
+            else
+            {
+                if (MultiplayerConnector.instance.GetInspizentenCount() > 0)
+                {
+                    return false;
+                }
+
+                else
+                {
+                    return true;
+                }
+            }
+
+
+        }
+
         private void Update()
         {
 
-            Role clientsRole = MultiplayerConnector.instance.GetRole();
-            int inspizientCounter = MultiplayerConnector.instance.GetInspizentenCount();
+            // Role clientsRole = MultiplayerConnector.instance.GetRole();
+            // int inspizientCounter = MultiplayerConnector.instance.GetInspizentenCount();
 
-            if (clientsRole == Role.Inspizient)
-            {
-                playerCanGetOwnership = true;
-            }
+            // if (clientsRole == Role.Inspizient)
+            // {
+            //     playerCanGetOwnership = true;
+            // }
 
-            else
-            {
-                if (inspizientCounter > 0)
-                {
-                    playerCanGetOwnership = false;
-                }
+            // else
+            // {
+            //     if (inspizientCounter > 0)
+            //     {
+            //         playerCanGetOwnership = false;
+            //     }
 
-            }
+            // }
+
+            playerCanGetOwnership = PlayerCanGetOwnership();
+
 
             currentTime = (float)director.time;
             currentSpeed = (float)director.playableGraph.GetRootPlayable(0).GetSpeed();
@@ -123,7 +150,7 @@ namespace ObliqueSenastions.PunNetworking
                     print("matchTime: current time: " + currentTime + "currentTimeOfOwner: " + currentTimeOfOwner);
                     director.time = currentTimeOfOwner;
                     director.playableGraph.GetRootPlayable(0).SetSpeed((double)currentSpeedOfOwner);
-                    
+
                 }
 
                 if (Mathf.Abs(currentSpeed - currentSpeedOfOwner) > speedJumpThreshold)
@@ -170,53 +197,63 @@ namespace ObliqueSenastions.PunNetworking
         //     photonView.OwnershipTransfer = OwnershipOption.Fixed;
         // }
 
-        
 
 
-        public void SetCanGetOwnership(bool value)
-        {
-            playerCanGetOwnership = value;
-        }
+
+        // public void SetCanGetOwnership(bool value)
+        // {
+        //     playerCanGetOwnership = value;
+        // }
 
         public bool RequestNetworkOwnership()
         {
-            if (photonView.IsMine || !PhotonNetwork.IsConnected) return true;
+            Debug.Log("SyncPlayableDirector: RequestOwnership");
 
-            if(photonView.OwnershipTransfer == OwnershipOption.Fixed && PhotonNetwork.IsConnected) return false;
-
-            if (networkOwnership == NetworkOwnership.alwaysOnAction)
+            if (playerCanGetOwnership)
             {
-                // PhotonView photonView = GetComponent<PhotonView>();
-                // if(photonView == null) return;
-                // Debug.Log("Request Ownership");
-                // photonView.RequestOwnership();
+                Debug.Log("Request Ownership");
                 base.photonView.RequestOwnership();
-
+                return true;
             }
 
-            else if (networkOwnership == NetworkOwnership.never)
+            else
             {
                 return false;
             }
 
-            else if (networkOwnership == NetworkOwnership.onlyIfCanGetOw)
-            {
-                if (playerCanGetOwnership)
-                {
-                    base.photonView.RequestOwnership();
-                }
-                else
-                {
-                    return false;
-                }
-            }
 
-            return photonView.IsMine;
+            // if(playerCanGetOwnership)
+            // {
+            //     return true;
+            // }
+
+            // if(photonView.OwnershipTransfer == OwnershipOption.Fixed && PhotonNetwork.IsConnected) return false;
+
+            
+
+            // else if (networkOwnership == NetworkOwnership.never)
+            // {
+            //     return false;
+            // }
+
+            // else if (networkOwnership == NetworkOwnership.onlyIfCanGetOw)
+            // {
+            //     if (playerCanGetOwnership)
+            //     {
+            //         base.photonView.RequestOwnership();
+            //     }
+            //     else
+            //     {
+            //         return false;
+            //     }
+            // }
+
+            // return photonView.IsMine;
         }
 
         public bool GetIsMine()
         {
-            if(!PhotonNetwork.IsConnected) return true;
+            if (!PhotonNetwork.IsConnected) return true;
             return photonView.IsMine;
         }
 
@@ -238,9 +275,9 @@ namespace ObliqueSenastions.PunNetworking
 
         public void OnOwnershipTransfered(PhotonView targetView, Player previousOwner)
         {
-            
+            Debug.Log("TimelineScroller: OnOwnershipTransfered");
             if (targetView != photonView) return;
-            if(base.photonView.AmOwner && MultiplayerConnector.instance.GetRole() == Role.Inspizient)
+            if (base.photonView.AmOwner && MultiplayerConnector.instance.GetRole() == Role.Inspizient)
             {
                 photonView.OwnershipTransfer = OwnershipOption.Fixed;
             }
@@ -291,6 +328,7 @@ namespace ObliqueSenastions.PunNetworking
 
         private void SyncTimelineJump(float newTime)
         {
+            Debug.Log("SyncPlayableDirector: RPC:SyncTimelineJump");
             if (PhotonNetwork.IsConnected && photonView.IsMine)
             {
                 photonView.RPC("SyncTimeline", RpcTarget.Others, newTime);
@@ -300,7 +338,7 @@ namespace ObliqueSenastions.PunNetworking
         [PunRPC]
         private void SyncTimeline(float newTime)
         {
-            Debug.Log("SyncPlayableDirctor: OnTimelineJump");
+            Debug.Log("SyncPlayableDirctor: RPC: SyncTimeline");
             director.time = newTime;
         }
 

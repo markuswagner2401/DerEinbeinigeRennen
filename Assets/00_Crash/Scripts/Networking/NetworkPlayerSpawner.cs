@@ -97,6 +97,7 @@ namespace ObliqueSenastions.PunNetworking
         void MyOnJoinedRoom() // gets called by MultiplayerConnector after player inventur
         {
             SpawnPrefab(SpawnSituation.initial);
+            Debug.Log("NetworkPlayerSpawner: SpawnPrefab On MyOnJoinedRoom");
         }
 
         public override void OnJoinedRoom()
@@ -104,9 +105,15 @@ namespace ObliqueSenastions.PunNetworking
 
         }
 
+        public override void OnDisable()
+        {
+            base.OnDisable();
+            MultiplayerConnector.instance.my_OnJoinedRoom -= MyOnJoinedRoom;
+        }
+
         private void OnDestroy()
         {
-            MultiplayerConnector.instance.my_OnJoinedRoom -= MyOnJoinedRoom;
+            
         }
 
 
