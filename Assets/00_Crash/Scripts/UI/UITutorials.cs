@@ -206,7 +206,7 @@ namespace ObliqueSenastions.UISpace
             }
             motivationTriggered = true;
             StopAllCoroutines();
-            StartCoroutine(PlayTutorialRoutine(index));
+            if(this.enabled)StartCoroutine(PlayTutorialRoutine(index));
         }
 
         void PlayNetworkWelcomeTutorial()

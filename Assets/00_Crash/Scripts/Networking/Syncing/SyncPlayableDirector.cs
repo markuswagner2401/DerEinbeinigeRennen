@@ -122,6 +122,8 @@ namespace ObliqueSenastions.PunNetworking
                 {
                     print("matchTime: current time: " + currentTime + "currentTimeOfOwner: " + currentTimeOfOwner);
                     director.time = currentTimeOfOwner;
+                    director.playableGraph.GetRootPlayable(0).SetSpeed((double)currentSpeedOfOwner);
+                    
                 }
 
                 if (Mathf.Abs(currentSpeed - currentSpeedOfOwner) > speedJumpThreshold)

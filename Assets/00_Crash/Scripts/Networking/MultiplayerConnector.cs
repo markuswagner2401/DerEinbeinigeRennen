@@ -145,6 +145,8 @@ namespace ObliqueSenastions.PunNetworking
             PhotonNetwork.SendRate = sendRate; // 20 (how mny packets a player sends per second)
             PhotonNetwork.SerializationRate = serializationRate; //10 (how often the data gets set per second, has to be lower that send rate
 
+            Debug.Log("MultiplayerConnector: Photon network is connected: " + PhotonNetwork.IsConnected);
+
 
         }
 
@@ -461,6 +463,7 @@ namespace ObliqueSenastions.PunNetworking
             if(onJoinedOffline != null)
             {
                 onJoinedOffline.Invoke();
+                Debug.Log("MultiplayerConnector: OnJoinedOffline: Invoke");
             }
             
         }
@@ -497,6 +500,7 @@ namespace ObliqueSenastions.PunNetworking
             }
 
             onPlayerCountChanged?.Invoke();
+            Debug.Log("MultiplayerConnector: Invoke OnPlayerCounterChanged");
 
             yield break;
         }

@@ -59,12 +59,14 @@ namespace ObliqueSenastions.PunNetworking
 
         void SwichOffObjects()
         {
+            Debug.Log("NetworkVisibilityManager: Swich off objects onPlyerCounterChange");
             ManageVisibilities(false);
         }
 
         private void MyOnJoinedRoom()
         {
             //StartCoroutine(ManageVisibilitiesR(false));
+            Debug.Log("NetworkVisibilityManager: MyOnJoinedRoom: ManageVisibilities");
             ManageVisibilities(false);
 
         }
@@ -103,6 +105,7 @@ namespace ObliqueSenastions.PunNetworking
 
         private void ManageVisibilities(bool state)
         {
+            
             foreach (var item in visibilitySubjects)
             {
                 if (item.roleAware)

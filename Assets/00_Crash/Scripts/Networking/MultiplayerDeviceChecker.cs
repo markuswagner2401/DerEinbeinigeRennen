@@ -9,6 +9,7 @@ using Photon.Pun;
 
 namespace ObliqueSenastions.SceneSpace
 {
+    
 
     public enum GameMode
     {
@@ -18,6 +19,7 @@ namespace ObliqueSenastions.SceneSpace
     [RequireComponent(typeof(UIConnectorActivator))]
     public class MultiplayerDeviceChecker : MonoBehaviour
     {
+        float timer;
 
 
         // [SerializeField] UnityEvent onHMDActiveAtStart;
@@ -63,13 +65,15 @@ namespace ObliqueSenastions.SceneSpace
            
 
             bool done = false;
-            while (!done)
+            while (!done && timer < 10f)
             {
+                timer += Time.deltaTime;
+
                 if (TryGetComponent<UIConnectorActivator>(out UIConnectorActivator connectorActivator))
                 {
                     done = true;
                     connectorActivator.ShowConnector(value);
-                    yield return null;
+                    yield break;
                 }
 
                 Debug.LogError("MultiplayerDeviceChecker trying to find UIConnectorActivator");
