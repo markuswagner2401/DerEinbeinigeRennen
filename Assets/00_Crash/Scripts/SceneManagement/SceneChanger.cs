@@ -112,6 +112,8 @@ namespace ObliqueSenastions.SceneSpace
 
         IEnumerator Transition()
         {
+            Debug.Log("SceneChanger: Change Scene Transition");
+            
             DontDestroyOnLoad(gameObject);
 
             //Safe Level

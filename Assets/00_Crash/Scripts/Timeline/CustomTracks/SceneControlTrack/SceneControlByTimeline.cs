@@ -33,10 +33,22 @@ namespace ObliqueSenastions.TimelineSpace
 
         bool CheckSceneChange(string sceneName)
         {
-            if(sceneName == SceneManager.GetActiveScene().name) return false;
+            if(sceneName == SceneManager.GetActiveScene().name)
+            {
+                Debug.Log("SceneControlByTimeline: Already In Scene: CheckScenechange = false");
+                return false;
+            } 
             
             //Check if Scene Exists
-            return GetComponent<SceneListManager>().CheckIfSceneExists(sceneName);
+            if(GetComponent<SceneListManager>().CheckIfSceneExists(sceneName))
+            {
+                return true;
+            }
+            else
+            {
+                Debug.Log("SceneControlByTimeline: Scene Name doesnt exist in build");
+                return false;
+            }
 
         }
 
@@ -105,6 +117,7 @@ namespace ObliqueSenastions.TimelineSpace
 
         public void SetupSceneParameters(int clip, int sceneIndex, string name, double startTime, bool jumpOnStartOnGoingBack, string roomSection)
         {
+            Debug.Log("SceneControlByTimeline: SetupSceneParameters");
             if (clip >= sceneClips.Length)
             {
                 Debug.LogError("ScenecontrolBytimeline: SetScene: index out of bounds, please create new Scene array element in Inspector");

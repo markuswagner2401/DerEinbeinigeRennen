@@ -121,7 +121,7 @@ namespace ObliqueSenastions.PunNetworking
 
         private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
         {
-            print("NetworkPlayer: OnSceneLoaded " + arg0.name);
+            print("NetworkPlayer:" + gameObject.name + "OnSceneLoaded " + arg0.name);
 
             if (arg0.name == "TransferScene") return;
 
@@ -150,10 +150,6 @@ namespace ObliqueSenastions.PunNetworking
             yield return new WaitForSeconds(sec);
             PhotonNetwork.Destroy(this.gameObject);
         }
-
-        
-
-
 
 
 
@@ -424,6 +420,7 @@ namespace ObliqueSenastions.PunNetworking
 
             currentCameraTraveller.onTravellerUpdateReady -= ManualUpdate;
             onPlayerMappingUpdated -= PlaceholderOnMappingReady;
+            SceneManager.sceneLoaded -= OnSceneLoaded;
         }
     }
 
