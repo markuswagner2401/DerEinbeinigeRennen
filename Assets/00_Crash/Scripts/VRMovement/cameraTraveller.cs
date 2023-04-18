@@ -203,14 +203,7 @@ namespace ObliqueSenastions.VRRigSpace
             previousPlayerIndex = playerIndex;
 
 
-
-
-
-        }
-
-
-        void LateUpdate()
-        {
+            //before in late update
 
             if (transitionMode == TransitionMode.TransitionByTimeline)
             {
@@ -228,6 +221,18 @@ namespace ObliqueSenastions.VRRigSpace
             }
 
             onTravellerUpdateReady.Invoke();
+
+
+
+
+
+        }
+
+
+        void LateUpdate()
+        {
+
+            
 
             // print(" traveller updated");
 
