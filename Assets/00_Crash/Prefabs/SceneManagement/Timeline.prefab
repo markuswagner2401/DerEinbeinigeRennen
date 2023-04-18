@@ -661,18 +661,18 @@ MonoBehaviour:
   travellerControlForRacer:
     transitionPointIndexCurrentClip: 0
     transitionPointIndexPrevClip: 0
-    transitionPointNameCurrentClip: Seitenring1
+    transitionPointNameCurrentClip: Rennfahrer
     transitionPointNamePrevClip: 
-    currentT: 0
-    transitioning: 0
-    transitionComplete: 0
+    currentT: 1
+    transitioning: 1
+    transitionComplete: 1
   travellerControlForZuschauer:
     transitionPointIndexCurrentClip: 0
     transitionPointIndexPrevClip: 0
-    transitionPointNameCurrentClip: Seitenring1
+    transitionPointNameCurrentClip: Zuschauer
     transitionPointNamePrevClip: 
-    currentT: 0
-    transitioning: 0
+    currentT: 1
+    transitioning: 1
     transitionComplete: 1
   travellerControlForInspizient:
     transitionPointIndexCurrentClip: 0
@@ -736,7 +736,7 @@ MonoBehaviour:
   currentTimelinePlayMode: 0
   currentBadTracking: 0
   inUiTime: 0
-  currentAccidentTimeFactor: 0
+  currentAccidentTimeFactor: 1
   syncPlayableDirector: {fileID: 1181491379462798778}
   enableScrolling: 1
   maxHoldtimeIfNotInNetwork: Infinity
@@ -899,7 +899,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5deb7df33b8b9be4088060fe273134ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  networkOwnership: 1
   timeModeMachine: {fileID: 0}
   playerCanGetOwnership: 1
   director: {fileID: 220214917067423035}
@@ -934,7 +933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneNames:
-  - II_1 Foresythe
   - II_2  Rohrschachtest
+  - II_1 Foresythe
   - II_3 Finish
   - TransferScene

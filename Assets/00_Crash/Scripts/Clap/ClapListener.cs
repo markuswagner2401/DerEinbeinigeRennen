@@ -7,7 +7,7 @@ namespace ObliqueSenastions.ClapSpace
 {
     public class ClapListener : MonoBehaviour
     {
-        
+
 
 
         [SerializeField] bool listenToClapAction = false;
@@ -20,15 +20,17 @@ namespace ObliqueSenastions.ClapSpace
         [SerializeField] bool listenToOnClapCountChanged = false;
         [SerializeField] UnityEventInt onClapCountChanged;
 
+        [SerializeField] int currentClaps = 0;
+
         [SerializeField] TextMeshProUGUI clapCountUi = null;
 
-        
+
 
         ClapHandler clapHandler = null;
 
         ClapCounter clapCounter = null;
 
-        private void OnEnable() 
+        private void OnEnable()
         {
             clapHandler = GameObject.FindWithTag("Traveller").GetComponent<ClapHandler>();
 
@@ -44,6 +46,16 @@ namespace ObliqueSenastions.ClapSpace
             clapCounter.onClapCountChanged += OnClapCountChanged;
         }
 
+        private void OnDestroy()
+        {
+            clapHandler.doOnColliderClap -= OnColliderClap;
+
+            clapCounter.doOnCountThresholdBrokeDelegate -= OnClapCountThresholdBroke;
+
+            clapCounter.onClapCountChanged -= OnClapCountChanged;
+
+        }
+
 
         void Update()
         {
@@ -53,7 +65,7 @@ namespace ObliqueSenastions.ClapSpace
         private void OnColliderClap(float strength)
         {
             print("ClapListener: OnClapAction");
-            if(listenToClapAction)
+            if (listenToClapAction)
             {
                 doOnClapAction.Invoke(strength);
             }
@@ -61,7 +73,7 @@ namespace ObliqueSenastions.ClapSpace
 
         private void OnClapCountThresholdBroke(float strength)
         {
-            if(listenToOnClapCountThresholdBroke)
+            if (listenToOnClapCountThresholdBroke)
             {
                 doOnClapCountThresholdBroke.Invoke(strength);
             }
@@ -70,11 +82,13 @@ namespace ObliqueSenastions.ClapSpace
 
         private void OnClapCountChanged(int nr)
         {
-            if(listenToOnClapCountChanged)
+            
+            if (listenToOnClapCountChanged)
             {
+                currentClaps = nr;
                 onClapCountChanged.Invoke(nr);
             }
-            
+
         }
 
         public void SetUIText(int nr)
@@ -86,6 +100,11 @@ namespace ObliqueSenastions.ClapSpace
         public void ResetCountedClaps()
         {
             GameObject.FindWithTag("Traveller").GetComponent<IResetClapCount>().ResetClapCount();
+        }
+
+        public int GetCurrentClapCount()
+        {
+            return currentClaps;
         }
 
 

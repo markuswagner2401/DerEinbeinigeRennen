@@ -129,36 +129,37 @@ namespace ObliqueSenastions.TimelineSpace
 
         private void Update()
         {
-            if (MultiplayerConnector.instance.GetJoinedInOfflineMode())
-            {
-                if (!inAccident) 
-                {
-                    UnholdInSingelplayer();
+            // if (MultiplayerConnector.instance.GetJoinedInOfflineMode())
+            // {
+            //     if (!inAccident) 
+            //     {
+            //         UnholdInSingelplayer();
 
-                }
+            //     }
 
-            }
+            // }
 
-            if(!inAccident)
-            {
-                currentAccidentTimeFactor = 1f;
-            }
-
-
+            // if(!inAccident)
+            // {
+            //     currentAccidentTimeFactor = 1f;
+            // }
 
 
-            if (enableScrolling) // Scrolling with XR toolkit
-            {
-                GetDevices();
 
-                ProcessXRToolkitInput();
 
-            }
+            // if (enableScrolling) // Scrolling with XR toolkit
+            // {
+            //     GetDevices();
+
+            //     ProcessXRToolkitInput();
+
+            // }
 
             if (goIntoBreakAtBadTracking)
             {
                 if (leftHand == null)
                 {
+                    print("timeModeMachine: find left ovr hand");
                     GameObject leftHandGo = GameObject.FindWithTag("LeftOVRHand");
                     if (leftHandGo == null) return;
                     leftHand = leftHandGo.GetComponent<OVRHand>();
@@ -167,6 +168,7 @@ namespace ObliqueSenastions.TimelineSpace
                 }
                 if (rightHand == null)
                 {
+                    print("timeModeMachine: find right ovr hand");
                     GameObject rightHandGo = GameObject.FindWithTag("RightOVRHand");
                     if (rightHandGo == null) return;
                     rightHand = rightHandGo.GetComponent<OVRHand>();
@@ -190,79 +192,79 @@ namespace ObliqueSenastions.TimelineSpace
             }
         }
 
-        public void SetUnholdTime(float value)
-        {
-            maxHoldtimeIfNotInNetwork = value;
-        }
+        // public void SetUnholdTime(float value)
+        // {
+        //     maxHoldtimeIfNotInNetwork = value;
+        // }
 
-        private void UnholdInSingelplayer()
-        {
-            if (currentTimelinePlayMode == TimelinePlayMode.Hold || currentTimelinePlayMode == TimelinePlayMode.Pause)
-            {
-                holdTimer += Time.deltaTime;
-                if (holdTimer > maxHoldtimeIfNotInNetwork)
-                    Play();
-            }
+        // private void UnholdInSingelplayer()
+        // {
+        //     if (currentTimelinePlayMode == TimelinePlayMode.Hold || currentTimelinePlayMode == TimelinePlayMode.Pause)
+        //     {
+        //         holdTimer += Time.deltaTime;
+        //         if (holdTimer > maxHoldtimeIfNotInNetwork)
+        //             Play();
+        //     }
 
-            else
-            {
-                holdTimer = 0;
-            }
-        }
+        //     else
+        //     {
+        //         holdTimer = 0;
+        //     }
+        // }
 
-        private void ProcessXRToolkitInput()
-        {
-            if (device.TryGetFeatureValue(CommonUsages.primary2DAxis, out inputAxis))
-            {
-                if (Mathf.Abs(inputAxis.x) > 0.1f)
-                {
+        // private void ProcessXRToolkitInput()
+        // {
+        //     if (device.TryGetFeatureValue(CommonUsages.primary2DAxis, out inputAxis))
+        //     {
+        //         if (Mathf.Abs(inputAxis.x) > 0.1f)
+        //         {
 
-                    if (inputAxis.x > 0)
-                    {
-                        FastForward(true);
-                    }
+        //             if (inputAxis.x > 0)
+        //             {
+        //                 FastForward(true);
+        //             }
 
-                    else
-                    {
-                        FastBackward(false);
-                    }
+        //             else
+        //             {
+        //                 FastBackward(false);
+        //             }
 
-                }
+        //         }
 
-                else
-                {
-                    if (isScrolling)
-                    {
-                        if (currentTimelinePlayMode == TimelinePlayMode.FastForward)
-                        {
-                            FastForward(false);
-                        }
-                        else if (currentTimelinePlayMode == TimelinePlayMode.FastBackward)
-                        {
-                            FastBackward(false);
-                        }
-                    }
-                }
-            }
+        //         else
+        //         {
+        //             if (isScrolling)
+        //             {
+        //                 if (currentTimelinePlayMode == TimelinePlayMode.FastForward)
+        //                 {
+        //                     FastForward(false);
+        //                 }
+        //                 else if (currentTimelinePlayMode == TimelinePlayMode.FastBackward)
+        //                 {
+        //                     FastBackward(false);
+        //                 }
+        //             }
+        //         }
+        //     }
 
-            if ((device.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonPressed) && primaryButtonPressed))
-            {
-                if (primaryButtonPressedBefore) return;
-                SwitchPausePlay();
-            }
+        //     if ((device.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonPressed) && primaryButtonPressed))
+        //     {
+        //         if (primaryButtonPressedBefore) return;
+        //         SwitchPausePlay();
+        //     }
 
-            primaryButtonPressedBefore = primaryButtonPressed;
-        }
+        //     primaryButtonPressedBefore = primaryButtonPressed;
+        // }
 
-        private void GetDevices()
-        {
-            if (devicesSet) return;
-            device = InputDevices.GetDeviceAtXRNode(nodeFF);
-            if (device.isValid)
-            {
-                devicesSet = true;
-            }
-        }
+        // private void GetDevices()
+        // {
+        //     if (devicesSet) return;
+        //     device = InputDevices.GetDeviceAtXRNode(nodeFF);
+        //     if (device.isValid)
+        //     {
+        //         devicesSet = true;
+        //     }
+        // }
 
 
 

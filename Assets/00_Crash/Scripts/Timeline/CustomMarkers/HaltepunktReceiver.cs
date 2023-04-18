@@ -38,41 +38,43 @@ namespace ObliqueSenastions.TimelineSpace
 
             if (notification is HaltepunktMarker haltpunktMarker)
             {
-                if(MultiplayerConnector.instance.GetJoinedInOfflineMode()) 
-                {
-                    if(haltpunktMarker.HaltInOfflineMode)
-                    {
-                        if(haltpunktMarker.WaitDurationInOfflineMode > 0)
-                        {
-                            TimeLineHandler.instance?.GetComponent<TimeModeMachine>()?.SetUnholdTime(haltpunktMarker.WaitDurationInOfflineMode);
-                        }
-                        else /// wait until push button
-                        {
-                            TimeLineHandler.instance?.GetComponent<TimeModeMachine>()?.SetUnholdTime(Mathf.Infinity);
-                            GameObject.FindWithTag("Traveller")?.GetComponent<UIConnectorActivator>()?.ShowGoOnButton(true);
-                        }
+                // if(MultiplayerConnector.instance.GetJoinedInOfflineMode()) 
+                // {
+                //     if(haltpunktMarker.HaltInOfflineMode)
+                //     {
+                //         if(haltpunktMarker.WaitDurationInOfflineMode > 0)
+                //         {
+                //             TimeLineHandler.instance?.GetComponent<TimeModeMachine>()?.SetUnholdTime(haltpunktMarker.WaitDurationInOfflineMode);
+                //         }
+                //         else /// wait until push button
+                //         {
+                //             TimeLineHandler.instance?.GetComponent<TimeModeMachine>()?.SetUnholdTime(Mathf.Infinity);
+                //             GameObject.FindWithTag("Traveller")?.GetComponent<UIConnectorActivator>()?.ShowGoOnButton(true);
+                //         }
                         
 
-                    }
+                //     }
 
                     
 
 
-                    else
-                    {
-                        //TimeLineHandler.instance?.GetComponent<TimeModeMachine>()?.SetUnholdTime(Mathf.Infinity);
-                        return;
-                    }
-                }
+                //     else
+                //     {
+                //         //TimeLineHandler.instance?.GetComponent<TimeModeMachine>()?.SetUnholdTime(Mathf.Infinity);
+                //         return;
+                //     }
+                // }
 
                 TimelinePlayMode newMode = haltpunktMarker.pauseOrHold ? TimelinePlayMode.Pause : TimelinePlayMode.Hold;
                 if(newMode == TimelinePlayMode.Pause)
                 {
+                    print("Haltepunkt Receiver: Pause");
                     timeModeMachine.Pause();
                 }
                 else
                 {
                     timeModeMachine.Hold();
+                    print("Haltepunkt Receiver: Hold");
                 }
 
                 ///

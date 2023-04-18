@@ -82,6 +82,8 @@ namespace ObliqueSenastions.VRRigSpace
             {
                 CapturePosition();
             }
+
+            SetupMultiplayerSources();
             
 
             if(PhotonNetwork.IsConnected)

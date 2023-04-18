@@ -22,7 +22,9 @@ namespace ObliqueSenastions.UISpace
             readVelocityChangeDetector,
 
             syncedByNetwork,
-            readNothing
+            readNothing,
+
+            readAtClapListener,
         }
 
 
@@ -33,6 +35,8 @@ namespace ObliqueSenastions.UISpace
         [SerializeField] SpeedPeakTracker speedPeakTracker = null;
 
         [SerializeField] LoadingBar velocityChangeDetectorBar = null;
+
+        [SerializeField] ClapListener clapListener = null;
 
 
         [SerializeField] float positionsMin = 0f;
@@ -92,6 +96,10 @@ namespace ObliqueSenastions.UISpace
                     }
                     break;
 
+                
+
+
+
 
                 default:
                     break;
@@ -132,10 +140,17 @@ namespace ObliqueSenastions.UISpace
                 SetTargetPositionWithNormedValue(velocityChangeDetectorBar.GetLoadingValue());
             }
 
-            else if (tachomode == Tachomode.syncedByNetwork)
+            else if (tachomode == Tachomode.readAtClapListener)
             {
-
+                if(clapListener == null) return;
+                SetTargetPosition(clapListener.GetCurrentClapCount());
+                
             }
+
+            // else if (tachomode == Tachomode.syncedByNetwork)
+            // {
+
+            // }
 
 
 

@@ -135,7 +135,7 @@ namespace ObliqueSenastions.ClapSpace
 
         void Update()
         {
-            ProcessResetting();
+            //ProcessResetting();
 
             
         }
@@ -238,7 +238,14 @@ namespace ObliqueSenastions.ClapSpace
 
             if (cycleClapsAfterXClaps > 0)
             {
-                claps = (claps > cycleClapsAfterXClaps) ? 1 : claps;
+                
+                
+                if(claps > cycleClapsAfterXClaps)
+                {
+                    claps = 0;
+                    print("cycle claps");
+                }
+                
             }
 
             onClapCountChanged.Invoke(claps);

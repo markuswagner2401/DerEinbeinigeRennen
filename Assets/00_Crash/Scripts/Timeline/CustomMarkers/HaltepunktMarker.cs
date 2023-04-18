@@ -8,7 +8,7 @@ namespace ObliqueSenastions.TimelineSpace
 {
 
 
-    public class HaltepunktMarker : Marker, INotification, IMarker
+    public class HaltepunktMarker : Marker, INotification, IMarker, INotificationOptionProvider
     {
         [SerializeField]  string note;
         [SerializeField] bool displayModeInInspiUI;
@@ -18,6 +18,10 @@ namespace ObliqueSenastions.TimelineSpace
 
         [Tooltip("Set -1 for infinite wait time")]
         [SerializeField] float waitDurationInOfflineMode;
+
+        [Space(20f)]
+        [SerializeField] bool retroactive = false;
+        [SerializeField] bool emitOnce = false;
         
 
         
@@ -32,8 +36,9 @@ namespace ObliqueSenastions.TimelineSpace
         public bool HaltInOfflineMode => haltInOfflineMode;
 
         public float WaitDurationInOfflineMode => waitDurationInOfflineMode;
-        
 
+        public NotificationFlags flags => (retroactive ? NotificationFlags.Retroactive : default) |
+                                          (emitOnce ? NotificationFlags.TriggerOnce : default);
 
 
     }
