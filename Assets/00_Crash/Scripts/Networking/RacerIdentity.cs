@@ -8,7 +8,7 @@ using ObliqueSenastions.UISpace;
 
 namespace ObliqueSenastions.PunNetworking
 {
-    public class RacerIdentity : MonoBehaviour
+    public class RacerIdentity : MonoBehaviourPunCallbacks
     {
         [SerializeField] Identity[] identities;
         [System.Serializable]
@@ -23,7 +23,7 @@ namespace ObliqueSenastions.PunNetworking
         [SerializeField] MaterialPropertiesFader_2 materialPropertiesFader_2 = null;
 
         [Tooltip("To Check if Owned By Local Player")]
-        [SerializeField] PhotonView photonView = null;
+        //[SerializeField] PhotonView photonView = null;
 
         [SerializeField] BodyBlendShapesAnimator bodyBlendShapesAnimator = null;
 
@@ -66,6 +66,14 @@ namespace ObliqueSenastions.PunNetworking
             lastScore = score;
         }
 
+        [PunRPC]
+        public void SetIdentityIndexRPC(int newIndex)
+        {
+            identityIndex = newIndex;
+            SetColor(identityIndex);
+            SetBlendShape(identityIndex, isMine);
+        }
+
         IEnumerator LateStartRoutine()
         {
             yield return new WaitForSeconds(3f);
@@ -77,6 +85,9 @@ namespace ObliqueSenastions.PunNetworking
                 Debug.LogError("RacerIdentity: No identity set up with Clietns index: " + index);
                 yield break;
             }
+
+            // Call the new RPC method
+            photonView.RPC("SetIdentityIndexRPC", RpcTarget.AllBuffered, index);
             identityIndex = index;
             
 
@@ -87,8 +98,8 @@ namespace ObliqueSenastions.PunNetworking
             }
 
             SetMaterial(isMine);
-            SetColor(identityIndex);
-            SetBlendShape(identityIndex, isMine);
+            // SetColor(identityIndex);
+            // SetBlendShape(identityIndex, isMine);
 
 
 
