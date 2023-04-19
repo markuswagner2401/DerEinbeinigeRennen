@@ -78,6 +78,8 @@ namespace ObliqueSenastions.TimelineSpace
         //bad Tracking
         [SerializeField] bool goIntoBreakAtBadTracking = false;
 
+        [SerializeField] bool holdOnBadTracking = false;
+
         [SerializeField] OVRHand leftHand = null;
 
         [SerializeField] OVRHand rightHand = null;

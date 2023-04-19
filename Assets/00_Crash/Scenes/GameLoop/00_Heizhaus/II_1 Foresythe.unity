@@ -4673,7 +4673,7 @@ MonoBehaviour:
   speedFactor: 0
   lerps:
   - note: FadeIn
-    targetValue: 0.3
+    targetValue: 0.4
     duration: 30
     curve:
       serializedVersion: 2
@@ -11625,22 +11625,22 @@ PrefabInstance:
     - target: {fileID: 1241200879731318088, guid: 217c258e3ba4619469926e582a1bc54f,
         type: 3}
       propertyPath: sceneNames.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241200879731318088, guid: 217c258e3ba4619469926e582a1bc54f,
         type: 3}
       propertyPath: sceneNames.Array.data[0]
-      value: II_2  Rohrschachtest
-      objectReference: {fileID: 0}
-    - target: {fileID: 1241200879731318088, guid: 217c258e3ba4619469926e582a1bc54f,
-        type: 3}
-      propertyPath: sceneNames.Array.data[1]
       value: II_1 Foresythe
       objectReference: {fileID: 0}
     - target: {fileID: 1241200879731318088, guid: 217c258e3ba4619469926e582a1bc54f,
         type: 3}
-      propertyPath: sceneNames.Array.data[2]
+      propertyPath: sceneNames.Array.data[1]
       value: II_3 Finish
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241200879731318088, guid: 217c258e3ba4619469926e582a1bc54f,
+        type: 3}
+      propertyPath: sceneNames.Array.data[2]
+      value: TransferScene
       objectReference: {fileID: 0}
     - target: {fileID: 1334485501639563007, guid: 217c258e3ba4619469926e582a1bc54f,
         type: 3}
@@ -24550,6 +24550,69 @@ Material:
     - _ZTest: 8
     m_Colors: []
   m_BuildTextureStacks: []
+--- !u!1 &2037213901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2037213903}
+  - component: {fileID: 2037213902}
+  m_Layer: 0
+  m_Name: TimelineVorlage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &2037213902
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037213901}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 5d44988ab4004834185c6455e5fc9919, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -1700384508204960711, guid: 5d44988ab4004834185c6455e5fc9919, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -1559363749153187292, guid: 5d44988ab4004834185c6455e5fc9919, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -8777477327525794360, guid: 5d44988ab4004834185c6455e5fc9919, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 61429319048427325, guid: 5d44988ab4004834185c6455e5fc9919, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -6051304684996555000, guid: 5d44988ab4004834185c6455e5fc9919, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -8589735983627665874, guid: 5d44988ab4004834185c6455e5fc9919, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -8570277789019660693, guid: 5d44988ab4004834185c6455e5fc9919, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &2037213903
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037213901}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.78, y: 0.04, z: -5.58}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2037592360
 GameObject:
   m_ObjectHideFlags: 0
