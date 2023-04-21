@@ -109,7 +109,7 @@ namespace ObliqueSenastions.Looping
 
 
 
-        void FixedUpdate()
+        void Update()
         {
             // if (usingOVR && oVRCameraRig!= null)
             // {

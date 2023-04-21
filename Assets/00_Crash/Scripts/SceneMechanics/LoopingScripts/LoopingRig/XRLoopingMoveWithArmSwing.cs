@@ -94,7 +94,7 @@ namespace ObliqueSenastions.Looping
         }
 
 
-        void FixedUpdate()
+        void Update()
         {
             
 
