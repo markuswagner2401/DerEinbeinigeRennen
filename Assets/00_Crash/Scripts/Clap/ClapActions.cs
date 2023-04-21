@@ -283,6 +283,11 @@ namespace ObliqueSenastions.ClapSpace
             Gizmos.DrawRay(ray);
         }
 
+        public void EnableClapEvents(bool value)
+        {
+            clapEventsEnabled = value;
+        }
+
 
         /// IClapActions
 

@@ -700,7 +700,7 @@ namespace ObliqueSenastions.MaterialControl
 
         IEnumerator ColorChangeRoutine(int index)
         {
-            print("Start ColorChange Routine");
+            //print("Start ColorChange Routine");
             Color startColor = block.GetColor(colorChangers[index].colorPropRef);
             Color targetColor = colorChangers[index].color;
             Color newColor = startColor;

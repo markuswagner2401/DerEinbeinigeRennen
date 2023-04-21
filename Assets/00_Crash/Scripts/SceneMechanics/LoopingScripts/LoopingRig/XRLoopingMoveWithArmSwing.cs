@@ -239,6 +239,7 @@ namespace ObliqueSenastions.Looping
         public IEnumerator InterruptAndChangeSpeed(int index)
         {
             speedChangeInterrupted = true;
+            speedBoosterInterrupted = true;
             yield return new WaitForSeconds(0.1f);
             speedChangeInterrupted = false;
             StartCoroutine(FadeValue(speedFactor, speedChangers[index].targetValue, speedChangers[index].duration, speedChangers[index].curve));

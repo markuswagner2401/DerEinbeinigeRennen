@@ -49,7 +49,7 @@ namespace ObliqueSenastions.PunNetworking
             {
                 setup = false;
                 stageMaster = GameObject.FindWithTag("StageMaster").GetComponent<StageMaster>();
-                Debug.LogError("StageMasterListener: Trying to find stageMaster");
+                //Debug.LogError("StageMasterListener: Trying to find stageMaster");
             }
 
             if (!ReferenceEquals(stageMaster, null) && !setup)
