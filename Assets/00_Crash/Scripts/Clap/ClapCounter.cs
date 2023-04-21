@@ -135,7 +135,7 @@ namespace ObliqueSenastions.ClapSpace
 
         void Update()
         {
-            //ProcessResetting();
+            if(ResetAdEveluateAfterTimeBetweenClaps)ProcessResetting();
 
             
         }
@@ -144,7 +144,7 @@ namespace ObliqueSenastions.ClapSpace
         {
             timer += Time.unscaledDeltaTime;
 
-            if (!ResetAdEveluateAfterTimeBetweenClaps) return;
+            
 
             if (timer <= timeBetweenClaps)
             {
@@ -165,12 +165,14 @@ namespace ObliqueSenastions.ClapSpace
 
                 SetUiText(resetText);
                 EndLoadingBar();
-                resetted = true;
+                
 
                 if (resetClapsOnResetLoadingBar)
                 {
                     claps = 0;
                 }
+
+                resetted = true;
 
 
             }
@@ -186,7 +188,7 @@ namespace ObliqueSenastions.ClapSpace
 
             foreach (var action in clapCountActions)
             {
-                if (accumulatedClaps == action.claps)
+                if (accumulatedClaps >= action.claps)
                 {
                     if (enableClapCountActions)
                     {
