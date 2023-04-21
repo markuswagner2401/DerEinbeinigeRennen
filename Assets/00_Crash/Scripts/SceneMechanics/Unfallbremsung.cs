@@ -57,6 +57,7 @@ namespace ObliqueSenastions.TimelineSpace
 
         private void OnTriggerEnter(Collider other)
         {
+            if(!this.enabled) return;
             if (other.gameObject.tag == bremsungen[currentBremsung].otherTag)
             {
                 print("Unfallbremsung: Sending to TimeModeMachine: " + bremsungen[currentBremsung].name);

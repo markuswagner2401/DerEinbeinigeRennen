@@ -36,6 +36,22 @@ namespace ObliqueSenastions.Looping
             public AnimationCurve curve;
         }
 
+        
+        [SerializeField] SpeedBooster[] speedBoosters;
+
+        [System.Serializable]
+        public struct SpeedBooster
+        {
+            public string name;
+
+            public float increaseValue;
+
+            public float maxValue;
+
+        }
+
+        bool speedBoosterInterrupted = false;
+
         [SerializeField] float threshold = .1f;
 
         [SerializeField] bool usingOVR = false;
@@ -230,7 +246,54 @@ namespace ObliqueSenastions.Looping
         }
 
 
-        ////
+        //// Speed Booster
+
+        public void PlaySpeedBooster(int index)
+        {
+            if(index < 0 || index >= speedBoosters.Length)
+            {
+                Debug.Log("LoopingMoveWithArmSwing: No Speedbosster with index: " + index);
+                return;
+            }
+            StartCoroutine(InterruptAndPlaySpeedBooster(index));
+        }
+
+        IEnumerator InterruptAndPlaySpeedBooster(int index)
+        {
+            speedBoosterInterrupted = true;
+            yield return new WaitForSeconds(0.1f);
+            speedBoosterInterrupted = false;
+            StartCoroutine(PlaySpeedBoosterRoutine(index));
+            yield break;
+        }
+
+        IEnumerator PlaySpeedBoosterRoutine(int index)
+        {
+            float capturedSpeed = speedFactor;
+            while (!speedBoosterInterrupted)
+            {
+                if(speedFactor < speedBoosters[index].maxValue)
+                {
+                    speedFactor += speedBoosters[index].increaseValue;
+                }
+                
+                yield return null;
+            }
+
+            speedFactor = capturedSpeed;
+
+            yield break;
+        }
+
+
+        public void InterruptSpeedBoost()
+        {
+            speedBoosterInterrupted = true;
+        }
+
+        ///
+
+        ///
 
         public void ChangeSpeed(float newSpeed)
         {

@@ -51,16 +51,26 @@ public class NetworkplayerTriggerzone : MonoBehaviour
             //     }
             // }
 
-            RacerIdentity racerIdentity = other.GetComponent<RacerIdentity>();
-            if(racerIdentity == null) 
+            if (otherTag != "NetworkPlayer")
             {
-                Debug.LogError("NetworkplayerTriggerzone: No RacerIdenty Component found, no Event will get triggered");
+                GameObject.FindWithTag("StageMaster").GetComponent<NetworkplayerTriggerMaster>().TriggerEvent(nameOfEnterEvent);
+                if (triggerEnterOnce)
+                {
+                    enterActive = false;
+                }
+
                 return;
+
             }
 
 
 
-            if (playerIndex == -1 || playerIndex == racerIdentity.GetPlayerIdentity())
+            RacerIdentity racerIdentity = other.GetComponent<RacerIdentity>();
+            
+
+
+
+            if (playerIndex == -1 || (racerIdentity != null  && playerIndex == racerIdentity.GetPlayerIdentity()))
             {
                 GameObject.FindWithTag("StageMaster").GetComponent<NetworkplayerTriggerMaster>().TriggerEvent(nameOfEnterEvent);
                 if (triggerEnterOnce)
@@ -77,16 +87,16 @@ public class NetworkplayerTriggerzone : MonoBehaviour
 
         if (other.gameObject.tag == otherTag)
         {
-
-            RacerIdentity racerIdentity = other.GetComponent<RacerIdentity>();
-            if(racerIdentity == null) 
+            if(otherTag != "NetworkPlayer")
             {
-                Debug.LogError("NetworkplayerTriggerzone: No RacerIdenty Component found, no Event will get triggered");
-                return;
+                GameObject.FindWithTag("StageMaster").GetComponent<NetworkplayerTriggerMaster>().TriggerEvent(nameOfExitEvent);
             }
 
+            RacerIdentity racerIdentity = other.GetComponent<RacerIdentity>();
+            
 
-            if (playerIndex == -1 || playerIndex == racerIdentity.GetPlayerIdentity())
+
+            if (playerIndex == -1 || (racerIdentity != null  && playerIndex == racerIdentity.GetPlayerIdentity()))
             {
                 GameObject.FindWithTag("StageMaster").GetComponent<NetworkplayerTriggerMaster>().TriggerEvent(nameOfExitEvent);
 
