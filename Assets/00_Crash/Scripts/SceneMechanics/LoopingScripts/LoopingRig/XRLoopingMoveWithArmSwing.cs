@@ -110,7 +110,7 @@ namespace ObliqueSenastions.Looping
         }
 
 
-        void Update()
+        void FixedUpdate()
         {
             
 
@@ -189,7 +189,7 @@ namespace ObliqueSenastions.Looping
 
         private void ProcessOVRInput()
         {
-            OVRInput.FixedUpdate();
+            OVRInput.Update();
 
             if (OVRInput.GetActiveController() == OVRInput.Controller.Touch)
             {

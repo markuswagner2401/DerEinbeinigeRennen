@@ -244,7 +244,7 @@ namespace ObliqueSenastions.Looping
 
             else
             {
-                transform.position += velocity * (Time.deltaTime * 72f);
+                transform.position += velocity * (Time.fixedDeltaTime * 72f);
 
                 //rb.position = transform.position + velocity * (Time.deltaTime * 72f);
             }
