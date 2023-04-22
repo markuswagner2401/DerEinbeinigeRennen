@@ -33,6 +33,8 @@ namespace ObliqueSenastions.TimelineSpace
         public TimelinePlayMode currentTimelinePlayMode;
         private TimelinePlayMode capturedTimelinePlayMode;
         public bool currentBadTracking;
+
+        bool lastBadTracking;
         public bool inUiTime;
 
         public float currentAccidentTimeFactor = 1f;
@@ -82,6 +84,8 @@ namespace ObliqueSenastions.TimelineSpace
 
         [SerializeField] UnityEvent doOnBadTracking;
 
+        [SerializeField] UnityEvent doOnBadTrackingEnd;
+
         [SerializeField] OVRHand leftHand = null;
 
         [SerializeField] OVRHand rightHand = null;
@@ -129,6 +133,8 @@ namespace ObliqueSenastions.TimelineSpace
             {
                 syncPlayableDirector = GetComponent<SyncPlayableDirector>();
             }
+
+            lastBadTracking = currentBadTracking;
         }
 
         private void Update()
@@ -193,6 +199,32 @@ namespace ObliqueSenastions.TimelineSpace
                     badTrackingTimer = 0f;
                     currentBadTracking = false;
                 }
+
+                if(currentBadTracking != lastBadTracking)
+                {
+                    if(currentBadTracking)
+                    {
+                        if(holdOnBadTracking && !PhotonNetwork.IsConnected)
+                        {
+                            Hold();
+                            
+                        }
+                        doOnBadTracking.Invoke();
+
+                    }
+
+                    else
+                    {
+                        if(holdOnBadTracking && !PhotonNetwork.IsConnected)
+                        {
+                            Play();
+                            
+                        }
+                        doOnBadTrackingEnd.Invoke();
+                    }
+                }
+
+                lastBadTracking = currentBadTracking;
             }
         }
 

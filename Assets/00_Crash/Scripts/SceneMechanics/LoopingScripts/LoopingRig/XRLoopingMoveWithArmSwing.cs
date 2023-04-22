@@ -239,7 +239,7 @@ namespace ObliqueSenastions.Looping
         public IEnumerator InterruptAndChangeSpeed(int index)
         {
             speedChangeInterrupted = true;
-            speedBoosterInterrupted = true;
+            
             yield return new WaitForSeconds(0.1f);
             speedChangeInterrupted = false;
             StartCoroutine(FadeValue(speedFactor, speedChangers[index].targetValue, speedChangers[index].duration, speedChangers[index].curve));
@@ -251,6 +251,7 @@ namespace ObliqueSenastions.Looping
 
         public void PlaySpeedBooster(int index)
         {
+            print("Play Speed Booster");
             if(index < 0 || index >= speedBoosters.Length)
             {
                 Debug.Log("LoopingMoveWithArmSwing: No Speedbosster with index: " + index);
@@ -289,6 +290,7 @@ namespace ObliqueSenastions.Looping
 
         public void InterruptSpeedBoost()
         {
+            print("interrupt speed booster");
             speedBoosterInterrupted = true;
         }
 

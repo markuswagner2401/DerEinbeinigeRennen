@@ -35,6 +35,8 @@ namespace ObliqueSenastions.PunNetworking
 
         public int identityIndex = -1;
 
+        public int lastIdentityIndex;
+
         public bool isMine = false;
 
         public int score;
@@ -54,6 +56,8 @@ namespace ObliqueSenastions.PunNetworking
             StartCoroutine(LateStartRoutine());
 
             lastScore = score;
+
+            lastIdentityIndex = identityIndex;
         }
 
         private void Update() 
@@ -64,15 +68,16 @@ namespace ObliqueSenastions.PunNetworking
             }
 
             lastScore = score;
+
+            if(lastIdentityIndex != identityIndex)
+            {
+                photonView.RPC("SetIdentityIndexRPC", RpcTarget.AllBuffered, identityIndex);
+            }
+
+            lastIdentityIndex = identityIndex;
         }
 
-        [PunRPC]
-        public void SetIdentityIndexRPC(int newIndex)
-        {
-            identityIndex = newIndex;
-            SetColor(identityIndex);
-            SetBlendShape(identityIndex, isMine);
-        }
+        
 
         IEnumerator LateStartRoutine()
         {
@@ -87,7 +92,7 @@ namespace ObliqueSenastions.PunNetworking
             }
 
             // Call the new RPC method
-            photonView.RPC("SetIdentityIndexRPC", RpcTarget.AllBuffered, index);
+            //photonView.RPC("SetIdentityIndexRPC", RpcTarget.AllBuffered, index);
             identityIndex = index;
             
 
@@ -165,6 +170,15 @@ namespace ObliqueSenastions.PunNetworking
         public int GetPlayerIdentity()
         {
             return identityIndex;
+        }
+
+
+        [PunRPC]
+        public void SetIdentityIndexRPC(int newIndex)
+        {
+            identityIndex = newIndex;
+            SetColor(identityIndex);
+            SetBlendShape(identityIndex, isMine);
         }
 
 
