@@ -21,6 +21,10 @@ namespace ObliqueSenastions.Looping
         [SerializeField] bool armSwingRight = true;
         [SerializeField] bool armSwingLeft = true;
         [SerializeField] float speedFactor = 10f;
+
+        [SerializeField] float speedChangersFactor;
+
+        [SerializeField] float speedBoostersFactor;
         [SerializeField] AnimationCurve speedChangeCurve;
         [SerializeField] float speedChangeTime = 5f;
 
@@ -44,13 +48,19 @@ namespace ObliqueSenastions.Looping
         {
             public string name;
 
+            public float pushValue;
+
             public float increaseValue;
 
             public float maxValue;
 
+          
+
         }
 
-        bool speedBoosterInterrupted = false;
+        bool inSpeedBooster = false;
+
+       
 
         [SerializeField] float threshold = .1f;
 
@@ -153,7 +163,7 @@ namespace ObliqueSenastions.Looping
 
             speedSum = Mathf.Lerp(prevSpeedSum, speedSum, smoothing);
 
-
+            speedFactor = inSpeedBooster ? speedBoostersFactor : speedChangersFactor;
 
             loopingMover.Move(forwardHead.GetControllerForward() * speedSum * speedFactor * Time.deltaTime);
 
@@ -242,7 +252,7 @@ namespace ObliqueSenastions.Looping
             
             yield return new WaitForSeconds(0.1f);
             speedChangeInterrupted = false;
-            StartCoroutine(FadeValue(speedFactor, speedChangers[index].targetValue, speedChangers[index].duration, speedChangers[index].curve));
+            StartCoroutine(FadeValue(speedChangersFactor, speedChangers[index].targetValue, speedChangers[index].duration, speedChangers[index].curve));
             yield break;
         }
 
@@ -252,37 +262,46 @@ namespace ObliqueSenastions.Looping
         public void PlaySpeedBooster(int index)
         {
             print("Play Speed Booster");
+
             if(index < 0 || index >= speedBoosters.Length)
             {
                 Debug.Log("LoopingMoveWithArmSwing: No Speedbosster with index: " + index);
                 return;
             }
-            StartCoroutine(InterruptAndPlaySpeedBooster(index));
+
+            speedBoostersFactor += speedBoosters[index].pushValue;
+
+            if(inSpeedBooster) return;
+
+            inSpeedBooster = true;
+
+            StartCoroutine(PlaySpeedBoosterRoutine(index));
         }
 
-        IEnumerator InterruptAndPlaySpeedBooster(int index)
-        {
-            speedBoosterInterrupted = true;
-            yield return new WaitForSeconds(0.1f);
-            speedBoosterInterrupted = false;
-            StartCoroutine(PlaySpeedBoosterRoutine(index));
-            yield break;
-        }
+        // IEnumerator InterruptAndPlaySpeedBooster(int index)
+        // {
+        //     speedBoosterInterruptedByBooster = true;
+        //     yield return new WaitForSeconds(0.1f);
+        //     speedBoosterInterruptedByBooster = false;
+        //     speedBoosterInterrupted = false;
+        //     StartCoroutine(PlaySpeedBoosterRoutine(index));
+        //     yield break;
+        // }
 
         IEnumerator PlaySpeedBoosterRoutine(int index)
         {
-            float capturedSpeed = speedFactor;
-            while (!speedBoosterInterrupted)
+
+            speedBoostersFactor = speedChangersFactor;
+    
+            while (inSpeedBooster)
             {
-                if(speedFactor < speedBoosters[index].maxValue)
+                if(speedBoostersFactor < speedBoosters[index].maxValue)
                 {
-                    speedFactor += speedBoosters[index].increaseValue;
+                    speedBoostersFactor += speedBoosters[index].increaseValue;
                 }
                 
                 yield return null;
             }
-
-            speedFactor = capturedSpeed;
 
             yield break;
         }
@@ -291,7 +310,7 @@ namespace ObliqueSenastions.Looping
         public void InterruptSpeedBoost()
         {
             print("interrupt speed booster");
-            speedBoosterInterrupted = true;
+            inSpeedBooster = false;
         }
 
         ///
@@ -300,7 +319,7 @@ namespace ObliqueSenastions.Looping
 
         public void ChangeSpeed(float newSpeed)
         {
-            StartCoroutine(FadeValue(speedFactor, newSpeed, speedChangeTime, speedChangeCurve));
+            StartCoroutine(FadeValue(speedChangersFactor, newSpeed, speedChangeTime, speedChangeCurve));
         }
 
         private IEnumerator FadeValue(float startValue, float targetValue, float duration, AnimationCurve speedChangeCurve)
@@ -311,7 +330,7 @@ namespace ObliqueSenastions.Looping
             {
                 time += Time.deltaTime;
                 currentResult = Mathf.Lerp(startValue, targetValue, speedChangeCurve.Evaluate(time / duration));
-                speedFactor = currentResult;
+                speedChangersFactor = currentResult;
                 yield return null;
             }
 
