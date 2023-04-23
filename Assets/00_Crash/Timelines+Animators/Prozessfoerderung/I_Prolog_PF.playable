@@ -661,11 +661,12 @@ MonoBehaviour:
     - {fileID: -5374479571784100619}
     - {fileID: -7818633474179994112}
     - {fileID: 8109505272454488714}
-    - {fileID: -6778994255885102519}
     - {fileID: -2930432875673283792}
     - {fileID: -8100081972550339118}
     - {fileID: -4610145076659601703}
     - {fileID: 2921021698794629522}
+    - {fileID: 2375780698971562147}
+    - {fileID: -4730004237166762332}
 --- !u!114 &-7911866034997730812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -726,7 +727,7 @@ MonoBehaviour:
   m_Version: 3
   m_AnimClip: {fileID: 0}
   m_Locked: 0
-  m_Muted: 1
+  m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
   m_Parent: {fileID: 11400000}
@@ -1216,22 +1217,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
---- !u!114 &-6778994255885102519
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
-  m_Name: Go Event Marker
-  m_EditorClassIdentifier: 
-  m_Time: 778.3
-  goEventName: Boxenstop
-  retroactive: 0
-  emitOnce: 0
 --- !u!114 &-6750032109285342879
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1487,6 +1472,7 @@ MonoBehaviour:
     jumpToClipStartOnGoingBackInTL: 0
     clipDuration: 0
     roomSection: Monocoque
+    singelplayer: 0
 --- !u!114 &-6371958062146910999
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2482,7 +2468,7 @@ MonoBehaviour:
   goEventName: HolesOsscilate
   retroactive: 0
   emitOnce: 0
---- !u!114 &-4710457065023022012
+--- !u!114 &-4730004237166762332
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2491,15 +2477,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
-  m_Name: Haltepunkt Marker
+  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
+  m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 776.6333333333333
-  note: Vor Boxenstop
-  displayModeInInspiUI: 0
-  stopOrHold: 0
-  haltInOfflineMode: 0
-  waitDurationInOfflineMode: 0
+  m_Time: 722.25
+  goEventName: ShowLEDImageSequence
   retroactive: 0
   emitOnce: 0
 --- !u!114 &-4620633171220026431
@@ -2635,26 +2617,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
---- !u!114 &-4455717044471126190
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
-  m_Name: Haltepunkt Marker
-  m_EditorClassIdentifier: 
-  m_Time: 778.85
-  note: Boxenstop
-  displayModeInInspiUI: 0
-  stopOrHold: 0
-  haltInOfflineMode: 0
-  waitDurationInOfflineMode: 0
-  retroactive: 0
-  emitOnce: 0
 --- !u!114 &-4332745370836732344
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2754,6 +2716,7 @@ MonoBehaviour:
     jumpToClipStartOnGoingBackInTL: 0
     clipDuration: 0
     roomSection: Looping
+    singelplayer: 0
 --- !u!114 &-3981351652031333305
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3048,7 +3011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 743.2666666666667
+  m_Time: 552.1500000000001
   goEventName: PrepareBoxenstop
   retroactive: 0
   emitOnce: 0
@@ -3431,9 +3394,7 @@ MonoBehaviour:
     - {fileID: 3216407380612506757}
     - {fileID: -5417992019634216992}
     - {fileID: 3645137856896513456}
-    - {fileID: -4455717044471126190}
     - {fileID: 4826755881030958149}
-    - {fileID: -4710457065023022012}
     - {fileID: 2210899574717784624}
 --- !u!114 &-2315142829521924776
 MonoBehaviour:
@@ -4421,6 +4382,7 @@ MonoBehaviour:
     jumpToClipStartOnGoingBackInTL: 0
     clipDuration: 0
     roomSection: Monocoque
+    singelplayer: 0
 --- !u!114 &-244328333796367158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5699,6 +5661,22 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
+--- !u!114 &2375780698971562147
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
+  m_Name: Go Event Marker
+  m_EditorClassIdentifier: 
+  m_Time: 557.6833333333335
+  goEventName: EnableBoxenstop
   retroactive: 0
   emitOnce: 0
 --- !u!114 &2463976077766411361
@@ -7181,7 +7159,7 @@ MonoBehaviour:
     m_Start: 210.49999999999997
     m_ClipIn: 0
     m_Asset: {fileID: 6749540440347052464}
-    m_Duration: 201.5166666666668
+    m_Duration: 134.51666666666668
     m_TimeScale: 1
     m_ParentTrack: {fileID: 4840431594766420808}
     m_EaseInDuration: 20
@@ -7910,7 +7888,7 @@ MonoBehaviour:
   m_Version: 3
   m_AnimClip: {fileID: 0}
   m_Locked: 0
-  m_Muted: 1
+  m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
   m_Parent: {fileID: 11400000}
@@ -7920,7 +7898,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: -6020450857855712456}
-    m_Duration: 205.75000000000003
+    m_Duration: 210.49999999999997
     m_TimeScale: 1
     m_ParentTrack: {fileID: 7076484710841000847}
     m_EaseInDuration: 0
@@ -9478,6 +9456,7 @@ MonoBehaviour:
     jumpToClipStartOnGoingBackInTL: 0
     clipDuration: 0
     roomSection: Monocoque
+    singelplayer: 0
 --- !u!114 &8970223352950540912
 MonoBehaviour:
   m_ObjectHideFlags: 1

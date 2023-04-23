@@ -1,4 +1,5 @@
 using System;
+using ObliqueSenastions.PunNetworking;
 using ObliqueSenastions.SceneSpace;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -18,8 +19,8 @@ namespace ObliqueSenastions.TimelineSpace
             public int sceneIndex;
             public double startTime;
             public bool jumpOnStartOnGoingBack;
-
             public string roomSection;
+            public bool singelplayer;
         }
 
         int currentSceneClip = -1;
@@ -52,10 +53,20 @@ namespace ObliqueSenastions.TimelineSpace
 
         }
 
-        public void ChangeSceneOnGoingForwardInTL(string sceneName)
+        void CheckMultiplayer(int clipIndex)
+        {
+            if(sceneClips[clipIndex].singelplayer)
+            {
+                MultiplayerConnector.instance.Connect(false);
+            }
+        }
+
+        public void ChangeSceneOnGoingForwardInTL(string sceneName, int clipIndex)
         {
             
             if(!CheckSceneChange(sceneName)) return;
+
+            CheckMultiplayer(clipIndex);
 
             //
 
@@ -115,7 +126,7 @@ namespace ObliqueSenastions.TimelineSpace
 
         }
 
-        public void SetupSceneParameters(int clip, int sceneIndex, string name, double startTime, bool jumpOnStartOnGoingBack, string roomSection)
+        public void SetupSceneParameters(int clip, int sceneIndex, string name, double startTime, bool jumpOnStartOnGoingBack, string roomSection, bool singelplayer)
         {
             Debug.Log("SceneControlByTimeline: SetupSceneParameters");
             if (clip >= sceneClips.Length)
@@ -128,6 +139,7 @@ namespace ObliqueSenastions.TimelineSpace
             sceneClips[clip].startTime = startTime;
             sceneClips[clip].jumpOnStartOnGoingBack = jumpOnStartOnGoingBack;
             sceneClips[clip].roomSection = roomSection;
+            sceneClips[clip].singelplayer = singelplayer;
 
         }
 

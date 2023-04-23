@@ -24,6 +24,8 @@ namespace ObliqueSenastions.TimelineSpace
 
         public string roomSection;
 
+        public bool singelplayer;
+
 
 
 

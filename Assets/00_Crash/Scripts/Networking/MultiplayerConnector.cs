@@ -153,7 +153,7 @@ namespace ObliqueSenastions.PunNetworking
         private void OnDestroy()
         {
             //SceneManager.sceneLoaded -= OnSceneLoaded;
-            
+
         }
 
         private void Update()
@@ -181,7 +181,7 @@ namespace ObliqueSenastions.PunNetworking
             base.OnDisable();
             //SceneManager.sceneLoaded -= OnSceneLoaded;
             my_OnJoinedRoom -= PlaceholderOnJoinedRoom;
-            
+
             onConnectorMessage -= PlaceholderOnConnectorMessage;
 
         }
@@ -287,10 +287,10 @@ namespace ObliqueSenastions.PunNetworking
                 Debug.Log("MultiplayerConnector. Connect -> Already Connected to Server");
             }
 
-            
+
         }
 
-        
+
 
         private void Disconnect()
         {
@@ -455,7 +455,7 @@ namespace ObliqueSenastions.PunNetworking
         public override void OnJoinRoomFailed(short returnCode, string message)
         {
             JoinInOfflineMode();
-            
+
         }
 
         public override void OnDisconnected(DisconnectCause cause)
@@ -474,15 +474,15 @@ namespace ObliqueSenastions.PunNetworking
 
             joinedInOfflineMode = true;
 
-            
+
 
             //my_OnJoinedRoom.Invoke();
-            if(onJoinedOffline != null)
+            if (onJoinedOffline != null)
             {
                 onJoinedOffline.Invoke();
                 Debug.Log("MultiplayerConnector: OnJoinedOffline: Invoke");
             }
-            
+
         }
 
         public bool GetJoinedInOfflineMode()
@@ -508,7 +508,7 @@ namespace ObliqueSenastions.PunNetworking
 
         IEnumerator PlayerInventurRoutine()
         {
-            
+
 
             while (PhotonNetwork.PlayerList.Length > RolePlayersSum())
             {
@@ -525,7 +525,7 @@ namespace ObliqueSenastions.PunNetworking
         int RolePlayersSum()
         {
             return racerCounter + zuschauerCounter + inspizientCounter + autoCounter;
-            
+
         }
 
         void PlayerInventur(Player[] playersInRoom, bool onJoining)
@@ -636,6 +636,25 @@ namespace ObliqueSenastions.PunNetworking
         {
             Debug.Log("MultiplayerConnector: local Player left room");
 
+        }
+
+        public void CallDisconnectRPC()
+        {
+            photonView.RPC("DisconnectAllClients", RpcTarget.All);
+            // if (PhotonNetwork.IsMasterClient)
+            // {
+            //     PhotonView.Get(this).RPC("DisconnectAllClients", RpcTarget.All);
+            // }
+        }
+
+
+
+        ///RPC
+
+        [PunRPC]
+        public void DisconnectAllClients()
+        {
+            PhotonNetwork.Disconnect();
         }
 
 

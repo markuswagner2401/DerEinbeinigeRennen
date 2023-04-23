@@ -16,6 +16,8 @@ namespace ObliqueSenastions.TimelineSpace
             public double startTime;
             public bool jumpToStartOnGoingBack;
             public string roomSection;
+
+            public bool singelplayer;
         }
 
 
@@ -91,13 +93,14 @@ namespace ObliqueSenastions.TimelineSpace
                     sceneClip[i].sceneIndex = behaviour.sceneIndex;
                     sceneClip[i].jumpToStartOnGoingBack = behaviour.jumpToClipStartOnGoingBackInTL;
                     sceneClip[i].roomSection = behaviour.roomSection;
+                    sceneClip[i].singelplayer = behaviour.singelplayer;
 
                     totalTime += behaviour.clipDuration;
                 }
 
                 for (int i = 0; i < sceneClip.Length; i++)
                 {
-                    sceneControlByTimeline.SetupSceneParameters(i, sceneClip[i].sceneIndex, sceneClip[i].sceneName, sceneClip[i].startTime, sceneClip[i].jumpToStartOnGoingBack, sceneClip[i].roomSection);
+                    sceneControlByTimeline.SetupSceneParameters(i, sceneClip[i].sceneIndex, sceneClip[i].sceneName, sceneClip[i].startTime, sceneClip[i].jumpToStartOnGoingBack, sceneClip[i].roomSection, sceneClip[i].singelplayer);
                 }
                 scenesSet = true;
 
@@ -127,7 +130,7 @@ namespace ObliqueSenastions.TimelineSpace
                 {
                     if (behaviourCurrentClip.useSceneName)
                     {
-                        sceneControlByTimeline.ChangeSceneOnGoingForwardInTL(behaviourCurrentClip.sceneName);
+                        sceneControlByTimeline.ChangeSceneOnGoingForwardInTL(behaviourCurrentClip.sceneName, currentClipIndex);
                     }
                     else
                     {

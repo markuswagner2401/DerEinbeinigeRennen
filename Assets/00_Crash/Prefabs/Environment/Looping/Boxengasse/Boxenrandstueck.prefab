@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageMasterEvents:
-  - name: Boxenstop
+  - name: EnableBoxenstop
     unityEvent:
       m_PersistentCalls:
         m_Calls:
@@ -167,82 +167,6 @@ MonoBehaviour:
         - m_Target: {fileID: 3150664771214677356}
           m_TargetAssemblyTypeName: NetworkplayerTriggerzone, Assembly-CSharp
           m_MethodName: ActivateTriggerExit
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - name: BoxenstopEnd
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3150664771214677356}
-          m_TargetAssemblyTypeName: NetworkplayerTriggerzone, Assembly-CSharp
-          m_MethodName: ActivateTriggerExit
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 8111520377727310680}
-          m_TargetAssemblyTypeName: NetworkplayerTriggerzone, Assembly-CSharp
-          m_MethodName: ActivateTriggerEnter
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 3087454489159604241}
-          m_TargetAssemblyTypeName: NetworkplayerTriggerzone, Assembly-CSharp
-          m_MethodName: ActivateTriggerEnter
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 7733501867150679252}
-          m_TargetAssemblyTypeName: NetworkplayerTriggerzone, Assembly-CSharp
-          m_MethodName: ActivateTriggerEnter
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 7727398325369948257}
-          m_TargetAssemblyTypeName: NetworkplayerTriggerzone, Assembly-CSharp
-          m_MethodName: ActivateTriggerEnter
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 5441072868142654136}
-          m_TargetAssemblyTypeName: NetworkplayerTriggerzone, Assembly-CSharp
-          m_MethodName: ActivateTriggerEnter
           m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -265,7 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerMasterEvents:
-  - name: PlayerExitSeitenstreifen
+  - name: BoxVerlassen
     onTriggerMasterEvent:
       m_PersistentCalls:
         m_Calls:
@@ -280,6 +204,66 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 8111520377727310680}
+          m_TargetAssemblyTypeName: NetworkplayerTriggerzone, Assembly-CSharp
+          m_MethodName: ActivateTriggerEnter
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 3087454489159604241}
+          m_TargetAssemblyTypeName: NetworkplayerTriggerzone, Assembly-CSharp
+          m_MethodName: ActivateTriggerEnter
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 7733501867150679252}
+          m_TargetAssemblyTypeName: NetworkplayerTriggerzone, Assembly-CSharp
+          m_MethodName: ActivateTriggerEnter
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 7727398325369948257}
+          m_TargetAssemblyTypeName: NetworkplayerTriggerzone, Assembly-CSharp
+          m_MethodName: ActivateTriggerEnter
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 5441072868142654136}
+          m_TargetAssemblyTypeName: NetworkplayerTriggerzone, Assembly-CSharp
+          m_MethodName: ActivateTriggerEnter
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
           m_CallState: 2
 --- !u!1 &5562257944312714371
 GameObject:
@@ -388,7 +372,7 @@ PrefabInstance:
     - target: {fileID: 7106559985495000732, guid: bd17861c4019a1344a61ed08bd50e1f2,
         type: 3}
       propertyPath: playerIndex
-      value: 4
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7766682819062580854, guid: bd17861c4019a1344a61ed08bd50e1f2,
         type: 3}
@@ -398,6 +382,16 @@ PrefabInstance:
     - target: {fileID: 8674345007453466808, guid: bd17861c4019a1344a61ed08bd50e1f2,
         type: 3}
       propertyPath: colorChangers.Array.data[0].color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8674345007453466808, guid: bd17861c4019a1344a61ed08bd50e1f2,
+        type: 3}
+      propertyPath: colorChangers.Array.data[0].color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8674345007453466808, guid: bd17861c4019a1344a61ed08bd50e1f2,
+        type: 3}
+      propertyPath: colorChangers.Array.data[0].color.r
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -490,12 +484,27 @@ PrefabInstance:
     - target: {fileID: 7106559985495000732, guid: 4d615655acb8e6f498a302f685f19901,
         type: 3}
       propertyPath: playerIndex
-      value: 3
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7766682819062580854, guid: 4d615655acb8e6f498a302f685f19901,
         type: 3}
       propertyPath: m_Name
       value: pitstop3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8674345007453466808, guid: 4d615655acb8e6f498a302f685f19901,
+        type: 3}
+      propertyPath: colorChangers.Array.data[0].color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8674345007453466808, guid: 4d615655acb8e6f498a302f685f19901,
+        type: 3}
+      propertyPath: colorChangers.Array.data[0].color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8674345007453466808, guid: 4d615655acb8e6f498a302f685f19901,
+        type: 3}
+      propertyPath: colorChangers.Array.data[0].color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d615655acb8e6f498a302f685f19901, type: 3}
@@ -589,6 +598,21 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6963551956946690669, guid: ea7cd5c4649fd8644ae9efb9c546f71b,
+        type: 3}
+      propertyPath: colorChangers.Array.data[0].color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6963551956946690669, guid: ea7cd5c4649fd8644ae9efb9c546f71b,
+        type: 3}
+      propertyPath: colorChangers.Array.data[0].color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6963551956946690669, guid: ea7cd5c4649fd8644ae9efb9c546f71b,
+        type: 3}
+      propertyPath: colorChangers.Array.data[0].color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8289503557244163235, guid: ea7cd5c4649fd8644ae9efb9c546f71b,
         type: 3}
       propertyPath: m_Name
@@ -597,7 +621,7 @@ PrefabInstance:
     - target: {fileID: 8817315694897370185, guid: ea7cd5c4649fd8644ae9efb9c546f71b,
         type: 3}
       propertyPath: playerIndex
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea7cd5c4649fd8644ae9efb9c546f71b, type: 3}
@@ -686,6 +710,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7106559985495000732, guid: fc80eb5f7c4cd3348a27a55f3567273b,
+        type: 3}
+      propertyPath: playerIndex
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 7766682819062580854, guid: fc80eb5f7c4cd3348a27a55f3567273b,
         type: 3}
       propertyPath: m_Name
@@ -737,6 +766,11 @@ PrefabInstance:
         type: 3}
       propertyPath: otherTag
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715891669954058197, guid: 7f88c07630df4a3448a1c3b8a0760396,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1715891669954058197, guid: 7f88c07630df4a3448a1c3b8a0760396,
         type: 3}
@@ -960,12 +994,27 @@ PrefabInstance:
     - target: {fileID: 7106559985495000732, guid: d850023dc7cee834bb78bd59b6494f69,
         type: 3}
       propertyPath: playerIndex
-      value: 2
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7766682819062580854, guid: d850023dc7cee834bb78bd59b6494f69,
         type: 3}
       propertyPath: m_Name
       value: pitstop2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8674345007453466808, guid: d850023dc7cee834bb78bd59b6494f69,
+        type: 3}
+      propertyPath: colorChangers.Array.data[0].color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8674345007453466808, guid: d850023dc7cee834bb78bd59b6494f69,
+        type: 3}
+      propertyPath: colorChangers.Array.data[0].color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8674345007453466808, guid: d850023dc7cee834bb78bd59b6494f69,
+        type: 3}
+      propertyPath: colorChangers.Array.data[0].color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d850023dc7cee834bb78bd59b6494f69, type: 3}
