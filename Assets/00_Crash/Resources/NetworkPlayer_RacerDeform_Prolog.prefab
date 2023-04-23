@@ -1393,8 +1393,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1800756264672747802}
-  m_LocalRotation: {x: -0.5387498, y: 0.22228974, z: 0.5901597, w: -0.55861205}
-  m_LocalPosition: {x: 0.020000001, y: -0.008999944, z: -0.112}
+  m_LocalRotation: {x: -0.513924, y: 0.60887605, z: 0.49138477, w: -0.35170034}
+  m_LocalPosition: {x: 0.0039, y: 0.0122, z: -0.0234}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1405,7 +1405,7 @@ Transform:
   - {fileID: 3442098447801957159}
   m_Father: {fileID: 4600224908185920946}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 160.152, y: 109.933, z: 72.868}
+  m_LocalEulerAnglesHint: {x: 193.703, y: 73.883, z: 89.342}
 --- !u!1 &1997404766235446671
 GameObject:
   m_ObjectHideFlags: 0
@@ -2664,8 +2664,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3636228810710615970}
-  m_LocalRotation: {x: 0.67450714, y: 0.46192327, z: 0.40389344, w: 0.41053274}
-  m_LocalPosition: {x: -0.068, y: -0.009000003, z: -0.077999994}
+  m_LocalRotation: {x: 0.45621377, y: 0.59340656, z: 0.57299906, w: 0.33378103}
+  m_LocalPosition: {x: -0.0096, y: 0.0114, z: -0.0212}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2676,7 +2676,7 @@ Transform:
   - {fileID: 8312140230991612619}
   m_Father: {fileID: 4600224908541630502}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 169.591, y: -69.983, z: -76.10599}
+  m_LocalEulerAnglesHint: {x: 202.055, y: -82.528015, z: -85.48801}
 --- !u!1 &3643413263816347818
 GameObject:
   m_ObjectHideFlags: 0
@@ -4995,6 +4995,7 @@ MonoBehaviour:
   averageHandSpeedTracker: {fileID: 0}
   speedPeakTracker: {fileID: 0}
   velocityChangeDetectorBar: {fileID: 0}
+  clapListener: {fileID: 0}
   positionsMin: 0
   poitionsMax: 9
   targetPosition: 0
@@ -5819,6 +5820,11 @@ PrefabInstance:
       propertyPath: stageMasterEvents.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5039185173019272802, guid: e297a9997fa8de84daabf5bb02c06201,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8316713123728284240, guid: e297a9997fa8de84daabf5bb02c06201,
         type: 3}
       propertyPath: smoothing
@@ -5857,7 +5863,7 @@ PrefabInstance:
     - target: {fileID: 9209123197275735954, guid: e297a9997fa8de84daabf5bb02c06201,
         type: 3}
       propertyPath: m_Name
-      value: NetworkPlayer_RacerDeform_Prolog
+      value: NetworkPlayer_ZuschauerDeform_RacerProlog
       objectReference: {fileID: 0}
     - target: {fileID: 9209123197275735955, guid: e297a9997fa8de84daabf5bb02c06201,
         type: 3}
@@ -5934,7 +5940,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4600224907901806432}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 723cdee7d45247341bf3beff8d62531f, type: 3}
   m_Name: 
@@ -5977,6 +5983,51 @@ MonoBehaviour:
     stayTimeAtPeak: 0
     resetTime: 0
     resetAfterStillSeconds: 7
+--- !u!114 &1705729484033578744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4600224907901806432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9332c353ecc02c54d8faabab73068730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identities:
+  - note: HauptRacer
+    blendShapesIndex: 2
+  - note: Zuschauer1
+    blendShapesIndex: 3
+  - note: Zuschauer2
+    blendShapesIndex: 4
+  - note: Zuschauer3
+    blendShapesIndex: 5
+  - note: Zuschauer4
+    blendShapesIndex: 6
+  materialPropertiesFader_2: {fileID: 8655792753887002239}
+  bodyBlendShapesAnimator: {fileID: 7295924170359951861}
+  scoreDisplay: {fileID: 0}
+  identityIndex: -1
+  lastIdentityIndex: 0
+  isMine: 0
+  score: 0
+--- !u!114 &3887279735706023950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4600224907901806432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b993c52ae48f8743b59ab28a249dd8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  racerIdentity: {fileID: 1705729484033578744}
+  distanceForOnePoint: 100
+  points: 0
 --- !u!4 &4600224907901806433 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9209123197275735955, guid: e297a9997fa8de84daabf5bb02c06201,
@@ -6246,6 +6297,7 @@ MonoBehaviour:
   averageHandSpeedTracker: {fileID: 0}
   speedPeakTracker: {fileID: 0}
   velocityChangeDetectorBar: {fileID: 0}
+  clapListener: {fileID: 0}
   positionsMin: 0
   poitionsMax: 12
   targetPosition: 0
@@ -6537,10 +6589,50 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1092776954836457252, guid: 31e6417b6135a774994cc2d8e41efe59,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f15a09fadc4f0ea4c80cd3153e542022, type: 2}
+    - target: {fileID: 1092776954836457252, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: f15a09fadc4f0ea4c80cd3153e542022, type: 2}
+    - target: {fileID: 1092776954836457252, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: c87dfc1671f933045b0b631d570ccee2, type: 2}
+    - target: {fileID: 1092776954836457252, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[10]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1330881016453284425, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.008594405
+      objectReference: {fileID: 0}
+    - target: {fileID: 1330881016453284425, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.030747635
+      objectReference: {fileID: 0}
+    - target: {fileID: 1330881016453284425, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.3604323
+      objectReference: {fileID: 0}
+    - target: {fileID: 1330881016453284425, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.9322389
       objectReference: {fileID: 0}
     - target: {fileID: 2571248101960789070, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3302652792696107866, guid: 31e6417b6135a774994cc2d8e41efe59,
         type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -6612,9 +6704,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
         type: 3}
+      propertyPath: solver.plantFeet
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
       propertyPath: solver.leftArm.target
       value: 
       objectReference: {fileID: 2046213344624661773}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.locomotion.mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
         type: 3}
       propertyPath: solver.rightArm.target
@@ -6625,11 +6727,1896 @@ PrefabInstance:
       propertyPath: solver.spine.headTarget
       value: 
       objectReference: {fileID: 6234664996248809521}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.locomotion.weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.locomotion.stepSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[0].axis.x
+      value: 0.000000108408265
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[0].axis.y
+      value: 0.10236646
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[0].axis.z
+      value: -0.00985395
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[0].length
+      value: 0.10283964
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[0].sqrMag
+      value: 0.010575992
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[1].axis.x
+      value: 0.000000024930301
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[1].axis.y
+      value: 0.119979516
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[1].axis.z
+      value: -0.00000006280951
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[1].length
+      value: 0.11997951
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[1].sqrMag
+      value: 0.014395082
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[2].axis.x
+      value: -0.00000004669617
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[2].axis.y
+      value: 0.29137856
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[2].axis.z
+      value: 0.0000004351469
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[2].length
+      value: 0.29137856
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[2].sqrMag
+      value: 0.08490146
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[3].axis.x
+      value: 0.00000005598345
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[3].axis.y
+      value: 0.037798416
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[3].axis.z
+      value: 0.013458486
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[3].length
+      value: 0.04012295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[3].sqrMag
+      value: 0.001609851
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[0].axis.x
+      value: 0.0000009883797
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[0].axis.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[0].axis.z
+      value: -0.0000007013347
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[0].length
+      value: 0.13107663
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[0].sqrMag
+      value: 0.017181084
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[1].axis.x
+      value: 0.000000013755284
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[1].axis.y
+      value: 0.27071655
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[1].axis.z
+      value: -0.00000017364967
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[1].length
+      value: 0.27071652
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[1].sqrMag
+      value: 0.073287435
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[2].axis.x
+      value: -0.000000018753004
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[2].axis.y
+      value: 0.2556777
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[2].axis.z
+      value: 0.00000038784663
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[2].length
+      value: 0.2556777
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[2].sqrMag
+      value: 0.06537109
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[0].axis.x
+      value: -0.000000053804794
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[0].axis.y
+      value: 0.4089973
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[0].axis.z
+      value: -0.00000020946602
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[0].length
+      value: 0.40899682
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[0].sqrMag
+      value: 0.1672784
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[1].axis.x
+      value: -0.0000000344675
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[1].axis.y
+      value: 0.38972726
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[1].axis.z
+      value: 0.00000008064508
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[1].length
+      value: 0.389727
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[1].sqrMag
+      value: 0.15188713
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[2].axis.x
+      value: 0.000000054623463
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[2].axis.y
+      value: 0.19419199
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[2].axis.z
+      value: -0.00000023526992
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[2].length
+      value: 0.19419178
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[2].sqrMag
+      value: 0.037710447
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[0].axis.x
+      value: -0.0000010483134
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[0].axis.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[0].axis.z
+      value: -0.0000010993059
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[0].length
+      value: 0.13107671
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[0].sqrMag
+      value: 0.017181102
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[1].axis.x
+      value: 0.000000023234257
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[1].axis.y
+      value: 0.27069625
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[1].axis.z
+      value: -0.000000028638329
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[1].length
+      value: 0.27069625
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[1].sqrMag
+      value: 0.07327646
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[2].axis.x
+      value: 0.0000000060289773
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[2].axis.y
+      value: 0.25565428
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[2].axis.z
+      value: 0.000000036457866
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[2].length
+      value: 0.25565425
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[2].sqrMag
+      value: 0.0653591
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[0].axis.x
+      value: -0.00000006652219
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[0].axis.y
+      value: 0.40883422
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[0].axis.z
+      value: -0.00000018766993
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[0].length
+      value: 0.40883413
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[0].sqrMag
+      value: 0.16714534
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[1].axis.x
+      value: -0.00000002017358
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[1].axis.y
+      value: 0.38995513
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[1].axis.z
+      value: 0.000000049011724
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[1].length
+      value: 0.389955
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[1].sqrMag
+      value: 0.1520649
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[2].axis.x
+      value: -0.00000017810514
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[2].axis.y
+      value: 0.19559999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[2].axis.z
+      value: 0.000000018774173
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[2].length
+      value: 0.19559988
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[2].sqrMag
+      value: 0.038259313
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[0].readPosition.x
+      value: 0.011495277
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[0].readPosition.y
+      value: 3.5918396
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[0].readPosition.z
+      value: 5.0581355
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[0].readRotation.w
+      value: 0.97276235
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[0].readRotation.x
+      value: -0.17124148
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[0].readRotation.y
+      value: 0.0823614
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[0].readRotation.z
+      value: 0.13276562
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[1].readPosition.x
+      value: -0.018964142
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[1].readPosition.y
+      value: 3.6810954
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[1].readPosition.z
+      value: 5.017128
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[1].readRotation.w
+      value: 0.96342933
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[1].readRotation.x
+      value: -0.21770206
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[1].readRotation.y
+      value: 0.07589863
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[1].readRotation.z
+      value: 0.13656323
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[2].readPosition.x
+      value: -0.054500207
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[2].readPosition.y
+      value: 3.785227
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[2].readPosition.z
+      value: 4.969286
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[2].readRotation.w
+      value: 0.96342933
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[2].readRotation.x
+      value: -0.217702
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[2].readRotation.y
+      value: 0.07589864
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[2].readRotation.z
+      value: 0.13656323
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[3].readPosition.x
+      value: -0.14080206
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[3].readPosition.y
+      value: 4.0381184
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[3].readPosition.z
+      value: 4.853099
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[3].readRotation.w
+      value: 0.97276247
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[3].readRotation.x
+      value: -0.17124149
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[3].readRotation.y
+      value: 0.08236139
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[3].readRotation.z
+      value: 0.13276568
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[4].readPosition.x
+      value: -0.15008691
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[4].readPosition.y
+      value: 4.0771456
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[4].readPosition.z
+      value: 4.8538194
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[4].readRotation.w
+      value: 0.97276247
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[4].readRotation.x
+      value: -0.17124149
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[4].readRotation.y
+      value: 0.08236139
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[4].readRotation.z
+      value: 0.13276568
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[0].readPosition.x
+      value: -0.19457701
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[0].readPosition.y
+      value: 4.0076623
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[0].readPosition.z
+      value: 4.871357
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[0].readRotation.w
+      value: 0.656079
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[0].readRotation.x
+      value: 0.36503878
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[0].readRotation.y
+      value: -0.37105855
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[0].readRotation.z
+      value: 0.5464642
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[1].readPosition.x
+      value: -0.32407394
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[1].readPosition.y
+      value: 4.0255213
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[1].readPosition.z
+      value: 4.8809843
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[1].readRotation.w
+      value: 0.90636635
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[1].readRotation.x
+      value: 0.07673262
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[1].readRotation.y
+      value: -0.30897203
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[1].readRotation.z
+      value: 0.27775726
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[2].readPosition.x
+      value: -0.4732159
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[2].readPosition.y
+      value: 4.251279
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[2].readPosition.z
+      value: 4.8721743
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[2].readRotation.w
+      value: 0.9724425
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[2].readRotation.x
+      value: 0.140396
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[2].readRotation.y
+      value: -0.09452765
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[2].readRotation.z
+      value: -0.16034257
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[3].readPosition.x
+      value: -0.40026984
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[3].readPosition.y
+      value: 4.4837303
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[3].readPosition.z
+      value: 4.949739
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[3].readRotation.w
+      value: 0.82951677
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[3].readRotation.x
+      value: -0.08144445
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[3].readRotation.y
+      value: 0.011148389
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[3].readRotation.z
+      value: -0.55239934
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[0].readPosition.x
+      value: -0.05946502
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[0].readPosition.y
+      value: 3.5184712
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[0].readPosition.z
+      value: 5.092727
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[0].readRotation.w
+      value: -0.046524033
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[0].readRotation.x
+      value: 0.06878868
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[0].readRotation.y
+      value: 0.23003027
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[0].readRotation.z
+      value: 0.9696341
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[1].readPosition.x
+      value: -0.009620786
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[1].readPosition.y
+      value: 3.1545281
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[1].readPosition.z
+      value: 5.2725587
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[1].readRotation.w
+      value: -0.06828802
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[1].readRotation.x
+      value: 0.02910037
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[1].readRotation.y
+      value: 0.13495536
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[1].readRotation.z
+      value: 0.98806745
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[2].readPosition.x
+      value: 0.046032563
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[2].readPosition.y
+      value: 2.782632
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[2].readPosition.z
+      value: 5.374946
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[2].readRotation.w
+      value: -0.046648737
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[2].readRotation.x
+      value: -0.2087093
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[2].readRotation.y
+      value: 0.569765
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[2].readRotation.z
+      value: 0.79349416
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[3].readPosition.x
+      value: 0.014224082
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[3].readPosition.y
+      value: 2.715367
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[3].readPosition.z
+      value: 5.5543175
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[3].readRotation.w
+      value: 0.0003264174
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[3].readRotation.x
+      value: -0.27930728
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[3].readRotation.y
+      value: 0.7789819
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[3].readRotation.z
+      value: 0.5614045
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[0].solverPosition.x
+      value: 0.10703233
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[0].solverPosition.y
+      value: 3.2065387
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[0].solverPosition.z
+      value: 5.1496444
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[0].solverRotation.w
+      value: 0.9427375
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[0].solverRotation.x
+      value: -0.16193774
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[0].solverRotation.y
+      value: 0.13933708
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[0].solverRotation.z
+      value: 0.25613996
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[1].solverPosition.x
+      value: 0.051204067
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[1].solverPosition.y
+      value: 3.2863922
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[1].solverPosition.z
+      value: 5.116741
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[1].solverRotation.w
+      value: 0.97018284
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[1].solverRotation.x
+      value: -0.09179909
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[1].solverRotation.y
+      value: 0.15525475
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[1].solverRotation.z
+      value: 0.16190955
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[2].solverPosition.x
+      value: 0.010090895
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[2].solverPosition.y
+      value: 3.3980591
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[2].solverPosition.z
+      value: 5.101402
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[2].solverRotation.w
+      value: 0.96802825
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[2].solverRotation.x
+      value: 0.0067615462
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[2].solverRotation.y
+      value: 0.179389
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[2].solverRotation.z
+      value: 0.17520225
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[3].solverPosition.x
+      value: -0.08803817
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[3].solverPosition.y
+      value: 3.6715229
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[3].solverPosition.z
+      value: 5.1235323
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[3].solverRotation.w
+      value: 0.92117834
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[3].solverRotation.x
+      value: -0.30133757
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[3].solverRotation.y
+      value: 0.17073323
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[3].solverRotation.z
+      value: 0.17741884
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[4].solverPosition.x
+      value: -0.10148826
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[4].solverPosition.y
+      value: 3.7083642
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[4].solverPosition.z
+      value: 5.1150675
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[4].solverRotation.w
+      value: 0.8496035
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[4].solverRotation.x
+      value: -0.47032788
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[4].solverRotation.y
+      value: 0.2009274
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.spine.bones.Array.data[4].solverRotation.z
+      value: 0.12882262
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[0].readPosition.x
+      value: -0.07678583
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[0].readPosition.y
+      value: 4.0361853
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[0].readPosition.z
+      value: 4.8459673
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[0].readRotation.w
+      value: -0.68869865
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[0].readRotation.x
+      value: -0.1591368
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[0].readRotation.y
+      value: -0.5627935
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[0].readRotation.z
+      value: 0.4285251
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[1].readPosition.x
+      value: 0.024060696
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[1].readPosition.y
+      value: 4.112483
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[1].readPosition.z
+      value: 4.811475
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[1].readRotation.w
+      value: -0.87348586
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[1].readRotation.x
+      value: -0.056711838
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[1].readRotation.y
+      value: -0.4831753
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[1].readRotation.z
+      value: 0.01866483
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[2].readPosition.x
+      value: 0.04772237
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[2].readPosition.y
+      value: 4.3812494
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[2].readPosition.z
+      value: 4.833411
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[2].readRotation.w
+      value: 0.925712
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[2].readRotation.x
+      value: 0.2381048
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[2].readRotation.y
+      value: 0.20652711
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[2].readRotation.z
+      value: 0.20907053
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[3].readPosition.x
+      value: -0.026092112
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[3].readPosition.y
+      value: 4.585566
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[3].readPosition.z
+      value: 4.9681897
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[3].readRotation.w
+      value: -0.78167576
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[3].readRotation.x
+      value: -0.22377153
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[3].readRotation.y
+      value: 0.07057377
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[3].readRotation.z
+      value: -0.5778662
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[0].readPosition.x
+      value: 0.114305854
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[0].readPosition.y
+      value: 3.5597026
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[0].readPosition.z
+      value: 5.0528064
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[0].readRotation.w
+      value: -0.2339346
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[0].readRotation.x
+      value: 0.005258413
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[0].readRotation.y
+      value: 0.20387155
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[0].readRotation.z
+      value: 0.9506227
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[1].readPosition.x
+      value: 0.2970184
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[1].readPosition.y
+      value: 3.229601
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[1].readPosition.z
+      value: 5.2102685
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[1].readRotation.w
+      value: -0.2142659
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[1].readRotation.x
+      value: 0.021889258
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[1].readRotation.y
+      value: 0.14710544
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[1].readRotation.z
+      value: 0.9653865
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[2].readPosition.x
+      value: 0.46085364
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[2].readPosition.y
+      value: 2.8923287
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[2].readPosition.z
+      value: 5.3173685
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[2].readRotation.w
+      value: -0.22678244
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[2].readRotation.x
+      value: 0.143953
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[2].readRotation.y
+      value: 0.6067649
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[2].readRotation.z
+      value: 0.74812037
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[3].readPosition.x
+      value: 0.56139445
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[3].readPosition.y
+      value: 2.860874
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[3].readPosition.z
+      value: 5.482176
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[3].readRotation.w
+      value: -0.2375258
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[3].readRotation.x
+      value: 0.12600355
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[3].readRotation.y
+      value: 0.81748587
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[3].readRotation.z
+      value: 0.5093347
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[0].solverPosition.x
+      value: -0.13678989
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[0].solverPosition.y
+      value: 3.6335914
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[0].solverPosition.z
+      value: 5.141894
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[0].solverRotation.w
+      value: 0.38733053
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[0].solverRotation.x
+      value: 0.7119757
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[0].solverRotation.y
+      value: -0.25879684
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[0].solverRotation.z
+      value: 0.52544415
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[1].solverPosition.x
+      value: -0.23844688
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[1].solverPosition.y
+      value: 3.5594022
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[1].solverPosition.z
+      value: 5.1785393
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[1].solverRotation.w
+      value: 0.199797
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[1].solverRotation.x
+      value: 0.16546929
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[1].solverRotation.y
+      value: -0.05363236
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[1].solverRotation.z
+      value: 0.9642752
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[2].solverPosition.x
+      value: -0.34756392
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[2].solverPosition.y
+      value: 3.3118563
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[2].solverPosition.z
+      value: 5.1684384
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[2].solverRotation.w
+      value: 0.39521632
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[2].solverRotation.x
+      value: 0.52255577
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[2].solverRotation.y
+      value: 0.67522466
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[2].solverRotation.z
+      value: 0.33884874
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[3].solverPosition.x
+      value: -0.23561609
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[3].solverPosition.y
+      value: 3.3691893
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[3].solverPosition.z
+      value: 5.3910403
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[3].solverRotation.w
+      value: 0.78253
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[3].solverRotation.x
+      value: 0.532032
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[3].solverRotation.y
+      value: 0.32330093
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftArm.bones.Array.data[3].solverRotation.z
+      value: 0.00808391
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[0].solverPosition.x
+      value: 0.060776047
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[0].solverPosition.y
+      value: 3.1192284
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[0].solverPosition.z
+      value: 5.1926804
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[0].solverRotation.w
+      value: -0.01915927
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[0].solverRotation.x
+      value: 0.0138853155
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[0].solverRotation.y
+      value: 0.66570294
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[0].solverRotation.z
+      value: 0.74584156
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[1].solverPosition.x
+      value: 0.080026105
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[1].solverPosition.y
+      value: 3.073034
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[1].solverPosition.z
+      value: 5.598604
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[1].solverRotation.w
+      value: -0.11972952
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[1].solverRotation.x
+      value: 0.10538131
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[1].solverRotation.y
+      value: -0.35382965
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[1].solverRotation.z
+      value: 0.92161006
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[2].solverPosition.x
+      value: 0.13697043
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[2].solverPosition.y
+      value: 2.792065
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[2].solverPosition.z
+      value: 5.334595
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[2].solverRotation.w
+      value: -0.05256716
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[2].solverRotation.x
+      value: -0.1812499
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[2].solverRotation.y
+      value: 0.5795393
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[2].solverRotation.z
+      value: 0.7927947
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[3].solverPosition.x
+      value: 0.112360045
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[3].solverPosition.y
+      value: 2.7293906
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[3].solverPosition.z
+      value: 5.51674
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[3].solverRotation.w
+      value: -0.014511257
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[3].solverRotation.x
+      value: -0.25530678
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[3].solverRotation.y
+      value: 0.7882546
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.leftLeg.bones.Array.data[3].solverRotation.z
+      value: 0.55969924
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[0].solverPosition.x
+      value: -0.028501436
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[0].solverPosition.y
+      value: 3.6758904
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[0].solverPosition.z
+      value: 5.0992637
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[0].solverRotation.w
+      value: -0.45212653
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[0].solverRotation.x
+      value: -0.39473617
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[0].solverRotation.y
+      value: -0.57993644
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[0].solverRotation.z
+      value: 0.55085415
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[1].solverPosition.x
+      value: 0.09680182
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[1].solverPosition.y
+      value: 3.6865716
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[1].solverPosition.z
+      value: 5.0623026
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[1].solverRotation.w
+      value: 0.08377279
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[1].solverRotation.x
+      value: 0.48828158
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[1].solverRotation.y
+      value: 0.1145195
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[1].solverRotation.z
+      value: -0.8610749
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[2].solverPosition.x
+      value: 0.16612859
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[2].solverPosition.y
+      value: 3.426775
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[2].solverPosition.z
+      value: 5.031062
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[2].solverRotation.w
+      value: -0.58984685
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[2].solverRotation.x
+      value: -0.28148308
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[2].solverRotation.y
+      value: 0.42181653
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[2].solverRotation.z
+      value: 0.62843007
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[3].solverPosition.x
+      value: 0.29494858
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[3].solverPosition.y
+      value: 3.4399896
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[3].solverPosition.z
+      value: 5.251493
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[3].solverRotation.w
+      value: 0.8675554
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[3].solverRotation.x
+      value: -0.02569434
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[3].solverRotation.y
+      value: 0.3347791
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightArm.bones.Array.data[3].solverRotation.z
+      value: -0.36689293
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[0].solverPosition.x
+      value: 0.21220475
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[0].solverPosition.y
+      value: 3.1984174
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[0].solverPosition.z
+      value: 5.1271944
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[0].solverRotation.w
+      value: -0.35450205
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[0].solverRotation.x
+      value: -0.046871983
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[0].solverRotation.y
+      value: 0.5700654
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[0].solverRotation.z
+      value: 0.73970044
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[1].solverPosition.x
+      value: 0.40477002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[1].solverPosition.y
+      value: 3.1580622
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[1].solverPosition.z
+      value: 5.4855733
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[1].solverRotation.w
+      value: 0.071998514
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[1].solverRotation.x
+      value: 0.03559864
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[1].solverRotation.y
+      value: -0.28040183
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[1].solverRotation.z
+      value: 0.9565166
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[2].solverPosition.x
+      value: 0.3432743
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[2].solverPosition.y
+      value: 2.8334706
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[2].solverPosition.z
+      value: 5.2783933
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[2].solverRotation.w
+      value: -0.23646314
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[2].solverRotation.x
+      value: 0.21628773
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[2].solverRotation.y
+      value: 0.6044664
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[2].solverRotation.z
+      value: 0.72933424
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[3].solverPosition.x
+      value: 0.46188575
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[3].solverPosition.y
+      value: 2.8026805
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[3].solverPosition.z
+      value: 5.430848
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[3].solverRotation.w
+      value: -0.26875213
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[3].solverRotation.x
+      value: 0.190454
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[3].solverRotation.y
+      value: 0.80860025
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690320759604857482, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: solver.rightLeg.bones.Array.data[3].solverRotation.z
+      value: 0.48750976
+      objectReference: {fileID: 0}
     - target: {fileID: 5103640683852860931, guid: 31e6417b6135a774994cc2d8e41efe59,
         type: 3}
       propertyPath: ik
       value: 
       objectReference: {fileID: 1516146514291594793}
+    - target: {fileID: 7254990991545629812, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7254990991545629812, guid: 31e6417b6135a774994cc2d8e41efe59,
         type: 3}
       propertyPath: headTarget
@@ -6643,6 +8630,11 @@ PrefabInstance:
     - target: {fileID: 8435538506966295613, guid: 31e6417b6135a774994cc2d8e41efe59,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836475119077328044, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8836475119077328050, guid: 31e6417b6135a774994cc2d8e41efe59,
@@ -6716,6 +8708,11 @@ PrefabInstance:
       propertyPath: m_BlendShapeWeights.Array.data[9]
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8836475119909467922, guid: 31e6417b6135a774994cc2d8e41efe59,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2571248101960789070, guid: 31e6417b6135a774994cc2d8e41efe59, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 31e6417b6135a774994cc2d8e41efe59, type: 3}
@@ -6731,55 +8728,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfac4fa329d1f4f23814af71a247c14b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &3367643124966402993 stripped
+--- !u!1 &2381347905231763614 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8836475119909467922, guid: 31e6417b6135a774994cc2d8e41efe59,
+  m_CorrespondingSourceObject: {fileID: 8435538506966295613, guid: 31e6417b6135a774994cc2d8e41efe59,
     type: 3}
   m_PrefabInstance: {fileID: 6061056584005409955}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5870259797787025508
+--- !u!114 &7040623962906371469
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3367643124966402993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c822faa55fa0f1e449c0f3c977b671d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blendShapesChangers:
-  - name: Start
-    blendShapeStates:
-    - BSIndex: 4
-      targetValueMin: 0
-      targetValueMax: 0
-      durationMin: 2
-      durationMax: 10
-      curve:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-    duration: 0
-  startIndexMin: 0
-  startIndexMax: 0
-  smr: {fileID: 0}
---- !u!114 &8753954708304193209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3367643124966402993}
+  m_GameObject: {fileID: 2381347905231763614}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6739d1caf3152c42b592cfdafd60e5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinnedMesh: {fileID: 0}
+  skinnedMesh: {fileID: 6572827736147872647}
   mesh: {fileID: 6873442620657365552, guid: b42d9cc920abf794eabbcda53b5f8687, type: 3}
   weightTachoInputNormaized: 0
   currentIndex: 0
@@ -6989,6 +8956,3241 @@ MonoBehaviour:
   readWeightAtLoadingBar: 0
   weightLoadingBar: {fileID: 0}
   setupTachosOnSpawn: 0
+--- !u!114 &7295924170359951861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2381347905231763614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c822faa55fa0f1e449c0f3c977b671d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blendShapesChangers:
+  - name: InMineState
+    blendShapeStates:
+    - name: bauchTwist
+      BSIndex: 0
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: ArmTwist
+      BSIndex: 1
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: LaengsTwist
+      BSIndex: 2
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: LinksHaelfteTwist
+      BSIndex: 3
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Squash1
+      BSIndex: 4
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Squash2
+      BSIndex: 5
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Melt
+      BSIndex: 6
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: SlineWarp
+      BSIndex: 7
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BlowUp
+      BSIndex: 8
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Shrink
+      BSIndex: 9
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BeineBulge
+      BSIndex: 10
+      targetValueMin: 0
+      targetValueMax: 100
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Beindisplace
+      BSIndex: 11
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BeinTwist
+      BSIndex: 12
+      targetValueMin: 0
+      targetValueMax: 100
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BeineSpherify
+      BSIndex: 12
+      targetValueMin: 0
+      targetValueMax: 100
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    duration: 0
+  - name: NotMineState
+    blendShapeStates:
+    - name: bauchTwist
+      BSIndex: 0
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: ArmTwist
+      BSIndex: 1
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: LaengsTwist
+      BSIndex: 2
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: LinksHaelfteTwist
+      BSIndex: 3
+      targetValueMin: 0
+      targetValueMax: 100
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Squash1
+      BSIndex: 4
+      targetValueMin: 0
+      targetValueMax: 40
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Squash2
+      BSIndex: 5
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Melt
+      BSIndex: 6
+      targetValueMin: 0
+      targetValueMax: 20
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: SlineWarp
+      BSIndex: 7
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BlowUp
+      BSIndex: 8
+      targetValueMin: 0
+      targetValueMax: 200
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Shrink
+      BSIndex: 9
+      targetValueMin: 0
+      targetValueMax: 100
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BeineBulge
+      BSIndex: 10
+      targetValueMin: 0
+      targetValueMax: 100
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Beindisplace
+      BSIndex: 11
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BeinTwist
+      BSIndex: 12
+      targetValueMin: 0
+      targetValueMax: 100
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BeineSpherify
+      BSIndex: 12
+      targetValueMin: 0
+      targetValueMax: 100
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    duration: 0
+  - name: Racer0
+    blendShapeStates:
+    - name: bauchTwist
+      BSIndex: 0
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: ArmTwist
+      BSIndex: 1
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: LaengsTwist
+      BSIndex: 2
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: LinksHaelfteTwist
+      BSIndex: 3
+      targetValueMin: 4.8
+      targetValueMax: 4.8
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Squash1
+      BSIndex: 4
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Squash2
+      BSIndex: 5
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Melt
+      BSIndex: 6
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: SlineWarp
+      BSIndex: 7
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BlowUp
+      BSIndex: 8
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Shrink
+      BSIndex: 9
+      targetValueMin: 43
+      targetValueMax: 43
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BeineBulge
+      BSIndex: 10
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Beindisplace
+      BSIndex: 11
+      targetValueMin: 150
+      targetValueMax: 150
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BeinTwist
+      BSIndex: 12
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BeineSpherify
+      BSIndex: 12
+      targetValueMin: 120
+      targetValueMax: 120
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    duration: 0
+  - name: Racer1
+    blendShapeStates:
+    - name: bauchTwist
+      BSIndex: 0
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: ArmTwist
+      BSIndex: 1
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: LaengsTwist
+      BSIndex: 2
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: LinksHaelfteTwist
+      BSIndex: 3
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Squash1
+      BSIndex: 4
+      targetValueMin: 7.8
+      targetValueMax: 7.8
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Squash2
+      BSIndex: 5
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Melt
+      BSIndex: 6
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: SlineWarp
+      BSIndex: 7
+      targetValueMin: 5
+      targetValueMax: 5
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BlowUp
+      BSIndex: 8
+      targetValueMin: -45
+      targetValueMax: -45
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Shrink
+      BSIndex: 9
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BeineBulge
+      BSIndex: 10
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Beindisplace
+      BSIndex: 11
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BeinTwist
+      BSIndex: 12
+      targetValueMin: 215
+      targetValueMax: 215
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BeineSpherify
+      BSIndex: 12
+      targetValueMin: 18
+      targetValueMax: 18
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    duration: 0
+  - name: Racer2
+    blendShapeStates:
+    - name: bauchTwist
+      BSIndex: 0
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: ArmTwist
+      BSIndex: 1
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: LaengsTwist
+      BSIndex: 2
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: LinksHaelfteTwist
+      BSIndex: 3
+      targetValueMin: -5.7
+      targetValueMax: -5.7
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Squash1
+      BSIndex: 4
+      targetValueMin: 43
+      targetValueMax: 43
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Squash2
+      BSIndex: 5
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Melt
+      BSIndex: 6
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: SlineWarp
+      BSIndex: 7
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BlowUp
+      BSIndex: 8
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Shrink
+      BSIndex: 9
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BeineBulge
+      BSIndex: 10
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Beindisplace
+      BSIndex: 11
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BeinTwist
+      BSIndex: 12
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BeineSpherify
+      BSIndex: 12
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    duration: 0
+  - name: Racer3
+    blendShapeStates:
+    - name: bauchTwist
+      BSIndex: 0
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: ArmTwist
+      BSIndex: 1
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: LaengsTwist
+      BSIndex: 2
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: LinksHaelfteTwist
+      BSIndex: 3
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Squash1
+      BSIndex: 4
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Squash2
+      BSIndex: 5
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Melt
+      BSIndex: 6
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: SlineWarp
+      BSIndex: 7
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BlowUp
+      BSIndex: 8
+      targetValueMin: -15
+      targetValueMax: -15
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Shrink
+      BSIndex: 9
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BeineBulge
+      BSIndex: 10
+      targetValueMin: 111
+      targetValueMax: 111
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Beindisplace
+      BSIndex: 11
+      targetValueMin: -60
+      targetValueMax: -60
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BeinTwist
+      BSIndex: 12
+      targetValueMin: 0
+      targetValueMax: 100
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BeineSpherify
+      BSIndex: 12
+      targetValueMin: 0
+      targetValueMax: 100
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    duration: 0
+  - name: Racer4
+    blendShapeStates:
+    - name: bauchTwist
+      BSIndex: 0
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: ArmTwist
+      BSIndex: 1
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: LaengsTwist
+      BSIndex: 2
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: LinksHaelfteTwist
+      BSIndex: 3
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Squash1
+      BSIndex: 4
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Squash2
+      BSIndex: 5
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Melt
+      BSIndex: 6
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: SlineWarp
+      BSIndex: 7
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BlowUp
+      BSIndex: 8
+      targetValueMin: 250
+      targetValueMax: 250
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Shrink
+      BSIndex: 9
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BeineBulge
+      BSIndex: 10
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: Beindisplace
+      BSIndex: 11
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BeinTwist
+      BSIndex: 12
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    - name: BeineSpherify
+      BSIndex: 12
+      targetValueMin: 0
+      targetValueMax: 0
+      durationMin: 1
+      durationMax: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    duration: 0
+  startIndexMin: 1
+  startIndexMax: 1
+  smr: {fileID: 6572827736147872647}
+--- !u!114 &8655792753887002239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2381347905231763614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca6858d700257264cace8c50a26f9581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rend: []
+  skm:
+  - {fileID: 6572827736147872647}
+  skinnedMesh: 1
+  usePropertyBlock: 1
+  doOnStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8655792753887002239}
+        m_TargetAssemblyTypeName: ObliqueSenastions.MaterialControl.MaterialPropertiesFader_2,
+          Assembly-CSharp
+        m_MethodName: ChangeColor
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Initial
+          m_BoolArgument: 0
+        m_CallState: 2
+  floatChangers: []
+  textureChangers: []
+  textureFader:
+    note: 
+    texRefA: 
+    texRefB: 
+    faderRef: 
+    faderIsLeft: 0
+    isInterrupted: 0
+  materialChangers:
+  - note: MineMaterialHelmet
+    material: {fileID: 2100000, guid: e858c0ff0fee7844b9468b2a1842a249, type: 2}
+    materialIndex: 0
+  - note: MineMaterialVisier
+    material: {fileID: 2100000, guid: e858c0ff0fee7844b9468b2a1842a249, type: 2}
+    materialIndex: 2
+  - note: NotMineMaterialHelmet
+    material: {fileID: 2100000, guid: f15a09fadc4f0ea4c80cd3153e542022, type: 2}
+    materialIndex: 0
+  - note: NotMineMaterialVisier
+    material: {fileID: 2100000, guid: c87dfc1671f933045b0b631d570ccee2, type: 2}
+    materialIndex: 2
+  colorChangers:
+  - note: MainRacer
+    color: {r: 1, g: 1, b: 1, a: 1}
+    colorPropRef: _DiffuseTint
+    fadeInDuration: 1
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    automaticlyPlayNext: 0
+    waitBeforeNext: 0
+    nextChanger: 
+    isInterrupted: 0
+  - note: Zuschauer1
+    color: {r: 1, g: 0, b: 0, a: 1}
+    colorPropRef: _DiffuseTint
+    fadeInDuration: 1
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    automaticlyPlayNext: 0
+    waitBeforeNext: 0
+    nextChanger: 
+    isInterrupted: 0
+  - note: Zuschauer2
+    color: {r: 0, g: 1, b: 0, a: 1}
+    colorPropRef: _DiffuseTint
+    fadeInDuration: 1
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    automaticlyPlayNext: 0
+    waitBeforeNext: 0
+    nextChanger: 
+    isInterrupted: 0
+  - note: Zuschauer3
+    color: {r: 0, g: 1, b: 1, a: 1}
+    colorPropRef: _DiffuseTint
+    fadeInDuration: 1
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    automaticlyPlayNext: 0
+    waitBeforeNext: 0
+    nextChanger: 
+    isInterrupted: 0
+  - note: Zuschauer4
+    color: {r: 1, g: 0, b: 1, a: 1}
+    colorPropRef: _DiffuseTint
+    fadeInDuration: 1
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    automaticlyPlayNext: 0
+    waitBeforeNext: 0
+    nextChanger: 
+    isInterrupted: 0
+  - note: Initial
+    color: {r: 1, g: 1, b: 1, a: 1}
+    colorPropRef: _DiffuseTint
+    fadeInDuration: 1
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    automaticlyPlayNext: 0
+    waitBeforeNext: 0
+    nextChanger: 
+    isInterrupted: 0
+  daumenkinoTimingMin: 1
+  daumenkinoChangeMax: 2
+  setFloatsToCurrent: 1
+  stetTexturesToCurrent: 0
+--- !u!137 &6572827736147872647 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1092776954836457252, guid: 31e6417b6135a774994cc2d8e41efe59,
+    type: 3}
+  m_PrefabInstance: {fileID: 6061056584005409955}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8775356159091879929 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3302652792696107866, guid: 31e6417b6135a774994cc2d8e41efe59,
@@ -6996,7 +12198,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 6061056584005409955}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92c50bb18fe3d1543aa7172bcf5a3bf1, type: 3}
   m_Name: 
