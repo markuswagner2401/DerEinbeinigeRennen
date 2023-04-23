@@ -461,7 +461,7 @@ namespace ObliqueSenastions.PunNetworking
         public override void OnDisconnected(DisconnectCause cause)
         {
             joinedInOfflineMode = true;
-            JoinInOfflineMode();
+            //JoinInOfflineMode();
         }
 
         public void JoinInOfflineMode()
