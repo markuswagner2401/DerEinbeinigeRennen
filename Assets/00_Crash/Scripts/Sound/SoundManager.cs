@@ -27,7 +27,9 @@ namespace ObliqueSenastions.AudioControl
 
             public HoldOnMode holdOnMode;
 
-            [HideInInspector] public Coroutine activeCoroutine;
+            public Coroutine activeCoroutine;
+
+            public bool isStopping;
         }
 
         [SerializeField] bool persistentObject = false;
@@ -40,7 +42,7 @@ namespace ObliqueSenastions.AudioControl
         [Header("Testing and Debugging")]
         [SerializeField] public int testSound;
 
-        private bool inHoldOnMode = false;
+        [SerializeField] bool inHoldOnMode = false;
 
 
 
@@ -83,7 +85,7 @@ namespace ObliqueSenastions.AudioControl
                 {
                     StopCoroutine(sound.activeCoroutine);
                 }
-                sound.activeCoroutine = StartCoroutine(PlaySoundRoutine(sound));
+                sound.activeCoroutine = StartCoroutine(PlaySoundRoutine(index));
             }
         }
 
@@ -126,6 +128,8 @@ namespace ObliqueSenastions.AudioControl
         {
             if (index >= 0 && index < sounds.Length)
             {
+                sounds[index].isStopping = true; // Add this line to set the flag
+
                 if (sounds[index].activeCoroutine != null)
                 {
                     StopCoroutine(sounds[index].activeCoroutine);
@@ -143,29 +147,47 @@ namespace ObliqueSenastions.AudioControl
             }
         }
 
-        private IEnumerator PlaySoundRoutine(Sound sound)
+        private IEnumerator PlaySoundRoutine(int index)
         {
-            sound.audioSource.Play();
+            
+            
+            sounds[index].audioSource.Play();
+            
 
             float elapsedTime = 0;
-            float startVolume = sound.audioSource.volume;
-            float targetVolume = sound.maxVolume;
+            float startVolume = sounds[index].audioSource.volume;
+            float targetVolume = sounds[index].maxVolume;
+            float volume = startVolume;
 
-            while (elapsedTime < sound.fadeInDuration)
+            while (elapsedTime < sounds[index].fadeInDuration)
             {
                 elapsedTime += Time.deltaTime;
-                float progress = elapsedTime / sound.fadeInDuration;
-                float volume = Mathf.Lerp(startVolume, targetVolume, sound.fadeInCurve.Evaluate(progress));
+                float progress = elapsedTime / sounds[index].fadeInDuration;
+                volume = Mathf.Lerp(startVolume, targetVolume, sounds[index].fadeInCurve.Evaluate(progress));
 
-                sound.audioSource.volume = inHoldOnMode ? 0 : volume;
+                sounds[index].audioSource.volume = inHoldOnMode ? 0 : volume;
                 yield return null;
             }
 
-            if (sound.playDuration >= 0)
+            float playTimer = 0;
+
+            while (sounds[index].playDuration < 0 || playTimer < sounds[index].playDuration)
             {
-                yield return new WaitForSeconds(sound.playDuration);
-                StartCoroutine(StopSoundRoutine(sound));
+                if (sounds[index].isStopping) // Add this line to check if sound is stopping
+                {
+                    break;
+                }
+
+                playTimer += Time.deltaTime;
+                sounds[index].audioSource.volume = inHoldOnMode ? 0 : volume;
+                yield return null;
             }
+
+            //StopSound(index);
+
+            //StartCoroutine(StopSoundRoutine(sound));
+
+            
         }
 
         private IEnumerator StopSoundRoutine(Sound sound)
@@ -212,6 +234,19 @@ namespace ObliqueSenastions.AudioControl
 
         /// hold on
 
+        public void HoldOn(bool value)
+        {
+            for (int i = 0; i < sounds.Length; i++)
+            {
+                if (sounds[i].activeCoroutine != null)
+                {
+                    StartCoroutine(HandleHoldOn(i, value));
+                }
+
+                inHoldOnMode = value;
+            }
+        }
+
         private IEnumerator HandleHoldOn(int index, bool holdOn)
         {
             Sound sound = sounds[index];
@@ -232,7 +267,7 @@ namespace ObliqueSenastions.AudioControl
                         break;
                 }
 
-                inHoldOnMode = true;
+                
             }
             else
             {
@@ -253,16 +288,7 @@ namespace ObliqueSenastions.AudioControl
             }
         }
 
-        public void HoldOn(bool value)
-        {
-            for (int i = 0; i < sounds.Length; i++)
-            {
-                if (sounds[i].activeCoroutine != null)
-                {
-                    StartCoroutine(HandleHoldOn(i, value));
-                }
-            }
-        }
+        
 
 
 

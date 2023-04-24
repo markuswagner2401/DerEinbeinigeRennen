@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 266.3166666666667
+  m_Time: 215.1833333333335
   note: Hoch
   spaceStateIndex: 1
   changeDurationToNextMarker: 1
@@ -64,7 +64,7 @@ MonoBehaviour:
     role: 3
     lastClipInScene: 0
     inactive: 0
---- !u!114 &-9004451557402769792
+--- !u!114 &-9074552668963319717
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,16 +73,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4de723f1a9ca16408cb7af549852510, type: 3}
-  m_Name: TravellerControlClip
+  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
+  m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  template:
-    transitionPointName: inactive
-    transPointIndex: 0
-    roleAware: 0
-    role: 0
-    lastClipInScene: 0
-    inactive: 1
+  m_Time: 1328.1499999999996
+  goEventName: LerpPuppetWeights
+  retroactive: 0
+  emitOnce: 0
+--- !u!114 &-9008887037666821336
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
+  m_Name: Go Event Marker
+  m_EditorClassIdentifier: 
+  m_Time: 1305.25
+  goEventName: EnablePuppet
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &-9003864948409781763
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -95,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 703.95
+  m_Time: 634.9666666666667
   note: Landschaft
   spaceStateIndex: 4
   changeDurationToNextMarker: 0
@@ -167,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 361.1166666666668
+  m_Time: 292.13333333333344
   note: Setzen
   spaceStateIndex: 2
   changeDurationToNextMarker: 1
@@ -212,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 759.1166666666659
+  m_Time: 690.1333333333325
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -243,26 +256,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  retroactive: 0
-  emitOnce: 0
---- !u!114 &-8715622674415019648
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
-  m_Name: Haltepunkt Marker
-  m_EditorClassIdentifier: 
-  m_Time: 1113.9833333333333
-  note: Vor Schieben
-  displayModeInInspiUI: 1
-  stopOrHold: 0
-  haltInOfflineMode: 0
-  waitDurationInOfflineMode: 0
   retroactive: 0
   emitOnce: 0
 --- !u!114 &-8632308498371579114
@@ -277,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 476.98333333333335
+  m_Time: 408
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -310,6 +303,26 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
+--- !u!114 &-8586269056130569363
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fcd2b15230248c4b80b7a71a1d6488e, type: 3}
+  m_Name: SceneControlClip(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  template:
+    sceneName: II_2  Rohrschachtest
+    useSceneName: 1
+    sceneIndex: 1
+    jumpToClipStartOnGoingBackInTL: 0
+    clipDuration: 0
+    roomSection: Monocoque
+    singelplayer: 1
 --- !u!114 &-8555059666373685406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -322,7 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 660.3500000000003
+  m_Time: 591.366666666667
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -367,7 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 232.9
+  m_Time: 181.76666666666677
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -412,7 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd1052dc315d7348b5df1a59f3fbae5, type: 3}
   m_Name: Timeline Annotation
   m_EditorClassIdentifier: 
-  m_Time: 344.05000000000007
+  m_Time: 275.0666666666667
   title: "trib\xFCne"
   color: {r: 0, g: 0, b: 0, a: 0}
   description: 
@@ -429,7 +442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 697.8500000000001
+  m_Time: 628.8666666666668
   note: Loch
   spaceStateIndex: 5
   changeDurationToNextMarker: 1
@@ -474,28 +487,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 207.15000000000006
+  m_Time: 156.01666666666682
   goEventName: PresentTribunes
-  retroactive: 0
-  emitOnce: 0
---- !u!114 &-8337009598877959043
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
-  m_Name: Haltepunkt Marker
-  m_EditorClassIdentifier: 
-  m_Time: 1072.1166666666672
-  note: Halt vor Szenenwechsel
-  displayModeInInspiUI: 1
-  stopOrHold: 0
-  haltInOfflineMode: 0
-  waitDurationInOfflineMode: 0
   retroactive: 0
   emitOnce: 0
 --- !u!114 &-8325004798056518734
@@ -510,7 +503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 774.8
+  m_Time: 705.8166666666666
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -600,26 +593,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 825.8166666666667
+  m_Time: 756.8333333333335
   goEventName: Wiederholung
   retroactive: 0
   emitOnce: 0
---- !u!114 &-7933906565565217420
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b98e8f388390bc24fb92da541e12412c, type: 3}
-  m_Name: FloatControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  template:
-    parameterName: Fade
-    value: 1.4
-    firstClipInTrack: 1
 --- !u!114 &-7915841014165652116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -649,12 +626,6 @@ MonoBehaviour:
     - {fileID: -2710921306749429423}
     - {fileID: 8970223352950540912}
     - {fileID: 2701677468376272855}
-    - {fileID: 507865636892277342}
-    - {fileID: -6453793014432688153}
-    - {fileID: 4248759512809718598}
-    - {fileID: 2801769876768141149}
-    - {fileID: -2011670032761032125}
-    - {fileID: 2219116445107822092}
     - {fileID: -2315142829521924776}
     - {fileID: 3077021233983854034}
     - {fileID: 1881845319760989472}
@@ -669,6 +640,10 @@ MonoBehaviour:
     - {fileID: -4730004237166762332}
     - {fileID: 7068672437604377643}
     - {fileID: -1204159363320401432}
+    - {fileID: -1992520376159457148}
+    - {fileID: 6626689599929269864}
+    - {fileID: 7992362681510939067}
+    - {fileID: 5196697803414914046}
 --- !u!114 &-7911866034997730812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -681,7 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 820.1333333333325
+  m_Time: 751.1499999999992
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -728,7 +703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Version: 3
   m_AnimClip: {fileID: 0}
-  m_Locked: 0
+  m_Locked: 1
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
@@ -819,26 +794,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 478.25
+  m_Time: 409.26666666666665
   goEventName: StartCountdown
   retroactive: 0
   emitOnce: 0
---- !u!114 &-7812671548227029460
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b98e8f388390bc24fb92da541e12412c, type: 3}
-  m_Name: FloatControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  template:
-    parameterName: Fade
-    value: 0
-    firstClipInTrack: 0
 --- !u!114 &-7801393420680477322
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -851,7 +810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 743.2666666666667
+  m_Time: 674.2833333333333
   note: Sitzflaechen
   spaceStateIndex: 3
   changeDurationToNextMarker: 0
@@ -866,7 +825,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
---- !u!114 &-7759888259912813843
+--- !u!114 &-7782155422766465596
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -875,13 +834,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b98e8f388390bc24fb92da541e12412c, type: 3}
-  m_Name: FloatControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
+  m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  template:
-    parameterName: Fade
-    value: 1.4
-    firstClipInTrack: 1
+  m_Time: 1333.6833333333323
+  goEventName: MoveTowardsRacer
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &-7753304594112769515
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -894,7 +853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 344.05000000000007
+  m_Time: 275.0666666666667
   note: Setzen
   spaceStateIndex: 2
   changeDurationToNextMarker: 1
@@ -939,7 +898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 397.5666666666667
+  m_Time: 328.58333333333337
   note: Loch
   spaceStateIndex: 5
   changeDurationToNextMarker: 1
@@ -972,41 +931,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
---- !u!114 &-7549249166121084951
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4de723f1a9ca16408cb7af549852510, type: 3}
-  m_Name: TravellerControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  template:
-    transitionPointName: Pos2
-    transPointIndex: 0
-    roleAware: 1
-    role: 0
-    lastClipInScene: 0
-    inactive: 0
---- !u!114 &-7357091873549844383
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
-  m_Name: Go Event Marker
-  m_EditorClassIdentifier: 
-  m_Time: 1115.2833333333338
-  goEventName: ShowStaebchen
-  retroactive: 1
-  emitOnce: 0
 --- !u!114 &-7140168260273995864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1019,7 +943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 476.98333333333335
+  m_Time: 408
   note: Setzen
   spaceStateIndex: 2
   changeDurationToNextMarker: 1
@@ -1064,7 +988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 447.73333333333346
+  m_Time: 378.7500000000001
   goEventName: PresentTribunes
   retroactive: 0
   emitOnce: 0
@@ -1080,7 +1004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 344.05000000000007
+  m_Time: 275.0666666666667
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -1125,7 +1049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 552.1500000000001
+  m_Time: 483.16666666666663
   note: Hoch
   spaceStateIndex: 1
   changeDurationToNextMarker: 1
@@ -1158,22 +1082,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
---- !u!114 &-7009921490319908547
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
-  m_Name: Go Event Marker
-  m_EditorClassIdentifier: 
-  m_Time: 1116.1
-  goEventName: MoveTowardsRacer
-  retroactive: 0
-  emitOnce: 0
 --- !u!114 &-6927271712397018396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1186,7 +1094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 397.5666666666667
+  m_Time: 328.58333333333337
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -1219,6 +1127,25 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
+--- !u!114 &-6785602760412250084
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4de723f1a9ca16408cb7af549852510, type: 3}
+  m_Name: TravellerControlClip(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  template:
+    transitionPointName: Rennfahrer
+    transPointIndex: 0
+    roleAware: 1
+    role: 0
+    lastClipInScene: 1
+    inactive: 0
 --- !u!114 &-6750032109285342879
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1295,7 +1222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 717.1666666666667
+  m_Time: 648.1833333333334
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -1420,61 +1347,6 @@ MonoBehaviour:
     m_DisplayName: 'TP: Inspizient'
   m_Markers:
     m_Objects: []
---- !u!114 &-6609302590375788926
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4de723f1a9ca16408cb7af549852510, type: 3}
-  m_Name: TravellerControlClip(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  template:
-    transitionPointName: Rennfahrer
-    transPointIndex: 0
-    roleAware: 1
-    role: 0
-    lastClipInScene: 0
-    inactive: 0
---- !u!114 &-6453793014432688153
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
-  m_Name: Go Event Marker
-  m_EditorClassIdentifier: 
-  m_Time: 995.283333333334
-  goEventName: InitializeLerpZuschauer
-  retroactive: 0
-  emitOnce: 0
---- !u!114 &-6391081680829297171
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fcd2b15230248c4b80b7a71a1d6488e, type: 3}
-  m_Name: SceneControlClip(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  template:
-    sceneName: II_1 Foresythe
-    useSceneName: 1
-    sceneIndex: 1
-    jumpToClipStartOnGoingBackInTL: 0
-    clipDuration: 0
-    roomSection: Monocoque
-    singelplayer: 0
 --- !u!114 &-6371958062146910999
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1489,7 +1361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Version: 3
   m_AnimClip: {fileID: 0}
-  m_Locked: 0
+  m_Locked: 1
   m_Muted: 1
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
@@ -1599,7 +1471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 597.4500000000003
+  m_Time: 528.4666666666669
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -1644,7 +1516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 490.0999999999999
+  m_Time: 421.11666666666656
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -1689,7 +1561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 666.5833333333336
+  m_Time: 597.6000000000004
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -1734,7 +1606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 578.0166666666669
+  m_Time: 509.0333333333334
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -1779,7 +1651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde0d25a170598d46a0b9dc16b4527a5, type: 3}
   m_Name: ActivationPlayableAsset
   m_EditorClassIdentifier: 
---- !u!114 &-5976988763155361444
+--- !u!114 &-5923639924882998062
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1789,32 +1661,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4de723f1a9ca16408cb7af549852510, type: 3}
-  m_Name: TravellerControlClip(Clone)(Clone)(Clone)(Clone)
+  m_Name: TravellerControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   template:
-    transitionPointName: Zuschauer
+    transitionPointName: Pos3
     transPointIndex: 0
     roleAware: 1
-    role: 1
-    lastClipInScene: 0
+    role: 0
+    lastClipInScene: 1
     inactive: 0
---- !u!114 &-5967683439362077635
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f10dd60657c6004587f237a7e90f8e4, type: 3}
-  m_Name: AudioPlayableAsset
-  m_EditorClassIdentifier: 
-  m_Clip: {fileID: 8300000, guid: 2d784d70c6121e44b94417e35919c523, type: 3}
-  m_Loop: 0
-  m_bufferingTime: 0.1
-  m_ClipProperties:
-    volume: 1
 --- !u!114 &-5786013123383190731
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1837,7 +1692,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 171.41666666666666
+    m_Start: 120.28333333333335
     m_ClipIn: 0
     m_Asset: {fileID: -486580111311330078}
     m_Duration: 13.083333333333314
@@ -1903,10 +1758,10 @@ MonoBehaviour:
     m_PostExtrapolationMode: 4
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 0
-    m_PreExtrapolationTime: 171.41666666666666
+    m_PreExtrapolationTime: 120.28333333333335
     m_DisplayName: 'TP: Seitenring1'
   - m_Version: 1
-    m_Start: 184.49999999999997
+    m_Start: 133.36666666666673
     m_ClipIn: 0
     m_Asset: {fileID: -9182703828369440444}
     m_Duration: 9.883333333333383
@@ -1975,7 +1830,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: 'TP: Seitenring2'
   - m_Version: 1
-    m_Start: 194.38333333333335
+    m_Start: 143.2500000000001
     m_ClipIn: 0
     m_Asset: {fileID: 2929411260201928944}
     m_Duration: 65.69999999999999
@@ -2040,11 +1895,11 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 4
     m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 84.93333333333328
+    m_PostExtrapolationTime: 67.0833333333332
     m_PreExtrapolationTime: 0
     m_DisplayName: 'TP: InRingPos1'
   - m_Version: 1
-    m_Start: 345.01666666666665
+    m_Start: 276.0333333333333
     m_ClipIn: 0
     m_Asset: {fileID: 3226447939727678970}
     m_Duration: 67.00000000000011
@@ -2091,11 +1946,11 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 4
     m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 14.833333333333314
+    m_PostExtrapolationTime: 14.833333333333371
     m_PreExtrapolationTime: 0
     m_DisplayName: 'TP: TribuenePos1'
   - m_Version: 1
-    m_Start: 426.8500000000001
+    m_Start: 357.8666666666668
     m_ClipIn: 0
     m_Asset: {fileID: -6694193657071832178}
     m_Duration: 180.05
@@ -2142,13 +1997,13 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 4
     m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 327.6333333333331
+    m_PostExtrapolationTime: 462.08333333333326
     m_PreExtrapolationTime: 0
     m_DisplayName: 'TP: Startposition'
   - m_Version: 1
-    m_Start: 934.5333333333332
+    m_Start: 1000
     m_ClipIn: 0
-    m_Asset: {fileID: -9004451557402769792}
+    m_Asset: {fileID: -1237863002630816575}
     m_Duration: 19.51666666666665
     m_TimeScale: 1
     m_ParentTrack: {fileID: -5786013123383190731}
@@ -2324,26 +2179,6 @@ MonoBehaviour:
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: 7f70a0b25f7ea9c438f69be0080c5b28, type: 2}
---- !u!114 &-5417992019634216992
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
-  m_Name: Haltepunkt Marker
-  m_EditorClassIdentifier: 
-  m_Time: 169.01666666666668
-  note: Halt vor Fahrt auf andere Seite
-  displayModeInInspiUI: 1
-  stopOrHold: 0
-  haltInOfflineMode: 0
-  waitDurationInOfflineMode: 0
-  retroactive: 0
-  emitOnce: 0
 --- !u!114 &-5374479571784100619
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2356,7 +2191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 210.45
+  m_Time: 159.31666666666672
   goEventName: DummyWaving
   retroactive: 0
   emitOnce: 0
@@ -2372,7 +2207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 578.0166666666669
+  m_Time: 509.0333333333335
   goEventName: PresentTribunes
   retroactive: 0
   emitOnce: 0
@@ -2404,7 +2239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 716.6166666666668
+  m_Time: 647.6333333333334
   note: Landschaft
   spaceStateIndex: 4
   changeDurationToNextMarker: 0
@@ -2419,6 +2254,25 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
+--- !u!114 &-5074396522500769541
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4de723f1a9ca16408cb7af549852510, type: 3}
+  m_Name: TravellerControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  template:
+    transitionPointName: Pos2
+    transPointIndex: 0
+    roleAware: 1
+    role: 0
+    lastClipInScene: 0
+    inactive: 0
 --- !u!114 &-5052867852418534254
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2450,7 +2304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 208.76666666666677
+  m_Time: 157.63333333333352
   goEventName: Tribuenenkonstellation
   retroactive: 0
   emitOnce: 0
@@ -2466,7 +2320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 147.75000000000003
+  m_Time: 96.61666666666666
   goEventName: HolesOsscilate
   retroactive: 0
   emitOnce: 0
@@ -2482,7 +2336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 722.25
+  m_Time: 653.2666666666667
   goEventName: ShowLEDImageSequence
   retroactive: 0
   emitOnce: 0
@@ -2498,7 +2352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 697.8666666666668
+  m_Time: 628.8833333333334
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -2543,7 +2397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 578.0166666666669
+  m_Time: 509.0333333333335
   goEventName: ObstacleSituation1
   retroactive: 0
   emitOnce: 0
@@ -2559,7 +2413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 804.9666666666666
+  m_Time: 735.9833333333333
   note: Landschaft
   spaceStateIndex: 4
   changeDurationToNextMarker: 0
@@ -2586,7 +2440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 260.08333333333337
+  m_Time: 208.95000000000016
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -2631,7 +2485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 470.79999999999995
+  m_Time: 401.8166666666666
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -2680,25 +2534,6 @@ MonoBehaviour:
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: 7f70a0b25f7ea9c438f69be0080c5b28, type: 2}
---- !u!114 &-4156298641689034420
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4de723f1a9ca16408cb7af549852510, type: 3}
-  m_Name: TravellerControlClip
-  m_EditorClassIdentifier: 
-  template:
-    transitionPointName: Zuschauer
-    transPointIndex: 0
-    roleAware: 1
-    role: 1
-    lastClipInScene: 1
-    inactive: 0
 --- !u!114 &-4123438410610831881
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2731,7 +2566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 219.5666666666666
+  m_Time: 168.43333333333334
   note: 
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -2776,7 +2611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 704.0500000000002
+  m_Time: 635.0666666666668
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -2844,7 +2679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 767.3333333333328
+  m_Time: 698.3499999999995
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -2889,7 +2724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 646.95
+  m_Time: 577.9666666666667
   note: Setzen
   spaceStateIndex: 2
   changeDurationToNextMarker: 1
@@ -2951,7 +2786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd1052dc315d7348b5df1a59f3fbae5, type: 3}
   m_Name: Timeline Annotation
   m_EditorClassIdentifier: 
-  m_Time: 479.96666666666664
+  m_Time: 410.98333333333335
   title: Rennbeginn
   color: {r: 0, g: 0, b: 0, a: 0}
   description: 
@@ -2968,7 +2803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 731.6166666666668
+  m_Time: 662.6333333333334
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -3013,7 +2848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 552.1500000000001
+  m_Time: 483.16666666666663
   goEventName: PrepareBoxenstop
   retroactive: 0
   emitOnce: 0
@@ -3029,7 +2864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 835.8166666666666
+  m_Time: 766.8333333333333
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -3062,25 +2897,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
---- !u!114 &-2900942247337996452
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4de723f1a9ca16408cb7af549852510, type: 3}
-  m_Name: TravellerControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  template:
-    transitionPointName: InRacer
-    transPointIndex: 0
-    roleAware: 1
-    role: 0
-    lastClipInScene: 0
-    inactive: 0
 --- !u!114 &-2879621734562150937
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3093,7 +2909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 774.8
+  m_Time: 705.8166666666666
   goEventName: PresentTribunes
   retroactive: 0
   emitOnce: 0
@@ -3109,7 +2925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 624.6333333333336
+  m_Time: 555.6500000000003
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -3233,25 +3049,6 @@ MonoBehaviour:
     - {fileID: -7911866034997730812}
     - {fileID: 1260517643142561612}
     - {fileID: -2925361541977980320}
---- !u!114 &-2802111278855764216
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4de723f1a9ca16408cb7af549852510, type: 3}
-  m_Name: TravellerControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  template:
-    transitionPointName: Perspektivwechsler
-    transPointIndex: 0
-    roleAware: 1
-    role: 1
-    lastClipInScene: 0
-    inactive: 0
 --- !u!114 &-2775105853411534224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3264,7 +3061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 792.6333333333334
+  m_Time: 723.6500000000001
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -3309,7 +3106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 412.01666666666677
+  m_Time: 343.0333333333334
   note: Loch
   spaceStateIndex: 5
   changeDurationToNextMarker: 1
@@ -3354,7 +3151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 202.51666666666668
+  m_Time: 151.38333333333344
   goEventName: TurnOffBigCube
   retroactive: 0
   emitOnce: 0
@@ -3382,22 +3179,44 @@ MonoBehaviour:
   m_Markers:
     m_Objects:
     - {fileID: 3616539363910672571}
-    - {fileID: 6329894167636478475}
-    - {fileID: 5457964073013182569}
-    - {fileID: -8337009598877959043}
-    - {fileID: 6851853811035611103}
-    - {fileID: 4042522792737794545}
-    - {fileID: 603768772583130933}
-    - {fileID: 3777089294929016735}
-    - {fileID: -8715622674415019648}
-    - {fileID: 8974748537043250463}
-    - {fileID: 7721978701113539960}
     - {fileID: 1068625858417590424}
-    - {fileID: 3216407380612506757}
-    - {fileID: -5417992019634216992}
     - {fileID: 3645137856896513456}
     - {fileID: 4826755881030958149}
-    - {fileID: 2210899574717784624}
+--- !u!114 &-2478955583027451144
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
+  m_Name: Go Event Marker
+  m_EditorClassIdentifier: 
+  m_Time: 1332.866666666666
+  goEventName: ShowStaebchen
+  retroactive: 1
+  emitOnce: 0
+--- !u!114 &-2449265128353202507
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4de723f1a9ca16408cb7af549852510, type: 3}
+  m_Name: TravellerControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  template:
+    transitionPointName: InRacer
+    transPointIndex: 0
+    roleAware: 1
+    role: 0
+    lastClipInScene: 0
+    inactive: 0
 --- !u!114 &-2315142829521924776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3410,48 +3229,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 477.78333333333336
+  m_Time: 408.80000000000007
   goEventName: StartRacingTutorial
   retroactive: 0
   emitOnce: 0
---- !u!114 &-2275642797331916132
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4de723f1a9ca16408cb7af549852510, type: 3}
-  m_Name: TravellerControlClip
-  m_EditorClassIdentifier: 
-  template:
-    transitionPointName: Rennfahrer
-    transPointIndex: 0
-    roleAware: 1
-    role: 0
-    lastClipInScene: 1
-    inactive: 0
---- !u!114 &-2207271029830854974
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4de723f1a9ca16408cb7af549852510, type: 3}
-  m_Name: TravellerControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  template:
-    transitionPointName: Pos3
-    transPointIndex: 0
-    roleAware: 1
-    role: 0
-    lastClipInScene: 1
-    inactive: 0
 --- !u!114 &-2193046134321298630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3464,11 +3245,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 667.8333333333334
+  m_Time: 598.8500000000001
   goEventName: FadeInNextSky
   retroactive: 0
   emitOnce: 0
---- !u!114 &-2173003754060252209
+--- !u!114 &-1992520376159457148
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3480,11 +3261,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 1104.8833333333334
-  goEventName: LerpPuppetWeights
+  m_Time: 1015.6666666666666
+  goEventName: PlayTutorialZuschauer
   retroactive: 0
   emitOnce: 0
---- !u!114 &-2011670032761032125
+--- !u!114 &-1959619074257263416
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3493,13 +3274,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
-  m_Name: Go Event Marker
+  m_Script: {fileID: 11500000, guid: d4de723f1a9ca16408cb7af549852510, type: 3}
+  m_Name: TravellerControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
-  m_Time: 1115.2833333333338
-  goEventName: TutorialSchieben
-  retroactive: 0
-  emitOnce: 0
+  template:
+    transitionPointName: Perspektivwechsler
+    transPointIndex: 0
+    roleAware: 1
+    role: 0
+    lastClipInScene: 0
+    inactive: 0
 --- !u!114 &-1955373420829150874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3528,17 +3312,18 @@ MonoBehaviour:
     - {fileID: -1259004236773756144}
     - {fileID: -8344700125497512697}
     - {fileID: -7140042794797944215}
-    - {fileID: -7357091873549844383}
-    - {fileID: 3299697414635074971}
-    - {fileID: -2173003754060252209}
     - {fileID: 9128411960716292192}
     - {fileID: -5352579010185610951}
     - {fileID: 623029014763386084}
     - {fileID: -2879621734562150937}
-    - {fileID: -522452320539264657}
-    - {fileID: -7009921490319908547}
     - {fileID: 2612542823955666165}
     - {fileID: -2193046134321298630}
+    - {fileID: 6904686225920551022}
+    - {fileID: -9074552668963319717}
+    - {fileID: -2478955583027451144}
+    - {fileID: -7782155422766465596}
+    - {fileID: 6291749915558875281}
+    - {fileID: -9008887037666821336}
 --- !u!114 &-1859251229305915034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3551,7 +3336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 629.8833333333334
+  m_Time: 560.9000000000001
   note: Setzen
   spaceStateIndex: 2
   changeDurationToNextMarker: 1
@@ -3619,7 +3404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 798.8666666666667
+  m_Time: 729.8833333333334
   note: Loch
   spaceStateIndex: 5
   changeDurationToNextMarker: 1
@@ -3664,11 +3449,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 206.3666666666667
+  m_Time: 155.23333333333346
   goEventName: NoTribunes
   retroactive: 0
   emitOnce: 0
---- !u!114 &-1217082509089005177
+--- !u!114 &-1237863002630816575
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3678,15 +3463,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4de723f1a9ca16408cb7af549852510, type: 3}
-  m_Name: TravellerControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_Name: TravellerControlClip(Clone)(Clone)
   m_EditorClassIdentifier: 
   template:
-    transitionPointName: InPuppet
+    transitionPointName: inactive
     transPointIndex: 0
-    roleAware: 1
+    roleAware: 0
     role: 0
     lastClipInScene: 0
-    inactive: 0
+    inactive: 1
 --- !u!114 &-1204159363320401432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3699,7 +3484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 344.26666666666665
+  m_Time: 275.2833333333333
   goEventName: ArenaSound
   retroactive: 0
   emitOnce: 0
@@ -3715,7 +3500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 447.73333333333335
+  m_Time: 378.75
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -3760,7 +3545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 514.2499999999998
+  m_Time: 445.2666666666664
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -3805,7 +3590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 433.2833333333334
+  m_Time: 364.30000000000007
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -3850,7 +3635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 752.883333333333
+  m_Time: 683.8999999999996
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -3911,7 +3696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 403.80000000000007
+  m_Time: 334.8166666666667
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -3944,22 +3729,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
---- !u!114 &-711989577679947116
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b98e8f388390bc24fb92da541e12412c, type: 3}
-  m_Name: FloatControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  template:
-    parameterName: Fade
-    value: 1.4
-    firstClipInTrack: 0
 --- !u!114 &-640226456773655407
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3974,7 +3743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Version: 3
   m_AnimClip: {fileID: 0}
-  m_Locked: 0
+  m_Locked: 1
   m_Muted: 1
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
@@ -4032,90 +3801,6 @@ MonoBehaviour:
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
     m_DisplayName: AUTO_NOMOS_PROLOG_skizze kick off 13.12 (1)
-  - m_Version: 1
-    m_Start: 1168.0666666666673
-    m_ClipIn: 477.5666666666666
-    m_Asset: {fileID: -5967683439362077635}
-    m_Duration: 202.4333333333334
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: -640226456773655407}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
-    m_BlendInDuration: 0.28333333333307564
-    m_BlendOutDuration: -1
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 0
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 0
-    m_PreExtrapolationTime: 0
-    m_DisplayName: monocoque final_2506
-  - m_Version: 1
-    m_Start: 934.5333333333333
-    m_ClipIn: 328.4333333333333
-    m_Asset: {fileID: 7625086075033751774}
-    m_Duration: 233.81666666666706
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: -640226456773655407}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
-    m_BlendInDuration: -1
-    m_BlendOutDuration: 0.28333333333307564
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 0
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 0
-    m_PreExtrapolationTime: 0
-    m_DisplayName: monocoque final_2506
   - m_Version: 1
     m_Start: 589.1500000000001
     m_ClipIn: 0
@@ -4235,7 +3920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 479.1
+  m_Time: 410.1166666666667
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -4280,7 +3965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 784.4166666666666
+  m_Time: 715.4333333333334
   note: Loch
   spaceStateIndex: 5
   changeDurationToNextMarker: 1
@@ -4311,22 +3996,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  retroactive: 0
-  emitOnce: 0
---- !u!114 &-522452320539264657
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
-  m_Name: Go Event Marker
-  m_EditorClassIdentifier: 
-  m_Time: 1097.8
-  goEventName: EnableMoveByTrigger
   retroactive: 0
   emitOnce: 0
 --- !u!114 &-486580111311330078
@@ -4360,12 +4029,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd1052dc315d7348b5df1a59f3fbae5, type: 3}
   m_Name: Timeline Annotation
   m_EditorClassIdentifier: 
-  m_Time: 171.41666666666666
+  m_Time: 120.28333333333335
   title: seitenring
   color: {r: 0, g: 0, b: 0, a: 0}
   description: 
   showLineOverlay: 0
---- !u!114 &-253406398038090804
+--- !u!114 &-304035809276616317
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4374,33 +4043,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b98e8f388390bc24fb92da541e12412c, type: 3}
-  m_Name: FloatControlClip(Clone)(Clone)(Clone)(Clone)
+  m_Script: {fileID: 11500000, guid: d4de723f1a9ca16408cb7af549852510, type: 3}
+  m_Name: TravellerControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   template:
-    parameterName: Fade
-    value: 0
-    firstClipInTrack: 0
---- !u!114 &-247102148730930379
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fcd2b15230248c4b80b7a71a1d6488e, type: 3}
-  m_Name: SceneControlClip(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  template:
-    sceneName: II_2  Rohrschachtest
-    useSceneName: 1
-    sceneIndex: 1
-    jumpToClipStartOnGoingBackInTL: 0
-    clipDuration: 0
-    roomSection: Monocoque
-    singelplayer: 0
+    transitionPointName: Perspektivwechsler
+    transPointIndex: 0
+    roleAware: 1
+    role: 1
+    lastClipInScene: 0
+    inactive: 0
 --- !u!114 &-244328333796367158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4413,7 +4065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 571.1166666666669
+  m_Time: 502.13333333333355
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -4581,6 +4233,22 @@ MonoBehaviour:
     m_ScenePreview: 1
   m_DurationMode: 0
   m_MarkerTrack: {fileID: 9009776917913571505}
+--- !u!114 &100948757333314060
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98e8f388390bc24fb92da541e12412c, type: 3}
+  m_Name: FloatControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  template:
+    parameterName: Fade
+    value: 0
+    firstClipInTrack: 0
 --- !u!114 &134834128878457073
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4593,7 +4261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 504.54999999999995
+  m_Time: 435.5666666666666
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -4678,7 +4346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 350.95000000000005
+  m_Time: 281.9666666666667
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -4711,7 +4379,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
---- !u!114 &395574456968529993
+--- !u!114 &460734156276388771
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4720,16 +4388,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4de723f1a9ca16408cb7af549852510, type: 3}
-  m_Name: TravellerControlClip(Clone)(Clone)
+  m_Script: {fileID: 11500000, guid: 9fcd2b15230248c4b80b7a71a1d6488e, type: 3}
+  m_Name: SceneControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   template:
-    transitionPointName: Zuschauer
-    transPointIndex: 0
-    roleAware: 1
-    role: 1
-    lastClipInScene: 1
-    inactive: 0
+    sceneName: II_3 Finish
+    useSceneName: 1
+    sceneIndex: 1
+    jumpToClipStartOnGoingBackInTL: 0
+    clipDuration: 0
+    roomSection: Monocoque
+    singelplayer: 1
 --- !u!114 &477107200068022094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4742,7 +4411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 439.51666666666677
+  m_Time: 370.5333333333334
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -4787,7 +4456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 630.8666666666669
+  m_Time: 561.8833333333337
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -4820,22 +4489,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
---- !u!114 &507865636892277342
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
-  m_Name: Go Event Marker
-  m_EditorClassIdentifier: 
-  m_Time: 984.7666666666671
-  goEventName: PlayTutorial
-  retroactive: 0
-  emitOnce: 0
 --- !u!114 &513465949951458990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4848,7 +4501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 240.78333333333345
+  m_Time: 189.6500000000002
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -4893,7 +4546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 330.6166666666667
+  m_Time: 261.6333333333333
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -4938,7 +4591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 496.33333333333314
+  m_Time: 427.3499999999998
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -4971,7 +4624,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
---- !u!114 &603768772583130933
+--- !u!114 &560890602383851594
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4980,17 +4633,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
-  m_Name: Haltepunkt Marker
+  m_Script: {fileID: 11500000, guid: d4de723f1a9ca16408cb7af549852510, type: 3}
+  m_Name: TravellerControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
-  m_Time: 957.8999999999997
-  note: Halt vor Szenenwechsel
-  displayModeInInspiUI: 1
-  stopOrHold: 0
-  haltInOfflineMode: 0
-  waitDurationInOfflineMode: 0
-  retroactive: 0
-  emitOnce: 0
+  template:
+    transitionPointName: ThirdPersonPersp
+    transPointIndex: 0
+    roleAware: 1
+    role: 0
+    lastClipInScene: 0
+    inactive: 0
 --- !u!114 &623029014763386084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5003,7 +4655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 659.5
+  m_Time: 590.5166666666667
   goEventName: TribuenenRennen1
   retroactive: 0
   emitOnce: 0
@@ -5019,7 +4671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 674.8000000000002
+  m_Time: 605.8166666666668
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -5081,7 +4733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
   m_Name: Haltepunkt Marker
   m_EditorClassIdentifier: 
-  m_Time: 477.3666666666667
+  m_Time: 408.3833333333333
   note: Halt vor Rennen Tutorial
   displayModeInInspiUI: 1
   stopOrHold: 0
@@ -5101,7 +4753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 741.3166666666666
+  m_Time: 672.3333333333333
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -5146,7 +4798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 370.38333333333344
+  m_Time: 301.4000000000001
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -5191,7 +4843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 828.3499999999995
+  m_Time: 759.3666666666661
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -5224,6 +4876,22 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
+--- !u!114 &1438214590189512398
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98e8f388390bc24fb92da541e12412c, type: 3}
+  m_Name: FloatControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  template:
+    parameterName: Fade
+    value: 1.4
+    firstClipInTrack: 1
 --- !u!114 &1463471513965761174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5236,7 +4904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 525.8166666666662
+  m_Time: 456.8333333333327
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -5281,7 +4949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 648.7833333333335
+  m_Time: 579.8000000000002
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -5326,7 +4994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 388.0333333333334
+  m_Time: 319.05000000000007
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -5375,25 +5043,6 @@ MonoBehaviour:
   goEventName: ShowHands
   retroactive: 0
   emitOnce: 0
---- !u!114 &1704894036762429180
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4de723f1a9ca16408cb7af549852510, type: 3}
-  m_Name: TravellerControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  template:
-    transitionPointName: ThirdPersonPersp
-    transPointIndex: 0
-    roleAware: 1
-    role: 0
-    lastClipInScene: 0
-    inactive: 0
 --- !u!114 &1768504122003761676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5406,7 +5055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 281.4333333333334
+  m_Time: 230.30000000000015
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -5451,11 +5100,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 208.76666666666677
+  m_Time: 157.6333333333335
   goEventName: SeqBeforeStart
   retroactive: 0
   emitOnce: 0
---- !u!114 &1916353485535954000
+--- !u!114 &1908665136040091201
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5465,7 +5114,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b98e8f388390bc24fb92da541e12412c, type: 3}
-  m_Name: FloatControlClip(Clone)(Clone)(Clone)(Clone)
+  m_Name: FloatControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   template:
     parameterName: Fade
@@ -5483,7 +5132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 418.11666666666673
+  m_Time: 349.13333333333344
   note: Landschaft
   spaceStateIndex: 4
   changeDurationToNextMarker: 0
@@ -5510,6 +5159,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde0d25a170598d46a0b9dc16b4527a5, type: 3}
   m_Name: ActivationPlayableAsset
   m_EditorClassIdentifier: 
+--- !u!114 &1990193251660375998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4de723f1a9ca16408cb7af549852510, type: 3}
+  m_Name: TravellerControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  template:
+    transitionPointName: Zuschauer
+    transPointIndex: 0
+    roleAware: 1
+    role: 1
+    lastClipInScene: 0
+    inactive: 0
 --- !u!114 &2047572717703803583
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5522,7 +5190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 723.4
+  m_Time: 654.4166666666667
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -5567,7 +5235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 774.8
+  m_Time: 705.8166666666666
   note: Setzen
   spaceStateIndex: 1
   changeDurationToNextMarker: 1
@@ -5600,7 +5268,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
---- !u!114 &2210899574717784624
+--- !u!114 &2129650908005956231
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5609,33 +5277,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
-  m_Name: Haltepunkt Marker
+  m_Script: {fileID: 11500000, guid: d4de723f1a9ca16408cb7af549852510, type: 3}
+  m_Name: TravellerControlClip(Clone)(Clone)
   m_EditorClassIdentifier: 
-  m_Time: 1104.3833333333334
-  note: "Vor Rennfahrer st\xFCrzt"
-  displayModeInInspiUI: 1
-  stopOrHold: 0
-  haltInOfflineMode: 0
-  waitDurationInOfflineMode: 0
-  retroactive: 0
-  emitOnce: 0
---- !u!114 &2219116445107822092
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
-  m_Name: Go Event Marker
-  m_EditorClassIdentifier: 
-  m_Time: 1097.1000000000004
-  goEventName: TutorialBewegen
-  retroactive: 0
-  emitOnce: 0
+  template:
+    transitionPointName: Zuschauer
+    transPointIndex: 0
+    roleAware: 1
+    role: 1
+    lastClipInScene: 1
+    inactive: 0
 --- !u!114 &2302057738487382138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5648,7 +5299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 549.9666666666665
+  m_Time: 480.983333333333
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -5693,7 +5344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 557.6833333333335
+  m_Time: 488.70000000000016
   goEventName: EnableBoxenstop
   retroactive: 0
   emitOnce: 0
@@ -5709,7 +5360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 479.1
+  m_Time: 410.1166666666667
   note: Setzen
   spaceStateIndex: 2
   changeDurationToNextMarker: 1
@@ -5754,7 +5405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 569.2666666666667
+  m_Time: 500.2833333333332
   goEventName: FadeInNextSky
   retroactive: 0
   emitOnce: 0
@@ -5770,24 +5421,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 171.41666666666666
+  m_Time: 120.28333333333335
   goEventName: FadeInNextSky
-  retroactive: 0
-  emitOnce: 0
---- !u!114 &2801769876768141149
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
-  m_Name: Go Event Marker
-  m_EditorClassIdentifier: 
-  m_Time: 951.7666666666668
-  goEventName: InitializeLerpZuschauer
   retroactive: 0
   emitOnce: 0
 --- !u!114 &2859455225452328502
@@ -5802,7 +5437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 421.7166666666667
+  m_Time: 352.73333333333335
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -5863,7 +5498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 659.6333333333333
+  m_Time: 590.6500000000001
   goEventName: ObstacleSituation1
   retroactive: 0
   emitOnce: 0
@@ -5907,291 +5542,6 @@ MonoBehaviour:
   m_Parent: {fileID: 11400000}
   m_Children: []
   m_Clips:
-  - m_Version: 1
-    m_Start: 1034.300000000001
-    m_ClipIn: 0
-    m_Asset: {fileID: -2207271029830854974}
-    m_Duration: 46.41666666666572
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: 2956956292530087105}
-    m_EaseInDuration: 35.06666666666666
-    m_EaseOutDuration: 0
-    m_BlendInDuration: -1
-    m_BlendOutDuration: -1
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 4
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 0.03333333333421251
-    m_PreExtrapolationTime: 0
-    m_DisplayName: 'TP: Pos3'
-  - m_Version: 1
-    m_Start: 995.2833333333335
-    m_ClipIn: 0
-    m_Asset: {fileID: -7549249166121084951}
-    m_Duration: 35.06666666666666
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: 2956956292530087105}
-    m_EaseInDuration: 35.06666666666666
-    m_EaseOutDuration: 0
-    m_BlendInDuration: -1
-    m_BlendOutDuration: -1
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 4
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 3.950000000000955
-    m_PreExtrapolationTime: 0
-    m_DisplayName: 'TP: Pos2'
-  - m_Version: 1
-    m_Start: 934.5333333333333
-    m_ClipIn: 0
-    m_Asset: {fileID: -2275642797331916132}
-    m_Duration: 19.51666666666665
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: 2956956292530087105}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
-    m_BlendInDuration: -1
-    m_BlendOutDuration: -1
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 4
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 13.116666666667015
-    m_PreExtrapolationTime: 0
-    m_DisplayName: 'TP: Rennfahrer'
-  - m_Version: 1
-    m_Start: 967.166666666667
-    m_ClipIn: 0
-    m_Asset: {fileID: -6609302590375788926}
-    m_Duration: 19.51666666666665
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: 2956956292530087105}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
-    m_BlendInDuration: -1
-    m_BlendOutDuration: -1
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 4
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 8.599999999999909
-    m_PreExtrapolationTime: 0
-    m_DisplayName: 'TP: Rennfahrer'
-  - m_Version: 1
-    m_Start: 1080.750000000001
-    m_ClipIn: 0
-    m_Asset: {fileID: 1704894036762429180}
-    m_Duration: 16.5
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: 2956956292530087105}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
-    m_BlendInDuration: -1
-    m_BlendOutDuration: -1
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 0
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 19.933333333333394
-    m_PreExtrapolationTime: 0
-    m_DisplayName: 'TP: ThirdPersonPersp'
-  - m_Version: 1
-    m_Start: 1117.1833333333343
-    m_ClipIn: 0
-    m_Asset: {fileID: -2900942247337996452}
-    m_Duration: 14.383333333332757
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: 2956956292530087105}
-    m_EaseInDuration: 10
-    m_EaseOutDuration: 0
-    m_BlendInDuration: -1
-    m_BlendOutDuration: -1
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 0
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 2.58333333333303
-    m_PreExtrapolationTime: 19.933333333333394
-    m_DisplayName: 'TP: InRacer'
-  - m_Version: 1
-    m_Start: 1134.15
-    m_ClipIn: 0
-    m_Asset: {fileID: -1217082509089005177}
-    m_Duration: 22.33333333333337
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: 2956956292530087105}
-    m_EaseInDuration: 16.5
-    m_EaseOutDuration: 0
-    m_BlendInDuration: -1
-    m_BlendOutDuration: -1
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 0
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: Infinity
-    m_PreExtrapolationTime: 2.58333333333303
-    m_DisplayName: 'TP: InPuppet'
   - m_Version: 1
     m_Start: 0
     m_ClipIn: 0
@@ -6258,9 +5608,330 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 4
     m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 897.5
+    m_PostExtrapolationTime: 962.9666666666667
     m_PreExtrapolationTime: 0
     m_DisplayName: 'TP: Rennfahrer (inactive)'
+  - m_Version: 1
+    m_Start: 1000
+    m_ClipIn: 0
+    m_Asset: {fileID: -6785602760412250084}
+    m_Duration: 19.51666666666665
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 2956956292530087105}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 4
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 130.2833333333333
+    m_PreExtrapolationTime: 0
+    m_DisplayName: 'TP: Rennfahrer'
+  - m_Version: 1
+    m_Start: 1149.8
+    m_ClipIn: 0
+    m_Asset: {fileID: 3685628755074230789}
+    m_Duration: 19.51666666666665
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 2956956292530087105}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 4
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 8.600000000000591
+    m_PreExtrapolationTime: 0
+    m_DisplayName: 'TP: Rennfahrer'
+  - m_Version: 1
+    m_Start: 1177.9166666666672
+    m_ClipIn: 0
+    m_Asset: {fileID: -5074396522500769541}
+    m_Duration: 60.19999999999936
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 2956956292530087105}
+    m_EaseInDuration: 42.7
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 4
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: 'TP: Pos2'
+  - m_Version: 1
+    m_Start: 1238.1166666666666
+    m_ClipIn: 0
+    m_Asset: {fileID: -5923639924882998062}
+    m_Duration: 61.683333333333394
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 2956956292530087105}
+    m_EaseInDuration: 43.4
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 4
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0.033333333333757764
+    m_PreExtrapolationTime: 0
+    m_DisplayName: 'TP: Pos3'
+  - m_Version: 1
+    m_Start: 1299.8333333333337
+    m_ClipIn: 0
+    m_Asset: {fileID: 560890602383851594}
+    m_Duration: 3.0666666666661513
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 2956956292530087105}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: 'TP: ThirdPersonPersp'
+  - m_Version: 1
+    m_Start: 1302.8999999999999
+    m_ClipIn: 0
+    m_Asset: {fileID: -2449265128353202507}
+    m_Duration: 36.66666666666674
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 2956956292530087105}
+    m_EaseInDuration: 25
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 41.316666666666606
+    m_PreExtrapolationTime: 0
+    m_DisplayName: 'TP: InRacer'
+  - m_Version: 1
+    m_Start: 1380.8833333333332
+    m_ClipIn: 0
+    m_Asset: {fileID: -1959619074257263416}
+    m_Duration: 22.33333333333337
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 2956956292530087105}
+    m_EaseInDuration: 16.5
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: Infinity
+    m_PreExtrapolationTime: 41.316666666666606
+    m_DisplayName: 'TP: Perspektivwechsler'
   m_Markers:
     m_Objects: []
 --- !u!114 &2957580421612257503
@@ -6275,7 +5946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 274.5333333333334
+  m_Time: 223.40000000000018
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -6320,28 +5991,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 490.0999999999999
+  m_Time: 421.11666666666656
   goEventName: ObstacleSituation1
-  retroactive: 0
-  emitOnce: 0
---- !u!114 &3216407380612506757
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
-  m_Name: Haltepunkt Marker
-  m_EditorClassIdentifier: 
-  m_Time: 210.45
-  note: Halt vor Fahrt zum Start
-  displayModeInInspiUI: 1
-  stopOrHold: 0
-  haltInOfflineMode: 0
-  waitDurationInOfflineMode: 0
   retroactive: 0
   emitOnce: 0
 --- !u!114 &3226447939727678970
@@ -6375,7 +6026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 430.7833333333334
+  m_Time: 361.80000000000007
   note: Landschaft
   spaceStateIndex: 4
   changeDurationToNextMarker: 0
@@ -6402,7 +6053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 762.8166666666666
+  m_Time: 693.8333333333333
   note: Setzen
   spaceStateIndex: 2
   changeDurationToNextMarker: 1
@@ -6435,22 +6086,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
---- !u!114 &3299697414635074971
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
-  m_Name: Go Event Marker
-  m_EditorClassIdentifier: 
-  m_Time: 1085.966666666667
-  goEventName: EnablePuppet
-  retroactive: 0
-  emitOnce: 0
 --- !u!114 &3354192930030539168
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6463,7 +6098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 706.1666666666669
+  m_Time: 637.1833333333336
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -6508,7 +6143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 683.4000000000001
+  m_Time: 614.4166666666667
   note: Loch
   spaceStateIndex: 5
   changeDurationToNextMarker: 1
@@ -6541,7 +6176,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
---- !u!114 &3467741010093195622
+--- !u!114 &3421643247463022234
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6555,8 +6190,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   template:
     parameterName: Fade
-    value: 0
-    firstClipInTrack: 0
+    value: 1.4
+    firstClipInTrack: 1
 --- !u!114 &3616539363910672571
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6589,7 +6224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
   m_Name: Haltepunkt Marker
   m_EditorClassIdentifier: 
-  m_Time: 416.7666666666667
+  m_Time: 347.7833333333334
   note: "Auf der Zuschauertrib\xFCne"
   displayModeInInspiUI: 1
   stopOrHold: 0
@@ -6597,6 +6232,25 @@ MonoBehaviour:
   waitDurationInOfflineMode: 0
   retroactive: 0
   emitOnce: 0
+--- !u!114 &3685628755074230789
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4de723f1a9ca16408cb7af549852510, type: 3}
+  m_Name: TravellerControlClip(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  template:
+    transitionPointName: Rennfahrer
+    transPointIndex: 0
+    roleAware: 1
+    role: 0
+    lastClipInScene: 0
+    inactive: 0
 --- !u!114 &3762049683460931508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6609,28 +6263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 205.75000000000003
+  m_Time: 154.6166666666668
   goEventName: PresentTribunes
-  retroactive: 0
-  emitOnce: 0
---- !u!114 &3777089294929016735
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
-  m_Name: Haltepunkt Marker
-  m_EditorClassIdentifier: 
-  m_Time: 1084.616666666667
-  note: Halt vor Finish
-  displayModeInInspiUI: 1
-  stopOrHold: 0
-  haltInOfflineMode: 0
-  waitDurationInOfflineMode: 0
   retroactive: 0
   emitOnce: 0
 --- !u!114 &3923889219641760590
@@ -6645,7 +6279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 210.49999999999997
+  m_Time: 159.36666666666673
   note: Flach
   spaceStateIndex: 0
   changeDurationToNextMarker: 1
@@ -6690,7 +6324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 817.6333333333333
+  m_Time: 748.6500000000001
   note: Landschaft
   spaceStateIndex: 4
   changeDurationToNextMarker: 0
@@ -6717,7 +6351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 684.5000000000002
+  m_Time: 615.5166666666669
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -6769,26 +6403,6 @@ MonoBehaviour:
     role: 0
     lastClipInScene: 1
     inactive: 1
---- !u!114 &4042522792737794545
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
-  m_Name: Haltepunkt Marker
-  m_EditorClassIdentifier: 
-  m_Time: 950.7166666666666
-  note: Halt vor Raumbewegung
-  displayModeInInspiUI: 1
-  stopOrHold: 0
-  haltInOfflineMode: 0
-  waitDurationInOfflineMode: 0
-  retroactive: 0
-  emitOnce: 0
 --- !u!114 &4044008502130658099
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6801,7 +6415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 764.9333333333334
+  m_Time: 695.95
   note: Setzen
   spaceStateIndex: 2
   changeDurationToNextMarker: 1
@@ -6851,22 +6465,6 @@ MonoBehaviour:
   m_bufferingTime: 0.1
   m_ClipProperties:
     volume: 1
---- !u!114 &4248759512809718598
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
-  m_Name: Go Event Marker
-  m_EditorClassIdentifier: 
-  m_Time: 949.9999999999999
-  goEventName: PlayTutorialZuschauer
-  retroactive: 0
-  emitOnce: 0
 --- !u!114 &4315673289254715490
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6879,7 +6477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 615.1000000000003
+  m_Time: 546.116666666667
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -6924,7 +6522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 813.8999999999996
+  m_Time: 744.9166666666663
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -6969,7 +6567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 540.266666666666
+  m_Time: 471.2833333333325
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -7018,6 +6616,26 @@ MonoBehaviour:
     parameterName: Fade
     value: 0
     firstClipInTrack: 0
+--- !u!114 &4624049958554995290
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fcd2b15230248c4b80b7a71a1d6488e, type: 3}
+  m_Name: SceneControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  template:
+    sceneName: II_1 Foresythe
+    useSceneName: 1
+    sceneIndex: 1
+    jumpToClipStartOnGoingBackInTL: 0
+    clipDuration: 0
+    roomSection: Monocoque
+    singelplayer: 1
 --- !u!114 &4826755881030958149
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7030,7 +6648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
   m_Name: Haltepunkt Marker
   m_EditorClassIdentifier: 
-  m_Time: 478
+  m_Time: 409.01666666666665
   note: Halt vor Countdown
   displayModeInInspiUI: 0
   stopOrHold: 0
@@ -7050,7 +6668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 802.3333333333333
+  m_Time: 733.3499999999999
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -7097,7 +6715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Version: 3
   m_AnimClip: {fileID: 0}
-  m_Locked: 0
+  m_Locked: 1
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
@@ -7105,13 +6723,13 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 24.666666666666664
+    m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 7832906387666455129}
-    m_Duration: 151.96666666666667
+    m_Duration: 147.7
     m_TimeScale: 1
     m_ParentTrack: {fileID: 4840431594766420808}
-    m_EaseInDuration: 120
+    m_EaseInDuration: 95.3
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
     m_BlendOutDuration: -1
@@ -7170,11 +6788,11 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 0
     m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 33.866666666666646
-    m_PreExtrapolationTime: 24.666666666666664
+    m_PostExtrapolationTime: 20.73333333333335
+    m_PreExtrapolationTime: 0
     m_DisplayName: Drift
   - m_Version: 1
-    m_Start: 210.49999999999997
+    m_Start: 168.43333333333334
     m_ClipIn: 0
     m_Asset: {fileID: 6749540440347052464}
     m_Duration: 134.51666666666668
@@ -7240,11 +6858,11 @@ MonoBehaviour:
     m_PostExtrapolationMode: 0
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: Infinity
-    m_PreExtrapolationTime: 33.866666666666646
+    m_PreExtrapolationTime: 20.73333333333335
     m_DisplayName: DriftInRing
   m_Markers:
     m_Objects: []
---- !u!114 &4886378868998701336
+--- !u!114 &5196697803414914046
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7253,13 +6871,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b98e8f388390bc24fb92da541e12412c, type: 3}
-  m_Name: FloatControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
+  m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  template:
-    parameterName: Fade
-    value: 0
-    firstClipInTrack: 0
+  m_Time: 1372.0666666666666
+  goEventName: TutorialFahrt
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &5419448007783675222
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7272,7 +6890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 210.49999999999997
+  m_Time: 159.36666666666673
   note: 
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -7305,26 +6923,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
---- !u!114 &5457964073013182569
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
-  m_Name: Haltepunkt Marker
-  m_EditorClassIdentifier: 
-  m_Time: 993.7666666666671
-  note: Halt vor Raumbewegung
-  displayModeInInspiUI: 1
-  stopOrHold: 0
-  haltInOfflineMode: 0
-  waitDurationInOfflineMode: 0
-  retroactive: 0
-  emitOnce: 0
 --- !u!114 &5556851103011072736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7337,7 +6935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 505.39999999999975
+  m_Time: 436.4166666666663
   note: Flach
   spaceStateIndex: 0
   changeDurationToNextMarker: 1
@@ -7382,7 +6980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 496.33333333333314
+  m_Time: 427.3499999999998
   note: Flach
   spaceStateIndex: 0
   changeDurationToNextMarker: 1
@@ -7427,7 +7025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 362.08333333333326
+  m_Time: 293.0999999999999
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -7472,7 +7070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 557.6833333333335
+  m_Time: 488.70000000000016
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -7505,7 +7103,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
---- !u!114 &6329894167636478475
+--- !u!114 &6291749915558875281
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7514,15 +7112,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
-  m_Name: Haltepunkt Marker
+  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
+  m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 970.4833333333338
-  note: Warten auf Rennfahrer
-  displayModeInInspiUI: 1
-  stopOrHold: 1
-  haltInOfflineMode: 0
-  waitDurationInOfflineMode: 0
+  m_Time: 1447.1999999999996
+  goEventName: Loop
   retroactive: 0
   emitOnce: 0
 --- !u!114 &6502069377586797843
@@ -7546,105 +7140,6 @@ MonoBehaviour:
   m_Parent: {fileID: 11400000}
   m_Children: []
   m_Clips:
-  - m_Version: 1
-    m_Start: 934.5333333333333
-    m_ClipIn: 0
-    m_Asset: {fileID: -4156298641689034420}
-    m_Duration: 19.51666666666665
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: 6502069377586797843}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
-    m_BlendInDuration: -1
-    m_BlendOutDuration: -1
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 4
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 13.116666666667015
-    m_PreExtrapolationTime: 0
-    m_DisplayName: 'TP: Zuschauer'
-  - m_Version: 1
-    m_Start: 967.166666666667
-    m_ClipIn: 0
-    m_Asset: {fileID: 395574456968529993}
-    m_Duration: 19.51666666666665
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: 6502069377586797843}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
-    m_BlendInDuration: -1
-    m_BlendOutDuration: -1
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 4
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 94.06666666666729
-    m_PreExtrapolationTime: 0
-    m_DisplayName: 'TP: Zuschauer'
-  - m_Version: 1
-    m_Start: 1080.750000000001
-    m_ClipIn: 0
-    m_Asset: {fileID: -5976988763155361444}
-    m_Duration: 16.5
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: 6502069377586797843}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
-    m_BlendInDuration: -1
-    m_BlendOutDuration: -1
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 4
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 16.73333333333244
-    m_PreExtrapolationTime: 0
-    m_DisplayName: 'TP: Zuschauer'
   - m_Version: 1
     m_Start: 0
     m_ClipIn: 0
@@ -7711,13 +7206,112 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 4
     m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 897.5
+    m_PostExtrapolationTime: 962.9666666666667
     m_PreExtrapolationTime: 0
     m_DisplayName: 'TP: Zuschauer (inactive)'
   - m_Version: 1
-    m_Start: 1113.9833333333333
+    m_Start: 1000
     m_ClipIn: 0
-    m_Asset: {fileID: -2802111278855764216}
+    m_Asset: {fileID: 2129650908005956231}
+    m_Duration: 19.51666666666665
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 6502069377586797843}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 4
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 130.2833333333333
+    m_PreExtrapolationTime: 0
+    m_DisplayName: 'TP: Zuschauer'
+  - m_Version: 1
+    m_Start: 1149.8
+    m_ClipIn: 0
+    m_Asset: {fileID: 7360931763623983312}
+    m_Duration: 19.51666666666665
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 6502069377586797843}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 4
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 130.5166666666671
+    m_PreExtrapolationTime: 0
+    m_DisplayName: 'TP: Zuschauer'
+  - m_Version: 1
+    m_Start: 1299.8333333333337
+    m_ClipIn: 0
+    m_Asset: {fileID: 1990193251660375998}
+    m_Duration: 16.5
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 6502069377586797843}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 4
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 82.04999999999927
+    m_PreExtrapolationTime: 0
+    m_DisplayName: 'TP: Zuschauer'
+  - m_Version: 1
+    m_Start: 1398.383333333333
+    m_ClipIn: 0
+    m_Asset: {fileID: -304035809276616317}
     m_Duration: 4.833333333333485
     m_TimeScale: 1
     m_ParentTrack: {fileID: 6502069377586797843}
@@ -7727,7 +7321,25 @@ MonoBehaviour:
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -7761,7 +7373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 266.3166666666667
+  m_Time: 215.1833333333335
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -7792,6 +7404,22 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
+--- !u!114 &6626689599929269864
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
+  m_Name: Go Event Marker
+  m_EditorClassIdentifier: 
+  m_Time: 1017.4333333333335
+  goEventName: InitializeLerpZuschauer
   retroactive: 0
   emitOnce: 0
 --- !u!114 &6694101729319771260
@@ -7826,26 +7454,6 @@ MonoBehaviour:
     parameterName: DriftInRing
     value: 0.05
     firstClipInTrack: 1
---- !u!114 &6851853811035611103
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
-  m_Name: Haltepunkt Marker
-  m_EditorClassIdentifier: 
-  m_Time: 938.4500000000002
-  note: Halt vor Rohrschachtest
-  displayModeInInspiUI: 1
-  stopOrHold: 0
-  haltInOfflineMode: 0
-  waitDurationInOfflineMode: 0
-  retroactive: 0
-  emitOnce: 0
 --- !u!114 &6874024913913437791
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7858,7 +7466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 219.5666666666666
+  m_Time: 168.43333333333334
   note: Flach
   spaceStateIndex: 0
   changeDurationToNextMarker: 1
@@ -7891,6 +7499,38 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
+--- !u!114 &6904686225920551022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
+  m_Name: Go Event Marker
+  m_EditorClassIdentifier: 
+  m_Time: 1310.0666666666662
+  goEventName: EnableMoveByTrigger
+  retroactive: 0
+  emitOnce: 0
+--- !u!114 &7020722492517514549
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98e8f388390bc24fb92da541e12412c, type: 3}
+  m_Name: FloatControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  template:
+    parameterName: Fade
+    value: 0
+    firstClipInTrack: 0
 --- !u!114 &7068672437604377643
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7903,7 +7543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 682.0833333333334
+  m_Time: 613.1000000000001
   goEventName: Wiederholung
   retroactive: 0
   emitOnce: 0
@@ -7921,7 +7561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Version: 3
   m_AnimClip: {fileID: 0}
-  m_Locked: 0
+  m_Locked: 1
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
@@ -8023,7 +7663,7 @@ MonoBehaviour:
   m_Clips: []
   m_Markers:
     m_Objects: []
---- !u!114 &7625086075033751774
+--- !u!114 &7291935499017242517
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8032,14 +7672,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f10dd60657c6004587f237a7e90f8e4, type: 3}
-  m_Name: AudioPlayableAsset(Clone)
+  m_Script: {fileID: 11500000, guid: b98e8f388390bc24fb92da541e12412c, type: 3}
+  m_Name: FloatControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
-  m_Clip: {fileID: 8300000, guid: 2d784d70c6121e44b94417e35919c523, type: 3}
-  m_Loop: 0
-  m_bufferingTime: 0.1
-  m_ClipProperties:
-    volume: 1
+  template:
+    parameterName: Fade
+    value: 0
+    firstClipInTrack: 0
+--- !u!114 &7360931763623983312
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4de723f1a9ca16408cb7af549852510, type: 3}
+  m_Name: TravellerControlClip(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  template:
+    transitionPointName: Zuschauer
+    transPointIndex: 0
+    roleAware: 1
+    role: 1
+    lastClipInScene: 1
+    inactive: 0
 --- !u!114 &7636653828557412835
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8143,14 +7801,14 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 4
     m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 800.9166666666667
+    m_PostExtrapolationTime: 899.3000000000002
     m_PreExtrapolationTime: 14.899999999999999
     m_DisplayName: Fade
   - m_Version: 1
-    m_Start: 866.0666666666666
+    m_Start: 936.3333333333335
     m_ClipIn: 0
     m_Asset: {fileID: 4599023327588371713}
-    m_Duration: 68.4666666666667
+    m_Duration: 12.533333333333303
     m_TimeScale: 1
     m_ParentTrack: {fileID: 7666841824757086708}
     m_EaseInDuration: 8.050000000000004
@@ -8159,49 +7817,13 @@ MonoBehaviour:
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -8212,41 +7834,23 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 0
     m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 2.9891144370971006
-    m_PreExtrapolationTime: 21.233333333333235
+    m_PostExtrapolationTime: 51.13333333333321
+    m_PreExtrapolationTime: 0
     m_DisplayName: Fade
   - m_Version: 1
-    m_Start: 937.5224477704304
+    m_Start: 1000
     m_ClipIn: 0
-    m_Asset: {fileID: 1916353485535954000}
+    m_Asset: {fileID: 1908665136040091201}
     m_Duration: 16.527552229569437
     m_TimeScale: 1
     m_ParentTrack: {fileID: 7666841824757086708}
-    m_EaseInDuration: 12.62
+    m_EaseInDuration: 3
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -8263,17 +7867,17 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 4.7666666666666515
-    m_PreExtrapolationTime: 2.9891144370971006
+    m_PostExtrapolationTime: 129.2891144370967
+    m_PreExtrapolationTime: 51.13333333333321
     m_DisplayName: Fade
   - m_Version: 1
-    m_Start: 958.8166666666665
+    m_Start: 1145.8166666666662
     m_ClipIn: 0
-    m_Asset: {fileID: 4886378868998701336}
-    m_Duration: 8.350000000000477
+    m_Asset: {fileID: 7291935499017242517}
+    m_Duration: 3.0833333333337123
     m_TimeScale: 1
     m_ParentTrack: {fileID: 7666841824757086708}
-    m_EaseInDuration: 8.050000000000004
+    m_EaseInDuration: 3
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
     m_BlendOutDuration: -1
@@ -8314,17 +7918,17 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 0
     m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 3.3166666666668334
+    m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
     m_DisplayName: Fade
   - m_Version: 1
-    m_Start: 970.4833333333338
+    m_Start: 1148.9000000000005
     m_ClipIn: 0
-    m_Asset: {fileID: -7933906565565217420}
+    m_Asset: {fileID: 3421643247463022234}
     m_Duration: 41.40000000000009
     m_TimeScale: 1
     m_ParentTrack: {fileID: 7666841824757086708}
-    m_EaseInDuration: 14
+    m_EaseInDuration: 3
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
     m_BlendOutDuration: -1
@@ -8365,23 +7969,41 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 60.23333333333335
-    m_PreExtrapolationTime: 3.3166666666668334
+    m_PostExtrapolationTime: 105.43333333333248
+    m_PreExtrapolationTime: 0
     m_DisplayName: Fade
   - m_Version: 1
-    m_Start: 1072.1166666666672
+    m_Start: 1295.7333333333331
     m_ClipIn: 0
-    m_Asset: {fileID: 3467741010093195622}
-    m_Duration: 8.599999999999682
+    m_Asset: {fileID: 100948757333314060}
+    m_Duration: 3.1666666666667425
     m_TimeScale: 1
     m_ParentTrack: {fileID: 7666841824757086708}
-    m_EaseInDuration: 8.050000000000004
+    m_EaseInDuration: 3
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -8398,23 +8020,41 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 2.1000000000001364
+    m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
     m_DisplayName: Fade
   - m_Version: 1
-    m_Start: 1082.816666666667
+    m_Start: 1298.9
     m_ClipIn: 0
-    m_Asset: {fileID: -7759888259912813843}
-    m_Duration: 23.26666666666665
+    m_Asset: {fileID: 1438214590189512398}
+    m_Duration: 31.73333333333335
     m_TimeScale: 1
     m_ParentTrack: {fileID: 7666841824757086708}
-    m_EaseInDuration: 14
+    m_EaseInDuration: 3
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -8431,23 +8071,41 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 47.93333333333317
+    m_PostExtrapolationTime: 112.33333333333326
     m_PreExtrapolationTime: 0
     m_DisplayName: Fade
   - m_Version: 1
-    m_Start: 1154.0166666666669
+    m_Start: 1442.9666666666667
     m_ClipIn: 0
-    m_Asset: {fileID: -7812671548227029460}
-    m_Duration: 14.333333333333371
+    m_Asset: {fileID: 7020722492517514549}
+    m_Duration: 5.933333333333167
     m_TimeScale: 1
     m_ParentTrack: {fileID: 7666841824757086708}
-    m_EaseInDuration: 8.050000000000004
+    m_EaseInDuration: 3
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -8467,144 +8125,6 @@ MonoBehaviour:
     m_PostExtrapolationTime: Infinity
     m_PreExtrapolationTime: 0
     m_DisplayName: Fade
-  - m_Version: 1
-    m_Start: 837.95
-    m_ClipIn: 0
-    m_Asset: {fileID: -253406398038090804}
-    m_Duration: 3.25
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: 7666841824757086708}
-    m_EaseInDuration: 3
-    m_EaseOutDuration: 0
-    m_BlendInDuration: -1
-    m_BlendOutDuration: -1
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 0
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 0.38333333333332575
-    m_PreExtrapolationTime: 0
-    m_DisplayName: Fade
-  - m_Version: 1
-    m_Start: 841.5833333333334
-    m_ClipIn: 0
-    m_Asset: {fileID: -711989577679947116}
-    m_Duration: 3.25
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: 7666841824757086708}
-    m_EaseInDuration: 3
-    m_EaseOutDuration: 0
-    m_BlendInDuration: -1
-    m_BlendOutDuration: -1
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 0
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 21.233333333333235
-    m_PreExtrapolationTime: 0.38333333333332575
-    m_DisplayName: Fade
   m_Markers:
     m_Objects:
     - {fileID: -588641177160450554}
@@ -8620,7 +8140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
   m_Name: Blend Shape Marker
   m_EditorClassIdentifier: 
-  m_Time: 457.4333333333334
+  m_Time: 388.45000000000005
   note: Sitzflaechen
   spaceStateIndex: 3
   changeDurationToNextMarker: 0
@@ -8633,26 +8153,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  retroactive: 0
-  emitOnce: 0
---- !u!114 &7721978701113539960
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
-  m_Name: Haltepunkt Marker
-  m_EditorClassIdentifier: 
-  m_Time: 1163.666666666667
-  note: Letzter Halt
-  displayModeInInspiUI: 1
-  stopOrHold: 0
-  haltInOfflineMode: 0
-  waitDurationInOfflineMode: 0
   retroactive: 0
   emitOnce: 0
 --- !u!114 &7832906387666455129
@@ -8683,7 +8183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 250.55000000000007
+  m_Time: 199.41666666666683
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -8728,7 +8228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 412.01666666666677
+  m_Time: 343.0333333333334
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -8773,7 +8273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 589.1500000000001
+  m_Time: 520.1666666666667
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -8806,6 +8306,22 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
+--- !u!114 &7992362681510939067
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
+  m_Name: Go Event Marker
+  m_EditorClassIdentifier: 
+  m_Time: 1162.4833333333333
+  goEventName: InitializeLerpZuschauer
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &8003365389573649632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8820,7 +8336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Version: 3
   m_AnimClip: {fileID: 0}
-  m_Locked: 0
+  m_Locked: 1
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
@@ -8831,7 +8347,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: -4123438410610831881}
-    m_Duration: 934.5333333333333
+    m_Duration: 1000
     m_TimeScale: 1
     m_ParentTrack: {fileID: 8003365389573649632}
     m_EaseInDuration: 0
@@ -8897,10 +8413,10 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: 'Scene: I Prolog Room: Looping'
   - m_Version: 1
-    m_Start: 934.5333333333333
+    m_Start: 1000
     m_ClipIn: 0
-    m_Asset: {fileID: -247102148730930379}
-    m_Duration: 32.633333333333894
+    m_Asset: {fileID: -8586269056130569363}
+    m_Duration: 149.79999999999995
     m_TimeScale: 1
     m_ParentTrack: {fileID: 8003365389573649632}
     m_EaseInDuration: 0
@@ -8966,10 +8482,10 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: 'Scene: II_2  Rohrschachtest Room: Monocoque'
   - m_Version: 1
-    m_Start: 967.166666666667
+    m_Start: 1149.8
     m_ClipIn: 0
-    m_Asset: {fileID: -6391081680829297171}
-    m_Duration: 113.54999999999973
+    m_Asset: {fileID: 4624049958554995290}
+    m_Duration: 150
     m_TimeScale: 1
     m_ParentTrack: {fileID: 8003365389573649632}
     m_EaseInDuration: 0
@@ -9035,10 +8551,10 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: 'Scene: II_1 Foresythe Room: Monocoque'
   - m_Version: 1
-    m_Start: 1080.716666666667
+    m_Start: 1299.8
     m_ClipIn: 0
-    m_Asset: {fileID: 8965258165775842106}
-    m_Duration: 87.63333333333321
+    m_Asset: {fileID: 460734156276388771}
+    m_Duration: 150
     m_TimeScale: 1
     m_ParentTrack: {fileID: 8003365389573649632}
     m_EaseInDuration: 0
@@ -9117,7 +8633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 477.01666666666665
+  m_Time: 408.0333333333333
   goEventName: FadeOutSeq
   retroactive: 0
   emitOnce: 0
@@ -9133,7 +8649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 532.049999999999
+  m_Time: 463.0666666666656
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -9178,7 +8694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 605.3333333333336
+  m_Time: 536.3500000000004
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -9268,7 +8784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 784.4166666666666
+  m_Time: 715.4333333333334
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -9313,7 +8829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 171.41666666666666
+  m_Time: 120.28333333333335
   goEventName: StartJiggle
   retroactive: 0
   emitOnce: 0
@@ -9374,7 +8890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 378.26666666666677
+  m_Time: 309.2833333333334
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -9419,7 +8935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 457.4333333333334
+  m_Time: 388.45000000000005
   note: FadeRandomTextures
   textureChangerIndex: 1
   changeDurationToNextMarker: 1
@@ -9471,26 +8987,6 @@ MonoBehaviour:
     role: 4
     lastClipInScene: 0
     inactive: 0
---- !u!114 &8965258165775842106
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fcd2b15230248c4b80b7a71a1d6488e, type: 3}
-  m_Name: SceneControlClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  template:
-    sceneName: II_3 Finish
-    useSceneName: 1
-    sceneIndex: 1
-    jumpToClipStartOnGoingBackInTL: 0
-    clipDuration: 0
-    roomSection: Monocoque
-    singelplayer: 0
 --- !u!114 &8970223352950540912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9503,28 +8999,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 194.38333333333335
+  m_Time: 143.2500000000001
   goEventName: SwitchReflectionProbes
-  retroactive: 0
-  emitOnce: 0
---- !u!114 &8974748537043250463
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
-  m_Name: Haltepunkt Marker
-  m_EditorClassIdentifier: 
-  m_Time: 1133
-  note: "Bevor Rennfahrer in den verletzten K\xF6rper f\xE4hrt"
-  displayModeInInspiUI: 1
-  stopOrHold: 0
-  haltInOfflineMode: 0
-  waitDurationInOfflineMode: 0
   retroactive: 0
   emitOnce: 0
 --- !u!114 &9009776917913571505
@@ -9563,7 +9039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ddf6b9b81bb1e4d97746f3f3d10dd5, type: 3}
   m_Name: Texture Fader Marker
   m_EditorClassIdentifier: 
-  m_Time: 639.0833333333336
+  m_Time: 570.1000000000004
   note: FadeRandomTextures
   textureChangerIndex: 2
   changeDurationToNextMarker: 1
@@ -9608,7 +9084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 525.8166666666662
+  m_Time: 456.8333333333327
   goEventName: TribuenenRennen1
   retroactive: 0
   emitOnce: 0
