@@ -30,12 +30,19 @@ namespace ObliqueSenastions.AudioControl
             [HideInInspector] public Coroutine activeCoroutine;
         }
 
+        [SerializeField] bool persistentObject = false;
+
+        [Tooltip("negative value for no sound at start")]
+        [SerializeField] int soundAtStart = -1;
+
         [SerializeField] private Sound[] sounds;
 
         [Header("Testing and Debugging")]
         [SerializeField] public int testSound;
 
         private bool inHoldOnMode = false;
+
+
 
         private void Awake()
         {
@@ -46,6 +53,19 @@ namespace ObliqueSenastions.AudioControl
                 sounds[i].audioSource.spatialize = sounds[i].spacialized;
                 sounds[i].audioSource.loop = sounds[i].looped;
                 sounds[i].audioSource.volume = 0;
+            }
+        }
+
+        private void Start()
+        {
+            if (persistentObject)
+            {
+                DontDestroyOnLoad(this);
+            }
+
+            if (soundAtStart >= 0)
+            {
+                PlaySound(soundAtStart);
             }
         }
 
