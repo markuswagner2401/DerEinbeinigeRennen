@@ -35,6 +35,8 @@ namespace ObliqueSenastions.UISpace
             public String endOfCountdownText;
             public bool inCountdown;
 
+            public int countdownEndEventsIndex;
+
 
             public TextMeshProUGUI tmp;
         }
@@ -168,6 +170,29 @@ namespace ObliqueSenastions.UISpace
 
                 scores[index].currentScore = i;
                 yield return new WaitForSeconds(scores[index].countdownTiming);
+
+                if (index == 0)
+                {
+                    if (i == scores[index].countdownEndEventsIndex)
+                    {
+                        if (OnCountdownEndDelegate != null) OnCountdownEndDelegate.Invoke(); // Send Message to listeners
+
+                        if (currentCoundownEndGroupIndex >= 0 && currentCoundownEndGroupIndex < onCountdownEndEventGroups.Length)
+                        {
+                            if (!(onCountdownEndEventGroups[currentCoundownEndGroupIndex].playOnce && onCountdownEndEventGroups[currentCoundownEndGroupIndex].played))
+                            {
+                                for (int j = 0; j < onCountdownEndEventGroups[currentCoundownEndGroupIndex].countdownEndEvents.Length; j++)
+                                {
+                                    onCountdownEndEventGroups[currentCoundownEndGroupIndex].countdownEndEvents[j].Invoke();
+                                    yield return null;
+                                }
+
+                                onCountdownEndEventGroups[currentCoundownEndGroupIndex].played = true;
+                            }
+                        }
+
+                    }
+                }
             }
 
 
@@ -186,24 +211,24 @@ namespace ObliqueSenastions.UISpace
 
             // 
 
-            if (index == 0) // main racer end events
-            {
-                if (OnCountdownEndDelegate != null) OnCountdownEndDelegate.Invoke(); // Send Message to listeners
+            // if (index == 0) // main racer end events
+            // {
+            //     if (OnCountdownEndDelegate != null) OnCountdownEndDelegate.Invoke(); // Send Message to listeners
 
-                if (currentCoundownEndGroupIndex >= 0 && currentCoundownEndGroupIndex < onCountdownEndEventGroups.Length)
-                {
-                    if (!(onCountdownEndEventGroups[currentCoundownEndGroupIndex].playOnce && onCountdownEndEventGroups[currentCoundownEndGroupIndex].played))
-                    {
-                        for (int i = 0; i < onCountdownEndEventGroups[currentCoundownEndGroupIndex].countdownEndEvents.Length; i++)
-                        {
-                            onCountdownEndEventGroups[currentCoundownEndGroupIndex].countdownEndEvents[i].Invoke();
-                            yield return null;
-                        }
+            //     if (currentCoundownEndGroupIndex >= 0 && currentCoundownEndGroupIndex < onCountdownEndEventGroups.Length)
+            //     {
+            //         if (!(onCountdownEndEventGroups[currentCoundownEndGroupIndex].playOnce && onCountdownEndEventGroups[currentCoundownEndGroupIndex].played))
+            //         {
+            //             for (int i = 0; i < onCountdownEndEventGroups[currentCoundownEndGroupIndex].countdownEndEvents.Length; i++)
+            //             {
+            //                 onCountdownEndEventGroups[currentCoundownEndGroupIndex].countdownEndEvents[i].Invoke();
+            //                 yield return null;
+            //             }
 
-                        onCountdownEndEventGroups[currentCoundownEndGroupIndex].played = true;
-                    }
-                }
-            }
+            //             onCountdownEndEventGroups[currentCoundownEndGroupIndex].played = true;
+            //         }
+            //     }
+            // }
 
             yield break;
 

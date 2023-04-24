@@ -23,7 +23,7 @@ namespace ObliqueSenastions.AudioControl
             public AnimationCurve fadeInCurve;
             public AnimationCurve fadeOutCurve;
             public float playDuration;
-            public ContinueMode continueMode;
+            public ContinueMode stopMode;
 
             public HoldOnMode holdOnMode;
 
@@ -53,11 +53,17 @@ namespace ObliqueSenastions.AudioControl
         {
             if (index >= 0 && index < sounds.Length)
             {
-                if (sounds[index].activeCoroutine != null)
+                Sound sound = sounds[index];
+                if (!sound.looped)
                 {
-                    StopCoroutine(sounds[index].activeCoroutine);
+                    sound.playDuration = sound.soundClip.length;
                 }
-                sounds[index].activeCoroutine = StartCoroutine(PlaySoundRoutine(sounds[index]));
+
+                if (sound.activeCoroutine != null)
+                {
+                    StopCoroutine(sound.activeCoroutine);
+                }
+                sound.activeCoroutine = StartCoroutine(PlaySoundRoutine(sound));
             }
         }
 
@@ -68,6 +74,32 @@ namespace ObliqueSenastions.AudioControl
             {
                 PlaySound(index);
             }
+        }
+
+        public void PlaySound(int index, AudioSource audioSource)
+        {
+            if (index < 0 || index >= sounds.Length)
+            {
+                Debug.LogWarning($"Sound index {index} not found!");
+                return;
+            }
+
+            Sound sound = sounds[index];
+            sound.audioSource = audioSource;
+            PlaySound(index);
+        }
+
+        public void PlaySound(string name, AudioSource audioSource)
+        {
+            int index = FindSoundIndexByName(name);
+
+            if (index < 0)
+            {
+                Debug.LogWarning($"Sound with name '{name}' not found!");
+                return;
+            }
+
+            PlaySound(index, audioSource);
         }
 
         public void StopSound(int index)
@@ -130,7 +162,7 @@ namespace ObliqueSenastions.AudioControl
                 yield return null;
             }
 
-            switch (sound.continueMode)
+            switch (sound.stopMode)
             {
                 case ContinueMode.Stop:
                     sound.audioSource.Stop();
@@ -212,7 +244,7 @@ namespace ObliqueSenastions.AudioControl
             }
         }
 
-        
+
 
         private IEnumerator FadeVolumeRoutine(Sound sound, float targetVolume, float duration)
         {
