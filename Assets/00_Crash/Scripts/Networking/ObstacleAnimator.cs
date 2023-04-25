@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ObliqueSenastions.AudioControl;
 using ObliqueSenastions.TimelineSpace;
 using Photon.Pun;
 using UnityEngine;
@@ -27,10 +28,18 @@ namespace ObliqueSenastions.PunNetworking
 
         public event Action OnObstacleDestroyed;
 
+        [SerializeField] SoundManager soundManager = null;
+
+        [SerializeField] AudioSource crashAudioSource;
+
+        [SerializeField] string crashSoundName = "Crash";
+
+
 
 
         private void Start()
         {
+            soundManager = GameObject.FindWithTag("SoundManager")?.GetComponent<SoundManager>();
 
             triggerCollider = GetComponent<Collider>();
 
@@ -57,11 +66,17 @@ namespace ObliqueSenastions.PunNetworking
                 DissolveObstacle();
                 //PlayAccident();
             }
+
+            if(other.gameObject.tag == "Player")
+            {
+                PlayCrashSound();
+            }
         }
 
         public void DebugTriggerOnEnter()
         {
             DissolveObstacle();
+            PlayCrashSound();
             //PlayAccident();
 
         }
@@ -130,6 +145,16 @@ namespace ObliqueSenastions.PunNetworking
 
             }
 
+        }
+
+        void PlayCrashSound()
+        {
+            if(soundManager != null)
+            {
+                //soundManager.PlaySound(crashSoundName, crashAudioSource);
+
+                soundManager.PlaySound(crashSoundName);
+            }
         }
 
         [PunRPC]

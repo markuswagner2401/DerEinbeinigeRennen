@@ -62,6 +62,10 @@ namespace ObliqueSenastions.VRRigSpace
 
         [SerializeField] float multiplayerOffset = 1f;
 
+        [SerializeField] float trackingLostYoffset = 1f;
+
+        [SerializeField] bool headsetTrackingLost = false;
+
         Vector3 velocityRot = Vector3.zero;
 
         bool buttonPressed;
@@ -72,7 +76,7 @@ namespace ObliqueSenastions.VRRigSpace
 
         bool transitionByTimeTriggered = false;
 
-        bool transitioningByTimeline = false;
+        [SerializeField] bool transitioningByTimeline = false;
 
         bool transitionModeChangeTriggered = false;
 
@@ -203,7 +207,7 @@ namespace ObliqueSenastions.VRRigSpace
             previousPlayerIndex = playerIndex;
 
 
-            
+
 
 
 
@@ -232,7 +236,15 @@ namespace ObliqueSenastions.VRRigSpace
                 transform.rotation = transitionPoints[currTransPointIndex].cameraOffsetTarget.rotation;
             }
 
+            if (headsetTrackingLost)
+            {
+                print("offset on head on focus lost");
+                transform.position += transform.up * trackingLostYoffset; 
+            }
+
             onTravellerUpdateReady.Invoke();
+
+
 
             // print(" traveller updated");
 
@@ -521,8 +533,12 @@ namespace ObliqueSenastions.VRRigSpace
                 Vector3 newPos = Vector3.Lerp(t0Pos, t1Pos, t);
                 Quaternion newRot = Quaternion.Lerp(t0Rot, t1Rot, t);
 
+
+
                 transform.position = newPos;
                 transform.rotation = newRot;
+
+
 
                 if (t > 0.9f) currTransPointIndex = transPointCurrClip;
                 if (t < 0.1f) currTransPointIndex = transPointPrevClip;
@@ -531,6 +547,8 @@ namespace ObliqueSenastions.VRRigSpace
 
 
         }
+
+
 
         /// Transition By time
 
@@ -631,6 +649,16 @@ namespace ObliqueSenastions.VRRigSpace
         private void PlaceholderOnTravellerUpdated()
         {
         }
+
+
+        //// Headset trackin lost
+
+        public void SetTrackingLost(bool value)
+        {
+            headsetTrackingLost = value;
+        }
+
+       
 
 
     }

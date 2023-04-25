@@ -43,6 +43,8 @@ public class CustomCarSoundController : MonoBehaviour
     private int currentGear = 0;
     private bool isSwitchingGears = false;
 
+    [SerializeField] float tachosmoothing = 0.1f;
+
     private void Start()
     {
         if (motorRunning)
@@ -62,7 +64,7 @@ public class CustomCarSoundController : MonoBehaviour
             {
                 tachoSum += tachos[i].GetNormedTargetPosition();
             }
-            inputValue = tachoSum / tachos.Length;
+            inputValue = Mathf.Lerp(inputValue, tachoSum / tachos.Length, tachosmoothing ) ;
         }
 
 

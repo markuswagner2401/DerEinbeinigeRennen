@@ -50,7 +50,7 @@ namespace ObliqueSenastions.AudioControl
         {
             for (int i = 0; i < sounds.Length; i++)
             {
-                sounds[i].audioSource = gameObject.AddComponent<AudioSource>();
+                //sounds[i].audioSource = gameObject.AddComponent<AudioSource>();
                 sounds[i].audioSource.clip = sounds[i].soundClip;
                 sounds[i].audioSource.spatialize = sounds[i].spacialized;
                 sounds[i].audioSource.loop = sounds[i].looped;
@@ -106,13 +106,14 @@ namespace ObliqueSenastions.AudioControl
                 return;
             }
 
-            Sound sound = sounds[index];
-            sound.audioSource = audioSource;
+            
+            sounds[index].audioSource = audioSource;
             PlaySound(index);
         }
 
         public void PlaySound(string name, AudioSource audioSource)
         {
+            
             int index = FindSoundIndexByName(name);
 
             if (index < 0)
@@ -128,7 +129,7 @@ namespace ObliqueSenastions.AudioControl
         {
             if (index >= 0 && index < sounds.Length)
             {
-                sounds[index].isStopping = true; // Add this line to set the flag
+                sounds[index].isStopping = true; 
 
                 if (sounds[index].activeCoroutine != null)
                 {
@@ -149,8 +150,8 @@ namespace ObliqueSenastions.AudioControl
 
         private IEnumerator PlaySoundRoutine(int index)
         {
-            
-            
+            sounds[index].isStopping = false; 
+            Debug.Log("SoundManager: Try Play sound : " + sounds[index].name);
             sounds[index].audioSource.Play();
             
 
@@ -173,7 +174,7 @@ namespace ObliqueSenastions.AudioControl
 
             while (sounds[index].playDuration < 0 || playTimer < sounds[index].playDuration)
             {
-                if (sounds[index].isStopping) // Add this line to check if sound is stopping
+                if (sounds[index].isStopping) 
                 {
                     break;
                 }
@@ -183,7 +184,7 @@ namespace ObliqueSenastions.AudioControl
                 yield return null;
             }
 
-            //StopSound(index);
+            StopSound(index);
 
             //StartCoroutine(StopSoundRoutine(sound));
 
