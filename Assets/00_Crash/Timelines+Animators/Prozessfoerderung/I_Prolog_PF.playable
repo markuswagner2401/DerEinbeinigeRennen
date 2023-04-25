@@ -931,51 +931,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
---- !u!114 &-7140168260273995864
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
-  m_Name: Blend Shape Marker
-  m_EditorClassIdentifier: 
-  m_Time: 408
-  note: Setzen
-  spaceStateIndex: 2
-  changeDurationToNextMarker: 1
-  changeDuration: 0
-  duration: 10
-  changeCurve: 1
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  retroactive: 0
-  emitOnce: 0
 --- !u!114 &-7140042794797944215
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3324,6 +3279,7 @@ MonoBehaviour:
     - {fileID: -7782155422766465596}
     - {fileID: 6291749915558875281}
     - {fileID: -9008887037666821336}
+    - {fileID: 5073514877996485101}
 --- !u!114 &-1859251229305915034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4172,7 +4128,6 @@ MonoBehaviour:
     - {fileID: 3923889219641760590}
     - {fileID: 6874024913913437791}
     - {fileID: 1945666268105794294}
-    - {fileID: -7140168260273995864}
     - {fileID: 7704524415625298134}
     - {fileID: -7560811811208488697}
     - {fileID: -2727541431285393067}
@@ -4195,6 +4150,7 @@ MonoBehaviour:
     - {fileID: -1349437132694122366}
     - {fileID: -4609433752998730115}
     - {fileID: 3971409895531658935}
+    - {fileID: 1105735802037353329}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4826,6 +4782,33 @@ MonoBehaviour:
       weightedMode: 0
       inWeight: 0
       outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
+--- !u!114 &1105735802037353329
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
+  m_Name: Blend Shape Marker
+  m_EditorClassIdentifier: 
+  m_Time: 408
+  note: Sitzflaechen
+  spaceStateIndex: 3
+  changeDurationToNextMarker: 0
+  changeDuration: 0
+  duration: 10
+  changeCurve: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -6862,6 +6845,33 @@ MonoBehaviour:
     m_DisplayName: DriftInRing
   m_Markers:
     m_Objects: []
+--- !u!114 &5073514877996485101
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1231eca73354a74e9d633b7468796ff, type: 3}
+  m_Name: Blend Shape Marker
+  m_EditorClassIdentifier: 
+  m_Time: 555.6500000000003
+  note: Sitzflaechen
+  spaceStateIndex: 3
+  changeDurationToNextMarker: 0
+  changeDuration: 0
+  duration: 10
+  changeCurve: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &5196697803414914046
 MonoBehaviour:
   m_ObjectHideFlags: 1

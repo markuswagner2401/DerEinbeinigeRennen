@@ -67,11 +67,14 @@ namespace ObliqueSenastions.PunNetworking
                 //PlayAccident();
             }
 
-            if(other.gameObject.tag == "Player")
-            {
-                PlayCrashSound();
-            }
+            // if(other.gameObject.tag == "Player")
+            // {
+            //     print("obstakle trigger: other player");
+            //     PlayCrashSound();
+            // }
         }
+
+        
 
         public void DebugTriggerOnEnter()
         {
@@ -149,12 +152,13 @@ namespace ObliqueSenastions.PunNetworking
 
         void PlayCrashSound()
         {
-            if(soundManager != null)
-            {
-                //soundManager.PlaySound(crashSoundName, crashAudioSource);
+            GameObject.FindWithTag("SoundManager")?.GetComponent<SoundManager>().PlaySound(crashSoundName);
+            // if(soundManager != null)
+            // {
+            //     //soundManager.PlaySound(crashSoundName, crashAudioSource);
 
-                soundManager.PlaySound(crashSoundName);
-            }
+            //     soundManager.PlaySound(crashSoundName);
+            // }
         }
 
         [PunRPC]

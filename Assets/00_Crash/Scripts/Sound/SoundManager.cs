@@ -244,8 +244,15 @@ namespace ObliqueSenastions.AudioControl
                     StartCoroutine(HandleHoldOn(i, value));
                 }
 
-                inHoldOnMode = value;
+                StartCoroutine(WaitAndHoldOn(value));
             }
+        }
+
+        IEnumerator WaitAndHoldOn(bool holdOn)
+        {
+            yield return new WaitForSeconds(0.5f);
+            inHoldOnMode = holdOn;
+            yield break;
         }
 
         private IEnumerator HandleHoldOn(int index, bool holdOn)
@@ -255,35 +262,38 @@ namespace ObliqueSenastions.AudioControl
 
             if (holdOn)
             {
-                switch (sound.holdOnMode)
-                {
-                    case HoldOnMode.Continue:
-                        // Let it run as is
-                        break;
-                    case HoldOnMode.FadeDown:
-                        yield return StartCoroutine(FadeVolumeRoutine(sound, 0, fadeDuration));
-                        break;
-                    case HoldOnMode.FadeDownAndPause:
-                        yield return StartCoroutine(FadeVolumeAndPauseRoutine(sound, 0, fadeDuration));
-                        break;
-                }
+                yield return StartCoroutine(FadeVolumeRoutine(sound, 0, fadeDuration));
+
+                // switch (sound.holdOnMode)
+                // {
+                //     case HoldOnMode.Continue:
+                //         // Let it run as is
+                //         break;
+                //     case HoldOnMode.FadeDown:
+                //         yield return StartCoroutine(FadeVolumeRoutine(sound, 0, fadeDuration));
+                //         break;
+                //     case HoldOnMode.FadeDownAndPause:
+                //         yield return StartCoroutine(FadeVolumeAndPauseRoutine(sound, 0, fadeDuration));
+                //         break;
+                // }
 
                 
             }
             else
             {
-                switch (sound.holdOnMode)
-                {
-                    case HoldOnMode.Continue:
-                        // Nothing changes
-                        break;
-                    case HoldOnMode.FadeDown:
-                        yield return StartCoroutine(FadeVolumeRoutine(sound, sound.maxVolume, fadeDuration));
-                        break;
-                    case HoldOnMode.FadeDownAndPause:
-                        yield return StartCoroutine(FadeVolumeAndPlayRoutine(sound, sound.maxVolume, fadeDuration));
-                        break;
-                }
+                yield return StartCoroutine(FadeVolumeRoutine(sound, sound.maxVolume, fadeDuration));
+                // switch (sound.holdOnMode)
+                // {
+                //     case HoldOnMode.Continue:
+                //         // Nothing changes
+                //         break;
+                //     case HoldOnMode.FadeDown:
+                //         yield return StartCoroutine(FadeVolumeRoutine(sound, sound.maxVolume, fadeDuration));
+                //         break;
+                //     case HoldOnMode.FadeDownAndPause:
+                //         yield return StartCoroutine(FadeVolumeAndPlayRoutine(sound, sound.maxVolume, fadeDuration));
+                //         break;
+                // }
 
                 inHoldOnMode = false;
             }
