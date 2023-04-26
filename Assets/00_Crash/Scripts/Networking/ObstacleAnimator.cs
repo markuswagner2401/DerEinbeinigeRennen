@@ -26,6 +26,8 @@ namespace ObliqueSenastions.PunNetworking
         public BlendShapeChanger[] blendShapeChangers;
         public Collider triggerCollider;
 
+        public Collider unfalltrigger = null;
+
         public event Action OnObstacleDestroyed;
 
         [SerializeField] SoundManager soundManager = null;
@@ -33,6 +35,12 @@ namespace ObliqueSenastions.PunNetworking
         [SerializeField] AudioSource crashAudioSource;
 
         [SerializeField] string crashSoundName = "Crash";
+
+        [SerializeField] bool destroyAfterDissolve = false;
+
+        [SerializeField] float reappearAfterSec = 10f;
+
+
 
 
 
@@ -59,7 +67,7 @@ namespace ObliqueSenastions.PunNetworking
 
         private void OnTriggerEnter(Collider other)
         {
-            
+
             if (other.gameObject.tag == "NetworkPlayer")
             {
                 print("obstakle trigger: other network player");
@@ -74,7 +82,7 @@ namespace ObliqueSenastions.PunNetworking
             // }
         }
 
-        
+
 
         public void DebugTriggerOnEnter()
         {
@@ -114,6 +122,8 @@ namespace ObliqueSenastions.PunNetworking
 
         private IEnumerator AnimateBlendShape(int index)
         {
+            print("Animate Blendshape: " + index);
+            skinnedMesh.enabled = true;
             BlendShapeChanger blendShapeChanger = blendShapeChangers[index];
             float timer = 0f;
             int blendShapeIndex = blendShapeChanger.blendShapeIndex;
@@ -132,10 +142,21 @@ namespace ObliqueSenastions.PunNetworking
 
             if (index == 1)
             {
-                OnObstacleDestroyed?.Invoke();
-                //Destroy(gameObject);
-                gameObject.SetActive(false);
-                photonView.RPC("ActivateObject", RpcTarget.Others, false);
+                if (destroyAfterDissolve)
+                {
+                    OnObstacleDestroyed?.Invoke();
+                    //Destroy(gameObject);
+                    gameObject.SetActive(false);
+                    photonView.RPC("ActivateObject", RpcTarget.Others, false);
+                }
+                else
+                {
+                    triggerCollider.enabled = false;
+                    unfalltrigger.enabled = false;
+                    skinnedMesh.enabled = false;
+                    StartCoroutine(ReappearRoutine(reappearAfterSec));
+                }
+
             }
 
             if (index == 0)
@@ -143,11 +164,20 @@ namespace ObliqueSenastions.PunNetworking
                 if (triggerCollider != null)
                 {
                     triggerCollider.enabled = true;
+                    unfalltrigger.enabled = true;
                 }
 
 
             }
 
+        }
+
+        IEnumerator ReappearRoutine(float duration)
+        {
+            print("reappear routine " + duration);
+            yield return new WaitForSeconds(duration);
+            
+            StartCoroutine(AnimateBlendShape(0));
         }
 
         void PlayCrashSound()

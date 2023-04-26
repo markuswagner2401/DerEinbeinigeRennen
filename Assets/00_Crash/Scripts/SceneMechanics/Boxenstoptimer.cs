@@ -15,9 +15,16 @@ namespace ObliqueSenastions.StageMasterSpace
         [SerializeField] private UnityEvent onStartTimer;
         [SerializeField] private UnityEvent onTimerEnd;
 
+        [SerializeField] bool inForceBoxenstop = false;
+
         private float timer;
         private bool isTimerRunning;
         private bool eventTriggered;
+
+        [SerializeField] UnityEvent repeatInBoxenstop;
+        [SerializeField] float frequency = 10f;
+
+        float repeatTimer;
 
         private void Update()
         {
@@ -28,8 +35,23 @@ namespace ObliqueSenastions.StageMasterSpace
                 {
                     isTimerRunning = false;
                     eventTriggered = true;
+                    inForceBoxenstop = true;
                     onTimerEnd.Invoke();
                 }
+            }
+
+            if(inForceBoxenstop)
+            {
+                repeatTimer += Time.deltaTime;
+                if(repeatTimer > frequency)
+                {
+                    repeatInBoxenstop.Invoke();
+                    repeatTimer = 0;
+                }
+            }
+            else
+            {
+                repeatTimer = 0;
             }
         }
 
@@ -38,6 +60,7 @@ namespace ObliqueSenastions.StageMasterSpace
             isTimerRunning = true;
             timer = 0.0f;
             eventTriggered = false;
+            inForceBoxenstop = false;
             onStartTimer.Invoke();
         }
 
@@ -51,6 +74,7 @@ namespace ObliqueSenastions.StageMasterSpace
             isTimerRunning = false;
             timer = 0.0f;
             eventTriggered = false;
+            inForceBoxenstop = false;
         }
     }
 

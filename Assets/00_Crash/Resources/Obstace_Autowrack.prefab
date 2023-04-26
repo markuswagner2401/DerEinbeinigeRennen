@@ -184,9 +184,12 @@ MonoBehaviour:
       m_RotationOrder: 0
     duration: 6
   triggerCollider: {fileID: 4325458344156500765}
+  unfalltrigger: {fileID: 94966897067666358}
   soundManager: {fileID: 0}
   crashAudioSource: {fileID: 2503244090161413531}
   crashSoundName: Crash
+  destroyAfterDissolve: 0
+  reappearAfterSec: 5
 --- !u!65 &4325458344156500765
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -495,6 +498,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7e6cd65d7be6a746a5d41562b64b5a2, type: 3}
+--- !u!65 &94966897067666358 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 3586790843925629455, guid: c7e6cd65d7be6a746a5d41562b64b5a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 3501465864973853113}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7324446920867542708 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6139001187697907469, guid: c7e6cd65d7be6a746a5d41562b64b5a2,
