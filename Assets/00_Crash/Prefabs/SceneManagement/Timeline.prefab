@@ -704,6 +704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneClips: []
+  checkIfSceneExists: 0
 --- !u!114 &5587916549212931797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -743,6 +744,12 @@ MonoBehaviour:
   nodeFF: 4
   goIntoBreakAtBadTracking: 1
   holdOnBadTracking: 0
+  doOnBadTracking:
+    m_PersistentCalls:
+      m_Calls: []
+  doOnBadTrackingEnd:
+    m_PersistentCalls:
+      m_Calls: []
   leftHand: {fileID: 0}
   rightHand: {fileID: 0}
   acceptedTimeWithBadTracking: 1

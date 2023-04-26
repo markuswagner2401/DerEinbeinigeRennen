@@ -23,6 +23,8 @@ namespace ObliqueSenastions.TimelineSpace
             public bool singelplayer;
         }
 
+        [SerializeField] bool checkIfSceneExists = true;
+
         int currentSceneClip = -1;
 
         private void Update()
@@ -41,6 +43,8 @@ namespace ObliqueSenastions.TimelineSpace
             } 
             
             //Check if Scene Exists
+            if(!checkIfSceneExists) return true;
+            
             if(GetComponent<SceneListManager>().CheckIfSceneExists(sceneName))
             {
                 return true;
