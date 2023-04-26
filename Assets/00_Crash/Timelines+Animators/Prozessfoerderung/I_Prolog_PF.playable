@@ -644,6 +644,7 @@ MonoBehaviour:
     - {fileID: 6626689599929269864}
     - {fileID: 7992362681510939067}
     - {fileID: 5196697803414914046}
+    - {fileID: 7468071544574361377}
 --- !u!114 &-7911866034997730812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2177,6 +2178,26 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
+--- !u!114 &-5726539217626857155
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
+  m_Name: Haltepunkt Marker
+  m_EditorClassIdentifier: 
+  m_Time: 788.15
+  note: Halt vor Szenenwechsel
+  displayModeInInspiUI: 0
+  stopOrHold: 0
+  haltInOfflineMode: 0
+  waitDurationInOfflineMode: 0
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &-5473048994069475182
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3242,6 +3263,7 @@ MonoBehaviour:
     - {fileID: 3645137856896513456}
     - {fileID: 4826755881030958149}
     - {fileID: 8980219126077742645}
+    - {fileID: -5726539217626857155}
 --- !u!114 &-2478955583027451144
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7934,6 +7956,22 @@ MonoBehaviour:
     role: 1
     lastClipInScene: 1
     inactive: 0
+--- !u!114 &7468071544574361377
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
+  m_Name: Go Event Marker
+  m_EditorClassIdentifier: 
+  m_Time: 780.1166666666667
+  goEventName: TachosAus
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &7636653828557412835
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9476,7 +9514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49922c123f470745b7390d362a819b4, type: 3}
   m_Name: Haltepunkt Marker
   m_EditorClassIdentifier: 
-  m_Time: 991.0166666666667
+  m_Time: 807.5666666666667
   note: Halt in Rohrschachtest
   displayModeInInspiUI: 0
   stopOrHold: 0

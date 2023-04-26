@@ -26,6 +26,16 @@ public class HeadTrackingLostHandler : MonoBehaviour
     {
         OVRManager.VrFocusLost += OnVRFocusLost;
         OVRManager.VrFocusAcquired += OnVRFocusAquired;
+        // isTrackingLost = OVRManager.hasVrFocus;
+        // if(isTrackingLost)
+        // {
+        //     onHeadsetTrackingLost.Invoke();
+        // }
+
+        // else
+        // {
+        //     onHeadsetTrackingAquired.Invoke();
+        // }
     }
 
     private void OnVRFocusAquired()
