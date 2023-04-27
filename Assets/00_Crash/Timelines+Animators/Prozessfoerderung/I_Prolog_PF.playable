@@ -581,22 +581,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
---- !u!114 &-8100081972550339118
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
-  m_Name: Go Event Marker
-  m_EditorClassIdentifier: 
-  m_Time: 756.8333333333335
-  goEventName: Wiederholung
-  retroactive: 0
-  emitOnce: 0
 --- !u!114 &-7915841014165652116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -633,7 +617,6 @@ MonoBehaviour:
     - {fileID: -7818633474179994112}
     - {fileID: 8109505272454488714}
     - {fileID: -2930432875673283792}
-    - {fileID: -8100081972550339118}
     - {fileID: 2921021698794629522}
     - {fileID: 2375780698971562147}
     - {fileID: -4730004237166762332}
@@ -2912,7 +2895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd1052dc315d7348b5df1a59f3fbae5, type: 3}
   m_Name: Timeline Annotation
   m_EditorClassIdentifier: 
-  m_Time: 763.5666666666667
+  m_Time: 761.1166666666667
   title: SpeedWeg
   color: {r: 0, g: 0, b: 0, a: 0}
   description: 
@@ -3265,7 +3248,6 @@ MonoBehaviour:
     - {fileID: 4826755881030958149}
     - {fileID: 8980219126077742645}
     - {fileID: -5726539217626857155}
-    - {fileID: 6868247294109038072}
     - {fileID: -2934835956576962156}
 --- !u!114 &-2478955583027451144
 MonoBehaviour:
@@ -3410,6 +3392,7 @@ MonoBehaviour:
     - {fileID: 6291749915558875281}
     - {fileID: -9008887037666821336}
     - {fileID: 5073514877996485101}
+    - {fileID: -1650721985409906939}
 --- !u!114 &-1859251229305915034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3478,6 +3461,22 @@ MonoBehaviour:
   m_Clips: []
   m_Markers:
     m_Objects: []
+--- !u!114 &-1650721985409906939
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
+  m_Name: Go Event Marker
+  m_EditorClassIdentifier: 
+  m_Time: 662.1
+  goEventName: FadeInNextSky
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &-1349437132694122366
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5000,7 +4999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
   m_Name: Go Event Marker
   m_EditorClassIdentifier: 
-  m_Time: 763.5666666666667
+  m_Time: 761.1166666666667
   goEventName: SpeedWeg
   retroactive: 0
   emitOnce: 0
@@ -7714,23 +7713,6 @@ MonoBehaviour:
     parameterName: DriftInRing
     value: 0.05
     firstClipInTrack: 1
---- !u!114 &6868247294109038072
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fd1052dc315d7348b5df1a59f3fbae5, type: 3}
-  m_Name: Timeline Annotation
-  m_EditorClassIdentifier: 
-  m_Time: 756.6
-  title: Wiederholung
-  color: {r: 0, g: 0, b: 0, a: 0}
-  description: 
-  showLineOverlay: 0
 --- !u!114 &6874024913913437791
 MonoBehaviour:
   m_ObjectHideFlags: 1
