@@ -645,6 +645,7 @@ MonoBehaviour:
     - {fileID: 7992362681510939067}
     - {fileID: 5196697803414914046}
     - {fileID: 7468071544574361377}
+    - {fileID: 1442874325934342344}
 --- !u!114 &-7911866034997730812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2916,6 +2917,23 @@ MonoBehaviour:
     m_RotationOrder: 4
   retroactive: 0
   emitOnce: 0
+--- !u!114 &-2934835956576962156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd1052dc315d7348b5df1a59f3fbae5, type: 3}
+  m_Name: Timeline Annotation
+  m_EditorClassIdentifier: 
+  m_Time: 763.5666666666667
+  title: SpeedWeg
+  color: {r: 0, g: 0, b: 0, a: 0}
+  description: 
+  showLineOverlay: 0
 --- !u!114 &-2930432875673283792
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3264,6 +3282,8 @@ MonoBehaviour:
     - {fileID: 4826755881030958149}
     - {fileID: 8980219126077742645}
     - {fileID: -5726539217626857155}
+    - {fileID: 6868247294109038072}
+    - {fileID: -2934835956576962156}
 --- !u!114 &-2478955583027451144
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4985,6 +5005,22 @@ MonoBehaviour:
     parameterName: Fade
     value: 1.4
     firstClipInTrack: 1
+--- !u!114 &1442874325934342344
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf765d9d8bd519438c759a28d925484, type: 3}
+  m_Name: Go Event Marker
+  m_EditorClassIdentifier: 
+  m_Time: 763.5666666666667
+  goEventName: SpeedWeg
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &1463471513965761174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6428,23 +6464,6 @@ MonoBehaviour:
   goEventName: PresentTribunes
   retroactive: 0
   emitOnce: 0
---- !u!114 &3784197360668049881
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fd1052dc315d7348b5df1a59f3fbae5, type: 3}
-  m_Name: Timeline Annotation
-  m_EditorClassIdentifier: 
-  m_Time: 756.8333333333335
-  title: 
-  color: {r: 0, g: 0, b: 0, a: 0}
-  description: 
-  showLineOverlay: 0
 --- !u!114 &3923889219641760590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7712,6 +7731,23 @@ MonoBehaviour:
     parameterName: DriftInRing
     value: 0.05
     firstClipInTrack: 1
+--- !u!114 &6868247294109038072
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd1052dc315d7348b5df1a59f3fbae5, type: 3}
+  m_Name: Timeline Annotation
+  m_EditorClassIdentifier: 
+  m_Time: 756.6
+  title: Wiederholung
+  color: {r: 0, g: 0, b: 0, a: 0}
+  description: 
+  showLineOverlay: 0
 --- !u!114 &6874024913913437791
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9546,7 +9582,6 @@ MonoBehaviour:
   m_Markers:
     m_Objects:
     - {fileID: -3145763489890134940}
-    - {fileID: 3784197360668049881}
 --- !u!114 &9015306683669527197
 MonoBehaviour:
   m_ObjectHideFlags: 1
