@@ -200,6 +200,9 @@ namespace ObliqueSenastions.TimelineSpace
                     currentBadTracking = false;
                 }
 
+                //// halt on bad tracking
+                
+
                 if(currentBadTracking != lastBadTracking)
                 {
                     if(currentBadTracking)

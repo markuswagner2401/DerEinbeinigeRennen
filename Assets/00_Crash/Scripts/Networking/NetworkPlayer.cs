@@ -82,7 +82,7 @@ namespace ObliqueSenastions.PunNetworking
         Transform currentXROrigin = null;
 
         bool inHomeScene = true;
-      
+
 
 
         private void Awake()
@@ -101,10 +101,17 @@ namespace ObliqueSenastions.PunNetworking
             // }
         }
 
+        public override void OnEnable()
+        {
+            base.OnEnable();
+            SceneManager.sceneLoaded += OnSceneLoaded;
+
+        }
+
         void Start()
         {
 
-            SceneManager.sceneLoaded += OnSceneLoaded;
+
 
             if (capsuleCollider == null)
             {
@@ -116,8 +123,43 @@ namespace ObliqueSenastions.PunNetworking
 
 
 
-        
 
+        ////
+
+        // private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+        // {
+        //     print("NetworkPlayer:" + gameObject.name + "OnSceneLoaded " + arg0.name);
+
+        //     if (arg0.name == "TransferScene") return;
+
+        //     bool bufferInHomeScene = false;
+        //     foreach (var item in homeScenes)
+        //     {
+        //         print("checking home scnes");
+        //         if (arg0.name == item)
+        //         {
+        //             bufferInHomeScene = true;
+        //         }
+        //     }
+
+        //     if (!bufferInHomeScene)
+        //     {
+        //         inHomeScene = false;
+        //         if(this != null) StartCoroutine(DestroyInXSeconds(2f));
+
+        //         //PhotonNetwork.Destroy(this.gameObject);
+        //     }
+        // }
+
+        // IEnumerator DestroyInXSeconds(float sec)
+        // {
+        //     print("not in home scene: destroy");
+        //     yield return new WaitForSeconds(sec);
+        //     PhotonNetwork.Destroy(this.gameObject);
+
+
+
+        // }
 
         private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
         {
@@ -128,7 +170,7 @@ namespace ObliqueSenastions.PunNetworking
             bool bufferInHomeScene = false;
             foreach (var item in homeScenes)
             {
-                print("checking home scnes");
+                print("checking home scenes");
                 if (arg0.name == item)
                 {
                     bufferInHomeScene = true;
@@ -137,11 +179,17 @@ namespace ObliqueSenastions.PunNetworking
 
             if (!bufferInHomeScene)
             {
-                inHomeScene = false;
-                if(this != null) StartCoroutine(DestroyInXSeconds(2f));
-                
-                //PhotonNetwork.Destroy(this.gameObject);
+                if (PhotonNetwork.IsConnected && PhotonNetwork.LocalPlayer.IsMasterClient)
+                {
+                    photonView.RPC("DestroyNetworkPlayer", RpcTarget.AllBuffered, 2f);
+                }
             }
+        }
+
+        [PunRPC]
+        void DestroyNetworkPlayer(float sec)
+        {
+            StartCoroutine(DestroyInXSeconds(sec));
         }
 
         IEnumerator DestroyInXSeconds(float sec)
@@ -151,11 +199,13 @@ namespace ObliqueSenastions.PunNetworking
             PhotonNetwork.Destroy(this.gameObject);
         }
 
+        ////
+
 
 
         private void Update()
         {
-            
+
 
 
             // if (headRig == null) // Happens on change scene
@@ -415,9 +465,11 @@ namespace ObliqueSenastions.PunNetworking
             //capsuleCollider.center = new Vector3(originRig.position.x, character.height / 2 + character.skinWidth, capsuleCenter.z);
         }
 
-        private void OnDestroy()
-        {
 
+
+        public override void OnDisable()
+        {
+            base.OnDisable();
             currentCameraTraveller.onTravellerUpdateReady -= ManualUpdate;
             onPlayerMappingUpdated -= PlaceholderOnMappingReady;
             SceneManager.sceneLoaded -= OnSceneLoaded;
