@@ -121,6 +121,43 @@ namespace ObliqueSenastions.PunNetworking
 
         }
 
+        private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+        {
+            if (!photonView.IsMine) return;
+
+            print("NetworkPlayer:" + gameObject.name + " OnSceneLoaded " + arg0.name);
+
+            if (arg0.name == "TransferScene") return;
+
+            bool isInHomeScene = CheckIfInHomeScene(arg0);
+            if (!isInHomeScene)
+            {
+                StartCoroutine(DestroyInXSeconds(2f));
+            }
+        }
+
+        private bool CheckIfInHomeScene(Scene currentScene)
+        {
+            foreach (var homeScene in homeScenes)
+            {
+                if (currentScene.name == homeScene)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        IEnumerator DestroyInXSeconds(float sec)
+        {
+            print("not in home scene: destroy");
+            yield return new WaitForSeconds(sec);
+            if (this != null)
+            {
+                PhotonNetwork.Destroy(this.gameObject);
+            }
+        }
+
 
 
 
@@ -161,43 +198,20 @@ namespace ObliqueSenastions.PunNetworking
 
         // }
 
-        private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
-        {
-            print("NetworkPlayer:" + gameObject.name + "OnSceneLoaded " + arg0.name);
+        
 
-            if (arg0.name == "TransferScene") return;
+        // [PunRPC]
+        // void DestroyNetworkPlayer(float sec)
+        // {
+        //     StartCoroutine(DestroyInXSeconds(sec));
+        // }
 
-            bool bufferInHomeScene = false;
-            foreach (var item in homeScenes)
-            {
-                print("checking home scenes");
-                if (arg0.name == item)
-                {
-                    bufferInHomeScene = true;
-                }
-            }
-
-            if (!bufferInHomeScene)
-            {
-                if (PhotonNetwork.IsConnected && PhotonNetwork.LocalPlayer.IsMasterClient)
-                {
-                    photonView.RPC("DestroyNetworkPlayer", RpcTarget.AllBuffered, 2f);
-                }
-            }
-        }
-
-        [PunRPC]
-        void DestroyNetworkPlayer(float sec)
-        {
-            StartCoroutine(DestroyInXSeconds(sec));
-        }
-
-        IEnumerator DestroyInXSeconds(float sec)
-        {
-            print("not in home scene: destroy");
-            yield return new WaitForSeconds(sec);
-            PhotonNetwork.Destroy(this.gameObject);
-        }
+        // IEnumerator DestroyInXSeconds(float sec)
+        // {
+        //     print("not in home scene: destroy");
+        //     yield return new WaitForSeconds(sec);
+        //     PhotonNetwork.Destroy(this.gameObject);
+        // }
 
         ////
 
