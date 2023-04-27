@@ -10,32 +10,31 @@ public class HeadTrackingLostHandler : MonoBehaviour
 
     [SerializeField] UnityEvent onHeadsetTrackingLost;
     [SerializeField] UnityEvent onHeadsetTrackingAquired;
-    private XRNodeState headsetState;
     private bool isTrackingLost = false;
 
     bool isTracked;
-
-
-
-
-
-
-    InputDevice headDevice;
 
     private void Start()
     {
         OVRManager.VrFocusLost += OnVRFocusLost;
         OVRManager.VrFocusAcquired += OnVRFocusAquired;
-        // isTrackingLost = OVRManager.hasVrFocus;
-        // if(isTrackingLost)
-        // {
-        //     onHeadsetTrackingLost.Invoke();
-        // }
 
-        // else
-        // {
-        //     onHeadsetTrackingAquired.Invoke();
-        // }
+        // Set initial state of isTracked
+        InitializeTrackingState();
+    }
+
+    private void InitializeTrackingState()
+    {
+        isTracked = OVRManager.hasVrFocus;
+
+        if (isTracked)
+        {
+            onHeadsetTrackingAquired.Invoke();
+        }
+        else
+        {
+            onHeadsetTrackingLost.Invoke();
+        }
     }
 
     private void OnVRFocusAquired()
@@ -49,41 +48,7 @@ public class HeadTrackingLostHandler : MonoBehaviour
         onHeadsetTrackingLost.Invoke();
         isTracked = false;
     }
-
-    // private void Update()
-    // {
-
-    //     // headDevice = InputDevices.GetDeviceAtXRNode(XRNode.Head);
-    //     // headDevice.TryGetFeatureValue(CommonUsages.isTracked, out isTracked);
-
-    //     OVRPose headPose;
-    //     bool poseValid = OVRManager.VrFocusLost
-    //     //isTracked = headDevice.isValid;
-
-
-    //     if (!isTracked && !isTrackingLost)
-    //     {
-    //         isTrackingLost = true;
-    //         OnHeadsetTrackingLost();
-    //     }
-    //     else if (isTracked && isTrackingLost)
-    //     {
-    //         isTrackingLost = false;
-    //         OnHeadsetTrackingAcquired();
-    //     }
-    // }
-
-    // private void OnHeadsetTrackingLost()
-    // {
-    //     Debug.Log("Headset tracking lost");
-    //     onHeadsetTrackingLost.Invoke();
-
-    // }
-
-    // private void OnHeadsetTrackingAcquired()
-    // {
-    //     Debug.Log("Headset tracking acquired");
-    //     onHeadsetTrackingAquired.Invoke();
-
-    // }
 }
+
+    
+
