@@ -198,7 +198,7 @@ namespace ObliqueSenastions.PunNetworking
 
         // }
 
-        
+
 
         // [PunRPC]
         // void DestroyNetworkPlayer(float sec)
@@ -484,8 +484,17 @@ namespace ObliqueSenastions.PunNetworking
         public override void OnDisable()
         {
             base.OnDisable();
-            currentCameraTraveller.onTravellerUpdateReady -= ManualUpdate;
-            onPlayerMappingUpdated -= PlaceholderOnMappingReady;
+
+            if (currentCameraTraveller != null)
+            {
+                currentCameraTraveller.onTravellerUpdateReady -= ManualUpdate;
+            }
+
+            if (onPlayerMappingUpdated != null)
+            {
+                onPlayerMappingUpdated -= PlaceholderOnMappingReady;
+            }
+
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
     }
