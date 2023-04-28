@@ -1519,6 +1519,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2629404943913950156, guid: 9528507cf9a0fe74da2da9f5be985333,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 3402000512849396086, guid: 9528507cf9a0fe74da2da9f5be985333,
         type: 3}
       propertyPath: m_RootOrder
@@ -1686,12 +1691,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kinematicForParticles: 0
---- !u!1 &2917456801903905341 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2629404943913950156, guid: 9528507cf9a0fe74da2da9f5be985333,
-    type: 3}
-  m_PrefabInstance: {fileID: 865085150929752561}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2613646089460747301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1708,6 +1707,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2629404943913950156, guid: 9528507cf9a0fe74da2da9f5be985333,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3402000512849396086, guid: 9528507cf9a0fe74da2da9f5be985333,
         type: 3}
@@ -1827,12 +1831,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9528507cf9a0fe74da2da9f5be985333, type: 3}
---- !u!1 &15776449130665961 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2629404943913950156, guid: 9528507cf9a0fe74da2da9f5be985333,
-    type: 3}
-  m_PrefabInstance: {fileID: 2613646089460747301}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3924946325143458185 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1314414089463864748, guid: 9528507cf9a0fe74da2da9f5be985333,
@@ -2085,9 +2083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc15f2950e8f9b545846e3f38252816f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tachonadeln:
-  - {fileID: 15776449130665961}
-  - {fileID: 2917456801903905341}
+  tachonadeln: []
 --- !u!114 &9053666825817923347
 MonoBehaviour:
   m_ObjectHideFlags: 0
